@@ -1,0 +1,54 @@
+.card-container{
+    display: flex;
+    flex-direction: row;
+    gap:32px;
+    background-color: rgb(237 237 237 / 50%);
+    border-radius: 30px;
+    padding:24px;
+
+}
+.card-detail{
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+
+
+
+}
+.card-title{
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+.shahid-name{
+    color:#FF0000;
+    font-size: 24px;
+    font-weight: bold;
+}
+.card-image{
+    border-radius: 30px;
+
+}
+.card-image img{
+    margin-top: 14px;
+
+}
+@media only screen and (max-width: 430px) {
+    .card-container{
+        padding:12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-title{
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .shahid-name{
+        color:#FF0000;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}

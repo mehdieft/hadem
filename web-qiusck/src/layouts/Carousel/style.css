@@ -1,0 +1,73 @@
+.main {
+  margin: 0 auto;
+  height: 768px;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .main {
+    margin: 0 auto;
+    height: 768px;
+    /* max-width: 1200px; */
+  }
+}
+.shahid-container{
+  margin-top:60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 78%;
+}
+.main {
+  display: flex;
+  justify-content: space-around;
+}
+.icon-container {
+  height: 100px;
+  width: 100px;
+  color: black;
+  opacity: 0.7;
+}
+.shahid-text-container{
+  text-align: end;
+  padding: 0 10px;
+}
+.shahid-text {
+  color: white;
+  font-size: 32px;
+  font-family: diba;
+}
+.box{
+  width:300px;
+  height:300px;
+}
+@media only screen and (max-width: 430px) {
+  .main{
+    height:600px;
+  }
+  .shahid-text {
+    color: white;
+    font-size: 24px;
+    font-family: diba;
+  }
+.card-container {
+  padding:12px;
+}
+
+
+
+
+}

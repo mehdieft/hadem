@@ -1,0 +1,25 @@
+import { Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import Gallery from "./pages/Gallery/gallery";
+import Shohada from "./pages/Shohada/shohada";
+import NedajaMissions from "./pages/NedajaMissions/nedajaMissions";
+import NotFound from "./pages/NotFound/notFound";
+import { AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
+
+export const AnimatedRoutes = () => {
+  const location = useLocation();
+  return (
+    <>
+      <AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route exact path="/" element={<Index />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/shohada" element={<Shohada />} />
+          <Route path="/nedajaMissions" element={<NedajaMissions />} />
+          <Route path="*" exact={true} element={<NotFound />} />
+        </Routes>
+      </AnimatePresence>
+    </>
+  );
+};
