@@ -57,9 +57,9 @@ const Gallery = () => {
   return (
     <motion.div 
    
-    initial={{opacity:0}}
-    animate={{opacity:1}}
-    exit={{opacity:0}}
+    initial={{width:0}}
+    animate={{width:'100%'}}
+    exit={{x:window.innerWidth,transition:{duration:0.1}}}
     >
       <motion.div style={{scaleX: scrollYProgress}}  className="gallery-container"></motion.div>
       {/* <LazyLoadImage
@@ -110,7 +110,10 @@ const Gallery = () => {
           <ImageGalleryLayout />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
+          <div style={{width:'50%',margin:'0 auto'}}>
+
           <CarouselComponent />
+          </div>
         </CustomTabPanel>
       </Box>
     </motion.div>
