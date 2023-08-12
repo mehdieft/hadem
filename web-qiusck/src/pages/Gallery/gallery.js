@@ -81,12 +81,6 @@ const Gallery = () => {
           </div>
           <div className="text-header-2">پایی که ماند</div>
           <div className="text-header-red">پایی که ماند</div>
-
-          <div className="text-header-3">
-            <p style={{display:'inline-block',textAlign:'center'}}>جنگ جنگ تنا پیروزی یبشسیشسیشسیشسیشسیشسی</p>
-            <p style={{display:'inline-block',textAlign:'center'}}>جنگ جنگ تنا پیروزی یبشسیشسیشسیشسیشسیشسی</p>
-            <p style={{display:'inline-block',textAlign:'center'}}>جنگ جنگ تنا پیروزی یبشسیشسیشسیشسیشسیشسی</p>
-          </div>
         </div>
       </div>
       <Box 
