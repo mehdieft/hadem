@@ -24,6 +24,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(morgan('dev'))
 app.use('/api',ImageRoute)
 app.use('/static/',express.static(appRootPath + '/public' ))
+app.use('/uploads', express.static('./public/uploads'));
 app.all('*',(req,res,next)=>{
     const err =new Error(`cant find ${req.originalUrl} on this server`)
 })
