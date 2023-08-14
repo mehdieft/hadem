@@ -17,10 +17,10 @@ const ImageRoute=require('./routes/Admin/imageRoutes')
 
 
 
-
+app.use( bodyParser.json()); 
 app.use(express.json())
 app.use(cors('http://localhost:3000'));
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'))
 app.use('/api',ImageRoute)
 app.use('/static/',express.static(appRootPath + '/public' ))
