@@ -6,7 +6,7 @@ import NedajaMissions from "./pages/NedajaMissions/nedajaMissions";
 import NotFound from "./pages/NotFound/notFound";
 import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
-
+import Admin from './pages/Admin/admin';
 export const AnimatedRoutes = () => {
   const location = useLocation();
   return (
@@ -17,6 +17,7 @@ export const AnimatedRoutes = () => {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/shohada" element={<Shohada />} />
           <Route path="/nedajaMissions" element={<NedajaMissions />} />
+          <Route path="/login" element={<Admin/>}   />
           <Route path="*" exact={true} element={<NotFound />} />
         </Routes>
       </AnimatePresence>
