@@ -1,15 +1,17 @@
-.conrtainer{
-    
-}
-.main-login{
 
+.main-login{
+display: flex;
+flex-direction: column;
+gap: 32px;
+transform: translate(-50%,-50%);
 }
 .avatar-login{
+    border-radius: 50%;
 
 }
 .username-input{
 
 }
 .password-input{
-    
+
 }
