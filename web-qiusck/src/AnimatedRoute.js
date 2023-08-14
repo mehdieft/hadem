@@ -6,7 +6,7 @@ import NedajaMissions from "./pages/NedajaMissions/nedajaMissions";
 import NotFound from "./pages/NotFound/notFound";
 import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
-import  Login  from "./pages/login/login";
+import Login from './pages/login/login';
 export const AnimatedRoutes = () => {
   const location = useLocation();
   return (

@@ -1,5 +1,5 @@
 import "./style.css";
-export const Login=()=>{
+ const Login=()=>{
     return (
         <>
         <div className="container">
@@ -13,3 +13,4 @@ export const Login=()=>{
         </>
     )
 }
+export default Login;
