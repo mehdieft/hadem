@@ -32,6 +32,7 @@
     justify-content: start;
     align-items: start;
     height: 90vh;
+    background-color: #ADB5BD;
 
 
 
@@ -39,17 +40,20 @@
 .left-nav{
     display: flex;
     flex-direction: column;
-    gap:4px;
-    justify-content: center;
+    gap: 20px;
+    /* justify-content: center; */
     align-items: center;
-    margin:0 36px;
-    padding:8px 12px;
+    margin: 0 36px;
+    padding: 8px 12px;
     font-family: iranSans;
+    height: 100%;
+    background-color: white;
 
 
 }
 .content{
     flex-grow: 2;
+    background-color: #ADB5BD;
 }
 .nav-item-container{
 

@@ -37,7 +37,7 @@ export const Admin = () => {
           <Button variant="outlined" sx={{padding: '9px 65px',color:'black',opacity:'0.9',fontFamily:'Diba'}} startIcon={<InstagramIcon/>} >
             روایت ها
           </Button>
-          <Button variant="outlined" sx={{padding: '9px 65px',color:'black',opacity:'0.9',fontFamily:'Diba'}} startIcon={<InstagramIcon/>} >
+          <Button variant="outlined" sx={{padding: '9px 65px',color:'black',opacity:'0.9',fontFamily:'Diba',width:' -webkit-fill-available'}} startIcon={<InstagramIcon/>} >
             نبرد  ها
           </Button>
           <Button variant="outlined" sx={{padding: '9px 65px',color:'black',opacity:'0.9',fontFamily:'Diba'}} startIcon={<InstagramIcon/>} >
