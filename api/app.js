@@ -17,7 +17,6 @@ const ImageRoute=require('./routes/Admin/imageRoutes')
 
 
 
-app.use( bodyParser.json()); 
 app.use(express.json())
 app.use(cors('http://localhost:3000'));
 app.use(express.urlencoded({ extended: true }));

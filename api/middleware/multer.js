@@ -7,4 +7,4 @@ const storage=multer.diskStorage({
         cb(null,file.originalname);
     }
 })
-module.exports=   multer({storage: storage});
+module.exports=  multer({storage: storage});
