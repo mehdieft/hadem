@@ -31,6 +31,8 @@
     display: flex;
     justify-content:center;
     align-items: center;
+    height: 90vh;
+
 
 
 }
@@ -42,6 +44,7 @@
     align-items: center;
     margin:0 36px;
     padding:8px 12px;
+    font-family: iranSans;
 
 
 }

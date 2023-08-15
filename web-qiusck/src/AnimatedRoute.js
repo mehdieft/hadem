@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import Login from './pages/login/login';
 import { Admin } from "./pages/Admin/admin";
+
 export const AnimatedRoutes = () => {
   const location = useLocation();
   return (
@@ -22,6 +23,7 @@ export const AnimatedRoutes = () => {
           <Route path="*" exact={true} element={<NotFound />} />
           <Route path="/admin" element={<Admin/>}/>
         </Routes>
+        
       </AnimatePresence>
     </>
   );
