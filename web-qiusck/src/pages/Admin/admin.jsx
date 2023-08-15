@@ -1,5 +1,6 @@
 import './style.css';
 import AdminHeaderIcon from '../.../../../assets/icon/AdminHeaderIcon.svg'
+import uk from '../.../../../assets/icon/uk.svg'
 export const Admin=()=>{
     
 
@@ -15,6 +16,10 @@ export const Admin=()=>{
         <input placeholder='کلمه مورد نظر را جستجو کنید' type="text" className="header-searchInput" />
     </div>
     <div className="header-right">
+        <img src={uk} />
+        <img src={uk} />
+        <img src={uk} />
+        <img src={uk} />
        
     </div>
 
