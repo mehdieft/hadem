@@ -27,3 +27,27 @@
     display: flex;
     gap:16px;
 }
+.admin-main{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
+
+}
+.left-nav{
+    display: flex;
+    flex-direction: column;
+    gap:4px;
+    justify-content: center;
+    align-items: center;
+    margin:0 36px;
+    padding:8px 12px;
+
+
+}
+.content{
+    flex-grow: 2;
+}
+.nav-item-container{
+
+}
