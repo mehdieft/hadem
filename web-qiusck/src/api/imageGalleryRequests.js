@@ -25,7 +25,7 @@ export const insertImageGallery=async(data)=>{
     }
 }
 
-}
+
 
 
 
