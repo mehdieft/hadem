@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import Login from './pages/login/login';
 import { Admin } from "./pages/Admin/admin";
-import { ImageGalleryDialog } from "./pages/Admin/ImageGalleryDialog.jsx/imageGalleryDialog";
+import { ImageGalleryManagment } from "./pages/Admin/ImageGalleryManagement.jsx/imageGalleryManagment";
 
 export const AnimatedRoutes = () => {
   const location = useLocation();
@@ -23,7 +23,7 @@ export const AnimatedRoutes = () => {
           <Route path="/login" element={<Login/>}   />
           <Route path="*" exact={true} element={<NotFound />} />
           <Route path="/admin" element={<Admin/>}>
-            <Route path="imageGallery" element={<ImageGalleryDialog/>}/>
+            <Route path="imageGalleryManagment" element={<ImageGalleryManagment/>}/>
           </Route>
         </Routes>
         
