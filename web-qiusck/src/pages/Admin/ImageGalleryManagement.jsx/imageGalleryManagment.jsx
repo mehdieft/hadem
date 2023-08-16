@@ -19,6 +19,7 @@ export const ImageGalleryManagment = () => {
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
+    console.log("what the fuck is this")
   };
 
   const handleChangeRowsPerPage = (event) => {
@@ -111,7 +112,7 @@ export const ImageGalleryManagment = () => {
           </TableHead>
           <TableBody>
             {data
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .slice(page * rowsPerPage, page * rowsPerPage * newPage + rowsPerPage)
               .map((item, index) => {
                 const value = item.id;
                 return (
