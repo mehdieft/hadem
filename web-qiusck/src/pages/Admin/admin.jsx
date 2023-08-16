@@ -48,7 +48,7 @@ export const Admin = () => {
         </div>
         <div className="content">
           <div style={{backgroundImage:`url(${GrapicSide})`,height:'330px',width:'100%',backgroundSize:'cover'}}>
-            <h2 style={{transform:'translate(43%,120px)',color:'white',fontSize:24,fontFamily:'Diba'}}>خوش آمدید جناب</h2>
+            <h2 style={{position:'relative',display:'inline',top:'44%',left:'44%',color:'white',fontSize:24,fontFamily:'Diba'}}>سامانه مدیریتی حادم</h2>
           </div>
           <Outlet />
         </div>
