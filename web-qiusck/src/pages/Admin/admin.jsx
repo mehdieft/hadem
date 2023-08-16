@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import SearchIcon from '@mui/icons-material/Search';
 import ClearIcon from '@mui/icons-material/Clear';
-import { Button, InputAdornment,TextField,FormControl } from "@mui/material";
+import { Button, InputAdornment,TextField,FormControl} from "@mui/material";
 import { useState } from "react";
 export const Admin = () => {
  const [showCancelIcon,setShowIcon]=useState(false);
@@ -34,7 +34,7 @@ export const Admin = () => {
         </div>
         <div className="header-center">
           <FormControl>
-            <TextField variant="outlined"size="medium" onChange={(e)=>setSearch(e.target.value)} inputProps={{
+            <TextField variant="outlined"size="medium" placeholder="لطفا کلمه مورد نظر را جستجو کنید" onChange={(e)=>setSearch(e.target.value)} inputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
                       <SearchIcon />
