@@ -12,9 +12,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
 import EditIcon from '@mui/icons-material/Edit';
 import { Tooltip } from "@mui/material";
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import { ImageGalleryDialog } from "./imageGalleryDialog";
+
+import  ImageGalleryDialog  from "./ImageGalleryDialog/ImageGalleryDialog";
 export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -108,7 +107,7 @@ export const ImageGalleryManagment = () => {
                 </TableCell>
               </TableRow>
               {columns.map((index, column) => {
-                <TableCell>{column.label}sadsa</TableCell>;
+                <TableCell key={Math.random()*1000}>{column.label}sadsa</TableCell>;
               })}
             </TableRow>
           </TableHead>
