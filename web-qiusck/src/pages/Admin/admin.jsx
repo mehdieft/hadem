@@ -1,6 +1,7 @@
 import "./style.css";
 import AdminHeaderIcon from "../.../../../assets/icon/AdminHeaderIcon.svg";
 import uk from "../.../../../assets/icon/uk.svg";
+import GrapicSide from '../../assets/icon/GrapicSide.svg'
 import { Outlet } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { Button } from "@mui/material";
@@ -46,6 +47,9 @@ export const Admin = () => {
           
         </div>
         <div className="content">
+          <div style={{backgroundImage:`url(${GrapicSide})`,height:'330px',width:'100%',backgroundSize:'cover'}}>
+            <h2 style={{transform:'translate(43%,120px)',color:'white',fontSize:24,fontFamily:'Diba'}}>خوش آمدید جناب</h2>
+          </div>
           <Outlet />
         </div>
       </div>
