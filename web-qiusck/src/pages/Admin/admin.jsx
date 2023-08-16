@@ -3,16 +3,15 @@ import AdminHeaderIcon from "../.../../../assets/icon/AdminHeaderIcon.svg";
 import uk from "../.../../../assets/icon/uk.svg";
 import GrapicSide from '../../assets/icon/GrapicSide.svg'
 import { Outlet } from "react-router-dom";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import SearchIcon from '@mui/icons-material/Search';
-import ClearIcon from '@mui/icons-material/Clear';
-import { Button, InputAdornment,TextField,FormControl} from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 import { useState } from "react";
 export const Admin = () => {
  const [showCancelIcon,setShowIcon]=useState(false);
  const [Search,setSearch]=useState('');
-
+ const navigate=useNavigate()
   const clickCancelButton=()=>{
+    navigate('/')
 
   }
 
@@ -33,24 +32,7 @@ export const Admin = () => {
           <h1 style={{ fontFamily: "Diba", display: "inline" }}>حادم</h1>
         </div>
         <div className="header-center">
-          <FormControl>
-            <TextField variant="outlined"size="medium" placeholder="لطفا کلمه مورد نظر را جستجو کنید" onChange={(e)=>setSearch(e.target.value)} inputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon />
-                    </InputAdornment>
-                  ),
-                  endAdornment: (
-                    <InputAdornment
-                      position="end"
-                      style={{ display:(showCancelIcon? 'none':'-ms-flexbox')  }}
-                      onClick={clickCancelButton}
-                    >
-                      <ClearIcon />
-                    </InputAdornment>
-                  )
-            }}></TextField>
-          </FormControl>
+         
        
           <input
             placeholder="کلمه مورد نظر را جستجو کنید"
@@ -86,7 +68,7 @@ export const Admin = () => {
         </div>
         <div className="content">
           <div style={{backgroundImage:`url(${GrapicSide})`,height:'330px',width:'100%',backgroundSize:'cover'}}>
-            <h2 style={{transform:'translate(43%,120px)',color:'white',fontSize:24,fontFamily:'Diba'}}>خوش آمدید جناب</h2>
+            <h2 style={{position:'relative',display:'inline',top:'44%',left:'44%',color:'white',fontSize:24,fontFamily:'Diba'}}>سامانه مدیریتی حادم</h2>
           </div>
           <Outlet />
         </div>
