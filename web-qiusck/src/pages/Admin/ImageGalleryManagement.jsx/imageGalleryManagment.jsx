@@ -12,7 +12,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
 import EditIcon from '@mui/icons-material/Edit';
 import { Tooltip } from "@mui/material";
-
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import { ImageGalleryDialog } from "./imageGalleryDialog";
 export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -112,7 +114,7 @@ export const ImageGalleryManagment = () => {
           </TableHead>
           <TableBody>
             {data
-              .slice(page * rowsPerPage, page * rowsPerPage * newPage + rowsPerPage)
+              .slice(page * rowsPerPage, page * rowsPerPage  + rowsPerPage)
               .map((item, index) => {
                 const value = item.id;
                 return (
@@ -157,6 +159,7 @@ export const ImageGalleryManagment = () => {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
+      <ImageGalleryDialog/>
     </Paper>
   );
 };
