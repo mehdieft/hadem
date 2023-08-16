@@ -4,8 +4,27 @@ import uk from "../.../../../assets/icon/uk.svg";
 import GrapicSide from '../../assets/icon/GrapicSide.svg'
 import { Outlet } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import { Button } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
+import { Button, InputAdornment,TextField,FormControl } from "@mui/material";
+import { useState } from "react";
 export const Admin = () => {
+ const [showCancelIcon,setShowIcon]=useState(false);
+ const [Search,setSearch]=useState('');
+
+  const clickCancelButton=()=>{
+
+  }
+
+
+
+
+
+
+
+
+
+
   return (
     <>
       <div className="admin-header">
@@ -14,6 +33,25 @@ export const Admin = () => {
           <h1 style={{ fontFamily: "Diba", display: "inline" }}>حادم</h1>
         </div>
         <div className="header-center">
+          <FormControl>
+            <TextField variant="outlined"size="medium" onChange={(e)=>setSearch(e.target.value)} inputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <InputAdornment
+                      position="end"
+                      style={{ display:(showCancelIcon? 'none':'-ms-flexbox')  }}
+                      onClick={clickCancelButton}
+                    >
+                      <ClearIcon />
+                    </InputAdornment>
+                  )
+            }}></TextField>
+          </FormControl>
+       
           <input
             placeholder="کلمه مورد نظر را جستجو کنید"
             type="text"
