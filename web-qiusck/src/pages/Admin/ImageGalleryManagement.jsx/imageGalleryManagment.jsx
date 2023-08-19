@@ -140,19 +140,14 @@ export const ImageGalleryManagment = () => {
                     </TableCell>
 
                     <TableCell align="right" width={300}>
-                    <Tooltip title="حذف " arrow>
-                      <IconButton onClick={()=>{console.log("this is delete",item.number)}} aria-label="delete">
-                        <DeleteIcon sx={{color:"red"}} />
-                      </IconButton>
-                    </Tooltip>
                     <Tooltip title="ویرایش " arrow>
-
                       <IconButton onClick={()=>{console.log("this is delete",item.number)}} aria-label="delete">
                         <EditIcon sx={{color:"#d1670c"}} />
                       </IconButton>
                     </Tooltip>
 
                     </TableCell>
+                    <ImageGalleryDialog showDialog={true} data={item} />
                   </div>
                 );
               })}
@@ -168,7 +163,7 @@ export const ImageGalleryManagment = () => {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
-      <ImageGalleryDialog/>
+      
     </Paper>
   );
 };
@@ -182,11 +177,14 @@ export const ImageGalleryManagment = () => {
 
 const ImageGalleryDialog = ({showDialog,data}) => {
     const [open, setOpen] = useState(false);
+    useEffect(()=>{
+      setOpen(showDialog)
+    },[])
   
     
 
     const handleClickOpen = () => {
-        setOpen(true);
+        setOpen(showDialog);
       };
     
       const handleClose = () => {
@@ -194,9 +192,9 @@ const ImageGalleryDialog = ({showDialog,data}) => {
       };
   return (
     <>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      {/* <Button variant="outlined" onClick={handleClickOpen}>
         Open simple dialog
-      </Button>
+      </Button> */}
       <Dialog onClose={handleClose} open={open}>
         <DialogTitle>Simple Dialog</DialogTitle>
         <DialogContent>
