@@ -28,6 +28,7 @@ export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog,setOPenDialog]=useState(false);
+  const [dataForDialog,setDataForDialog]=useState('');
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -43,6 +44,8 @@ export const ImageGalleryManagment = () => {
 
   const editButtonHandler=(item)=>{
   console.log("this is data from function",item)
+  setDataForDialog(item);
+  setOPenDialog(true);
   
   }
   const columns = [
@@ -159,7 +162,7 @@ export const ImageGalleryManagment = () => {
                     </Tooltip>
 
                     </TableCell>
-                    <ImageGalleryDialog showDialog={true} data={item} />
+                    <ImageGalleryDialog open={openDialog} data={dataForDialog} />
                     </TableRow>
                   </div>
                 );
