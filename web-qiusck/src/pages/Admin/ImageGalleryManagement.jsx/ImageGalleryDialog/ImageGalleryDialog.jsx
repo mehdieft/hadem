@@ -4,11 +4,14 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { useEffect } from "react";
 import { useState } from "react";
 
-  const ImageGalleryDialog = () => {
+  const ImageGalleryDialog = ({showDialog,data}) => {
     const [open, setOpen] = useState(false);
-
+    useEffect(()=>{},[])
+    setOpen(showDialog)
+    
 
     const handleClickOpen = () => {
         setOpen(true);
