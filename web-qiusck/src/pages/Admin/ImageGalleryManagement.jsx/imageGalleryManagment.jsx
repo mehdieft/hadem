@@ -27,6 +27,7 @@ import { useEffect } from "react";
 export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [openDialog,setOPenDialog]=useState(false);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -37,6 +38,13 @@ export const ImageGalleryManagment = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+
+
+  const editButtonHandler=(item)=>{
+  console.log("this is data from function",item)
+  
+  }
   const columns = [
     {
       id: "NO",
@@ -127,27 +135,32 @@ export const ImageGalleryManagment = () => {
               .map((item, index) => {
                 const value = item.id;
                 return (
-                  <div>
+                  <div key={index*4}>
+                    <TableRow>
+
                     <TableCell align="right" width={300} scope="td">
                       {" "}
                       {(index + 1)+(page*10)}  
                     </TableCell>
                     <TableCell align="right" width={300}>
-                      {item.url}
+                      {item.url+index}
                     </TableCell>
                     <TableCell align="right" width={300}>
-                      {item.usageFor}
+                      {item.usageFor+index}
                     </TableCell>
 
                     <TableCell align="right" width={300}>
                     <Tooltip title="ویرایش " arrow>
-                      <IconButton onClick={()=>{console.log("this is delete",item.number)}} aria-label="delete">
-                        <EditIcon sx={{color:"#d1670c"}} />
+                      <IconButton key={Math.random()*1000}  aria-label="delete">
+                        <EditIcon onClick={()=>{
+                         editButtonHandler(item)
+                        }} sx={{color:"#d1670c"}} />
                       </IconButton>
                     </Tooltip>
 
                     </TableCell>
                     <ImageGalleryDialog showDialog={true} data={item} />
+                    </TableRow>
                   </div>
                 );
               })}
@@ -177,9 +190,7 @@ export const ImageGalleryManagment = () => {
 
 const ImageGalleryDialog = ({showDialog,data}) => {
     const [open, setOpen] = useState(false);
-    useEffect(()=>{
-      setOpen(showDialog)
-    },[])
+   
   
     
 
