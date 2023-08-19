@@ -130,7 +130,7 @@ export const ImageGalleryManagment = () => {
                   <div>
                     <TableCell align="right" width={300} scope="td">
                       {" "}
-                      {index + 1}
+                      {(index + 1)+(page*10)}  
                     </TableCell>
                     <TableCell align="right" width={300}>
                       {item.url}
