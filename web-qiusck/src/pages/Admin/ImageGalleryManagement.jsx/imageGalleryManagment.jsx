@@ -10,29 +10,25 @@ import TableRow from "@mui/material/TableRow";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
-import EditIcon from '@mui/icons-material/Edit';
+import EditIcon from "@mui/icons-material/Edit";
 import { Tooltip } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 import { useEffect } from "react";
-
-
-
-
 
 export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [openDialog,setOPenDialog]=useState(false);
-  const [dataForDialog,setDataForDialog]=useState('');
+  const [openDialog, setOPenDialog] = useState(false);
+  const [dataForDialog, setDataForDialog] = useState("");
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
-    console.log("what the fuck is this")
+    console.log("what the fuck is this");
   };
 
   const handleChangeRowsPerPage = (event) => {
@@ -40,14 +36,11 @@ export const ImageGalleryManagment = () => {
     setPage(0);
   };
 
-
-
-  const editButtonHandler=(item)=>{
-  console.log("this is data from function",item)
-  setDataForDialog(item);
-  setOPenDialog(true);
-  
-  }
+  const editButtonHandler = (item) => {
+    console.log("this is data from function", item);
+    setDataForDialog(item);
+    setOPenDialog(true);
+  };
   const columns = [
     {
       id: "NO",
@@ -106,7 +99,7 @@ export const ImageGalleryManagment = () => {
         width: "fit-content",
         overflow: "hidden",
         boxShadow: 4,
-        direction:'rtl'
+        direction: "rtl",
       }}
     >
       <TableContainer sx={{ maxHeight: "600px" }}>
@@ -128,41 +121,59 @@ export const ImageGalleryManagment = () => {
                 </TableCell>
               </TableRow>
               {columns.map((index, column) => {
-                <TableCell key={Math.random()*1000}>{column.label}sadsa</TableCell>;
+                <TableCell key={Math.random() * 1000}>
+                  {column.label}sadsa
+                </TableCell>;
               })}
             </TableRow>
           </TableHead>
           <TableBody>
             {data
-              .slice(page * rowsPerPage, page * rowsPerPage  + rowsPerPage)
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((item, index) => {
                 const value = item.id;
                 return (
-                  <div key={index*4}>
+                  <div key={index * 4}>
                     <TableRow>
+                      <TableCell align="right" width={300} scope="td">
+                        {" "}
+                        {index + 1 + page * 10}
+                      </TableCell>
+                      <TableCell align="right" width={300}>
+                        {item.url + index}
+                      </TableCell>
+                      <TableCell align="right" width={300}>
+                        {item.usageFor + index}
+                      </TableCell>
 
-                    <TableCell align="right" width={300} scope="td">
-                      {" "}
-                      {(index + 1)+(page*10)}  
-                    </TableCell>
-                    <TableCell align="right" width={300}>
-                      {item.url+index}
-                    </TableCell>
-                    <TableCell align="right" width={300}>
-                      {item.usageFor+index}
-                    </TableCell>
-
-                    <TableCell align="right" width={300}>
-                    <Tooltip title="ویرایش " arrow>
-                      <IconButton key={Math.random()*1000}  aria-label="delete">
-                        <EditIcon onClick={()=>{
-                         editButtonHandler(item)
-                        }} sx={{color:"#d1670c"}} />
-                      </IconButton>
-                    </Tooltip>
-
-                    </TableCell>
-                    <ImageGalleryDialog open={openDialog} data={dataForDialog} />
+                      <TableCell align="right" width={300}>
+                        <Tooltip title="ویرایش " arrow>
+                          <IconButton
+                            key={Math.random() * 1000}
+                            aria-label="delete"
+                          >
+                            <EditIcon
+                              onClick={() => {
+                                editButtonHandler(item);
+                              }}
+                              sx={{ color: "#d1670c" }}
+                            />
+                          </IconButton>
+                        </Tooltip>
+                        <Dialog open={openDialog}>
+                          <DialogTitle>Simple Dialog</DialogTitle>
+                          <DialogContent>
+                            <DialogContentText>
+                              This is a simple dialog.{item.usageFor}
+                            </DialogContentText>
+                          </DialogContent>
+                          <DialogActions>
+                            <Button onClick={()=>{
+                              setOPenDialog(false);
+                            }} >Close</Button>
+                          </DialogActions>
+                        </Dialog>
+                      </TableCell>
                     </TableRow>
                   </div>
                 );
@@ -179,45 +190,6 @@ export const ImageGalleryManagment = () => {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
-      
     </Paper>
-  );
-};
-
-
-
-
-
-
-
-
-const ImageGalleryDialog = ({showDialog,data}) => {
-    const [open, setOpen] = useState(false);
-   
-  
-    
-
-    const handleClickOpen = () => {
-        setOpen(showDialog);
-      };
-    
-      const handleClose = () => {
-        setOpen(false);
-      };
-  return (
-    <>
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Open simple dialog
-      </Button> */}
-      <Dialog onClose={handleClose} open={open}>
-        <DialogTitle>Simple Dialog</DialogTitle>
-        <DialogContent>
-          <DialogContentText>This is a simple dialog.</DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
-        </DialogActions>
-      </Dialog>
-    </>
   );
 };
