@@ -7,7 +7,7 @@ const Port=process.env.PORT
 const cors=require('cors');
 const appRootPath=require('app-root-path')
 require('express-async-errors');
-
+const AdminAuthRoutes=require('./routes/Admin/authenticationRoutes')
 
 
 const ImageRoute=require('./routes/Admin/imageRoutes')
@@ -22,6 +22,7 @@ app.use(cors('http://localhost:3000'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'))
 app.use('/api',ImageRoute)
+app.use('/api/auth',AdminAuthRoutes);
 app.use('/static/',express.static(appRootPath + '/public' ))
 app.use('/uploads', express.static('./public/uploads'));
 app.all('*',(req,res,next)=>{
