@@ -20,13 +20,16 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useEffect } from "react";
 import { useNotification } from "../../../context/NotificationProvider";
+import { TextField } from "@mui/material";
 
 export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
   const [dataForDialog, setDataForDialog] = useState("");
-  const {updateNotification}=useNotification()
+  const { updateNotification } = useNotification();
+  const [selectedFile, setSelectedFile] = useState();
+  const [textFieldValue, setTextFieldValue] = useState("");
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -36,14 +39,21 @@ export const ImageGalleryManagment = () => {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
-  
   };
 
   const editButtonHandler = (item) => {
     console.log("this is data from function", item);
     setDataForDialog(item);
-    // setOPenDialog(true);
-    updateNotification("error","this is test")
+    setOPenDialog(true);
+    updateNotification("error", "this is test");
+  };
+
+  const handleImageUpload = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleTextFieldChange = (event) => {
+    setTextFieldValue(event.target.value);
   };
   const columns = [
     {
@@ -164,17 +174,46 @@ export const ImageGalleryManagment = () => {
                             />
                           </IconButton>
                         </Tooltip>
-                        <Dialog open={openDialog}>
-                          <DialogTitle>Simple Dialog</DialogTitle>
+                        <Dialog
+                          sx={{
+                            "& .MuiBackdrop-root": {
+                              backgroundColor: "transparent", // This makes the backdrop transparent
+                            },
+                          }}
+                          open={openDialog}
+                        >
+                          <DialogTitle sx={{padding:0,marginBottom: '100px'}}>
+                            <div style={{display:'flex',justifyContent:'space-between'}}>
+                              <Button>sqasas</Button>
+                              <span>sasasa</span>
+                            </div>
+                          </DialogTitle>
                           <DialogContent>
                             <DialogContentText>
-                              This is a simple dialog.{item.usageFor}
+                              <TextField
+                                label="Text Field"
+                                variant="outlined"
+                                value={textFieldValue}
+                                onChange={handleTextFieldChange}
+                              />
+                              <Button variant="contained" component="label">
+                                Upload Image
+                                <input
+                                  type="file"
+                                  hidden
+                                  onChange={handleImageUpload}
+                                />
+                              </Button>
                             </DialogContentText>
                           </DialogContent>
                           <DialogActions>
-                            <Button onClick={()=>{
-                              setOPenDialog(false);
-                            }} >Close</Button>
+                            <Button
+                              onClick={() => {
+                                setOPenDialog(false);
+                              }}
+                            >
+                              Close
+                            </Button>
                           </DialogActions>
                         </Dialog>
                       </TableCell>
