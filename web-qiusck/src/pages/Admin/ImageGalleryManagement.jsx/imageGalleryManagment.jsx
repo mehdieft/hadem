@@ -19,12 +19,14 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useEffect } from "react";
+import { useNotification } from "../../../context/NotificationProvider";
 
 export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
   const [dataForDialog, setDataForDialog] = useState("");
+  const {updateNotification}=useNotification()
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -34,12 +36,14 @@ export const ImageGalleryManagment = () => {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
+  
   };
 
   const editButtonHandler = (item) => {
     console.log("this is data from function", item);
     setDataForDialog(item);
-    setOPenDialog(true);
+    // setOPenDialog(true);
+    updateNotification("error","this is test")
   };
   const columns = [
     {

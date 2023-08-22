@@ -6,12 +6,13 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNotification } from "../../../../context/NotificationProvider";
 
   const ImageGalleryDialog = ({showDialog,data}) => {
     const [open, setOpen] = useState(false);
     useEffect(()=>{},[])
     setOpen(showDialog)
-    
+    const {updateNotification}=useNotification()
 
     const handleClickOpen = () => {
         setOpen(true);
