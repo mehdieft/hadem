@@ -1,3 +1,4 @@
+import './style.css'
 import { createContext ,React, useContext, useEffect, useRef, useState} from "react"
 const notificationContext=createContext();
 export default function NotificationProvider({children}){
@@ -8,7 +9,8 @@ export default function NotificationProvider({children}){
     
     const notRef=useRef();
     useEffect(()=> {
-        // notRef.current?.classList.remove('bottom-14','opacity-0')
+        notRef.current?.classList.add('show')
+        
         // notRef.current?.style.bottom="10px"
         console.log("this is fucked up",notRef.current)
         // notRef.current?.style.opacity=1
