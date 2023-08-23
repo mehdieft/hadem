@@ -3,7 +3,7 @@ const path=require('path')
 const router=express.Router();
 const multer = require('multer');
 // const testController=require('../../controllers/test')
-const imageCoontroller=require('../../controllers/imageController')
+const imageController=require('../../controllers/imageController')
 var storage = multer.diskStorage({
     destination: './public/uploads/',
     filename: function(req, file, callback) {
@@ -13,8 +13,9 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage })
 
-router.post('/insert',upload.single('image'),imageCoontroller.insert);
-
+router.post('/insert',upload.single('image'),imageController.insert);
+router.post('./update',upload.single('image'),imageController.update)
+// router.delete('/delete-item/:id',imageController.deleteImage)
 module.exports=router
 
 
