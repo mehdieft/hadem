@@ -35,7 +35,9 @@ exports.insert = async (req, res, next) => {
   }
 };
 exports.update = async (req, res, next) => {
-  const findedImage = await Image.finOne({ id: req.params.id });
+  console.log("why you not working");
+  const { postId } = req.params;
+  const findedImage = await Image.findOne({ id: req.params.id });
   if (findedImage) {
     if (req.file) {
       var storage = multer.diskStorage({
@@ -51,30 +53,28 @@ exports.update = async (req, res, next) => {
       const name = req.file.filename;
       const alt = req.body.alt;
       const title = req.body.title;
-      const savedUpdateImage = await findedImage
-        .update({
-          name,
-          alt,
-          title,
-        })
-        .save();
+      const savedUpdateImage = await findedImage.updateOne({
+        name,
+        alt,
+        title,
+      });
+
       if (savedUpdateImage) {
         res.status(200).json({ message: "successfuly updated" });
       } else {
         res.status(500).json({ message: "somethings wrong" });
       }
     } else {
-       const savedImage=await findedImage.update({
-        name:req.body.name,
-        alt:req.body.alt,
-        title:req.body.title
-       }).save()
-       if(savedImage){
-        res.status(200).json({message:"successfuly updated"})
-       }else{
-        res.status(500).json({message:"opps something wrong try later"})
-       }
-        
+      const savedImage = await findedImage.updateOne({
+        name: req.body.name,
+        alt: req.body.alt,
+        title: req.body.title,
+      });
+      if (savedImage) {
+        res.status(200).json({ message: "successfuly updated" });
+      } else {
+        res.status(500).json({ message: "opps something wrong try later" });
+      }
     }
   }
 };
