@@ -35,9 +35,9 @@ exports.insert = async (req, res, next) => {
   }
 };
 exports.update = async (req, res, next) => {
-  console.log("why you not working");
-  const { postId } = req.params;
-  const findedImage = await Image.findOne({ id: req.params.id });
+  console.log("why you not working",req.body.id,req.body.title,req.body.alt);
+id= req.body.id.trim(); 
+  const findedImage = await Image.findById(id);
   if (findedImage) {
     if (req.file) {
       var storage = multer.diskStorage({
@@ -66,7 +66,7 @@ exports.update = async (req, res, next) => {
       }
     } else {
       const savedImage = await findedImage.updateOne({
-        name: req.body.name,
+        
         alt: req.body.alt,
         title: req.body.title,
       });
@@ -76,5 +76,7 @@ exports.update = async (req, res, next) => {
         res.status(500).json({ message: "opps something wrong try later" });
       }
     }
+  }else{
+    console.log("not finded____")
   }
 };
