@@ -91,3 +91,8 @@ exports.delete=async(req,res,next)=>{
     res.status(500).json({message:"error somethings wrong"});
   }
 }
+exports.getAll=async(req,res,next)=>{
+  const data=await Image.find();
+  if(data)res.status(200).json({data})
+  else res.status(500).json({message:"error something wrong check your connection"});
+}

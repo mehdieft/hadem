@@ -61,9 +61,7 @@ export const ImageGalleryManagment = () => {
     setSelectedFile(event.target.files[0]);
   };
 
-  const handleTextFieldChange = (event) => {
-    setTextFieldValue(event.target.value);
-  };
+ 
 
 
   const saveDialogHandle=()=>{
