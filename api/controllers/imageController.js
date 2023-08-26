@@ -19,7 +19,7 @@ exports.insert = async (req, res, next) => {
     const alt = req.body.alt;
     const title = req.body.title;
     const storeImage = await new Image({
-      name: imageName,
+      url: imageName,
       alt: alt,
       title: title,
     }).save();
@@ -50,11 +50,11 @@ id= req.body.id.trim();
       var upload = multer({ storage: storage });
       upload.single("image");
       console.log("____in the controleer___", req.file.filename);
-      const name = req.file.filename;
+      const url = req.file.filename;
       const alt = req.body.alt;
       const title = req.body.title;
       const savedUpdateImage = await findedImage.updateOne({
-        name,
+        url,
         alt,
         title,
       });
@@ -92,6 +92,7 @@ exports.delete=async(req,res,next)=>{
   }
 }
 exports.getAll=async(req,res,next)=>{
+  console.log("tttttttttt")
   const data=await Image.find();
   if(data)res.status(200).json({data})
   else res.status(500).json({message:"error something wrong check your connection"});

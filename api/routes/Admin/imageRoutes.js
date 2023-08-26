@@ -16,6 +16,7 @@ var upload = multer({ storage: storage })
 router.post('/insert',upload.single('image'),imageController.insert);
 router.post('/update',upload.single('image'),imageController.update);
 router.post('/delete',imageController.delete);
+router.get('/getAll',imageController.getAll);
 // router.delete('/delete-item/:id',imageController.deleteImage)
 module.exports=router
 

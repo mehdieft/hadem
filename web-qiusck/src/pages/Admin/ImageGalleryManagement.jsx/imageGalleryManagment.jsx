@@ -29,6 +29,12 @@ export const ImageGalleryManagment = () => {
   const [dataForDialog, setDataForDialog] = useState({ title: "", alt: "" });
   const [selectedFile, setSelectedFile] = useState();
   const [textFieldValue, setTextFieldValue] = useState("");
+  const [tableDate,setDataTable]=useState();
+
+
+  useEffect(()=> {
+
+  },[])
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

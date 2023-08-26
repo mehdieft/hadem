@@ -11,9 +11,6 @@ const videoRoutes=require('./routes/Admin/videoRoutes');
 const AdminAuthRoutes=require('./routes/Admin/authenticationRoutes')
 const VideoRoutes=require('./routes/Admin/videoRoutes')
 const shahidManagment=require('./routes/Admin/shahidRoutes');
-
-
-
 const ImageRoute=require('./routes/Admin/imageRoutes')
 
 
