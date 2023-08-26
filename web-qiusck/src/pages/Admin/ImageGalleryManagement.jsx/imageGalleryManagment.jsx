@@ -19,21 +19,27 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useEffect } from "react";
-import { useNotification } from "../../../context/NotificationProvider";
+import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
 
 export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
-  const [dataForDialog, setDataForDialog] = useState("");
-  const { updateNotification } = useNotification();
+  const [dataForDialog, setDataForDialog] = useState({ title: "", alt: "" });
   const [selectedFile, setSelectedFile] = useState();
   const [textFieldValue, setTextFieldValue] = useState("");
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
     console.log("what the fuck is this");
+  };
+
+  const handleAltChange=(e)=>{
+    setDataForDialog({...dataForDialog,alt:e.target.value})
+  }
+  const handleTitleChange = (e) => {
+    setDataForDialog({ ...dataForDialog, title: e.target.value });
   };
 
   const handleChangeRowsPerPage = (event) => {
@@ -45,7 +51,10 @@ export const ImageGalleryManagment = () => {
     console.log("this is data from function", item);
     setDataForDialog(item);
     setOPenDialog(true);
-    updateNotification("error", "this is test");
+  };
+  const cancelDialog = () => {
+    setOPenDialog(false);
+    setDataForDialog({ name: "", alt: "", title: "" });
   };
 
   const handleImageUpload = (event) => {
@@ -55,6 +64,11 @@ export const ImageGalleryManagment = () => {
   const handleTextFieldChange = (event) => {
     setTextFieldValue(event.target.value);
   };
+
+
+  const saveDialogHandle=()=>{
+    console.log("this is save")
+  }
   const columns = [
     {
       id: "NO",
@@ -82,29 +96,29 @@ export const ImageGalleryManagment = () => {
     },
   ];
   const data = [
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
-    { number: 1, url: "test1", usageFor: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
+    { alt: 1, url: "test1", title: "test2" },
   ];
   return (
     <Paper
@@ -122,13 +136,13 @@ export const ImageGalleryManagment = () => {
             <TableRow>
               <TableRow>
                 <TableCell align="right" width={300}>
-                  number
+                  alt
                 </TableCell>
                 <TableCell align="right" width={300}>
                   Url
                 </TableCell>
                 <TableCell align="right" width={300}>
-                  usageFor
+                  title
                 </TableCell>
                 <TableCell align="right" width={300}>
                   actions
@@ -157,7 +171,7 @@ export const ImageGalleryManagment = () => {
                         {item.url + index}
                       </TableCell>
                       <TableCell align="right" width={300}>
-                        {item.usageFor + index}
+                        {item.title + index}
                       </TableCell>
 
                       <TableCell align="right" width={300}>
@@ -176,44 +190,71 @@ export const ImageGalleryManagment = () => {
                         </Tooltip>
                         <Dialog
                           sx={{
-                            "& .MuiBackdrop-root": {
-                              backgroundColor: "transparent", // This makes the backdrop transparent
+                            "& .MuiDialog-paper": {
+                              width: "80%",
+                              maxHeight: 435,
                             },
                           }}
                           open={openDialog}
                         >
-                          <DialogTitle sx={{padding:0,marginBottom: '100px'}}>
-                            <div style={{display:'flex',justifyContent:'space-between'}}>
-                              <Button>sqasas</Button>
-                              <span>sasasa</span>
+                          <DialogTitle
+                            sx={{ padding: 0, marginBottom: "12px" }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                              }}
+                            >
+                              <IconButton
+                                onClick={cancelDialog}
+                                color="secondary"
+                              >
+                                <CancelIcon />
+                              </IconButton>
+                              <span>به روز رسانی عکس </span>
+                              <div></div>
                             </div>
                           </DialogTitle>
                           <DialogContent>
                             <DialogContentText>
-                              <TextField
-                                label="Text Field"
-                                variant="outlined"
-                                value={textFieldValue}
-                                onChange={handleTextFieldChange}
-                              />
-                              <Button variant="contained" component="label">
-                                Upload Image
-                                <input
-                                  type="file"
-                                  hidden
-                                  onChange={handleImageUpload}
-                                />
-                              </Button>
+                              <div className="dialog-container">
+                                <form>
+                                  <div>
+                                    <TextField fullWidth
+                                     sx={{width:'350px',marginTop:'32px'}}
+                                      label="عنوان عکس"
+                                      variant="outlined"
+                                      value={dataForDialog.title}
+                                      onChange={handleTitleChange}
+                                    />
+                                  </div>
+                                  <div>
+                                    <TextField 
+                                    fullWidth
+                                    sx={{width:'350px',margin:'32px 0'}}
+                                     
+                                      label="متن جایگزین"
+                                      variant="outlined"
+                                      value={dataForDialog.alt}
+                                      onChange={handleAltChange}
+                                    />
+                                  </div>
+                                  <Button variant="outlined" color="secondary" component="label">
+                                    Upload Image
+                                    <input
+                                      type="file"
+                                      hidden
+                                      onChange={handleImageUpload}
+                                    />
+                                  </Button>
+                                </form>
+                              </div>
                             </DialogContentText>
                           </DialogContent>
                           <DialogActions>
-                            <Button
-                              onClick={() => {
-                                setOPenDialog(false);
-                              }}
-                            >
-                              Close
-                            </Button>
+                            <Button onClick={cancelDialog}>Close</Button>
+                            <Button onClick={saveDialogHandle} >save</Button>
                           </DialogActions>
                         </Dialog>
                       </TableCell>
