@@ -95,5 +95,5 @@ exports.getAll=async(req,res,next)=>{
   console.log("tttttttttt")
   const data=await Image.find();
   if(data)res.status(200).json({data})
-  else res.status(500).json({message:"error something wrong check your connection"});
+  else res.status(500).json({error:"error something wrong check your connection"});
 }

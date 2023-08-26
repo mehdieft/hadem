@@ -21,6 +21,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useEffect } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
+import {fetchData }from '../../../api/imageGalleryRequests';
 
 export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
@@ -29,21 +30,30 @@ export const ImageGalleryManagment = () => {
   const [dataForDialog, setDataForDialog] = useState({ title: "", alt: "" });
   const [selectedFile, setSelectedFile] = useState();
   const [textFieldValue, setTextFieldValue] = useState("");
-  const [tableDate,setDataTable]=useState();
+  const [tableData, setDataTable] = useState([]);
+  const [error,setErorr]=useState('')
 
-
-  useEffect(()=> {
-
-  },[])
+  useEffect(() => {
+    fetchAndSetData()
+  
+  }, []);
+  const fetchAndSetData = async () => {
+    console.log("fuck you")
+    const result = await fetchData();
+    console.log("ress----->",result)
+    setDataTable(result.data.data);
+    
+    setErorr(result.error);
+  };
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
     console.log("what the fuck is this");
   };
 
-  const handleAltChange=(e)=>{
-    setDataForDialog({...dataForDialog,alt:e.target.value})
-  }
+  const handleAltChange = (e) => {
+    setDataForDialog({ ...dataForDialog, alt: e.target.value });
+  };
   const handleTitleChange = (e) => {
     setDataForDialog({ ...dataForDialog, title: e.target.value });
   };
@@ -67,12 +77,9 @@ export const ImageGalleryManagment = () => {
     setSelectedFile(event.target.files[0]);
   };
 
- 
-
-
-  const saveDialogHandle=()=>{
-    console.log("this is save")
-  }
+  const saveDialogHandle = () => {
+    console.log("this is save");
+  };
   const columns = [
     {
       id: "NO",
@@ -134,6 +141,8 @@ export const ImageGalleryManagment = () => {
         direction: "rtl",
       }}
     >
+      {tableData.length>0&& tableData.length !==undefined?
+    
       <TableContainer sx={{ maxHeight: "600px" }}>
         <Table stickyHeader aria-label="test for image Gallery">
           <TableHead>
@@ -160,7 +169,7 @@ export const ImageGalleryManagment = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data
+            {tableData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((item, index) => {
                 const value = item.id;
@@ -225,8 +234,9 @@ export const ImageGalleryManagment = () => {
                               <div className="dialog-container">
                                 <form>
                                   <div>
-                                    <TextField fullWidth
-                                     sx={{width:'350px',marginTop:'32px'}}
+                                    <TextField
+                                      fullWidth
+                                      sx={{ width: "350px", marginTop: "32px" }}
                                       label="عنوان عکس"
                                       variant="outlined"
                                       value={dataForDialog.title}
@@ -234,17 +244,20 @@ export const ImageGalleryManagment = () => {
                                     />
                                   </div>
                                   <div>
-                                    <TextField 
-                                    fullWidth
-                                    sx={{width:'350px',margin:'32px 0'}}
-                                     
+                                    <TextField
+                                      fullWidth
+                                      sx={{ width: "350px", margin: "32px 0" }}
                                       label="متن جایگزین"
                                       variant="outlined"
                                       value={dataForDialog.alt}
                                       onChange={handleAltChange}
                                     />
                                   </div>
-                                  <Button variant="outlined" color="secondary" component="label">
+                                  <Button
+                                    variant="outlined"
+                                    color="secondary"
+                                    component="label"
+                                  >
                                     Upload Image
                                     <input
                                       type="file"
@@ -258,7 +271,7 @@ export const ImageGalleryManagment = () => {
                           </DialogContent>
                           <DialogActions>
                             <Button onClick={cancelDialog}>Close</Button>
-                            <Button onClick={saveDialogHandle} >save</Button>
+                            <Button onClick={saveDialogHandle}>save</Button>
                           </DialogActions>
                         </Dialog>
                       </TableCell>
@@ -269,6 +282,7 @@ export const ImageGalleryManagment = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      :null}
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
