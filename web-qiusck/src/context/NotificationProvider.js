@@ -1,15 +1,16 @@
 import React from 'react';
 import { Snackbar } from '@mui/material';
 import MuiAlert from '@mui/material/Alert';
-import { useState,createContext } from 'react';
+import { useState,createContext,useContext } from 'react';
 
 
-const NotificationContext=createContext()
+
+const notificationContext=createContext();
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-export const NotificationProvider = ({ children }) => {
+export default function NotificationProvider  ({ children })  {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
   const [severity, setSeverity] = useState('success');
@@ -28,14 +29,27 @@ export const NotificationProvider = ({ children }) => {
   };
 
   return (
-    <NotificationContext.Provider value={openNotification}>
+    <notificationContext.Provider value={openNotification}>
       {children}
       <Snackbar open={open} autoHideDuration={6000} onClose={closeNotification}>
         <Alert onClose={closeNotification} severity={severity}>
           {message}
         </Alert>
       </Snackbar>
-    </NotificationContext.Provider>
+    </notificationContext.Provider>
   );
 };
-export const useNotification=()=> useContext(NotificationContext)
+export const useNotification=()=> useContext(notificationContext)
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -24,8 +24,11 @@ import { TextField } from "@mui/material";
 import { fetchData } from "../../../api/imageGalleryRequests";
 import {insertImageManagamentData} from '../../../api/imageGalleryRequests'
 import AddIcon from "@mui/icons-material/Add";
+import { useNotification } from "../../../context/NotificationProvider";
 
 export const ImageGalleryManagment = () => {
+  const { updateNotification } = useNotification();
+
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
@@ -44,7 +47,7 @@ export const ImageGalleryManagment = () => {
     const result = await fetchData();
     console.log("ress----->", result);
     setDataTable(result.data.data);
-
+    // updateNotification('متن جایگزین نباید خالی باشد',error)
     setErorr(result.error);
   };
 
@@ -98,6 +101,7 @@ export const ImageGalleryManagment = () => {
 
   const saveInsertDialogHandler=()=>{
     if(dataForDialog.alt !==""){
+      updateNotification('متن جایگزین نباید خالی باشد',error)
       if(dataForDialog.title !==''){
         if(selectedImage !==null){
           insertImageManagamentData()
