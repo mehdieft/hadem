@@ -22,6 +22,7 @@ import { useEffect } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
 import { fetchData } from "../../../api/imageGalleryRequests";
+import {insertImageManagamentData} from '../../../api/imageGalleryRequests'
 import AddIcon from "@mui/icons-material/Add";
 
 export const ImageGalleryManagment = () => {
@@ -29,11 +30,11 @@ export const ImageGalleryManagment = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
   const [dataForDialog, setDataForDialog] = useState({ title: "", alt: "" });
-  const [selectedFile, setSelectedFile] = useState();
-  const [textFieldValue, setTextFieldValue] = useState("");
+  const [selectedImage,setSelectedImage]=useState(null);
+
   const [tableData, setDataTable] = useState([]);
   const [error, setErorr] = useState("");
-  const [isInsertDialog,setIsInsertDialog]=useState(false)
+  const [isInsertDialog, setIsInsertDialog] = useState(false);
 
   useEffect(() => {
     fetchAndSetData();
@@ -63,12 +64,11 @@ export const ImageGalleryManagment = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-  const openInsertDialog=()=>{
-    setOPenDialog(true)
-    setIsInsertDialog(true)
-    console.log("this is ",openInsertDialog)
-
-  }
+  const openInsertDialog = () => {
+    setOPenDialog(true);
+    setIsInsertDialog(true);
+    console.log("this is ", openInsertDialog);
+  };
 
   const editButtonHandler = (item) => {
     console.log("this is data from function", item);
@@ -82,14 +82,32 @@ export const ImageGalleryManagment = () => {
   };
 
   const handleImageUpload = (event) => {
-    setSelectedFile(event.target.files[0]);
+  console.log("************",event.target.files[0])
+    setSelectedImage(event.target.files[0]);
+    console.log("tthis is file",selectedImage)
   };
 
-  const saveDialogHandle = () => {
-    setIsInsertDialog(false)
-    setOPenDialog(false)
-    console.log("this is save");
+  const saveDialogUpdateHandle = () => {
+    setIsInsertDialog(false);
+    setOPenDialog(false);
+    setDataForDialog({ title: "", alt: "" })
+    console.log("this is update");
+
   };
+
+
+  const saveInsertDialogHandler=()=>{
+    if(dataForDialog.alt !==""){
+      if(dataForDialog.title !==''){
+        if(selectedImage !==null){
+          insertImageManagamentData()
+
+        }
+      }
+
+    }
+
+  }
   const columns = [
     {
       id: "NO",
@@ -199,7 +217,11 @@ export const ImageGalleryManagment = () => {
                         <TableCell align="right" width={300}>
                           <img
                             src={`http://localhost:4848/static/uploads/${item.url}`}
-                            style={{ borderRadius: "50%" }}
+                            style={{
+                              borderRadius: "50%",
+                              width: "100px",
+                              height: "100px",
+                            }}
                             alt=""
                           />
                           {/* {item.url + index} */}
@@ -246,10 +268,22 @@ export const ImageGalleryManagment = () => {
                                 >
                                   <CancelIcon />
                                 </IconButton>
-                                {isInsertDialog==true ? <span>اضافه کردن عکس جدید</span>: <span>به روز رسانی عکس </span>}
-                               
+                                {isInsertDialog == true ? (
+                                  <span>اضافه کردن عکس جدید</span>
+                                ) : (
+                                  <span>به روز رسانی عکس </span>
+                                )}
+
                                 <div></div>
                               </div>
+
+
+
+
+
+
+
+
                             </DialogTitle>
                             <DialogContent>
                               <DialogContentText>
@@ -298,8 +332,16 @@ export const ImageGalleryManagment = () => {
                               </DialogContentText>
                             </DialogContent>
                             <DialogActions>
-                              <Button onClick={cancelDialog}>Close</Button>
-                              <Button onClick={saveDialogHandle}>save</Button>
+                              <Button onClick={cancelDialog}>بستن</Button>
+                              {isInsertDialog == true ? (
+                                <Button onClick={saveInsertDialogHandler}>
+                                  اضافه کردن
+                                </Button>
+                              ) : (
+                                <Button onClick={saveDialogUpdateHandle}>
+                                  به روز رسانی
+                                </Button>
+                              )}
                             </DialogActions>
                           </Dialog>
                         </TableCell>

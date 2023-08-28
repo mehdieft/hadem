@@ -40,6 +40,10 @@ export const fetchData = async () => {
   }
 };
 
+export const insertImageManagamentData=async (title,alt,file)=>{
+  const response= await axios.post('http://localhost:4848/api/admin/imageManagment/insert',axiosConfig)
+
+}
   
 
 

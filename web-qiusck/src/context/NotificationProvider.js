@@ -38,3 +38,4 @@ export const NotificationProvider = ({ children }) => {
     </NotificationContext.Provider>
   );
 };
+export const useNotification=()=> useContext(NotificationContext)
