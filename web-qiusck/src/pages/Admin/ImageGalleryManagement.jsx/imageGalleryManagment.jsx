@@ -27,7 +27,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
 
 export const ImageGalleryManagment = () => {
-  // const { updateNotification } = useNotification();
+  const { openNotification } = useNotification();
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
@@ -41,6 +41,7 @@ export const ImageGalleryManagment = () => {
 
   useEffect(() => {
     fetchAndSetData();
+    openNotification('متن جایگزین نباید خالی باشد','error')
   }, []);
   const fetchAndSetData = async () => {
     console.log("fuck you");
@@ -102,7 +103,7 @@ export const ImageGalleryManagment = () => {
   const saveInsertDialogHandler=()=>{
     console.log("__________________>",dataForDialog,selectedImage)
     if(dataForDialog.alt !==""){
-      // updateNotification('متن جایگزین نباید خالی باشد',error)
+      openNotification('متن جایگزین نباید خالی باشد',error)
       if(dataForDialog.title !==''){
         if(selectedImage !==null){
           insertImageManagamentData(dataForDialog.title,dataForDialog.alt,selectedImage)

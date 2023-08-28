@@ -29,12 +29,15 @@ export default function NotificationProvider  ({ children })  {
   };
 
   return (
-    <notificationContext.Provider value={openNotification}>
+    <notificationContext.Provider value={{openNotification}}>
       {children}
       <Snackbar open={open} autoHideDuration={6000} onClose={closeNotification}>
+        <div>
+
         <Alert onClose={closeNotification} severity={severity}>
           {message}
         </Alert>
+        </div>
       </Snackbar>
     </notificationContext.Provider>
   );
