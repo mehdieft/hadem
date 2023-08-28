@@ -1,13 +1,17 @@
-import client from './client'
-import axios from 'axios'
+import client from "./client";
+import FormData from 'form-data';
+import axios from "axios";
 let axiosConfig = {
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8',
-      "Access-Control-Allow-Origin": "*",
-    }
-  };
+  headers: {
+    "Content-Type": "application/json;charset=UTF-8",
+    "Access-Control-Allow-Origin": "*",
+  },
+};
 
-
+let fileAxiosConfig = {
+  data: formData,
+  headers: { "Content-Type": "multipart/form-data" },
+};
 // export const insertImageGallery=async(data)=>{
 //     const ImageForm=new FormData();
 
@@ -20,8 +24,6 @@ let axiosConfig = {
 //         })
 //         console.log("fucking data",data)
 
-
-
 //     }
 //     catch (error) {
 //         const { response } = error
@@ -31,24 +33,31 @@ let axiosConfig = {
 //     }
 // }
 export const fetchData = async () => {
-    try {
-      const response = await axios.get('http://localhost:4848/api/admin/imageManagment/getAll',axiosConfig);
-      console.log("this is response")
-      return { data: response.data, error: null };
+  try {
+    const response = await axios.get(
+      "http://localhost:4848/api/admin/imageManagment/getAll",
+      axiosConfig
+    );
+    console.log("this is response");
+    return { data: response.data, error: null };
   } catch (error) {
     return { data: null, error: error.message };
   }
 };
 
-export const insertImageManagamentData=async (title,alt,file)=>{
-  const response= await axios.post('http://localhost:4848/api/admin/imageManagment/insert',axiosConfig)
+export const insertImageManagamentData = async (title, alt, file) => {
+  try{
+    const form = new FormData();
+    form.append('image',file)
+    form.append('alt',alt)
+    form.append('title',title)
+    const response = await axios.post(
+      "http://localhost:4848/api/admin/imageManagment/insert",form,
+      fileAxiosConfig,
+    );
+    return { data: response.data, error: null };
 
-}
-  
-
-
-
-
-
-
-
+  }catch(error){
+    return { data: null, error: error.message };
+  }
+};
