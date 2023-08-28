@@ -9,7 +9,7 @@ let axiosConfig = {
 };
 
 let fileAxiosConfig = {
-  data: formData,
+ 
   headers: { "Content-Type": "multipart/form-data" },
 };
 // export const insertImageGallery=async(data)=>{
