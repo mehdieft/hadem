@@ -1,5 +1,5 @@
 import client from "./client";
-import FormData from 'form-data';
+import FormData from "form-data";
 import axios from "axios";
 let axiosConfig = {
   headers: {
@@ -9,7 +9,6 @@ let axiosConfig = {
 };
 
 let fileAxiosConfig = {
- 
   headers: { "Content-Type": "multipart/form-data" },
 };
 // export const insertImageGallery=async(data)=>{
@@ -46,18 +45,64 @@ export const fetchData = async () => {
 };
 
 export const insertImageManagamentData = async (title, alt, file) => {
-  try{
+  try {
     const form = new FormData();
-    form.append('image',file)
-    form.append('alt',alt)
-    form.append('title',title)
+    form.append("image", file);
+    form.append("alt", alt);
+    form.append("title", title);
     const response = await axios.post(
-      "http://localhost:4848/api/admin/imageManagment/insert",form,
-      fileAxiosConfig,
+      "http://localhost:4848/api/admin/imageManagment/insert",
+      form,
+      fileAxiosConfig
     );
     return { data: response.data, error: null };
-
-  }catch(error){
+  } catch (error) {
     return { data: null, error: error.message };
+  }
+};
+export const deleteImage = async (id) => {
+  try {
+    const response = await axios.post(
+      "http://localhost:4848/api/admin/imageManagment/delete",
+      { id: id }
+    );
+    return { data: response.data, error: null };
+  } catch (error) {
+    return { data: null, error: error.message };
+  }
+};
+
+export const updateImage = async (id, title, alt, file) => {
+  let sendData;
+  if (file !== null) {
+    sendData = { id, title, alt };
+    try {
+      const response = await axios.post(
+        "http://localhost:4848/api/admin/imageManagment/update",
+        sendData
+      );
+      if (response.status == 200) {
+        return { data: response.date, error: null };
+      }
+    } catch (error) {
+      return { data: null, error: error.message };
+    }
+  } else {
+    let form = new FormData();
+    form.append("id", id);
+    form.append("image", file);
+    form.append("alt", alt);
+    form.append("title", title);
+    try {
+      const response = await axios.post(
+        "http://localhost:4848/api/admin/imageManagment/update",
+        form
+      );
+      if (response.status == 200) {
+        return { data: response.date, error: null };
+      }
+    } catch (error) {
+      return { data: null, error: error.message };
+    }
   }
 };

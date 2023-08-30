@@ -23,8 +23,10 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
 import { fetchData } from "../../../api/imageGalleryRequests";
 import { insertImageManagamentData } from "../../../api/imageGalleryRequests";
+import {deleteImage} from '../../../api/imageGalleryRequests';
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
+import { updateImage } from "../../../api/imageGalleryRequests";
 
 export const ImageGalleryManagment = () => {
   const { openNotification } = useNotification();
@@ -34,20 +36,22 @@ export const ImageGalleryManagment = () => {
   const [openDialog, setOPenDialog] = useState(false);
   const [dataForDialog, setDataForDialog] = useState({ title: "", alt: "" });
   const [selectedImage, setSelectedImage] = useState(null);
-
   const [tableData, setDataTable] = useState([]);
   const [error, setErorr] = useState("");
   const [isInsertDialog, setIsInsertDialog] = useState(false);
+  const [idForDelete,setIdForDelete]=useState(null)
 
   useEffect(() => {
     fetchAndSetData();
-    openNotification("متن جایگزین نباید خالی باشد", "error");
   }, []);
   const fetchAndSetData = async () => {
     console.log("fuck you");
     const result = await fetchData();
     console.log("ress----->", result);
-    setDataTable(result.data.data);
+    if(result.data !==null){
+
+      setDataTable(result.data.data);
+    }else{openNotification(result.error,'error')}
     openNotification("متن جایگزین نباید خالی باشد", "error");
     setErorr(result.error);
   };
@@ -91,12 +95,24 @@ export const ImageGalleryManagment = () => {
     console.log("tthis is file", selectedImage);
   };
 
-  const saveDialogUpdateHandle = () => {
+  const saveDialogUpdateHandle = (item) => {
+    const id=item._id
+    updateImage(id,dataForDialog.title,dataForDialog.alt,selectedImage)
     setIsInsertDialog(false);
     setOPenDialog(false);
     setDataForDialog({ title: "", alt: "" });
     console.log("this is update");
   };
+  const deleteImageItem=async(item)=>{
+    console.log("this is item",item);
+    const result=await  deleteImage(item)
+    console.log("result delete-----",result);
+    if(result.data !==null){
+      openNotification(result.data.message,'success')
+      window.reload()
+    }
+  }
+  
 
   const saveInsertDialogHandler = () => {
     console.log("__________________>", dataForDialog, selectedImage);
@@ -260,6 +276,13 @@ export const ImageGalleryManagment = () => {
                             />
                           </IconButton>
                         </Tooltip>
+                        <Tooltip title="حذف کردن">
+                          <IconButton>
+                            <DeleteIcon sx={{color:"red"}} onClick={()=>{deleteImageItem(item._id)}}/>
+
+                          </IconButton>
+
+                        </Tooltip>
                         <Dialog
                           sx={{
                             "& .MuiDialog-paper": {
@@ -346,7 +369,7 @@ export const ImageGalleryManagment = () => {
                                 اضافه کردن
                               </Button>
                             ) : (
-                              <Button onClick={saveDialogUpdateHandle}>
+                              <Button onClick={()=>saveDialogUpdateHandle(item)}>
                                 به روز رسانی
                               </Button>
                             )}

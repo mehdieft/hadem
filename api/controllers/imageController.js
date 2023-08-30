@@ -83,8 +83,7 @@ id= req.body.id.trim();
 exports.delete=async(req,res,next)=>{
   console.log("here___",req.body.id)
  id=req.body.id.trim()
-  const findedImageForDelete=await Image.findById(id)
-  const deletedImage=await findedImageForDelete.delete()
+  const deletedImage=await Image.findByIdAndDelete(id)
   if(deletedImage){
     res.status(200).json({message:"successfuly deleted"})
   }else{
