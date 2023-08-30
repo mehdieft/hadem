@@ -34,7 +34,7 @@ export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
-  const [dataForDialog, setDataForDialog] = useState({ title: "", alt: "" });
+  const [dataForDialog, setDataForDialog] = useState({id:'', title: "", alt: "" });
   const [selectedImage, setSelectedImage] = useState(null);
   const [tableData, setDataTable] = useState([]);
   const [error, setErorr] = useState("");
@@ -95,17 +95,18 @@ export const ImageGalleryManagment = () => {
     console.log("tthis is file", selectedImage);
   };
 
-  const saveDialogUpdateHandle = (item) => {
-    const id=item._id
+  const saveDialogUpdateHandle = () => {
+    const id=dataForDialog.id
     updateImage(id,dataForDialog.title,dataForDialog.alt,selectedImage)
     setIsInsertDialog(false);
     setOPenDialog(false);
     setDataForDialog({ title: "", alt: "" });
     console.log("this is update");
   };
-  const deleteImageItem=async(item)=>{
-    console.log("this is item",item);
-    const result=await  deleteImage(item)
+  const deleteImageItem=async()=>{
+   
+    const result=await  deleteImage(dataForDialog.id)
+    
     console.log("result delete-----",result);
     if(result.data !==null){
       openNotification(result.data.message,'success')
@@ -278,11 +279,19 @@ export const ImageGalleryManagment = () => {
                         </Tooltip>
                         <Tooltip title="حذف کردن">
                           <IconButton>
-                            <DeleteIcon sx={{color:"red"}} onClick={()=>{deleteImageItem(item._id)}}/>
+                            <DeleteIcon sx={{color:"red"}} onClick={()=>{deleteImageItem()}}/>
 
                           </IconButton>
 
                         </Tooltip>
+                      </TableCell>
+                    </TableRow>
+                  </div>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
                         <Dialog
                           sx={{
                             "& .MuiDialog-paper": {
@@ -369,20 +378,12 @@ export const ImageGalleryManagment = () => {
                                 اضافه کردن
                               </Button>
                             ) : (
-                              <Button onClick={()=>saveDialogUpdateHandle(item)}>
+                              <Button onClick={()=>saveDialogUpdateHandle()}>
                                 به روز رسانی
                               </Button>
                             )}
                           </DialogActions>
                         </Dialog>
-                      </TableCell>
-                    </TableRow>
-                  </div>
-                );
-              })}
-          </TableBody>
-        </Table>
-      </TableContainer>
       {/* // ) : null // } */}
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
