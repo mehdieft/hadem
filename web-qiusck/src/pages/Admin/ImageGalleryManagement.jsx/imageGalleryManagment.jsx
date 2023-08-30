@@ -22,7 +22,7 @@ import { useEffect } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
 import { fetchData } from "../../../api/imageGalleryRequests";
-import {insertImageManagamentData} from '../../../api/imageGalleryRequests'
+import { insertImageManagamentData } from "../../../api/imageGalleryRequests";
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
 
@@ -33,7 +33,7 @@ export const ImageGalleryManagment = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
   const [dataForDialog, setDataForDialog] = useState({ title: "", alt: "" });
-  const [selectedImage,setSelectedImage]=useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const [tableData, setDataTable] = useState([]);
   const [error, setErorr] = useState("");
@@ -41,14 +41,14 @@ export const ImageGalleryManagment = () => {
 
   useEffect(() => {
     fetchAndSetData();
-    openNotification('متن جایگزین نباید خالی باشد','error')
+    openNotification("متن جایگزین نباید خالی باشد", "error");
   }, []);
   const fetchAndSetData = async () => {
     console.log("fuck you");
     const result = await fetchData();
     console.log("ress----->", result);
     setDataTable(result.data.data);
-    // updateNotification('متن جایگزین نباید خالی باشد',error)
+    openNotification("متن جایگزین نباید خالی باشد", "error");
     setErorr(result.error);
   };
 
@@ -86,34 +86,44 @@ export const ImageGalleryManagment = () => {
   };
 
   const handleImageUpload = (event) => {
-  console.log("************",event.target.files[0])
+    console.log("************", event.target.files[0]);
     setSelectedImage(event.target.files[0]);
-    console.log("tthis is file",selectedImage)
+    console.log("tthis is file", selectedImage);
   };
 
   const saveDialogUpdateHandle = () => {
     setIsInsertDialog(false);
     setOPenDialog(false);
-    setDataForDialog({ title: "", alt: "" })
+    setDataForDialog({ title: "", alt: "" });
     console.log("this is update");
-
   };
 
-
-  const saveInsertDialogHandler=()=>{
-    console.log("__________________>",dataForDialog,selectedImage)
-    if(dataForDialog.alt !==""){
-      openNotification('متن جایگزین نباید خالی باشد',error)
-      if(dataForDialog.title !==''){
-        if(selectedImage !==null){
-          insertImageManagamentData(dataForDialog.title,dataForDialog.alt,selectedImage)
-
+  const saveInsertDialogHandler = () => {
+    console.log("__________________>", dataForDialog, selectedImage);
+    if (dataForDialog.alt !== "") {
+      if (dataForDialog.title !== "") {
+        if (selectedImage !== null) {
+          insertImageManagamentData(
+            dataForDialog.title,
+            dataForDialog.alt,
+            selectedImage
+          );
+          setIsInsertDialog(false);
+          setOPenDialog(false);
+          setDataForDialog({ title: "", alt: "" });
+          fetchAndSetData();
+          openNotification("با موفقیت اضافه شد", "success");
+          window.location.reload();
+        } else {
+          openNotification("حداقل یک عکس انتخاب کنید", "error");
         }
+      } else {
+        openNotification("عنوان نباید خالی باشد");
       }
-
+    } else {
+      openNotification("متن جایگزین نباید خالی باشد", "error");
     }
-
-  }
+  };
   const columns = [
     {
       id: "NO",
@@ -175,190 +185,182 @@ export const ImageGalleryManagment = () => {
         direction: "rtl",
       }}
     >
-      {tableData.length > 0 && tableData.length !== undefined ? (
-        <TableContainer sx={{ maxHeight: "600px" }}>
-          <Table stickyHeader aria-label="test for image Gallery">
-            <TableHead>
+      {/* {tableData.length > 0 && tableData.length !== undefined ? ( */}
+      <TableContainer sx={{ maxHeight: "600px" }}>
+        <Table stickyHeader aria-label="test for image Gallery">
+          <TableHead>
+            <TableRow>
               <TableRow>
-                <TableRow>
-                  <TableCell align="right" width={300}>
-                    alt
-                  </TableCell>
-                  <TableCell align="right" width={300}>
-                    Url
-                  </TableCell>
-                  <TableCell align="right" width={300}>
-                    title
-                  </TableCell>
-                  <TableCell align="right" width={300}>
-                    actions
-                  </TableCell>
-                  <TableCell align="right" width={300}>
-                    <Tooltip title="اضافه کردن">
-                      <IconButton onClick={openInsertDialog}>
-                        <AddIcon />
-                      </IconButton>
-                    </Tooltip>
-                  </TableCell>
-                </TableRow>
-                {columns.map((index, column) => {
-                  <TableCell key={Math.random() * 1000}>
-                    {column.label}sadsa
-                  </TableCell>;
-                })}
+                <TableCell align="right" width={300}>
+                  alt
+                </TableCell>
+                <TableCell align="right" width={300}>
+                  Url
+                </TableCell>
+                <TableCell align="right" width={300}>
+                  title
+                </TableCell>
+                <TableCell align="right" width={300}>
+                  actions
+                </TableCell>
+                <TableCell align="right" width={300}>
+                  <Tooltip title="اضافه کردن">
+                    <IconButton onClick={openInsertDialog}>
+                      <AddIcon />
+                    </IconButton>
+                  </Tooltip>
+                </TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {tableData
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((item, index) => {
-                  const value = item.id;
-                  return (
-                    <div key={index * 4}>
-                      <TableRow>
-                        <TableCell align="right" width={300} scope="td">
-                          {" "}
-                          {index + 1 + page * 10}
-                        </TableCell>
-                        <TableCell align="right" width={300}>
-                          <img
-                            src={`http://localhost:4848/static/uploads/${item.url}`}
-                            style={{
-                              borderRadius: "50%",
-                              width: "100px",
-                              height: "100px",
-                            }}
-                            alt=""
-                          />
-                          {/* {item.url + index} */}
-                        </TableCell>
-                        <TableCell align="right" width={300}>
-                          {item.title + index}
-                        </TableCell>
+              {columns.map((index, column) => {
+                <TableCell key={Math.random() * 1000}>
+                  {column.label}
+                </TableCell>;
+              })}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {tableData
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((item, index) => {
+                const value = item.id;
+                return (
+                  <div key={index * 4}>
+                    <TableRow>
+                      <TableCell align="right" width={300} scope="td">
+                        {" "}
+                        {index + 1 + page * 10}
+                      </TableCell>
+                      <TableCell align="right" width={300}>
+                        <img
+                          src={`http://localhost:4848/static/uploads/${item.url}`}
+                          style={{
+                            borderRadius: "50%",
+                            width: "100px",
+                            height: "100px",
+                          }}
+                          alt=""
+                        />
+                        {/* {item.url + index} */}
+                      </TableCell>
+                      <TableCell align="right" width={300}>
+                        {item.title + index}
+                      </TableCell>
 
-                        <TableCell align="right" width={300}>
-                          <Tooltip title="ویرایش ">
-                            <IconButton
-                              key={Math.random() * 1000}
-                              aria-label="delete"
-                            >
-                              <EditIcon
-                                onClick={() => {
-                                  editButtonHandler(item);
-                                }}
-                                sx={{ color: "#d1670c" }}
-                              />
-                            </IconButton>
-                          </Tooltip>
-                          <Dialog
-                            sx={{
-                              "& .MuiDialog-paper": {
-                                width: "80%",
-                                maxHeight: 435,
-                              },
-                            }}
-                            open={openDialog}
+                      <TableCell align="right" width={300}>
+                        <Tooltip title="ویرایش ">
+                          <IconButton
+                            key={Math.random() * 1000}
+                            aria-label="delete"
                           >
-                            <DialogTitle
-                              sx={{ padding: 0, marginBottom: "12px" }}
+                            <EditIcon
+                              onClick={() => {
+                                editButtonHandler(item);
+                              }}
+                              sx={{ color: "#d1670c" }}
+                            />
+                          </IconButton>
+                        </Tooltip>
+                        <Dialog
+                          sx={{
+                            "& .MuiDialog-paper": {
+                              width: "80%",
+                              maxHeight: 435,
+                            },
+                          }}
+                          open={openDialog}
+                        >
+                          <DialogTitle
+                            sx={{ padding: 0, marginBottom: "12px" }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                              }}
                             >
-                              <div
-                                style={{
-                                  display: "flex",
-                                  justifyContent: "space-between",
-                                }}
+                              <IconButton
+                                onClick={cancelDialog}
+                                color="secondary"
                               >
-                                <IconButton
-                                  onClick={cancelDialog}
-                                  color="secondary"
-                                >
-                                  <CancelIcon />
-                                </IconButton>
-                                {isInsertDialog == true ? (
-                                  <span>اضافه کردن عکس جدید</span>
-                                ) : (
-                                  <span>به روز رسانی عکس </span>
-                                )}
-
-                                <div></div>
-                              </div>
-
-
-
-
-
-
-
-
-                            </DialogTitle>
-                            <DialogContent>
-                              <DialogContentText>
-                                <div className="dialog-container">
-                                  <form>
-                                    <div>
-                                      <TextField
-                                        fullWidth
-                                        sx={{
-                                          width: "350px",
-                                          marginTop: "32px",
-                                        }}
-                                        label="عنوان عکس"
-                                        variant="outlined"
-                                        value={dataForDialog.title}
-                                        onChange={handleTitleChange}
-                                      />
-                                    </div>
-                                    <div>
-                                      <TextField
-                                        fullWidth
-                                        sx={{
-                                          width: "350px",
-                                          margin: "32px 0",
-                                        }}
-                                        label="متن جایگزین"
-                                        variant="outlined"
-                                        value={dataForDialog.alt}
-                                        onChange={handleAltChange}
-                                      />
-                                    </div>
-                                    <Button
-                                      variant="outlined"
-                                      color="secondary"
-                                      component="label"
-                                    >
-                                      Upload Image
-                                      <input
-                                        type="file"
-                                        hidden
-                                        onChange={handleImageUpload}
-                                      />
-                                    </Button>
-                                  </form>
-                                </div>
-                              </DialogContentText>
-                            </DialogContent>
-                            <DialogActions>
-                              <Button onClick={cancelDialog}>بستن</Button>
+                                <CancelIcon />
+                              </IconButton>
                               {isInsertDialog == true ? (
-                                <Button onClick={saveInsertDialogHandler}>
-                                  اضافه کردن
-                                </Button>
+                                <span>اضافه کردن عکس جدید</span>
                               ) : (
-                                <Button onClick={saveDialogUpdateHandle}>
-                                  به روز رسانی
-                                </Button>
+                                <span>به روز رسانی عکس </span>
                               )}
-                            </DialogActions>
-                          </Dialog>
-                        </TableCell>
-                      </TableRow>
-                    </div>
-                  );
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      ) : null}
+
+                              <div></div>
+                            </div>
+                          </DialogTitle>
+                          <DialogContent>
+                            <DialogContentText>
+                              <div className="dialog-container">
+                                <form>
+                                  <div>
+                                    <TextField
+                                      fullWidth
+                                      sx={{
+                                        width: "350px",
+                                        marginTop: "32px",
+                                      }}
+                                      label="عنوان عکس"
+                                      variant="outlined"
+                                      value={dataForDialog.title}
+                                      onChange={handleTitleChange}
+                                    />
+                                  </div>
+                                  <div>
+                                    <TextField
+                                      fullWidth
+                                      sx={{
+                                        width: "350px",
+                                        margin: "32px 0",
+                                      }}
+                                      label="متن جایگزین"
+                                      variant="outlined"
+                                      value={dataForDialog.alt}
+                                      onChange={handleAltChange}
+                                    />
+                                  </div>
+                                  <Button
+                                    variant="outlined"
+                                    color="secondary"
+                                    component="label"
+                                  >
+                                    Upload Image
+                                    <input
+                                      type="file"
+                                      hidden
+                                      onChange={handleImageUpload}
+                                    />
+                                  </Button>
+                                </form>
+                              </div>
+                            </DialogContentText>
+                          </DialogContent>
+                          <DialogActions>
+                            <Button onClick={cancelDialog}>بستن</Button>
+                            {isInsertDialog == true ? (
+                              <Button onClick={saveInsertDialogHandler}>
+                                اضافه کردن
+                              </Button>
+                            ) : (
+                              <Button onClick={saveDialogUpdateHandle}>
+                                به روز رسانی
+                              </Button>
+                            )}
+                          </DialogActions>
+                        </Dialog>
+                      </TableCell>
+                    </TableRow>
+                  </div>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      {/* // ) : null // } */}
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
