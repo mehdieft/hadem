@@ -81,6 +81,7 @@ export const ImageGalleryManagment = () => {
   const editButtonHandler = (item) => {
     console.log("this is data from function", item);
     setDataForDialog(item);
+    console.log("item update selected",item)
     setOPenDialog(true);
   };
   const cancelDialog = () => {
@@ -95,22 +96,29 @@ export const ImageGalleryManagment = () => {
     console.log("tthis is file", selectedImage);
   };
 
-  const saveDialogUpdateHandle = () => {
-    const id=dataForDialog.id
-    updateImage(id,dataForDialog.title,dataForDialog.alt,selectedImage)
+  const saveDialogUpdateHandle = async() => {
+    const id=dataForDialog._id
+   const {data}=await  updateImage(id,dataForDialog.title,dataForDialog.alt,selectedImage)
+   console.log("data_____",data);
+   if(data ){
+    console.log('_________________>',data)
+    // openNotification(res.data.message,'success')
+   window.reload()
+   }
     setIsInsertDialog(false);
     setOPenDialog(false);
     setDataForDialog({ title: "", alt: "" });
+
     console.log("this is update");
   };
-  const deleteImageItem=async()=>{
+  const deleteImageItem=async(item)=>{
    
-    const result=await  deleteImage(dataForDialog.id)
+    const result=await  deleteImage(item._id)
     
-    console.log("result delete-----",result);
+    console.log("result delete-----",result.data);
     if(result.data !==null){
       openNotification(result.data.message,'success')
-      window.reload()
+      window.location.reload()
     }
   }
   
@@ -167,31 +175,7 @@ export const ImageGalleryManagment = () => {
       align: "right",
     },
   ];
-  const data = [
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-    { alt: 1, url: "test1", title: "test2" },
-  ];
+
   return (
     <Paper
       sx={{
@@ -279,7 +263,7 @@ export const ImageGalleryManagment = () => {
                         </Tooltip>
                         <Tooltip title="حذف کردن">
                           <IconButton>
-                            <DeleteIcon sx={{color:"red"}} onClick={()=>{deleteImageItem()}}/>
+                            <DeleteIcon sx={{color:"red"}} onClick={()=>{deleteImageItem(item)}}/>
 
                           </IconButton>
 

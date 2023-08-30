@@ -74,7 +74,7 @@ export const deleteImage = async (id) => {
 
 export const updateImage = async (id, title, alt, file) => {
   let sendData;
-  if (file !== null) {
+  if (file == null) {
     sendData = { id, title, alt };
     try {
       const response = await axios.post(
@@ -82,7 +82,7 @@ export const updateImage = async (id, title, alt, file) => {
         sendData
       );
       if (response.status == 200) {
-        return { data: response.date, error: null };
+        return { data: response.date, error: null ,status:response.status};
       }
     } catch (error) {
       return { data: null, error: error.message };
@@ -99,7 +99,7 @@ export const updateImage = async (id, title, alt, file) => {
         form
       );
       if (response.status == 200) {
-        return { data: response.date, error: null };
+        return { data: response.data, error: null };
       }
     } catch (error) {
       return { data: null, error: error.message };

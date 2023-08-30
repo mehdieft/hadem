@@ -40,6 +40,7 @@ id= req.body.id.trim();
   const findedImage = await Image.findById(id);
   if (findedImage) {
     if (req.file) {
+      console.log("*****************request has file************")
       var storage = multer.diskStorage({
         destination: "./public/uploads/",
         filename: function (req, file, callback) {
