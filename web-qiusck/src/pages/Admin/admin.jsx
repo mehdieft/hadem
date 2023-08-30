@@ -63,6 +63,7 @@ export const Admin = () => {
             مدیریت عکس ها
           </Button>
           <Button
+          onClick={videoClickH}
             variant="outlined"
             sx={{
               padding: "9px 65px",
