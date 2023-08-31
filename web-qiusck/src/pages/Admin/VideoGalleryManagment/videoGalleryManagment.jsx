@@ -31,6 +31,11 @@ export const VideoGalleryManagment = () => {
     const [error, setErorr] = useState("");
     const [isInsertDialog, setIsInsertDialog] = useState(false);
     const [idForDelete, setIdForDelete] = useState(null);
+    const [dialogData,setDialogData]=useState([]);
+    const [dataForDialog,setDataForDialog]=useState({
+        title:"",alt:"",id:""
+
+    })
   const columns = [
     {
       id: "NO",
@@ -40,7 +45,7 @@ export const VideoGalleryManagment = () => {
     },
     {
       id: "محل تصویر",
-      label: "محل تصویر",
+      label: " عنوان ویدیو",
       minWidth: 370,
       align: "right",
     },
@@ -78,7 +83,7 @@ export const VideoGalleryManagment = () => {
                 </TableCell>
                 <TableCell align="right" width={300}>
                   <Tooltip title="اضافه کردن">
-                    <IconButton>
+                    <IconButton onClick={()=>{setOPenDialog(true)}}>
                       <AddIcon />
                     </IconButton>
                   </Tooltip>
@@ -126,9 +131,7 @@ export const VideoGalleryManagment = () => {
                             aria-label="delete"
                           >
                             <EditIcon
-                              onClick={() => {
-                                editButtonHandler(item);
-                              }}
+                             
                               sx={{ color: "#d1670c" }}
                             />
                           </IconButton>
@@ -137,9 +140,7 @@ export const VideoGalleryManagment = () => {
                           <IconButton>
                             <DeleteIcon
                               sx={{ color: "red" }}
-                              onClick={() => {
-                                deleteImageItem(item);
-                              }}
+                              
                             />
                           </IconButton>
                         </Tooltip>
@@ -167,7 +168,7 @@ export const VideoGalleryManagment = () => {
               justifyContent: "space-between",
             }}
           >
-            <IconButton onClick={cancelDialog} color="secondary">
+            <IconButton  color="secondary">
               <CancelIcon />
             </IconButton>
             {isInsertDialog == true ? (
@@ -190,7 +191,7 @@ export const VideoGalleryManagment = () => {
                       width: "350px",
                       marginTop: "32px",
                     }}
-                    label="عنوان عکس"
+                    label="عنوان ویدیو"
                     variant="outlined"
                     value={dataForDialog.title}
                     onChange={handleTitleChange}
@@ -211,7 +212,7 @@ export const VideoGalleryManagment = () => {
                 </div>
                 <Button variant="outlined" color="secondary" component="label">
                   Upload Image
-                  <input type="file" hidden onChange={handleImageUpload} />
+                  <input type="file" hidden  />
                 </Button>
               </form>
             </div>
