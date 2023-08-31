@@ -20,6 +20,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import AddIcon from "@mui/icons-material/Add";
 import { useEffect } from "react";
+import { TextField } from "@mui/material";
+
 
 export const VideoGalleryManagment = () => {
 
@@ -36,6 +38,15 @@ export const VideoGalleryManagment = () => {
         title:"",alt:"",id:""
 
     })
+    
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+    console.log("what the fuck is this");
+  };
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
   const columns = [
     {
       id: "NO",
@@ -168,13 +179,15 @@ export const VideoGalleryManagment = () => {
               justifyContent: "space-between",
             }}
           >
-            <IconButton  color="secondary">
+            <IconButton onClick={()=>{setOPenDialog(false)}} color="secondary">
               <CancelIcon />
             </IconButton>
             {isInsertDialog == true ? (
-              <span>اضافه کردن عکس جدید</span>
+              <span>
+                اضافه کردن ویدیو جدید
+                </span>
             ) : (
-              <span>به روز رسانی عکس </span>
+              <span>به روز رسانی ویدیو </span>
             )}
 
             <div></div>
@@ -194,7 +207,7 @@ export const VideoGalleryManagment = () => {
                     label="عنوان ویدیو"
                     variant="outlined"
                     value={dataForDialog.title}
-                    onChange={handleTitleChange}
+                    
                   />
                 </div>
                 <div>
@@ -207,7 +220,7 @@ export const VideoGalleryManagment = () => {
                     label="متن جایگزین"
                     variant="outlined"
                     value={dataForDialog.alt}
-                    onChange={handleAltChange}
+                    
                   />
                 </div>
                 <Button variant="outlined" color="secondary" component="label">
@@ -219,11 +232,11 @@ export const VideoGalleryManagment = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={cancelDialog}>بستن</Button>
+          <Button>بستن</Button>
           {isInsertDialog == true ? (
-            <Button onClick={saveInsertDialogHandler}>اضافه کردن</Button>
+            <Button >اضافه کردن</Button>
           ) : (
-            <Button onClick={() => saveDialogUpdateHandle()}>
+            <Button >
               به روز رسانی
             </Button>
           )}
