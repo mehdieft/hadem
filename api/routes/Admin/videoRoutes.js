@@ -16,7 +16,7 @@ var storage = multer.diskStorage({
 
 
 router.post('/insert',multer.single('video'),videoController.insert)
-router.post('/update',videoController.update);
+router.post('/update',multer.single('video'),videoController.update);
 router.post('/delete',videoController.delete)
 
 
