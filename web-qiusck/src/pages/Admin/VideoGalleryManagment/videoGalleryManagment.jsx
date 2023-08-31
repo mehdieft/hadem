@@ -47,6 +47,16 @@ export const VideoGalleryManagment = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const openDialogIcon=()=>{
+    setOPenDialog(true)
+    setIsInsertDialog(true)
+  }
+  const changeVideoTitleHandler=(e)=>{
+    setDataForDialog({ ...dataForDialog, title: e.target.value });
+  }
+  const changeVideoAlt=(e)=>{
+    setDataForDialog({...dataForDialog, alt:e.target.value});
+  }
   const columns = [
     {
       id: "NO",
@@ -94,7 +104,7 @@ export const VideoGalleryManagment = () => {
                 </TableCell>
                 <TableCell align="right" width={300}>
                   <Tooltip title="اضافه کردن">
-                    <IconButton onClick={()=>{setOPenDialog(true)}}>
+                    <IconButton onClick={openDialogIcon}>
                       <AddIcon />
                     </IconButton>
                   </Tooltip>
@@ -207,6 +217,7 @@ export const VideoGalleryManagment = () => {
                     label="عنوان ویدیو"
                     variant="outlined"
                     value={dataForDialog.title}
+                    onChange={changeVideoTitleHandler}
                     
                   />
                 </div>
