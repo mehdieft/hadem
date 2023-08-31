@@ -79,6 +79,7 @@ id= req.body.id.trim();
     }
   }else{
     console.log("not finded____")
+    res.status(500).json({message:"error somethings wrong"})
   }
 };
 exports.delete=async(req,res,next)=>{
