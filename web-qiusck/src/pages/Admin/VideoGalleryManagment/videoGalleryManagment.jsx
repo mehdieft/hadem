@@ -231,11 +231,12 @@ export const VideoGalleryManagment = () => {
                     label="متن جایگزین"
                     variant="outlined"
                     value={dataForDialog.alt}
+                    onChange={changeVideoAlt}
                     
                   />
                 </div>
                 <Button variant="outlined" color="secondary" component="label">
-                  Upload Image
+                  Upload Video
                   <input type="file" hidden  />
                 </Button>
               </form>
