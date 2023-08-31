@@ -1,5 +1,14 @@
 const VideoModel = require("../Models/Video");
+const multer = require("multer");
+
+
+
+
+
+
+
 exports.insert = async (req, res, next) => {
+    console.log("_____",req.body)
   if (req.file) {
     var storage = multer.diskStorage({
       destination: "./public/uploads/video",
@@ -25,7 +34,7 @@ exports.insert = async (req, res, next) => {
         res.status(500).json({message:"error somethings wrong"})
     }
   } else {
-    req.status(5000).json({ message: "you must insert video" });
+    res.status(500).json({ message: "you must insert video" });
   }
 };
 

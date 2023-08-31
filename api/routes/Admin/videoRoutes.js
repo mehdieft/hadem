@@ -1,6 +1,7 @@
 const express=require('express');
 const videoController=require('../../controllers/videoController')
 const router=express.Router()
+const path=require('path')
 
 
 const multer = require('multer');
@@ -13,10 +14,11 @@ var storage = multer.diskStorage({
         callback(null, path.basename(file.originalname, ext) + Date.now() + ext)
     }
 });
+var upload = multer({ storage: storage })
 
 
-router.post('/insert',multer.single('video'),videoController.insert)
-router.post('/update',multer.single('video'),videoController.update);
+router.post('/insert',upload.single('video'),videoController.insert)
+router.post('/update',upload.single('video'),videoController.update);
 router.post('/delete',videoController.delete)
 
 
