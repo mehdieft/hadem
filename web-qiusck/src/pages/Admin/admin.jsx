@@ -20,6 +20,10 @@ export const Admin = () => {
   const imageGalleryClickHandler = () => {
     navigate("/admin/imageGalleryManagment");
   };
+  const videoGalleryClickHandler=()=>{
+    navigate('/admin/videoGalleryManagment');
+  }
+
 
   return (
     <motion.div 
@@ -63,7 +67,7 @@ export const Admin = () => {
             مدیریت عکس ها
           </Button>
           <Button
-          onClick={videoClickH}
+          onClick={videoGalleryClickHandler}
             variant="outlined"
             sx={{
               padding: "9px 65px",
