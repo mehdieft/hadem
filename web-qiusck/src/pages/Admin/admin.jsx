@@ -23,7 +23,9 @@ export const Admin = () => {
   const videoGalleryClickHandler=()=>{
     navigate('/admin/videoGalleryManagment');
   }
-
+const shshidManagamentClickHandler=()=>{
+  navigate('/admin/shahidManagament')
+}
 
   return (
     <motion.div 
@@ -92,6 +94,20 @@ export const Admin = () => {
             مدیریت روایت ها{" "}
           </Button>
           <Button
+           onClick={shshidManagamentClickHandler}
+            variant="outlined"
+            sx={{
+              padding: "9px 65px",
+              color: "black",
+              opacity: "0.9",
+              fontFamily: "Diba",
+            }}
+            startIcon={<InstagramIcon />}
+          >
+            مدیریت شهید ها{" "}
+          </Button>
+          <Button
+         
             variant="outlined"
             sx={{
               padding: "9px 65px",
@@ -104,18 +120,7 @@ export const Admin = () => {
           >
             مدیریت نبرد ها{" "}
           </Button>
-          <Button
-            variant="outlined"
-            sx={{
-              padding: "9px 65px",
-              color: "black",
-              opacity: "0.9",
-              fontFamily: "Diba",
-            }}
-            startIcon={<InstagramIcon />}
-          >
-            Send
-          </Button>
+        
         </div>
         <div className="content">
           <div

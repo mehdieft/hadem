@@ -23,7 +23,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
 import { fetchData } from "../../../api/imageGalleryRequests";
 import { insertImageManagamentData } from "../../../api/imageGalleryRequests";
-import {deleteImage} from '../../../api/imageGalleryRequests';
+import { deleteImage } from "../../../api/imageGalleryRequests";
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
 import { updateImage } from "../../../api/imageGalleryRequests";
@@ -34,12 +34,16 @@ export const ImageGalleryManagment = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
-  const [dataForDialog, setDataForDialog] = useState({id:'', title: "", alt: "" });
+  const [dataForDialog, setDataForDialog] = useState({
+    id: "",
+    title: "",
+    alt: "",
+  });
   const [selectedImage, setSelectedImage] = useState(null);
   const [tableData, setDataTable] = useState([]);
   const [error, setErorr] = useState("");
   const [isInsertDialog, setIsInsertDialog] = useState(false);
-  const [idForDelete,setIdForDelete]=useState(null)
+  const [idForDelete, setIdForDelete] = useState(null);
 
   useEffect(() => {
     fetchAndSetData();
@@ -48,12 +52,13 @@ export const ImageGalleryManagment = () => {
     console.log("fuck you");
     const result = await fetchData();
     console.log("ress----->", result);
-    if(result.data !==null){
-
+    if (result.data !== null) {
       setDataTable(result.data.data);
-    }else{openNotification(result.error,'error')}
-    openNotification("متن جایگزین نباید خالی باشد", "error");
-    setErorr(result.error);
+    } else {
+      openNotification(result.error, "error");
+      openNotification("متن جایگزین نباید خالی باشد", "error");
+      setErorr(result.error);
+    }
   };
 
   const handleChangePage = (event, newPage) => {
@@ -81,7 +86,7 @@ export const ImageGalleryManagment = () => {
   const editButtonHandler = (item) => {
     console.log("this is data from function", item);
     setDataForDialog(item);
-    console.log("item update selected",item)
+    console.log("item update selected", item);
     setOPenDialog(true);
   };
   const cancelDialog = () => {
@@ -96,32 +101,35 @@ export const ImageGalleryManagment = () => {
     console.log("tthis is file", selectedImage);
   };
 
-  const saveDialogUpdateHandle = async() => {
-    const id=dataForDialog._id
-   const {data}=await  updateImage(id,dataForDialog.title,dataForDialog.alt,selectedImage)
-   console.log("data_____",data);
-   if(data ){
-    console.log('_________________>',data)
-    // openNotification(res.data.message,'success')
-   window.reload()
-   }
+  const saveDialogUpdateHandle = async () => {
+    const id = dataForDialog._id;
+    const { data } = await updateImage(
+      id,
+      dataForDialog.title,
+      dataForDialog.alt,
+      selectedImage
+    );
+    console.log("data_____", data);
+    if (data) {
+      console.log("_________________>", data);
+      // openNotification(res.data.message,'success')
+      window.location.reload();
+    }
     setIsInsertDialog(false);
     setOPenDialog(false);
     setDataForDialog({ title: "", alt: "" });
 
     console.log("this is update");
   };
-  const deleteImageItem=async(item)=>{
-   
-    const result=await  deleteImage(item._id)
-    
-    console.log("result delete-----",result.data);
-    if(result.data !==null){
-      openNotification(result.data.message,'success')
-      window.location.reload()
+  const deleteImageItem = async (item) => {
+    const result = await deleteImage(item._id);
+
+    console.log("result delete-----", result.data);
+    if (result.data !== null) {
+      openNotification(result.data.message, "success");
+      window.location.reload();
     }
-  }
-  
+  };
 
   const saveInsertDialogHandler = () => {
     console.log("__________________>", dataForDialog, selectedImage);
@@ -263,10 +271,13 @@ export const ImageGalleryManagment = () => {
                         </Tooltip>
                         <Tooltip title="حذف کردن">
                           <IconButton>
-                            <DeleteIcon sx={{color:"red"}} onClick={()=>{deleteImageItem(item)}}/>
-
+                            <DeleteIcon
+                              sx={{ color: "red" }}
+                              onClick={() => {
+                                deleteImageItem(item);
+                              }}
+                            />
                           </IconButton>
-
                         </Tooltip>
                       </TableCell>
                     </TableRow>
@@ -276,98 +287,83 @@ export const ImageGalleryManagment = () => {
           </TableBody>
         </Table>
       </TableContainer>
-                        <Dialog
-                          sx={{
-                            "& .MuiDialog-paper": {
-                              width: "80%",
-                              maxHeight: 435,
-                            },
-                          }}
-                          open={openDialog}
-                        >
-                          <DialogTitle
-                            sx={{ padding: 0, marginBottom: "12px" }}
-                          >
-                            <div
-                              style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                              }}
-                            >
-                              <IconButton
-                                onClick={cancelDialog}
-                                color="secondary"
-                              >
-                                <CancelIcon />
-                              </IconButton>
-                              {isInsertDialog == true ? (
-                                <span>اضافه کردن عکس جدید</span>
-                              ) : (
-                                <span>به روز رسانی عکس </span>
-                              )}
+      <Dialog
+        sx={{
+          "& .MuiDialog-paper": {
+            width: "80%",
+            maxHeight: 435,
+          },
+        }}
+        open={openDialog}
+      >
+        <DialogTitle sx={{ padding: 0, marginBottom: "12px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <IconButton onClick={cancelDialog} color="secondary">
+              <CancelIcon />
+            </IconButton>
+            {isInsertDialog == true ? (
+              <span>اضافه کردن عکس جدید</span>
+            ) : (
+              <span>به روز رسانی عکس </span>
+            )}
 
-                              <div></div>
-                            </div>
-                          </DialogTitle>
-                          <DialogContent>
-                            <DialogContentText>
-                              <div className="dialog-container">
-                                <form>
-                                  <div>
-                                    <TextField
-                                      fullWidth
-                                      sx={{
-                                        width: "350px",
-                                        marginTop: "32px",
-                                      }}
-                                      label="عنوان عکس"
-                                      variant="outlined"
-                                      value={dataForDialog.title}
-                                      onChange={handleTitleChange}
-                                    />
-                                  </div>
-                                  <div>
-                                    <TextField
-                                      fullWidth
-                                      sx={{
-                                        width: "350px",
-                                        margin: "32px 0",
-                                      }}
-                                      label="متن جایگزین"
-                                      variant="outlined"
-                                      value={dataForDialog.alt}
-                                      onChange={handleAltChange}
-                                    />
-                                  </div>
-                                  <Button
-                                    variant="outlined"
-                                    color="secondary"
-                                    component="label"
-                                  >
-                                    Upload Image
-                                    <input
-                                      type="file"
-                                      hidden
-                                      onChange={handleImageUpload}
-                                    />
-                                  </Button>
-                                </form>
-                              </div>
-                            </DialogContentText>
-                          </DialogContent>
-                          <DialogActions>
-                            <Button onClick={cancelDialog}>بستن</Button>
-                            {isInsertDialog == true ? (
-                              <Button onClick={saveInsertDialogHandler}>
-                                اضافه کردن
-                              </Button>
-                            ) : (
-                              <Button onClick={()=>saveDialogUpdateHandle()}>
-                                به روز رسانی
-                              </Button>
-                            )}
-                          </DialogActions>
-                        </Dialog>
+            <div></div>
+          </div>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            <div className="dialog-container">
+              <form>
+                <div>
+                  <TextField
+                    fullWidth
+                    sx={{
+                      width: "350px",
+                      marginTop: "32px",
+                    }}
+                    label="عنوان عکس"
+                    variant="outlined"
+                    value={dataForDialog.title}
+                    onChange={handleTitleChange}
+                  />
+                </div>
+                <div>
+                  <TextField
+                    fullWidth
+                    sx={{
+                      width: "350px",
+                      margin: "32px 0",
+                    }}
+                    label="متن جایگزین"
+                    variant="outlined"
+                    value={dataForDialog.alt}
+                    onChange={handleAltChange}
+                  />
+                </div>
+                <Button variant="outlined" color="secondary" component="label">
+                  Upload Image
+                  <input type="file" hidden onChange={handleImageUpload} />
+                </Button>
+              </form>
+            </div>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={cancelDialog}>بستن</Button>
+          {isInsertDialog == true ? (
+            <Button onClick={saveInsertDialogHandler}>اضافه کردن</Button>
+          ) : (
+            <Button onClick={() => saveDialogUpdateHandle()}>
+              به روز رسانی
+            </Button>
+          )}
+        </DialogActions>
+      </Dialog>
       {/* // ) : null // } */}
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
