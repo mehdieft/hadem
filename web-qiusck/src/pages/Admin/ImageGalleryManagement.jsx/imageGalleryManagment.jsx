@@ -56,7 +56,7 @@ export const ImageGalleryManagment = () => {
       setDataTable(result.data.data);
     } else {
       openNotification(result.error, "error");
-      openNotification("متن جایگزین نباید خالی باشد", "error");
+      // openNotification("متن جایگزین نباید خالی باشد", "error");
       setErorr(result.error);
     }
   };

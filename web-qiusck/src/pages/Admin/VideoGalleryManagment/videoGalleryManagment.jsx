@@ -21,15 +21,17 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import AddIcon from "@mui/icons-material/Add";
 import { useEffect } from "react";
 import { TextField } from "@mui/material";
-
+import {fetchData} from '../../../api/videoGalleryRequest'
+import { useNotification } from "../../../context/NotificationProvider";
 
 export const VideoGalleryManagment = () => {
+    const {openNotification}=useNotification()
 
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [openDialog, setOPenDialog] = useState(false);
     const [selectedVideo, setSelectedVideo] = useState(null);
-    const [tableData, setDataTable] = useState([]);
+    let [tableData, setDataTable] = useState([]);
     const [error, setErorr] = useState("");
     const [isInsertDialog, setIsInsertDialog] = useState(false);
     const [idForDelete, setIdForDelete] = useState(null);
@@ -38,6 +40,23 @@ export const VideoGalleryManagment = () => {
         title:"",alt:"",id:""
 
     })
+    useEffect(()=>{
+        fetchVideoData()
+    },[])
+    const fetchVideoData=async()=>{
+        const result=await fetchData();
+        console.log("result",result);
+        
+        if(result.data !==null){
+            tableData=result.data
+            setDataTable(tableData)
+            console.log("__________",tableData)
+        }else{
+            openNotification(result.error,'error')
+            setErorr(result.error);
+        }
+
+    }
     
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -47,6 +66,7 @@ export const VideoGalleryManagment = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  
   const openDialogIcon=()=>{
     setOPenDialog(true)
     setIsInsertDialog(true)
@@ -85,22 +105,25 @@ export const VideoGalleryManagment = () => {
   ];
   return (
     <Paper>
-      <TableContainer sx={{ maxHeight: "600px" }}>
+      <TableContainer sx={{ maxHeight: "600px",direction:'rtl' }}>
         <Table stickyHeader aria-label="test for image Gallery">
           <TableHead>
             <TableRow>
               <TableRow>
                 <TableCell align="right" width={300}>
-                  alt
+                  شماره
                 </TableCell>
                 <TableCell align="right" width={300}>
-                  video
+                  متن جایگزین
                 </TableCell>
                 <TableCell align="right" width={300}>
-                  title
+                 موضوع
                 </TableCell>
                 <TableCell align="right" width={300}>
-                  actions
+                 ویدیو
+                </TableCell>
+                <TableCell align="right" width={300}>
+                  اقدامات
                 </TableCell>
                 <TableCell align="right" width={300}>
                   <Tooltip title="اضافه کردن">

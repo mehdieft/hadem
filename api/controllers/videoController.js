@@ -75,3 +75,9 @@ exports.delete = async (req, res, next) => {
     res.status(200).json({ message: "successfult deleted" });
   }
 };
+exports.getAll=async(req,res,next)=>{
+    const videos= await VideoModel.find();
+    if(videos)res.status(200).json(videos)
+    else  res.status(500).json({message:"error somethings wrong on get data"})
+
+}

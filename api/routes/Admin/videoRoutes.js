@@ -19,6 +19,7 @@ var upload = multer({ storage: storage })
 
 router.post('/insert',upload.single('video'),videoController.insert)
 router.post('/update',upload.single('video'),videoController.update);
+router.get('/getAll',videoController.getAll)
 router.post('/delete',videoController.delete)
 
 
