@@ -82,6 +82,20 @@ export const VideoGalleryManagment = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const clearForms=()=>{
+    setIsUpdateDialog(false)
+    setVideoDialogUrl('')
+    setOpenVideoDialog(false)
+    setOPenDialog(false)
+    setDataForDialog({
+      title: "",
+      alt: "",
+      id: "",
+    })
+    setIsInsertDialog(false)
+    
+
+  }
 
   const openDialogIcon = () => {
     setOPenDialog(true);
@@ -334,9 +348,8 @@ export const VideoGalleryManagment = () => {
             }}
           >
             <IconButton
-              onClick={() => {
-                setOPenDialog(false);
-              }}
+              onClick={clearForms
+              }
               color="secondary"
             >
               <CancelIcon />
@@ -416,7 +429,7 @@ export const VideoGalleryManagment = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button >بستن</Button>
+          <Button onClick={clearForms} >بستن</Button>
           {isInsertDialog == true ? (
             <Button onClick={saveVideoInsert}>اضافه کردن</Button>
           ) : (
