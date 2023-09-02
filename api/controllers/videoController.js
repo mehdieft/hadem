@@ -2,6 +2,7 @@ const VideoModel = require("../Models/Video");
 const multer = require("multer");
 
 exports.insert = async (req, res, next) => {
+  console.log("fuckkkkkkk")
   console.log("_____", req.body);
   if (req.file) {
     var storage = multer.diskStorage({

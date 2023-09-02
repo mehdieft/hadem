@@ -6,3 +6,12 @@
     color: red;
 
 }
+.rows{
+    overflow: hidden;
+    max-width: 300px;
+}
+.row-alt{
+    overflow: hidden;
+    max-width: 200px;
+
+}

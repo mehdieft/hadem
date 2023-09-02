@@ -25,7 +25,7 @@ import { TextField } from "@mui/material";
 import { fetchData } from "../../../api/videoGalleryRequest";
 import { useNotification } from "../../../context/NotificationProvider";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-
+import { insertVideo } from "../../../api/videoGalleryRequest";
 export const VideoGalleryManagment = () => {
   const { openNotification } = useNotification();
 
@@ -39,7 +39,7 @@ export const VideoGalleryManagment = () => {
   const [idForDelete, setIdForDelete] = useState(null);
   const [dialogData, setDialogData] = useState([]);
   const [openVideoDialog, setOpenVideoDialog] = useState(false);
-  const [videoDialogUrl,setVideoDialogUrl]=useState('')
+  const [videoDialogUrl, setVideoDialogUrl] = useState("");
   const [dataForDialog, setDataForDialog] = useState({
     title: "",
     alt: "",
@@ -62,8 +62,8 @@ export const VideoGalleryManagment = () => {
     }
   };
   const videoPlayHandler = (url) => {
-    setVideoDialogUrl(url)
-  
+    setVideoDialogUrl(url);
+
     setOpenVideoDialog(true);
   };
 
@@ -85,6 +85,35 @@ export const VideoGalleryManagment = () => {
   };
   const changeVideoAlt = (e) => {
     setDataForDialog({ ...dataForDialog, alt: e.target.value });
+  };
+  const videoUploadHandler = async(event) => {
+    if(event.target.files[0] !==null){
+
+      setSelectedVideo(event.target.files[0]);
+      console.log("this is eventt",event.target.files)
+      console.log("this is setvideo",selectedVideo)
+    }
+  };
+  const saveVideoInsert = async() => {
+    console.log("***************");
+    if (dataForDialog.alt !== "") {
+      if (dataForDialog.title.length !== "") {
+      } else openNotification("عنوان ویدیو نباید خالی باشد", "error");
+      if (selectedVideo !== null) {
+        insertVideo(dataForDialog.alt, dataForDialog.title, selectedVideo);
+        setDataForDialog({ title: "", alt: "", id: "" });
+        setSelectedVideo(null);
+        const response=await fetchVideoData();
+        console.log("response on front _____>",await fetchVideoData())
+        if(response ){
+
+          setOPenDialog(false);
+          window.location.reload();
+          openNotification("ویدیو با موفقیت اضافه شد", "success");
+        }
+
+      } else openNotification("ویدیو باید انتخاب شود", "error");
+    } else openNotification("متن جایگزین ویدیو نباید خالی باشد", "error");
   };
   const columns = [
     {
@@ -114,32 +143,38 @@ export const VideoGalleryManagment = () => {
   ];
   return (
     <Paper>
-      <Dialog  open={openVideoDialog}>
-        <DialogTitle style={{padding:0}}>
-          <IconButton style={{padding:0}} onClick={()=>{
-            setOpenVideoDialog(false)
-            setVideoDialogUrl('')
-          }} color="secondary">
+      <Dialog open={openVideoDialog}>
+        <DialogTitle style={{ padding: 0 }}>
+          <IconButton
+            style={{ padding: 0 }}
+            onClick={() => {
+              setOpenVideoDialog(false);
+              setVideoDialogUrl("");
+            }}
+            color="secondary"
+          >
             <CancelIcon />
           </IconButton>
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            
-          <video width="320" height="240" preload="none" controls>
-            <source src={`http://localhost:4848/static/uploads/video/${videoDialogUrl}`}type="video/mp4" />
-          </video>
+            <video width="320" height="240" preload="none" controls>
+              <source
+                src={`http://localhost:4848/static/uploads/video/${videoDialogUrl}`}
+                type="video/mp4"
+              />
+            </video>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={()=>{
-            setOpenVideoDialog(false);
-            setVideoDialogUrl('');
-          }}>
+          <Button
+            onClick={() => {
+              setOpenVideoDialog(false);
+              setVideoDialogUrl("");
+            }}
+          >
             بستن
-
           </Button>
-
         </DialogActions>
       </Dialog>
       <TableContainer sx={{ maxHeight: "600px", direction: "rtl" }}>
@@ -185,18 +220,28 @@ export const VideoGalleryManagment = () => {
                 return (
                   <div key={index * 4}>
                     <TableRow>
-                      <TableCell align="right" width={100} scope="td">
+                      <TableCell
+                        className="rows"
+                        align="right"
+                        width={100}
+                        scope="td"
+                      >
                         {" "}
                         {index + 1 + page * 10}
                       </TableCell>
-                      <TableCell align="right" width={200} scope="td">
+                      <TableCell
+                        className="row-alt"
+                        align="right"
+                        width={200}
+                        scope="td"
+                      >
                         {" "}
                         {item.alt}
                       </TableCell>
-                      <TableCell align="right" width={250}>
+                      <TableCell className="row-alt" align="right" width={250}>
                         {item.title}
                       </TableCell>
-                      <TableCell align="right" width={300}>
+                      <TableCell className="rows" align="right" width={300}>
                         <div
                           style={{
                             backgroundColor: "black",
@@ -288,13 +333,14 @@ export const VideoGalleryManagment = () => {
                   <TextField
                     fullWidth
                     sx={{
-                      width: "350px",
+                      maxWidth: "350px",
+                      overFlow: "hidden",
                       marginTop: "32px",
                     }}
-                    label="عنوان ویدیو"
+                    label="متن جایگزین"
                     variant="outlined"
-                    value={dataForDialog.title}
-                    onChange={changeVideoTitleHandler}
+                    value={dataForDialog.alt}
+                    onChange={changeVideoAlt}
                   />
                 </div>
                 <div>
@@ -304,15 +350,15 @@ export const VideoGalleryManagment = () => {
                       width: "350px",
                       margin: "32px 0",
                     }}
-                    label="متن جایگزین"
+                    label="عنوان ویدیو"
                     variant="outlined"
-                    value={dataForDialog.alt}
-                    onChange={changeVideoAlt}
+                    value={dataForDialog.title}
+                    onChange={changeVideoTitleHandler}
                   />
                 </div>
                 <Button variant="outlined" color="secondary" component="label">
                   Upload Video
-                  <input type="file" hidden />
+                  <input type="file" onChange={videoUploadHandler} hidden />
                 </Button>
               </form>
             </div>
@@ -321,7 +367,7 @@ export const VideoGalleryManagment = () => {
         <DialogActions>
           <Button>بستن</Button>
           {isInsertDialog == true ? (
-            <Button>اضافه کردن</Button>
+            <Button onClick={saveVideoInsert}>اضافه کردن</Button>
           ) : (
             <Button>به روز رسانی</Button>
           )}
