@@ -26,6 +26,7 @@ import { fetchData } from "../../../api/videoGalleryRequest";
 import { useNotification } from "../../../context/NotificationProvider";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { insertVideo } from "../../../api/videoGalleryRequest";
+import {deleteVideo} from '../../../api/videoGalleryRequest'
 export const VideoGalleryManagment = () => {
   const { openNotification } = useNotification();
 
@@ -115,6 +116,9 @@ export const VideoGalleryManagment = () => {
       } else openNotification("ویدیو باید انتخاب شود", "error");
     } else openNotification("متن جایگزین ویدیو نباید خالی باشد", "error");
   };
+  const handleDeleteVideo=(id)=>{
+    setIdForDelete(id)
+  }
   const columns = [
     {
       id: "NO",
@@ -280,7 +284,7 @@ export const VideoGalleryManagment = () => {
                           </IconButton>
                         </Tooltip>
                         <Tooltip title="حذف کردن">
-                          <IconButton>
+                          <IconButton onClick={()=>{handleDeleteVideo(item._id)}}>
                             <DeleteIcon sx={{ color: "red" }} />
                           </IconButton>
                         </Tooltip>
