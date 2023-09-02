@@ -1,4 +1,4 @@
-import './style.css'
+import "./style.css";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -24,8 +24,7 @@ import { useEffect } from "react";
 import { TextField } from "@mui/material";
 import { fetchData } from "../../../api/videoGalleryRequest";
 import { useNotification } from "../../../context/NotificationProvider";
-import YouTubeIcon from '@mui/icons-material/YouTube';
-
+import YouTubeIcon from "@mui/icons-material/YouTube";
 
 export const VideoGalleryManagment = () => {
   const { openNotification } = useNotification();
@@ -39,7 +38,8 @@ export const VideoGalleryManagment = () => {
   const [isInsertDialog, setIsInsertDialog] = useState(false);
   const [idForDelete, setIdForDelete] = useState(null);
   const [dialogData, setDialogData] = useState([]);
-  const [openVideoDialog,setOpenVideoDialog]=useState(false);
+  const [openVideoDialog, setOpenVideoDialog] = useState(false);
+  const [videoDialogUrl,setVideoDialogUrl]=useState('')
   const [dataForDialog, setDataForDialog] = useState({
     title: "",
     alt: "",
@@ -61,9 +61,11 @@ export const VideoGalleryManagment = () => {
       setErorr(result.error);
     }
   };
-  const videoPlayHandler=(url)=>{
+  const videoPlayHandler = (url) => {
+    setVideoDialogUrl(url)
+  
     setOpenVideoDialog(true);
-  }
+  };
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -112,7 +114,34 @@ export const VideoGalleryManagment = () => {
   ];
   return (
     <Paper>
-      <Dialog open={openVideoDialog}></Dialog>
+      <Dialog  open={openVideoDialog}>
+        <DialogTitle style={{padding:0}}>
+          <IconButton style={{padding:0}} onClick={()=>{
+            setOpenVideoDialog(false)
+            setVideoDialogUrl('')
+          }} color="secondary">
+            <CancelIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            
+          <video width="320" height="240" preload="none" controls>
+            <source src={`http://localhost:4848/static/uploads/video/${videoDialogUrl}`}type="video/mp4" />
+          </video>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={()=>{
+            setOpenVideoDialog(false);
+            setVideoDialogUrl('');
+          }}>
+            بستن
+
+          </Button>
+
+        </DialogActions>
+      </Dialog>
       <TableContainer sx={{ maxHeight: "600px", direction: "rtl" }}>
         <Table stickyHeader aria-label="test for image Gallery">
           <TableHead>
@@ -168,16 +197,28 @@ export const VideoGalleryManagment = () => {
                         {item.title}
                       </TableCell>
                       <TableCell align="right" width={300}>
-                        <div style={{backgroundColor:'black',display:'flex',justifyContent:'center',alignItems:'center',width:'100px',height:'100px',borderRadius:'10px' }}>
+                        <div
+                          style={{
+                            backgroundColor: "black",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            width: "100px",
+                            height: "100px",
+                            borderRadius: "10px",
+                          }}
+                        >
                           <div>
-                            <IconButton onClick={()=>{videoPlayHandler(item.url)}}>
+                            <IconButton
+                              onClick={() => {
+                                videoPlayHandler(item.url);
+                              }}
+                            >
                               <YouTubeIcon className="video-icon" />
-
                             </IconButton>
                           </div>
-
                         </div>
-                     
+
                         {/* <video preload="metadata" width="120" height="120" controls>
                           <source src={`http://localhost:4848/static/uploads/video/${item.url}#t=15`} type="video/mp4"></source>
                         </video> */}
