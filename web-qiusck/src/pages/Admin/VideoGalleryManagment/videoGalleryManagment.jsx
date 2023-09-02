@@ -27,6 +27,7 @@ import { useNotification } from "../../../context/NotificationProvider";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { insertVideo } from "../../../api/videoGalleryRequest";
 import {deleteVideoRequest} from '../../../api/videoGalleryRequest'
+
 export const VideoGalleryManagment = () => {
   const { openNotification } = useNotification();
 
@@ -41,6 +42,11 @@ export const VideoGalleryManagment = () => {
   const [dialogData, setDialogData] = useState([]);
   const [openVideoDialog, setOpenVideoDialog] = useState(false);
   const [videoDialogUrl, setVideoDialogUrl] = useState("");
+  const[isUpdateDialog,setIsUpdateDialog]=useState(false);
+
+
+
+  const [videoUrl,setVideoUrl]=useState('')
   const [dataForDialog, setDataForDialog] = useState({
     title: "",
     alt: "",
@@ -125,6 +131,11 @@ export const VideoGalleryManagment = () => {
       window.location.reload();
       console.log(response);
     }
+  }
+  const updateVideoHandler=async(item)=>{
+    setVideoUrl(item.url)
+    setDataForDialog(item)
+    setIsUpdateDialog(true)
   }
   const columns = [
 
@@ -285,7 +296,7 @@ export const VideoGalleryManagment = () => {
 
                       <TableCell align="right" width={300}>
                         <Tooltip title="ویرایش ">
-                          <IconButton
+                          <IconButton onClick={()=>{updateVideoHandler(item)}}
                             key={Math.random() * 1000}
                             aria-label="delete"
                           >
@@ -368,7 +379,29 @@ export const VideoGalleryManagment = () => {
                     value={dataForDialog.title}
                     onChange={changeVideoTitleHandler}
                   />
-                </div>
+                </div>{
+                  isUpdateDialog==true ? <div
+                  style={{
+                    backgroundColor: "black",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100px",
+                    height: "100px",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <div>
+                    <IconButton
+                      onClick={() => {
+                        videoPlayHandler(videoUrl);
+                      }}
+                    >
+                      <YouTubeIcon className="video-icon" />
+                    </IconButton>
+                  </div>
+                </div>:<></>
+                }
                 <Button variant="outlined" color="secondary" component="label">
                   Upload Video
                   <input type="file" onChange={videoUploadHandler} hidden />
@@ -382,7 +415,7 @@ export const VideoGalleryManagment = () => {
           {isInsertDialog == true ? (
             <Button onClick={saveVideoInsert}>اضافه کردن</Button>
           ) : (
-            <Button>به روز رسانی</Button>
+            <Button >به روز رسانی</Button>
           )}
         </DialogActions>
       </Dialog>
