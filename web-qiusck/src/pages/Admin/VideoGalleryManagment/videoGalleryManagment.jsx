@@ -136,6 +136,7 @@ export const VideoGalleryManagment = () => {
     setVideoUrl(item.url)
     setDataForDialog(item)
     setIsUpdateDialog(true)
+    setOPenDialog(true)
   }
   const columns = [
 
@@ -379,7 +380,10 @@ export const VideoGalleryManagment = () => {
                     value={dataForDialog.title}
                     onChange={changeVideoTitleHandler}
                   />
-                </div>{
+                </div>
+                <div style={{display:'flex',justifyContent:'center',alignItems:'center',gap:'64px'}}>
+
+                {
                   isUpdateDialog==true ? <div
                   style={{
                     backgroundColor: "black",
@@ -406,12 +410,13 @@ export const VideoGalleryManagment = () => {
                   Upload Video
                   <input type="file" onChange={videoUploadHandler} hidden />
                 </Button>
+                </div>
               </form>
             </div>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button>بستن</Button>
+          <Button >بستن</Button>
           {isInsertDialog == true ? (
             <Button onClick={saveVideoInsert}>اضافه کردن</Button>
           ) : (
