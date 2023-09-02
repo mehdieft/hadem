@@ -1,3 +1,4 @@
+import './style.css'
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -21,43 +22,49 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import AddIcon from "@mui/icons-material/Add";
 import { useEffect } from "react";
 import { TextField } from "@mui/material";
-import {fetchData} from '../../../api/videoGalleryRequest'
+import { fetchData } from "../../../api/videoGalleryRequest";
 import { useNotification } from "../../../context/NotificationProvider";
+import YouTubeIcon from '@mui/icons-material/YouTube';
+
 
 export const VideoGalleryManagment = () => {
-    const {openNotification}=useNotification()
+  const { openNotification } = useNotification();
 
-    const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
-    const [openDialog, setOPenDialog] = useState(false);
-    const [selectedVideo, setSelectedVideo] = useState(null);
-    let [tableData, setDataTable] = useState([]);
-    const [error, setErorr] = useState("");
-    const [isInsertDialog, setIsInsertDialog] = useState(false);
-    const [idForDelete, setIdForDelete] = useState(null);
-    const [dialogData,setDialogData]=useState([]);
-    const [dataForDialog,setDataForDialog]=useState({
-        title:"",alt:"",id:""
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [openDialog, setOPenDialog] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  let [tableData, setDataTable] = useState([]);
+  const [error, setErorr] = useState("");
+  const [isInsertDialog, setIsInsertDialog] = useState(false);
+  const [idForDelete, setIdForDelete] = useState(null);
+  const [dialogData, setDialogData] = useState([]);
+  const [openVideoDialog,setOpenVideoDialog]=useState(false);
+  const [dataForDialog, setDataForDialog] = useState({
+    title: "",
+    alt: "",
+    id: "",
+  });
+  useEffect(() => {
+    fetchVideoData();
+  }, []);
+  const fetchVideoData = async () => {
+    const result = await fetchData();
+    console.log("result", result);
 
-    })
-    useEffect(()=>{
-        fetchVideoData()
-    },[])
-    const fetchVideoData=async()=>{
-        const result=await fetchData();
-        console.log("result",result);
-        
-        if(result.data !==null){
-            tableData=result.data
-            setDataTable(tableData)
-            console.log("__________",tableData)
-        }else{
-            openNotification(result.error,'error')
-            setErorr(result.error);
-        }
-
+    if (result.data !== null) {
+      tableData = result.data;
+      setDataTable(tableData);
+      console.log("__________", tableData);
+    } else {
+      openNotification(result.error, "error");
+      setErorr(result.error);
     }
-    
+  };
+  const videoPlayHandler=(url)=>{
+    setOpenVideoDialog(true);
+  }
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
     console.log("what the fuck is this");
@@ -66,17 +73,17 @@ export const VideoGalleryManagment = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-  
-  const openDialogIcon=()=>{
-    setOPenDialog(true)
-    setIsInsertDialog(true)
-  }
-  const changeVideoTitleHandler=(e)=>{
+
+  const openDialogIcon = () => {
+    setOPenDialog(true);
+    setIsInsertDialog(true);
+  };
+  const changeVideoTitleHandler = (e) => {
     setDataForDialog({ ...dataForDialog, title: e.target.value });
-  }
-  const changeVideoAlt=(e)=>{
-    setDataForDialog({...dataForDialog, alt:e.target.value});
-  }
+  };
+  const changeVideoAlt = (e) => {
+    setDataForDialog({ ...dataForDialog, alt: e.target.value });
+  };
   const columns = [
     {
       id: "NO",
@@ -105,22 +112,23 @@ export const VideoGalleryManagment = () => {
   ];
   return (
     <Paper>
-      <TableContainer sx={{ maxHeight: "600px",direction:'rtl' }}>
+      <Dialog open={openVideoDialog}></Dialog>
+      <TableContainer sx={{ maxHeight: "600px", direction: "rtl" }}>
         <Table stickyHeader aria-label="test for image Gallery">
           <TableHead>
             <TableRow>
               <TableRow>
-                <TableCell align="right" width={300}>
+                <TableCell align="right" width={100}>
                   شماره
                 </TableCell>
-                <TableCell align="right" width={300}>
+                <TableCell align="right" width={200}>
                   متن جایگزین
                 </TableCell>
                 <TableCell align="right" width={300}>
-                 موضوع
+                  موضوع
                 </TableCell>
                 <TableCell align="right" width={300}>
-                 ویدیو
+                  ویدیو
                 </TableCell>
                 <TableCell align="right" width={300}>
                   اقدامات
@@ -134,9 +142,9 @@ export const VideoGalleryManagment = () => {
                 </TableCell>
               </TableRow>
               {columns.map((index, column) => {
-                <TableCell key={Math.random() * 1000}>
-                  {column.label}
-                </TableCell>;
+                // <TableCell key={Math.random() * 1000}>
+                //   {column.label}
+                // </TableCell>;
               })}
             </TableRow>
           </TableHead>
@@ -148,24 +156,32 @@ export const VideoGalleryManagment = () => {
                 return (
                   <div key={index * 4}>
                     <TableRow>
-                      <TableCell align="right" width={300} scope="td">
+                      <TableCell align="right" width={100} scope="td">
                         {" "}
                         {index + 1 + page * 10}
                       </TableCell>
-                      <TableCell align="right" width={300}>
-                        <img
-                          src={`http://localhost:4848/static/uploads/${item.url}`}
-                          style={{
-                            borderRadius: "50%",
-                            width: "100px",
-                            height: "100px",
-                          }}
-                          alt=""
-                        />
-                        {/* {item.url + index} */}
+                      <TableCell align="right" width={200} scope="td">
+                        {" "}
+                        {item.alt}
+                      </TableCell>
+                      <TableCell align="right" width={250}>
+                        {item.title}
                       </TableCell>
                       <TableCell align="right" width={300}>
-                        {item.title + index}
+                        <div style={{backgroundColor:'black',display:'flex',justifyContent:'center',alignItems:'center',width:'100px',height:'100px',borderRadius:'10px' }}>
+                          <div>
+                            <IconButton onClick={()=>{videoPlayHandler(item.url)}}>
+                              <YouTubeIcon className="video-icon" />
+
+                            </IconButton>
+                          </div>
+
+                        </div>
+                     
+                        {/* <video preload="metadata" width="120" height="120" controls>
+                          <source src={`http://localhost:4848/static/uploads/video/${item.url}#t=15`} type="video/mp4"></source>
+                        </video> */}
+                        {/* {item.url + index} */}
                       </TableCell>
 
                       <TableCell align="right" width={300}>
@@ -174,18 +190,12 @@ export const VideoGalleryManagment = () => {
                             key={Math.random() * 1000}
                             aria-label="delete"
                           >
-                            <EditIcon
-                             
-                              sx={{ color: "#d1670c" }}
-                            />
+                            <EditIcon sx={{ color: "#d1670c" }} />
                           </IconButton>
                         </Tooltip>
                         <Tooltip title="حذف کردن">
                           <IconButton>
-                            <DeleteIcon
-                              sx={{ color: "red" }}
-                              
-                            />
+                            <DeleteIcon sx={{ color: "red" }} />
                           </IconButton>
                         </Tooltip>
                       </TableCell>
@@ -212,13 +222,16 @@ export const VideoGalleryManagment = () => {
               justifyContent: "space-between",
             }}
           >
-            <IconButton onClick={()=>{setOPenDialog(false)}} color="secondary">
+            <IconButton
+              onClick={() => {
+                setOPenDialog(false);
+              }}
+              color="secondary"
+            >
               <CancelIcon />
             </IconButton>
             {isInsertDialog == true ? (
-              <span>
-                اضافه کردن ویدیو جدید
-                </span>
+              <span>اضافه کردن ویدیو جدید</span>
             ) : (
               <span>به روز رسانی ویدیو </span>
             )}
@@ -241,7 +254,6 @@ export const VideoGalleryManagment = () => {
                     variant="outlined"
                     value={dataForDialog.title}
                     onChange={changeVideoTitleHandler}
-                    
                   />
                 </div>
                 <div>
@@ -255,12 +267,11 @@ export const VideoGalleryManagment = () => {
                     variant="outlined"
                     value={dataForDialog.alt}
                     onChange={changeVideoAlt}
-                    
                   />
                 </div>
                 <Button variant="outlined" color="secondary" component="label">
                   Upload Video
-                  <input type="file" hidden  />
+                  <input type="file" hidden />
                 </Button>
               </form>
             </div>
@@ -269,11 +280,9 @@ export const VideoGalleryManagment = () => {
         <DialogActions>
           <Button>بستن</Button>
           {isInsertDialog == true ? (
-            <Button >اضافه کردن</Button>
+            <Button>اضافه کردن</Button>
           ) : (
-            <Button >
-              به روز رسانی
-            </Button>
+            <Button>به روز رسانی</Button>
           )}
         </DialogActions>
       </Dialog>

@@ -366,6 +366,7 @@ export const ImageGalleryManagment = () => {
       </Dialog>
       {/* // ) : null // } */}
       <TablePagination
+      style={{direction:'ltr'}}
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
         count={tableData.length}

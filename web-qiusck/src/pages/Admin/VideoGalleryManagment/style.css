@@ -1,0 +1,8 @@
+.video-icon{
+    color:white;
+    transition: 1.5s;
+}
+.video-icon:hover{
+    color: red;
+
+}
