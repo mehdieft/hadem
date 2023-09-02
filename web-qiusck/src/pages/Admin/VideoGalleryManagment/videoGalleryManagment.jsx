@@ -26,7 +26,7 @@ import { fetchData } from "../../../api/videoGalleryRequest";
 import { useNotification } from "../../../context/NotificationProvider";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { insertVideo } from "../../../api/videoGalleryRequest";
-import {deleteVideo} from '../../../api/videoGalleryRequest'
+import {deleteVideoRequest} from '../../../api/videoGalleryRequest'
 export const VideoGalleryManagment = () => {
   const { openNotification } = useNotification();
 
@@ -116,10 +116,19 @@ export const VideoGalleryManagment = () => {
       } else openNotification("ویدیو باید انتخاب شود", "error");
     } else openNotification("متن جایگزین ویدیو نباید خالی باشد", "error");
   };
-  const handleDeleteVideo=(id)=>{
+  const handleDeleteVideo=async(id)=>{
+    console.log("this is id",id)
     setIdForDelete(id)
+    const response=await deleteVideoRequest(id)
+    if (response &&response.data){
+      openNotification(response.data.message,'success')
+      window.location.reload();
+      console.log(response);
+    }
   }
   const columns = [
+
+    
     {
       id: "NO",
       label: "No",

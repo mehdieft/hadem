@@ -46,8 +46,9 @@ export const insertVideo = async (alt, title, file) => {
     return { data: null, error: error.message };
   }
 };
-export const deleteVideo = async (id) => {
+export const deleteVideoRequest = async (id) => {
   try {
+    console.log('this is delete_____')
     const response = await axios.post(
       "http://localhost:4848/api/admin/videoManagment/delete",
       { id: id }
