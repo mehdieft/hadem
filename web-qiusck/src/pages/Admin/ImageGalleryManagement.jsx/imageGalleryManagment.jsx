@@ -196,23 +196,23 @@ export const ImageGalleryManagment = () => {
     >
       {/* {tableData.length > 0 && tableData.length !== undefined ? ( */}
       <TableContainer sx={{ maxHeight: "600px" }}>
-        <Table stickyHeader aria-label="test for image Gallery">
+        <Table  sx={{ minWidth: 950 }} stickyHeader aria-label="test for image Gallery">
           <TableHead>
             <TableRow>
-              <TableRow>
-                <TableCell align="right" width={300}>
+              <TableRow sx={{display:'flex',justifyContent:'space-between',flexDirection:'row',alignItems:'center'}}>
+                <TableCell align="right" >
                   alt
                 </TableCell>
-                <TableCell align="right" width={300}>
+                <TableCell align="right" >
                   Url
                 </TableCell>
-                <TableCell align="right" width={300}>
+                <TableCell align="center" >
                   title
                 </TableCell>
-                <TableCell align="right" width={300}>
+                {/* <TableCell align="right" >
                   actions
-                </TableCell>
-                <TableCell align="right" width={300}>
+                </TableCell> */}
+                <TableCell align="right" >
                   <Tooltip title="اضافه کردن">
                     <IconButton onClick={openInsertDialog}>
                       <AddIcon />
@@ -234,12 +234,12 @@ export const ImageGalleryManagment = () => {
                 const value = item.id;
                 return (
                   <div key={index * 4}>
-                    <TableRow>
-                      <TableCell align="right" width={300} scope="td">
+                    <TableRow sx={{display:'flex',justifyContent:'space-between',flexDirection:'row'}}>
+                      <TableCell align="right"  scope="td">
                         {" "}
                         {index + 1 + page * 10}
                       </TableCell>
-                      <TableCell align="right" width={300}>
+                      <TableCell align="right" >
                         <img
                           src={`http://localhost:4848/static/uploads/${item.url}`}
                           style={{
@@ -251,11 +251,11 @@ export const ImageGalleryManagment = () => {
                         />
                         {/* {item.url + index} */}
                       </TableCell>
-                      <TableCell align="right" width={300}>
+                      <TableCell align="right">
                         {item.title + index}
                       </TableCell>
 
-                      <TableCell align="right" width={300}>
+                      <TableCell align="right" >
                         <Tooltip title="ویرایش ">
                           <IconButton
                             key={Math.random() * 1000}
