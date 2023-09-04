@@ -23,6 +23,10 @@ import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
 export const ShahidManagament=()=>{
+    
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [openDialog, setOPenDialog] = useState(false);
     return (
         <>
            <TableContainer sx={{ maxHeight: "600px" }}>
