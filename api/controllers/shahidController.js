@@ -1,47 +1,40 @@
-const csvtojson = require('csvtojson')
-const Shahid=require('../Models/Shahid')
+const Shahid = require("../Models/Shahid");
+var fs = require("fs");
 
-exports.insert=async(req,res,next)=>{
-    importFile('./public/uploads/excel/'  + req.file.filename);
-            function importFile(filePath){
-                var arrayToInsert = [];
-                csvtojson().fromFile(filePath).then((source)=>{
-                    res.json(source)
-                    console.log("this is source",source)
-                    for (var i = 0; i < source.length; i++){
-                        var singleRow={
-                            name:source[i]['name'],
-                            family:source[i]['family'],
-                            fatherName:source[i]['fatherName'],
-                            lastServePlace:source[i]['lastServePlace'],
-                            placeOfDeath:source[i]['placeOfDeath'],
-                            militiryEducation:source[i]['militiryEducation'],
-                            birthdate:source[i]['birthdate'],
-                            // dieDate:[source][i]['die'],
-                            wayOfDie:[source][i]['wayOfDie']
+exports.insert = async (req, res, next) => {
+  filePath = "./public/uploads/excel/convertcsv.json";
+  fs.readFile(filePath, function (err, data) {
+    if (err) {
+      res.json({ error: err, message: "oops! somethings wrong" });
+    }
+    var source = JSON.parse(data);
 
-                        }
-                        arrayToInsert.push(singleRow)
-                    }
-                    shahidModel.insertMany(arrayToInsert, (err, result) => {
-                        if (err) console.log(err);
-                            if(result){
-                                console.log("File imported successfully.");
-                                res.redirect('/')
-                            }
-                        });
-                    });
-                
+    console.log(source)
 
-                
+    var arrayToInsert = [];
 
-            }
+    for (var i = 1; i < source.length; i++) {
+       
+      var singleRow = {
+        name: source[i].I,
+        family: source[i].J,
+        fatherName: source[i].L,
+        lastServePlace: source[i].M,
+        placeOfDeath: source[i].O,
+        militiryEducation: source[i].W,
+        birthdate: source[i].S,
+        dieDate:source[i].N,
+        wayOfDie: source[i].P,
+      };
+      arrayToInsert.push(singleRow);
+    }
+    Shahid.insertMany(arrayToInsert).then(function(){
+      console.log("Data inserted")  // Success
+  }).catch(function(error){
+      console.log(error)      // Failure
+  });
+  });
+};
 
-
-}
-exports.update= async (req,res,next)=>{
-
-}
-exports.delete=async(req,res,next)=>{
-    
-}
+exports.update = async (req, res, next) => {};
+exports.delete = async (req, res, next) => {};
