@@ -29,6 +29,8 @@ exports.insert = async (req, res, next) => {
         dieDate:moment.from(source[i].N,'fa', 'YYYY/MM/DD').format('YYYY/MM/DD'),
         shamsiDieDate:source[i].N,
         wayOfDie: source[i].P,
+        cemeteryPlace:source[i].AE,
+        birthdayPlace:source[i].R
       };
       if(singleRow.birthdate == null || singleRow.birthdate=='Invalid date' ){
         singleRow.birthdate=''

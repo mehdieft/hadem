@@ -13,7 +13,9 @@ const shahidSchema=mongoose.Schema({
     shamsiBirthdate:{type:Date,required:false},
     shamsiDieDate:{type:Date,required:false},
     dieDate:{type:Date,required:false},
-    wayOfDie:{type:String}
+    wayOfDie:{type:String},
+    cemeteryPlace:{type:String},
+    birthdayPlace:{type:String}
 
 })
 module.exports=mongoose.model('Shahid',shahidSchema);
