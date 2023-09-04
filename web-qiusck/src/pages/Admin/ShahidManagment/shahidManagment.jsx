@@ -23,7 +23,7 @@ import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 
 export const ShahidManagament=()=>{
-    
+    const [tableData, setDataTable] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
@@ -48,17 +48,13 @@ export const ShahidManagament=()=>{
                 </TableCell> */}
                 <TableCell align="right" >
                   <Tooltip title="اضافه کردن">
-                    <IconButton onClick={openInsertDialog}>
+                    <IconButton >
                       <AddIcon />
                     </IconButton>
                   </Tooltip>
                 </TableCell>
               </TableRow>
-              {columns.map((index, column) => {
-                <TableCell key={Math.random() * 1000}>
-                  {column.label}
-                </TableCell>;
-              })}
+          
             </TableRow>
           </TableHead>
           <TableBody>
@@ -96,9 +92,7 @@ export const ShahidManagament=()=>{
                             aria-label="delete"
                           >
                             <EditIcon
-                              onClick={() => {
-                                editButtonHandler(item);
-                              }}
+                            
                               sx={{ color: "#d1670c" }}
                             />
                           </IconButton>
@@ -107,9 +101,7 @@ export const ShahidManagament=()=>{
                           <IconButton>
                             <DeleteIcon
                               sx={{ color: "red" }}
-                              onClick={() => {
-                                deleteImageItem(item);
-                              }}
+                             
                             />
                           </IconButton>
                         </Tooltip>
