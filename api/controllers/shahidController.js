@@ -1,5 +1,7 @@
 const Shahid = require("../Models/Shahid");
+const moment = require('jalali-moment');
 var fs = require("fs");
+const { date } = require("joi");
 
 exports.insert = async (req, res, next) => {
   filePath = "./public/uploads/excel/convertcsv.json";
@@ -22,10 +24,37 @@ exports.insert = async (req, res, next) => {
         lastServePlace: source[i].M,
         placeOfDeath: source[i].O,
         militiryEducation: source[i].W,
-        birthdate: source[i].S,
-        dieDate:source[i].N,
+        birthdate: moment.from(source[i].S,'fa', 'YYYY/MM/DD').format('YYYY/MM/DD'),
+        shamsiBirthDate:source[i].N,
+        dieDate:moment.from(source[i].N,'fa', 'YYYY/MM/DD').format('YYYY/MM/DD'),
+        shamsiDieDate:source[i].N,
         wayOfDie: source[i].P,
       };
+      if(singleRow.birthdate == null || singleRow.birthdate=='Invalid date' ){
+        singleRow.birthdate=''
+      }
+      if(singleRow.dieDate == null || singleRow.dieDate=='Invalid date'){
+        singleRow.dieDate=''
+      }
+      if(singleRow.shamsiDieDate == null || singleRow.shamsiDieDate=='Invalid date' ){
+        singleRow.shamsiDieDate=''
+      }
+      if(singleRow.shamsiBirthDate == null || singleRow.shamsiBirthDate=='Invalid date'){
+        singleRow.shamsiBirthDate=''
+      }
+      if(singleRow.name ==null || singleRow.name== '' ){
+        singleRow.name ='نام ندارد'
+      }
+      if(singleRow.family ==null || singleRow.family==''){
+        singleRow.family= 'فامیلی ندارد'
+      }
+      if(singleRow.fatherName ==null || singleRow.fatherName==''){
+        singleRow.fatherName= 'نام پدر موجود نیست'
+      }
+
+
+
+      console.log("_________>",singleRow.birthdate )
       arrayToInsert.push(singleRow);
     }
     Shahid.insertMany(arrayToInsert).then(function(){
