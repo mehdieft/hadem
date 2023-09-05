@@ -181,7 +181,15 @@ export const VideoGalleryManagment = () => {
     },
   ];
   return (
-    <Paper>
+    <Paper
+    sx={{
+      margin: "100px auto ",
+      width: "fit-content",
+      overflow: "hidden",
+      boxShadow: 4,
+      direction: "rtl",
+    }}
+    >
       <Dialog open={openVideoDialog}>
         <DialogTitle style={{ padding: 0 }}>
           <IconButton
@@ -217,7 +225,7 @@ export const VideoGalleryManagment = () => {
         </DialogActions>
       </Dialog>
       <TableContainer sx={{ maxHeight: "600px", direction: "rtl" }}>
-        <Table stickyHeader aria-label="test for image Gallery">
+        <Table sx={{ minWidth: 950 }} stickyHeader aria-label="test for image Gallery">
           <TableHead>
             <TableRow>
               <TableRow>

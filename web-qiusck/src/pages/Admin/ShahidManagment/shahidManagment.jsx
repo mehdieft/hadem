@@ -29,24 +29,27 @@ export const ShahidManagament=()=>{
   const [openDialog, setOPenDialog] = useState(false);
     return (
         <>
-           <TableContainer sx={{ maxHeight: "600px" }}>
-        <Table  sx={{ minWidth: 950 }} stickyHeader aria-label="test for image Gallery">
+                 <TableContainer sx={{ maxHeight: "600px", direction: "rtl" }}>
+        <Table sx={{ minWidth: 950 }} stickyHeader aria-label="test for image Gallery">
           <TableHead>
             <TableRow>
-              <TableRow sx={{display:'flex',justifyContent:'space-between',flexDirection:'row',alignItems:'center'}}>
-                <TableCell align="right" >
-                  alt
+              <TableRow>
+                <TableCell align="right" width={100}>
+                  شماره
                 </TableCell>
-                <TableCell align="right" >
-                  Url
+                <TableCell align="right" width={200}>
+                  متن جایگزین
                 </TableCell>
-                <TableCell align="center" >
-                  title
+                <TableCell align="right" width={300}>
+                  موضوع
                 </TableCell>
-                {/* <TableCell align="right" >
-                  actions
-                </TableCell> */}
-                <TableCell align="right" >
+                <TableCell align="right" width={300}>
+                  ویدیو
+                </TableCell>
+                <TableCell align="right" width={300}>
+                  اقدامات
+                </TableCell>
+                <TableCell align="right" width={300}>
                   <Tooltip title="اضافه کردن">
                     <IconButton >
                       <AddIcon />
@@ -54,7 +57,7 @@ export const ShahidManagament=()=>{
                   </Tooltip>
                 </TableCell>
               </TableRow>
-          
+             
             </TableRow>
           </TableHead>
           <TableBody>
@@ -64,45 +67,61 @@ export const ShahidManagament=()=>{
                 const value = item.id;
                 return (
                   <div key={index * 4}>
-                    <TableRow sx={{display:'flex',justifyContent:'space-between',flexDirection:'row'}}>
-                      <TableCell align="right"  scope="td">
+                    <TableRow>
+                      <TableCell
+                        className="rows"
+                        align="right"
+                        width={100}
+                        scope="td"
+                      >
                         {" "}
                         {index + 1 + page * 10}
                       </TableCell>
-                      <TableCell align="right" >
-                        <img
-                          src={`http://localhost:4848/static/uploads/${item.url}`}
+                      <TableCell
+                        className="row-alt"
+                        align="right"
+                        width={200}
+                        scope="td"
+                      >
+                        {" "}
+                        {item.alt}
+                      </TableCell>
+                      <TableCell className="row-alt" align="right" width={250}>
+                        {item.title}
+                      </TableCell>
+                      <TableCell className="rows" align="right" width={300}>
+                        <div
                           style={{
-                            borderRadius: "50%",
+                            backgroundColor: "black",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
                             width: "100px",
                             height: "100px",
+                            borderRadius: "10px",
                           }}
-                          alt=""
-                        />
+                        >
+                        
+                        </div>
+
+                        {/* <video preload="metadata" width="120" height="120" controls>
+                          <source src={`http://localhost:4848/static/uploads/video/${item.url}#t=15`} type="video/mp4"></source>
+                        </video> */}
                         {/* {item.url + index} */}
                       </TableCell>
-                      <TableCell align="right">
-                        {item.title + index}
-                      </TableCell>
 
-                      <TableCell align="right" >
+                      <TableCell align="right" width={300}>
                         <Tooltip title="ویرایش ">
-                          <IconButton
+                          <IconButton 
                             key={Math.random() * 1000}
                             aria-label="delete"
                           >
-                            <EditIcon
-                            
-                              sx={{ color: "#d1670c" }}
-                            />
+                            <EditIcon sx={{ color: "#d1670c" }} />
                           </IconButton>
                         </Tooltip>
                         <Tooltip title="حذف کردن">
                           <IconButton>
-                            <DeleteIcon
-                              sx={{ color: "red" }}
-                             
-                            />
+                            <DeleteIcon sx={{ color: "red" }} />
                           </IconButton>
                         </Tooltip>
                       </TableCell>
