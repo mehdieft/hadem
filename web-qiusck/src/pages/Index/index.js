@@ -15,7 +15,6 @@ const Index = () => {
 
       {/* <h1>{windowWidth}</h1> */}
       <CarouselComponent />
-      lkasjdklajsldkjalksdjla;sjdlkasjdl;ajsld;kjasdasdasd
       </div>
     </>
   );
