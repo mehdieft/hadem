@@ -26,6 +26,9 @@ export const Admin = () => {
 const shshidManagamentClickHandler=()=>{
   navigate('/admin/shahidManagament')
 }
+const warHistoryManagmentClickHandler=()=>{
+  navigate('/admin/warHistoryManagament')
+}
 
   return (
     <motion.div 
@@ -107,6 +110,7 @@ const shshidManagamentClickHandler=()=>{
             مدیریت شهید ها{" "}
           </Button>
           <Button
+          onClick={warHistoryManagmentClickHandler}
          
             variant="outlined"
             sx={{
