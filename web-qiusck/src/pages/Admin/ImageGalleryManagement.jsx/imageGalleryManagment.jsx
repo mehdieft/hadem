@@ -241,13 +241,14 @@ export const ImageGalleryManagment = () => {
                       </TableCell>
                       <TableCell align="right" >
                         <img
+                        alt={item.alt}
                           src={`http://localhost:4848/static/uploads/${item.url}`}
                           style={{
                             borderRadius: "50%",
                             width: "100px",
                             height: "100px",
                           }}
-                          alt=""
+                          
                         />
                         {/* {item.url + index} */}
                       </TableCell>
