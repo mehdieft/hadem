@@ -82,4 +82,12 @@ exports.update = async (req, res, next) => {
   }
 
 };
-exports.delete = async (req, res, next) => {};
+exports.delete = async (req, res, next) => {
+  const id=req.body.id.trim()
+  const deletedShahid=await Shahid.findByIdAndDelete(id);
+  if(deletedShahid){
+    res.status(200).jsoon({message:'delete successfully'})
+  }else{
+    res.status(500).json({message:'oops somethings wrong!'})
+  }
+};
