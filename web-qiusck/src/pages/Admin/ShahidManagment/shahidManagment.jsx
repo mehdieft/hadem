@@ -38,14 +38,13 @@ export const ShahidManagament=()=>{
                   شماره
                 </TableCell>
                 <TableCell align="right" width={200}>
-                  متن جایگزین
+                  نام
                 </TableCell>
                 <TableCell align="right" width={300}>
-                  موضوع
+                  نام خانوادگی
                 </TableCell>
                 <TableCell align="right" width={300}>
-                  ویدیو
-                </TableCell>
+                  تاریخ شهادت                </TableCell>
                 <TableCell align="right" width={300}>
                   اقدامات
                 </TableCell>
@@ -67,7 +66,7 @@ export const ShahidManagament=()=>{
                 const value = item.id;
                 return (
                   <div key={index * 4}>
-                    <TableRow>
+                    <TableRow style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
                       <TableCell
                         className="rows"
                         align="right"

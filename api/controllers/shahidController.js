@@ -67,5 +67,19 @@ exports.insert = async (req, res, next) => {
   });
 };
 
-exports.update = async (req, res, next) => {};
+exports.update = async (req, res, next) => {
+  const id=req.body.id.trim()
+  const findedShahid=await Shahid.findById(id)
+  if (findedShahid){
+    const updatedShahid=await findedShahid.updateOne(req.body.shahid)
+    if(updatedShahid){
+      res.status(200).json({message:'updated successfully'})
+    }else{
+      res.status(500).json({message:'oops somethings wrong!'})
+    }
+  }else{
+    res.status(500).json({message:'oops something wrong'})
+  }
+
+};
 exports.delete = async (req, res, next) => {};
