@@ -1,4 +1,5 @@
 import "./style.css";
+import { Header } from "../../layouts/Header/header";
 // import CarouselComponent from "../../layouts/Carousel/carousel";
 // import mainHeaderImage from "../../assets/Image/mainheader.png";
 
@@ -8,7 +9,8 @@ const Index = () => {
   // const windowWidth=useRef(window.innerWidth)
   return (
     <>
-   <div>ld;ksakldjlk</div>
+    <Header/>
+   
       {/* <div  style={{
           backgroundImage: `url(${mainHeaderImage})`,
           backgroundSize: "cover",

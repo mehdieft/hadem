@@ -7,9 +7,6 @@ function App() {
   return (
     <div className="App">
       <AnimatedRoutes/>
-      
-
-     
     </div>
    
   );

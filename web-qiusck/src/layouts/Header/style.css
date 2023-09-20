@@ -1,0 +1,22 @@
+.header-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:64px 0;
+
+}
+.header-link-item{
+    font-family: diba;
+    font-size: 32px;
+    padding:0 32px;
+    text-decoration: none;
+    transition: 1s;
+    color: #34ffff;
+}
+.header-link-item:hover{
+    color:blue
+}
+.header-main-wrapper{
+  
+   
+}
