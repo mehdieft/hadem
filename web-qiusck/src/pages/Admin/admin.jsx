@@ -1,9 +1,9 @@
 import "./style.css";
-import AdminHeaderIcon from "../.../../../assets/icon/AdminHeaderIcon.svg";
+// import AdminHeaderIcon from "../.../../../assets/icon/AdminHeaderIcon.svg";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
-import uk from "../.../../../assets/icon/uk.svg";
-import GrapicSide from "../../assets/icon/GrapicSide.svg";
+// import uk from "../.../../../assets/icon/uk.svg";
+// import GrapicSide from "../../assets/icon/GrapicSide.svg";
 import { Outlet } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
@@ -39,7 +39,7 @@ const warHistoryManagmentClickHandler=()=>{
     >
       <div className="admin-header">
         <div className="header-left">
-          <img src={AdminHeaderIcon} />
+          {/* <img src={AdminHeaderIcon} /> */}
           <h1 style={{ fontFamily: "Diba", display: "inline" }}>حادم</h1>
         </div>
         <div className="header-center">
@@ -50,10 +50,10 @@ const warHistoryManagmentClickHandler=()=>{
           />
         </div>
         <div className="header-right">
+          {/* <img src={uk} />
           <img src={uk} />
           <img src={uk} />
-          <img src={uk} />
-          <img src={uk} />
+          <img src={uk} /> */}
         </div>
       </div>
       <div className="admin-main">
@@ -129,7 +129,7 @@ const warHistoryManagmentClickHandler=()=>{
         <div className="content">
           <div
             style={{
-              backgroundImage: `url(${GrapicSide})`,
+              // backgroundImage: `url(${GrapicSide})`,
               height: "100px",
               width: "100%",
               backgroundSize: "cover",

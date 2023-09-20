@@ -1,6 +1,6 @@
 import "./style.css";
-import CarouselComponent from "../../layouts/Carousel/carousel";
-import mainHeaderImage from "../../assets/Image/mainheader.png";
+// import CarouselComponent from "../../layouts/Carousel/carousel";
+// import mainHeaderImage from "../../assets/Image/mainheader.png";
 
 import { useRef } from "react";
 
@@ -8,14 +8,15 @@ const Index = () => {
   // const windowWidth=useRef(window.innerWidth)
   return (
     <>
-      <div  style={{
+   <div>ld;ksakldjlk</div>
+      {/* <div  style={{
           backgroundImage: `url(${mainHeaderImage})`,
           backgroundSize: "cover",
         }}>
 
-      {/* <h1>{windowWidth}</h1> */}
       <CarouselComponent />
-      </div>
+      </div> */}
+      {/* <h1>{windowWidth}</h1> */}
     </>
   );
 };
