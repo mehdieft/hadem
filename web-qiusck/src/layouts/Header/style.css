@@ -1,9 +1,12 @@
 .header-links{
     display: flex;
+
     justify-content: center;
     align-items: center;
     padding:64px 0;
-
+    z-index: 10;
+    position: absolute;
+    right: 120px;
 }
 .header-link-item{
     font-family: diba;
@@ -17,6 +20,88 @@
     color:blue
 }
 .header-main-wrapper{
+    z-index: 1;
   
    
+}
+.header-text-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding:160px 0px;
+    gap:64px;
+
+    z-index: 3;
+    top: 140px;
+    right: 100px;
+}
+.header-button{
+    border-radius: 23px;
+    padding: 13px 59px;
+    background-color: aqua;
+    cursor: pointer;
+
+}
+.header-icon{
+    position: relative;
+    top: 8px;
+}
+.image-header-section{
+
+}
+@media only screen and (max-width: 1200px){
+    .header-text-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        padding:160px 0px;
+        gap:64px
+    }
+}
+@media only screen and (max-width: 800px){
+    .image-header-section{
+        display: none;
+    }
+    .header-text-container{
+        align-items: center;
+    }
+}
+.header-video-container{
+    background: #333746;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+    
+}
+.video-header{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.6;
+  
+    top: 50%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 0;
+    object-fit: cover;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+
+}
+video{
+   
+    z-index:-1; /* Causes the video to sit behind your heading */
+    object-position:center; /* Causes video to be centred against the header */
+    object-fit:cover
+
 }
