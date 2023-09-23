@@ -1,0 +1,42 @@
+.header{
+    width: 100%;
+    height:100vh;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left:0;
+    opacity: 1;
+}
+#header-video{
+    width: 100%;
+    height: 100%;
+position:absolute;
+z-index: -1;
+object-fit: cover;
+filter:opacity(90%);
+
+}
+.nav-container{
+    width: 100%;
+    background-color: rgba(40, 37, 37, 0.5);
+    display: flex;
+    justify-content: space-between;
+}
+.nav-menu ul{
+    display: flex;
+    list-style: none;
+}
+.nav-menu ul a{
+    font-family: diba;
+    text-decoration: none;
+    color:rgb(52 255 255);
+    text-shadow: 5px 5px 5px rgba(0,0,0,.3);
+    margin: 0 15px;
+}
+.header-content{
+    width: 100%;
+    display: grid;
+    place-items: center;
+    height: calc(100%-80px);
+    text-align: center;
+}
