@@ -3,6 +3,7 @@ import videoheader from "../../assets/video/navyHeader.mp4";
 import navy from "../../assets/icon/navy2.png";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import logoHeader from "../../assets/icon/logo.svg";
+import nedaja from '../../assets/icon/nedaja.png'
 import "./style.css";
 export const Header = () => {
   return (
@@ -12,17 +13,19 @@ export const Header = () => {
           <source type="video/mp4" src={videoheader} />
         </video>
         <nav className="nav-container">
-          <div className="logo-header"></div>
+          <div className="logo-header">
+            <img src={nedaja} width={100} height={100}/>
+          </div>
           <div className="nav-menu">
             <ul>
               <li>
               </li>
-                <a href="">خانه</a>
+                <Link href="">خانه</Link>
               <li>
-                <a href="">خانه</a>
+                <Link href="">خانه</Link>
               </li>
               <li>
-                <a href="">خانه</a>
+                <Link href="">خانه</Link>
               </li>
             </ul>
           </div>
