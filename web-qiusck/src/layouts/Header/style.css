@@ -56,9 +56,18 @@ filter:opacity(90%);
     color:white;
 
 }
-.search-input-container span{
+.search-input-container input{
     color:white;
     font-size:24px;
+    font-family: iranSans;
     line-height: 20px;
+    direction: rtl;
 
+}
+.search-input-container input:focus{
+    border: none !important;
+    outline: none;
+}
+.search-input-container input::placeholder{
+ color:white
 }

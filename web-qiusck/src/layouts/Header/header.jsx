@@ -6,6 +6,7 @@ import logoHeader from "../../assets/icon/logo.svg";
 import searchHeaderImage from "../../assets/images/searchHeader.jpg";
 import nedaja from "../../assets/icon/nedaja.png";
 import SearchIcon from '@mui/icons-material/Search';
+import {motion} from 'framer-motion'
 import "./style.css";
 export const Header = () => {
   return (
@@ -35,28 +36,46 @@ export const Header = () => {
           <div className="header-image-iran"></div>
           <div id="content">
             <h1>we will fight for you bitches</h1>
-            <input type="button" value="lets play" />
-            <input type="button" value="lets play" />
+            <motion.button initial={{
+              x:'100vw',
+            
+              borderRadius:12,
+              backgroundColor: "white",
+              boxShadow: "5px 5px 0 rgba(20, 20, 120, 0.2)",
+            }}
+            transition={{delay:1.4,duration:0.3,damping:40, type:'spring'}}
+            animate={{
+              padding:'12px 32px',
+              fontSize:12,
+              x:0
+            }}
+            >مشاهده کن کیری</motion.button>
+           
+            
+        
           </div>
         </div>
       </div>
       <div
         className="header-search-container"
         style={{
+          display:'flex',
+          justifyContent:'center',
+          alignItems:'center',
+
           height:'30vw',
           backgroundImage: `url(${searchHeaderImage})`,
           backgroundSize: "cover",
         }}
       >
-        <div style={{display:'inline-block',width:'30%'}}>
+        <div style={{display:'inline-block',width:'30%',paddingTop:'100px'}}>
 
         <div className="search-input-container">
-          <span>search the shahid namesdfsdfsd</span>
           <SearchIcon color="inhert" />
+          <input  type="text" placeholder="نام شهید جستجو کنید" style={{backgroundColor:'inherit' ,border:0}} />
         </div>
         <hr></hr>
         </div>
-
       </div>
     </>
   );

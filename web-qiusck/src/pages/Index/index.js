@@ -1,5 +1,6 @@
 import "./style.css";
 import { Header } from "../../layouts/Header/header";
+import { MainComponent } from "../../layouts/Main/mainComponent";
 // import CarouselComponent from "../../layouts/Carousel/carousel";
 // import mainHeaderImage from "../../assets/Image/mainheader.png";
 
@@ -10,6 +11,7 @@ const Index = () => {
   return (
     <>
     <Header/>
+    <MainComponent/>
    
       {/* <div  style={{
           backgroundImage: `url(${mainHeaderImage})`,
