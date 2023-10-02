@@ -48,3 +48,17 @@ filter:opacity(90%);
     height: calc(100%-80px);
     text-align: center;
 }
+.search-input-container{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color:white;
+
+}
+.search-input-container span{
+    color:white;
+    font-size:24px;
+    line-height: 20px;
+
+}

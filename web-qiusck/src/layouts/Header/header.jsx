@@ -5,6 +5,7 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import logoHeader from "../../assets/icon/logo.svg";
 import searchHeaderImage from "../../assets/images/searchHeader.jpg";
 import nedaja from "../../assets/icon/nedaja.png";
+import SearchIcon from '@mui/icons-material/Search';
 import "./style.css";
 export const Header = () => {
   return (
@@ -46,7 +47,17 @@ export const Header = () => {
           backgroundImage: `url(${searchHeaderImage})`,
           backgroundSize: "cover",
         }}
-      ></div>
+      >
+        <div style={{display:'inline-block',width:'30%'}}>
+
+        <div className="search-input-container">
+          <span>search the shahid namesdfsdfsd</span>
+          <SearchIcon color="inhert" />
+        </div>
+        <hr></hr>
+        </div>
+
+      </div>
     </>
   );
 };
