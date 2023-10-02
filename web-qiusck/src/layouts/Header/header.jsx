@@ -3,7 +3,8 @@ import videoheader from "../../assets/video/navyHeader.mp4";
 import navy from "../../assets/icon/navy2.png";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import logoHeader from "../../assets/icon/logo.svg";
-import nedaja from '../../assets/icon/nedaja.png'
+import searchHeaderImage from "../../assets/images/searchHeader.jpg";
+import nedaja from "../../assets/icon/nedaja.png";
 import "./style.css";
 export const Header = () => {
   return (
@@ -14,13 +15,12 @@ export const Header = () => {
         </video>
         <nav className="nav-container">
           <div className="logo-header">
-            <img src={nedaja} width={100} height={100}/>
+            <img src={nedaja} width={100} height={100} />
           </div>
           <div className="nav-menu">
             <ul>
-              <li>
-              </li>
-                <Link href="">خانه</Link>
+              <li></li>
+              <Link href="">خانه</Link>
               <li>
                 <Link href="">خانه</Link>
               </li>
@@ -31,20 +31,22 @@ export const Header = () => {
           </div>
         </nav>
         <div className="header-content">
+          <div className="header-image-iran"></div>
           <div id="content">
             <h1>we will fight for you bitches</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. At
-              fugiat temporibus eveniet quibusdam quisquam aspernatur fuga
-              praesentium vitae quaerat itaque consectetur, sed distinctio
-              assumenda id, deserunt voluptatibus suscipit explicabo. Minus.
-            </p>
             <input type="button" value="lets play" />
             <input type="button" value="lets play" />
-
           </div>
         </div>
       </div>
+      <div
+        className="header-search-container"
+        style={{
+          height:'30vw',
+          backgroundImage: `url(${searchHeaderImage})`,
+          backgroundSize: "cover",
+        }}
+      ></div>
     </>
   );
 };

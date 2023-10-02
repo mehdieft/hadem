@@ -40,7 +40,10 @@ filter:opacity(90%);
 }
 .header-content{
     width: 100%;
-    display: grid;
+    display: flex;
+    padding-top: 200px;
+    flex-direction: row;
+    justify-content: space-around;
     place-items: center;
     height: calc(100%-80px);
     text-align: center;
