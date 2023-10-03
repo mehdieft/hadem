@@ -54,12 +54,11 @@ filter:opacity(90%);
     padding-top:100px;
 }
 .search-input-container{
-    
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     color:white;
-
 }
 .search-input-container input{
     color:white;
@@ -69,11 +68,23 @@ filter:opacity(90%);
     direction: rtl;
 
 }
+.search-input-container::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 2px;
+    background: #000;
+    left: 0;
+    top: 50%;
+    z-index: 100;
+    position: absolute;
+  }
 .header-content-icon-wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .search-input-container input:focus{
     border: none !important;
     outline: none;

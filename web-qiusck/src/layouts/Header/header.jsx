@@ -77,7 +77,8 @@ export const Header = () => {
           </div>
           <input  type="text" placeholder="نام شهید جستجو کنید" style={{backgroundColor:'inherit' ,border:0}} />
         </div>
-        <hr></hr>
+          <hr />
+       
         </div>
       </div>
     </>
