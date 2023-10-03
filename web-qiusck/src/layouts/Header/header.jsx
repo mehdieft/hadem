@@ -68,10 +68,13 @@ export const Header = () => {
           backgroundSize: "cover",
         }}
       >
-        <div style={{display:'inline-block',width:'30%',paddingTop:'100px'}}>
+        <div className="header-content-wrapper">
 
         <div className="search-input-container">
+          <div className="header-content-icon-wrapper">
+
           <SearchIcon color="inhert" />
+          </div>
           <input  type="text" placeholder="نام شهید جستجو کنید" style={{backgroundColor:'inherit' ,border:0}} />
         </div>
         <hr></hr>
