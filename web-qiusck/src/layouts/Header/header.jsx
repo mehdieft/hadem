@@ -35,7 +35,7 @@ export const Header = () => {
         <div className="header-content">
           <div className="header-image-iran"></div>
           <div id="content">
-            <h1>we will fight for you bitches</h1>
+            <h1 style={{fontFamily:'diba',color:'white'}}>ما برای شما میجنگیم</h1>
             <motion.button initial={{
               x:'100vw',
             
