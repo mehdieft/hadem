@@ -1,6 +1,5 @@
 .main-image-container{
         margin-top: 32px;
-        height:40vh;
         margin:0 12px;
         display: grid;
         grid-template-columns: 1.75fr repeat(2, 1fr);
