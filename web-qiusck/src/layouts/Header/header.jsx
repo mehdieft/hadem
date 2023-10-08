@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import videoheader from "../../assets/video/navyHeader.mp4";
 import navy from "../../assets/icon/navy2.png";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import { AnimationImageCard } from "../../components/animationImageCard/animationImageCard";
 import logoHeader from "../../assets/icon/logo.svg";
 import searchHeaderImage from "../../assets/images/searchHeader.jpg";
 import nedaja from "../../assets/icon/nedaja.png";

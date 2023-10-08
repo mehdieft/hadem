@@ -1,13 +1,18 @@
 import './style.css';
+import {delay, motion} from 'framer-motion'
 export const AnimationImageCard=({animationImage})=>{
     return (
-        <div style={{height:'100%'}}>
-            <div className="animation-card-container" style={{backgroundImage: `url(${animationImage})`}}>
+        <motion.div initial={{}} 
+        animate={{boxShadow: ' 0px 5px 15px transparent'}}
+        whileHover={{boxShadow: ' 0px 5px 15px white',scale:1.03,transition: { duration:1 },}}
+        transition={{delay:'0.9s',}}
+        style={{height:'100%'}}>
+            <motion.div className="animation-card-container" style={{backgroundImage: `url(${animationImage})`}}>
 
-
-            </div>
+             بیسمنتبسیتمبسی
+            </motion.div>
 
         
-        </div>
+        </motion.div>
     )
 }

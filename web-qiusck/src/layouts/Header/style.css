@@ -22,6 +22,7 @@ filter:opacity(90%);
     display: flex;
     justify-content: space-between;
 }
+
 .nav-menu ul{
     display: flex;
     list-style: none;
@@ -67,6 +68,10 @@ filter:opacity(90%);
     line-height: 20px;
     direction: rtl;
 
+}
+.header-search-wrapper{
+    
+    background: linear-gradient(0deg, black 10%, #01202c 100%);
 }
 
 .header-content-icon-wrapper{
