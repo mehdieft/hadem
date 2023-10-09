@@ -64,7 +64,7 @@ export const Header = () => {
           justifyContent:'center',
           alignItems:'center',
 
-          height:'30vw',
+          height:'40vh',
           backgroundImage: `url(${searchHeaderImage})`,
           backgroundSize: "cover",
         }}
