@@ -1,0 +1,13 @@
+.animation-card-container{
+    height: 71vh;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+@media only screen and (max-width: 800px){
+    .animation-card-container{
+        
+    height:40vh}
+
+    /*Big smartphones [426px -> 600px]*/
+}

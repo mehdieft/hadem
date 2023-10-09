@@ -1,15 +1,12 @@
 import "./style.css";
 import { delay, motion } from "framer-motion";
 
-export const AnimationImageCard = ({ animationImage }) => {
+export const AnimationImageCard = ({ animationImage,title,content }) => {
     const containerAnimate = {
       init: {
         backgroundImage: `url(${animationImage})`,
         backgroundSize: "cover",
-        display: "flex",
-        justifyContent: "flex-end",
-        flexDirection: "column",
-        height: "71vh",
+      
         transition:{delay: "0.9s" }
       },
       hover:{ boxShadow: " 0px 5px 15px white",
@@ -41,6 +38,7 @@ export const AnimationImageCard = ({ animationImage }) => {
     }
     return (
     <motion.div
+    className="animation-card-container"
     variants={containerAnimate}
       initial="init"
       animate="animate"
@@ -49,13 +47,12 @@ export const AnimationImageCard = ({ animationImage }) => {
     >
       <motion.div className="animation-card-container">
         <motion.div >
-          <motion.span style={{color:'white'}} variants={titleAnimation}  >مشاهده خاطرات</motion.span>
+          <motion.span style={{color:'white'}} variants={titleAnimation}  >{title}</motion.span>
         </motion.div>
         <motion.div
         variants={contextAnimation}
         >
-          خاطرات به یاد ماندنی جانبازان معزز نیروی دریایی ارتش جمهوری اسلامی
-          ایران از دوران دفاع مقدس
+          {content}
         </motion.div>
       </motion.div>
     </motion.div>
