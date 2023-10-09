@@ -24,17 +24,20 @@ export const AnimationImageCard = ({ animationImage }) => {
             fontWeight:'bold'
 
         },
-        hover:{color:'#ff9800'}
+        animte:{color:'white'},
+        hover:{color:'#ff9800'},
+       
     }
 
     const contextAnimation={
-        init:{opacity: 0, color: "white" },
+        init:{opacity: 0, color: "white",fontSize:18 },
         hover:{
             display: "visible",
             opacity: 1,
             padding:'32px 0'
 
-        }
+        },
+
     }
     return (
     <motion.div
@@ -45,8 +48,8 @@ export const AnimationImageCard = ({ animationImage }) => {
       style={{ height: "100%" }}
     >
       <motion.div className="animation-card-container">
-        <motion.div variants={titleAnimation}>
-          <span>مشاهده خاطرات</span>
+        <motion.div >
+          <motion.span style={{color:'white'}} variants={titleAnimation}  >مشاهده خاطرات</motion.span>
         </motion.div>
         <motion.div
         variants={contextAnimation}
