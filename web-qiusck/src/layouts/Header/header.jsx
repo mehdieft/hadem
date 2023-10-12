@@ -97,7 +97,7 @@ export const Header = () => {
                 x: 0,
               }}
             >
-              مشاهده کن کیری
+              مشاهده کن 
             </motion.button>
           </div>
         </div>
