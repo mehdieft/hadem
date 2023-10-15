@@ -16,6 +16,9 @@ object-fit: cover;
 filter:opacity(90%);
 
 }
+.logo-header{
+    height: 100px;
+}
 .nav-container{
     width: 100%;
     background-color: rgba(40, 37, 37, 0.5);
