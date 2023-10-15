@@ -91,3 +91,9 @@ exports.delete = async (req, res, next) => {
     res.status(500).json({message:'oops somethings wrong!'})
   }
 };
+
+exports.getbyDate=async(req, res,next)=>{
+  const now=Date.now().format('mm-dd')
+  console.log("this is date",now)
+
+}
