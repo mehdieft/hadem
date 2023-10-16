@@ -86,14 +86,19 @@ exports.delete = async (req, res, next) => {
   const id=req.body.id.trim()
   const deletedShahid=await Shahid.findByIdAndDelete(id);
   if(deletedShahid){
-    res.status(200).jsoon({message:'delete successfully'})
+    res.status(200).json({message:'delete successfully'})
   }else{
     res.status(500).json({message:'oops somethings wrong!'})
   }
 };
 
 exports.getbyDate=async(req, res,next)=>{
-  const now=Date.now().format('mm-dd')
-  console.log("this is date",now)
+  const today = new Date();
+  const month=today.getMonth()+1;
+  const days=today.getDate();
+
+  console.log("_________________________________>>>>>>>",today)
+  console.log("this is date",today)
+  return res.json({month,days})
 
 }

@@ -16,12 +16,12 @@ export const AnimationImageCard = ({ animationImage,title,content }) => {
     };
     const titleAnimation={
         init:{
-            color:'white',
+            color:'#fffff',
             fontSize:32,
             fontWeight:'bold'
 
         },
-        animte:{color:'white'},
+        animte:{color:'#ffffff'},
         hover:{color:'#ff9800'},
        
     }
