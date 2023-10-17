@@ -62,6 +62,21 @@
   font-weight: 800;
   color: #fff8f8;
 }
+
+
+
+#image-gallery-container {
+
+  display: grid;
+  grid-template-columns: 6fr 3fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  #main-image-image-gallery { grid-area: 1 / 1 / 2 / 2; }
+#carousel-image-image-gallery { grid-area: 1 / 2 / 2 / 3; }
+
+
 @keyframes bounceIn {
   0% {
     transform: scale(0.4);

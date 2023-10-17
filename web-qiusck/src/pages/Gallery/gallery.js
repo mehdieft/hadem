@@ -83,7 +83,7 @@ const Gallery = () => {
           <div className="text-header-red">پایی که ماند</div>
         </div>
       </div>
-      <Box 
+      {/* <Box 
         sx={{
           width: "100%",
           backgroundImage:
@@ -109,7 +109,20 @@ const Gallery = () => {
           <CarouselComponent />
           </div>
         </CustomTabPanel>
-      </Box>
+      </Box> */}
+      <motion.div id="image-gallery-container">
+        <div id="main-image-image-gallery" style={{height:'300px',backgroundColor:'red'}}></div>
+        <div id="carousel-image-image-gallery" style={{height:'300px',backgroundColor:'green'}}></div>
+        
+      </motion.div>
+
+
+
+
+
+
+
+
     </motion.div>
   );
 };
