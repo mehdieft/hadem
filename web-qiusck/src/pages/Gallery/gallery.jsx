@@ -46,6 +46,7 @@ function a11yProps(index) {
 const Gallery = () => {
   const customRef = useRef();
   const { scrollYProgress } = useScroll();
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 40,
@@ -68,14 +69,9 @@ const Gallery = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const imageClickHandler=(e)=>{
-    if(e.target.className=="active"){
-      e.target.className=""
-    }else{
-      e.target.className="active"
-    }
-
-  }
+  const imageClickHandler = (index) => {
+    setSelectedImageIndex(index);
+  };
   return (
     <motion.div
       initial={{ width: 0, backgroundColor: " rgb(1, 32, 44)" }}
@@ -170,12 +166,21 @@ const Gallery = () => {
           id="carousel-image-image-gallery"
           style={{ backgroundColor: "green" }}
         >
-          {imageList.map((item,index)=>{
+          {imageList.map((item, index) => {
             return (
-
-              <img onClick={imageClickHandler} key={index} src={item} alt="" />
-            )
-
+              <motion.img
+                animate={
+                  selectedImageIndex === index
+                    ? { x: [0, 10, -10, 0], scale: [1.1] }
+                    : {}
+                }
+                className={selectedImageIndex === index ? "active" : ""}
+                onClick={() => imageClickHandler(index)}
+                key={index}
+                src={item}
+                alt=""
+              />
+            );
           })}
           {/* <img src={galleryBackgroundImage} alt="" />
           <img src={galleryBackgroundImage} alt="" />
