@@ -21,21 +21,21 @@ export const MainLayout = () => {
     >
       <div className="main-image-container">
         <AnimationImageCard
-        onClick={()=>{galleryHandler}}
-          animationImage={firstImage}
+        clilHandler={galleryHandler}
+        animationImage={firstImage}
           content="خاطرات به یاد ماندنی جانبازان معزز نیروی دریایی ارتش جمهوری اسلامی
           ایران از دوران دفاع مقدس"
           title="مشاهده خاطرات"
         />
         <AnimationImageCard
-        onClick={()=>{galleryHandler}}
+        clilHandler={galleryHandler}
         animationImage={secondImage}
           content="خاطرات به یاد ماندنی جانبازان معزز نیروی دریایی ارتش جمهوری اسلامی
           ایران از دوران دفاع مقدس"
           title="گالری تصاویر"
         />
         <AnimationImageCard
-        onClick={galleryHandler}
+        clilHandler={galleryHandler}
         animationImage={thirdImage}
           content="خاطرات به یاد ماندنی جانبازان معزز نیروی دریایی ارتش جمهوری اسلامی
           ایران از دوران دفاع مقدس"

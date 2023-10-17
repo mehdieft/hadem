@@ -30,7 +30,9 @@ exports.insert = async (req, res, next) => {
         shamsiDieDate:source[i].N,
         wayOfDie: source[i].P,
         cemeteryPlace:source[i].AE,
-        birthdayPlace:source[i].R
+        birthdayPlace:source[i].R,
+        dieMonth:Number(source[i].N.split('/')[1]),
+        dieDay:Number(source[i].N.split('/')[2])
       };
       if(singleRow.birthdate == null || singleRow.birthdate=='Invalid date' ){
         singleRow.birthdate=''
@@ -53,6 +55,13 @@ exports.insert = async (req, res, next) => {
       if(singleRow.fatherName ==null || singleRow.fatherName==''){
         singleRow.fatherName= 'نام پدر موجود نیست'
       }
+      if(typeof(singleRow.dieMonth) !== 'number'){
+        singleRow.dieMonth =null
+      }
+      if(typeof(singleRow.dieDay) !== 'number'){
+        singleRow.dieDay =null
+      }
+
 
 
 
@@ -96,9 +105,10 @@ exports.getbyDate=async(req, res,next)=>{
   const today = new Date();
   const month=today.getMonth()+1;
   const days=today.getDate();
+ const dieDate=moment.from(today,'fa', 'YYYY/MM/DD')
 
-  console.log("_________________________________>>>>>>>",today)
+  console.log("_________________________________>>>>>>>",dieDate)
   console.log("this is date",today)
-  return res.json({month,days})
+  return res.json({month,days,dieDate})
 
 }

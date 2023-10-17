@@ -1,7 +1,7 @@
 import "./style.css";
 import { delay, motion } from "framer-motion";
 
-export const AnimationImageCard = ({ animationImage,title,content }) => {
+export const AnimationImageCard = ({ animationImage,title,content,clilHandler }) => {
     const containerAnimate = {
       init: {
         backgroundImage: `url(${animationImage})`,
@@ -38,6 +38,7 @@ export const AnimationImageCard = ({ animationImage,title,content }) => {
     }
     return (
     <motion.div
+    onClick={clilHandler}
     className="animation-card-container"
     variants={containerAnimate}
       initial="init"

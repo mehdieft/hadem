@@ -59,7 +59,7 @@ const Gallery = () => {
    
     initial={{width:0}}
     animate={{width:'100%'}}
-    exit={{x:window.innerWidth,transition:{duration:0.1}}}
+    exit={{x:window.innerWidth,transition:{duration:0.6}}}
     >
       <motion.div style={{scaleX: scrollYProgress}}  className="gallery-container"></motion.div>
       {/* <LazyLoadImage
