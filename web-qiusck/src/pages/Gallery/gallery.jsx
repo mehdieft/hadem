@@ -51,12 +51,31 @@ const Gallery = () => {
     damping: 40,
     restDelta: 0.001,
   });
+  let imageList = [
+    galleryBackgroundImage,
+    galleryBackgroundImage,
+    galleryBackgroundImage,
+    galleryBackgroundImage,
+    galleryBackgroundImage,
+    galleryBackgroundImage,
+    galleryBackgroundImage,
+    galleryBackgroundImage,
+    galleryBackgroundImage,
+  ];
   const [value, setValue] = useState(0);
   useEffect(() => {}, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const imageClickHandler=(e)=>{
+    if(e.target.className=="active"){
+      e.target.className=""
+    }else{
+      e.target.className="active"
+    }
+
+  }
   return (
     <motion.div
       initial={{ width: 0, backgroundColor: " rgb(1, 32, 44)" }}
@@ -127,7 +146,7 @@ const Gallery = () => {
           id="main-image-image-gallery"
           style={{
             backgroundImage: `url(${galleryBackgroundImage})`,
-            backgroundSize: "contain",
+            backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             display: "flex",
             alignItems: "end",
@@ -145,31 +164,35 @@ const Gallery = () => {
             <button>download </button>
             <button>download </button>
           </div>
-          <div id="image-gallery-image-wrapper">
-          </div>
+          <div id="image-gallery-image-wrapper"></div>
         </div>
         <div
           id="carousel-image-image-gallery"
           style={{ backgroundColor: "green" }}
         >
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <img src={galleryBackgroundImage} alt="" />
-            <button>مشاهده بیشتر</button>
-           
+          {imageList.map((item,index)=>{
+            return (
+
+              <img onClick={imageClickHandler} key={index} src={item} alt="" />
+            )
+
+          })}
+          {/* <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" />
+          <img src={galleryBackgroundImage} alt="" /> */}
+          <button>مشاهده بیشتر</button>
         </div>
       </motion.div>
     </motion.div>
