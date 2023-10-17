@@ -10,12 +10,10 @@ import { useState } from "react";
 import { ImageGalleryLayout } from "../../layouts/ImageGallery/imageGalleryLayout";
 import { CarouselComponent } from "../../components/CarouselComponent/carousel";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import {motion,useScroll,useSpring} from 'framer-motion'
+import { motion, useScroll, useSpring } from "framer-motion";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
-
-
 
   return (
     <div
@@ -51,7 +49,7 @@ const Gallery = () => {
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 40,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
   const [value, setValue] = useState(0);
   useEffect(() => {}, []);
@@ -60,14 +58,23 @@ const Gallery = () => {
     setValue(newValue);
   };
   return (
-    <motion.div 
-   
-    initial={{width:0,    backgroundColor: ' rgb(1, 32, 44)',
-    }}
-    animate={{width:'100%'}}
-    exit={{x:window.innerWidth,}}
+    <motion.div
+      initial={{ width: 0, backgroundColor: " rgb(1, 32, 44)" }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth }}
     >
-      <motion.div animate={{transition:{duration:0.6,type:'spring',damping:140,   stiffness: 100,}}} style={{scaleX}}   className="gallery-container"></motion.div>
+      <motion.div
+        animate={{
+          transition: {
+            duration: 0.6,
+            type: "spring",
+            damping: 140,
+            stiffness: 100,
+          },
+        }}
+        style={{ scaleX }}
+        className="gallery-container"
+      ></motion.div>
       {/* <LazyLoadImage
         src={galleryBackgroundImage}
         width={600}
@@ -80,7 +87,6 @@ const Gallery = () => {
           backgroundImage: `url(${galleryBackgroundImage})`,
         }}
       >
-    
         <div className="text-header-gallery">
           <div ref={customRef} className="text-header-1">
             جنگی که گذشت
@@ -117,34 +123,55 @@ const Gallery = () => {
         </CustomTabPanel>
       </Box> */}
       <motion.div id="image-gallery-container">
-        <div id="main-image-image-gallery" style={{backgroundImage:`url(${galleryBackgroundImage})`,
-      backgroundSize:'contain',
-      backgroundRepeat:'no-repeat',
-      display:'flex',
-      alignItems:'end',
-      backgroundColor:'red'}}>
-      <div style={{display:'flex',alignItems:'flex-end',justifyContent:'space-between',width:'100%'}}>
-        <button>download </button>
-        <button>download </button>
-      </div>
-          <div>
-
+        <div
+          id="main-image-image-gallery"
+          style={{
+            backgroundImage: `url(${galleryBackgroundImage})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            display: "flex",
+            alignItems: "end",
+            backgroundColor: "red",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <button>download </button>
+            <button>download </button>
           </div>
-
+          <div id="image-gallery-image-wrapper">
+          </div>
         </div>
-        <div id="carousel-image-image-gallery" style={{backgroundColor:'green'}}>
-
+        <div
+          id="carousel-image-image-gallery"
+          style={{ backgroundColor: "green" }}
+        >
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <img src={galleryBackgroundImage} alt="" />
+            <button>مشاهده بیشتر</button>
+           
         </div>
-        
       </motion.div>
-
-
-
-
-
-
-
-
     </motion.div>
   );
 };
