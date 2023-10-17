@@ -114,7 +114,14 @@ const Gallery = () => {
       <motion.div id="image-gallery-container">
         <div id="main-image-image-gallery" style={{backgroundImage:`url(${galleryBackgroundImage})`,
       backgroundSize:'contain',
+      backgroundRepeat:'no-repeat',
+      display:'flex',
+      alignItems:'end',
       backgroundColor:'red'}}>
+      <div style={{display:'flex',alignItems:'flex-end',justifyContent:'space-between',width:'100%'}}>
+        <button>download </button>
+        <button>download </button>
+      </div>
           <div>
 
           </div>
