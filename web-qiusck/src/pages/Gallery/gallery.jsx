@@ -10,7 +10,7 @@ import { useState } from "react";
 import { ImageGalleryLayout } from "../../layouts/ImageGallery/imageGalleryLayout";
 import { CarouselComponent } from "../../components/CarouselComponent/carousel";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import {motion,useScroll} from 'framer-motion'
+import {motion,useScroll,useSpring} from 'framer-motion'
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -48,6 +48,11 @@ function a11yProps(index) {
 const Gallery = () => {
   const customRef = useRef();
   const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 40,
+    restDelta: 0.001
+  });
   const [value, setValue] = useState(0);
   useEffect(() => {}, []);
 
@@ -60,9 +65,9 @@ const Gallery = () => {
     initial={{width:0,    backgroundColor: ' rgb(1, 32, 44)',
     }}
     animate={{width:'100%'}}
-    exit={{x:window.innerWidth,transition:{duration:0.6}}}
+    exit={{x:window.innerWidth,}}
     >
-      <motion.div style={{scaleX: scrollYProgress}}  className="gallery-container"></motion.div>
+      <motion.div animate={{transition:{duration:0.6,type:'spring',damping:140,   stiffness: 100,}}} style={{scaleX}}   className="gallery-container"></motion.div>
       {/* <LazyLoadImage
         src={galleryBackgroundImage}
         width={600}
