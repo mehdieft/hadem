@@ -69,7 +69,7 @@
   height: 800px;
   grid-template-columns: 6fr 3fr;
   grid-template-rows: 1fr;
-  grid-column-gap: 0px;
+  grid-column-gap: 10px;
   grid-row-gap: 0px;
 }
 #main-image-image-gallery {

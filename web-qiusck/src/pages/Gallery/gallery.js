@@ -112,8 +112,17 @@ const Gallery = () => {
         </CustomTabPanel>
       </Box> */}
       <motion.div id="image-gallery-container">
-        <div id="main-image-image-gallery" style={{backgroundColor:'red'}}></div>
-        <div id="carousel-image-image-gallery" style={{backgroundColor:'green'}}></div>
+        <div id="main-image-image-gallery" style={{backgroundImage:`url(${galleryBackgroundImage})`,
+      backgroundSize:'contain',
+      backgroundColor:'red'}}>
+          <div>
+
+          </div>
+
+        </div>
+        <div id="carousel-image-image-gallery" style={{backgroundColor:'green'}}>
+
+        </div>
         
       </motion.div>
 
