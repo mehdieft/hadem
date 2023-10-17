@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
 }
-.gallery-container{
+.gallery-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,22 +27,22 @@
   overflow: hidden;
 }
 .text-header-1 {
-  color:rgb(73, 221, 73);
+  color: rgb(73, 221, 73);
   font-family: diba;
   font-weight: 700;
   font-size: 35px;
   animation-duration: 4s;
   animation-name: bounceIn;
 }
-.text-header-2{
-  font-size:70px;
-  color:white;
+.text-header-2 {
+  font-size: 70px;
+  color: white;
   font-family: diba;
   animation-duration: 4s;
   animation-name: bounceIn;
   animation-delay: 4s;
-  
-}.text-header-red{
+}
+.text-header-red {
   color: #ff0000;
   font-family: diba;
   font-weight: 700;
@@ -63,19 +63,25 @@
   color: #fff8f8;
 }
 
-
-
 #image-gallery-container {
-
+  margin: 120px;
   display: grid;
+  height: 800px;
   grid-template-columns: 6fr 3fr;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  }
-  #main-image-image-gallery { grid-area: 1 / 1 / 2 / 2; }
-#carousel-image-image-gallery { grid-area: 1 / 2 / 2 / 3; }
+}
+#main-image-image-gallery {
+  grid-area: 1 / 1 / 2 / 2;
+  height: 100%;
 
+}
+#carousel-image-image-gallery {
+  grid-area: 1 / 2 / 2 / 3;
+  height: 100%;
+
+}
 
 @keyframes bounceIn {
   0% {
@@ -91,27 +97,26 @@
   }
 }
 
-@media only screen and (max-width: 1000px){
-
-  .text-header-3{
+@media only screen and (max-width: 1000px) {
+  .text-header-3 {
     gap: 20px;
-
   }
-
-
 }
 @media only screen and (max-width: 430px) {
-  .text-header-3{display: none;}
-  .text-header-gallery{
+  .text-header-3 {
+    display: none;
+  }
+  .text-header-gallery {
     overflow: hidden;
   }
-
 }
 @media only screen and (max-width: 740px) {
   .text-header-3 {
-    gap:40px; flex-direction: column;
+    gap: 40px;
+    flex-direction: column;
     margin-top: 24px;
-
   }
-  p{margin:0;}
+  p {
+    margin: 0;
+  }
 }

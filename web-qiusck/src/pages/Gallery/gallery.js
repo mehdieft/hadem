@@ -57,7 +57,8 @@ const Gallery = () => {
   return (
     <motion.div 
    
-    initial={{width:0}}
+    initial={{width:0,    backgroundColor: ' rgb(1, 32, 44)',
+    }}
     animate={{width:'100%'}}
     exit={{x:window.innerWidth,transition:{duration:0.6}}}
     >
@@ -111,8 +112,8 @@ const Gallery = () => {
         </CustomTabPanel>
       </Box> */}
       <motion.div id="image-gallery-container">
-        <div id="main-image-image-gallery" style={{height:'300px',backgroundColor:'red'}}></div>
-        <div id="carousel-image-image-gallery" style={{height:'300px',backgroundColor:'green'}}></div>
+        <div id="main-image-image-gallery" style={{backgroundColor:'red'}}></div>
+        <div id="carousel-image-image-gallery" style={{backgroundColor:'green'}}></div>
         
       </motion.div>
 
