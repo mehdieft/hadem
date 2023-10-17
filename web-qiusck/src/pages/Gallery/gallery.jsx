@@ -11,6 +11,9 @@ import { ImageGalleryLayout } from "../../layouts/ImageGallery/imageGalleryLayou
 import { CarouselComponent } from "../../components/CarouselComponent/carousel";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { motion, useScroll, useSpring } from "framer-motion";
+import IconButton from '@mui/material/IconButton';
+import CropSquareIcon from '@mui/icons-material/CropSquare';
+import UploadIcon from '@mui/icons-material/Upload';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -157,8 +160,12 @@ const Gallery = () => {
               width: "100%",
             }}
           >
-            <button>download </button>
-            <button>download </button>
+            <IconButton style={{scale:1.7}} aria-label="delete" disabled color="primary">
+              <CropSquareIcon style={{color:'black'}} color="black" />
+            </IconButton>
+            <IconButton  style={{scale:1.7}}  aria-label="delete" disabled color="primary">
+              <UploadIcon style={{color:'black'}}  />
+            </IconButton>
           </div>
           <div id="image-gallery-image-wrapper"></div>
         </div>
