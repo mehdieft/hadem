@@ -11,11 +11,10 @@ import { ImageGalleryLayout } from "../../layouts/ImageGallery/imageGalleryLayou
 import { CarouselComponent } from "../../components/CarouselComponent/carousel";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { motion, useScroll, useSpring } from "framer-motion";
-import IconButton from '@mui/material/IconButton';
-import CropSquareIcon from '@mui/icons-material/CropSquare';
-import UploadIcon from '@mui/icons-material/Upload';
-import anotherImage from '../../assets/Image/mainheader.png';
-
+import IconButton from "@mui/material/IconButton";
+import CropSquareIcon from "@mui/icons-material/CropSquare";
+import UploadIcon from "@mui/icons-material/Upload";
+import anotherImage from "../../assets/Image/mainheader.png";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -50,8 +49,9 @@ function a11yProps(index) {
 }
 const Gallery = () => {
   const customRef = useRef();
+  const imageRef = useRef();
   const { scrollYProgress } = useScroll();
-  const [selectedImageBackgrouund,setselectedImageBackground]=useState(null);
+  const [selectedImageBackground, setselectedImageBackground] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -73,18 +73,16 @@ const Gallery = () => {
   ];
   const [value, setValue] = useState(0);
   useEffect(() => {
-    setselectedImageBackground(imageList[0])
-  }, [selectedImageBackgrouund]);
-  
-
+    setselectedImageBackground(imageList[0]);
+  }, []);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const imageClickHandler = (index,item) => {
+  const imageClickHandler = (index, item) => {
     setSelectedImageIndex(index);
-  
-    setselectedImageBackground(item)
-
+    setselectedImageBackground(item);
+    console.log("this is------>", imageRef.current.style);
+    imageRef.current.backgroundImage = `url('${item}')`;
   };
   return (
     <motion.div
@@ -113,7 +111,7 @@ const Gallery = () => {
       <div
         id="gallery-container"
         style={{
-          backgroundImage: `url(${selectedImageBackgrouund})`,
+          backgroundImage: `url(${galleryBackgroundImage})`,
         }}
       >
         <div className="text-header-gallery">
@@ -153,9 +151,10 @@ const Gallery = () => {
       </Box> */}
       <motion.div id="image-gallery-container">
         <div
+          ref={imageRef}
           id="main-image-image-gallery"
           style={{
-            backgroundImage: `url(${galleryBackgroundImage})`,
+            backgroundImage: `url(${selectedImageBackground})`,
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             display: "flex",
@@ -171,11 +170,21 @@ const Gallery = () => {
               width: "100%",
             }}
           >
-            <IconButton style={{scale:1.7}} aria-label="delete" disabled color="primary">
-              <CropSquareIcon style={{color:'black'}} color="black" />
+            <IconButton
+              style={{ scale: 1.7 }}
+              aria-label="delete"
+              disabled
+              color="primary"
+            >
+              <CropSquareIcon style={{ color: "black" }} color="black" />
             </IconButton>
-            <IconButton  style={{scale:1.7}}  aria-label="delete" disabled color="primary">
-              <UploadIcon style={{color:'black'}}  />
+            <IconButton
+              style={{ scale: 1.7 }}
+              aria-label="delete"
+              disabled
+              color="primary"
+            >
+              <UploadIcon style={{ color: "black" }} />
             </IconButton>
           </div>
           <div id="image-gallery-image-wrapper"></div>
@@ -193,7 +202,7 @@ const Gallery = () => {
                     : {}
                 }
                 className={selectedImageIndex === index ? "active" : ""}
-                onClick={() => imageClickHandler(index,item)}
+                onClick={() => imageClickHandler(index, item)}
                 key={index}
                 src={item}
                 alt=""
