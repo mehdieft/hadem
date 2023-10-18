@@ -10,6 +10,17 @@ export const MainLayout = () => {
     console.log("hello world")
     navigate('/gallery')
   }
+  const historyHandler=()=>{
+    console.log("hello world")
+    navigate('/history')
+
+  }
+  const shahidHandler=()=>{
+    console.log("hello world")
+    navigate('/shahid')
+
+
+  }
   return (
     <div
       style={{
@@ -21,7 +32,7 @@ export const MainLayout = () => {
     >
       <div className="main-image-container">
         <AnimationImageCard
-        clilHandler={galleryHandler}
+        clilHandler={historyHandler}
         animationImage={firstImage}
           content="خاطرات به یاد ماندنی جانبازان معزز نیروی دریایی ارتش جمهوری اسلامی
           ایران از دوران دفاع مقدس"
@@ -35,7 +46,7 @@ export const MainLayout = () => {
           title="گالری تصاویر"
         />
         <AnimationImageCard
-        clilHandler={galleryHandler}
+        clilHandler={shahidHandler}
         animationImage={thirdImage}
           content="خاطرات به یاد ماندنی جانبازان معزز نیروی دریایی ارتش جمهوری اسلامی
           ایران از دوران دفاع مقدس"
