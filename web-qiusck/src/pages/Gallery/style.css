@@ -144,4 +144,19 @@
   p {
     margin: 0;
   }
+  #carousel-image-image-gallery{
+    height:70%
+  }
+#carousel-image-image-gallery img{
+  height:100px;
+  width:100px;
+}
+#image-gallery-container{
+  margin: 32px;
+  height:500px;
+
+
+}
+
+
 }
