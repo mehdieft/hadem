@@ -14,6 +14,8 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import IconButton from '@mui/material/IconButton';
 import CropSquareIcon from '@mui/icons-material/CropSquare';
 import UploadIcon from '@mui/icons-material/Upload';
+import anotherImage from '../../assets/Image/mainheader.png';
+
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,6 +51,7 @@ function a11yProps(index) {
 const Gallery = () => {
   const customRef = useRef();
   const { scrollYProgress } = useScroll();
+  const [selectedImageBackgrouund,setselectedImageBackground]=useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -57,9 +60,11 @@ const Gallery = () => {
   });
   let imageList = [
     galleryBackgroundImage,
+    anotherImage,
     galleryBackgroundImage,
     galleryBackgroundImage,
     galleryBackgroundImage,
+    anotherImage,
     galleryBackgroundImage,
     galleryBackgroundImage,
     galleryBackgroundImage,
@@ -67,13 +72,19 @@ const Gallery = () => {
     galleryBackgroundImage,
   ];
   const [value, setValue] = useState(0);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setselectedImageBackground(imageList[0])
+  }, [selectedImageBackgrouund]);
+  
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const imageClickHandler = (index) => {
+  const imageClickHandler = (index,item) => {
     setSelectedImageIndex(index);
+  
+    setselectedImageBackground(item)
+
   };
   return (
     <motion.div
@@ -102,7 +113,7 @@ const Gallery = () => {
       <div
         id="gallery-container"
         style={{
-          backgroundImage: `url(${galleryBackgroundImage})`,
+          backgroundImage: `url(${selectedImageBackgrouund})`,
         }}
       >
         <div className="text-header-gallery">
@@ -182,7 +193,7 @@ const Gallery = () => {
                     : {}
                 }
                 className={selectedImageIndex === index ? "active" : ""}
-                onClick={() => imageClickHandler(index)}
+                onClick={() => imageClickHandler(index,item)}
                 key={index}
                 src={item}
                 alt=""
