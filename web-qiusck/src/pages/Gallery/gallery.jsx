@@ -83,6 +83,8 @@ const Gallery = () => {
     setselectedImageBackground(item);
     console.log("this is------>", imageRef.current.style);
     imageRef.current.backgroundImage = `url('${item}')`;
+  
+    
   };
   return (
     <motion.div
@@ -150,7 +152,8 @@ const Gallery = () => {
         </CustomTabPanel>
       </Box> */}
       <motion.div id="image-gallery-container">
-        <div
+        <motion.div
+         
           ref={imageRef}
           id="main-image-image-gallery"
           style={{
@@ -188,7 +191,7 @@ const Gallery = () => {
             </IconButton>
           </div>
           <div id="image-gallery-image-wrapper"></div>
-        </div>
+        </motion.div>
         <div
           id="carousel-image-image-gallery"
           style={{ backgroundColor: "green" }}
