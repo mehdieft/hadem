@@ -69,12 +69,13 @@
   background-color: black;
   height: fit-content;
   gap: 32px;
+  flex-wrap: wrap;
 }
 #image-container .image-item{
-width: 33%;
+width: 29%;
 margin:32px 0;
-
-
+height: 700px;
+aspect-ratio: 5400 / 3600;
 }
 
 

@@ -51,15 +51,14 @@ import {
   image33,
 } from "../../helper/imagesList";
 
-
 const Gallery = () => {
   const customRef = useRef();
   const imageRef = useRef();
   const { scrollYProgress } = useScroll();
   const [selectedImageBackground, setselectedImageBackground] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
-  const [indexForLoadedImage,setIndexForLoadedImage]=useState(0);
-  
+  const [indexForLoadedImage, setIndexForLoadedImage] = useState(1);
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 40,
@@ -78,10 +77,53 @@ const Gallery = () => {
     galleryBackgroundImage,
     galleryBackgroundImage,
   ];
+  let imageArray = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+    image11,
+    image12,
+    image13,
+    image14,
+    image15,
+    image16,
+    image17,
+    image18,
+    image19,
+    image20,
+    image21,
+    image22,
+    image23,
+    image24,
+    image25,
+    image26,
+    image27,
+    image28,
+    image29,
+    image30,
+    image31,
+    image32,
+    image33,
+  ];
   const [value, setValue] = useState(0);
   useEffect(() => {
+    addToArray();
     setselectedImageBackground(imageList[0]);
   }, []);
+  const addToArray = () => {
+    imageArray = [];
+    for (let i = 0; i < 20 * indexForLoadedImage; i++) {
+      imageArray.push(i);
+    }
+    console.log(imageArray, "_________________>");
+  };
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -130,7 +172,14 @@ const Gallery = () => {
         </div>
       </div>
       <main id="image-container">
-        <div className="image-item"></div>
+        {imageArray.map((item) => {
+          return (
+            <div
+              className="image-item"
+              style={{ backgroundImage: `url('${ item}')`,backgroundRepeat:'contain' }}
+            ></div>
+          );
+        })}
       </main>
     </motion.div>
   );
