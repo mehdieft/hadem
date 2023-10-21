@@ -180,7 +180,7 @@ const Gallery = () => {
               <div className="title">
                 عکس
               </div>
-              <img src={item} width={'100%'} height={350} alt="" />
+              <img src={item} width={'100%'} style={{aspectRatio:1/1.5}} alt="" />
               <div className="content">دفاع مقدس</div>
 
             </div>

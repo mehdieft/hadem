@@ -72,9 +72,19 @@
   margin: 32px;
   grid-template-columns: repeat(3,minmax(0,1fr));
 }
+@media only screen and (max-width: 830px) {
+  #image-container{
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+}
 #image-container .image-item{
 cursor: zoom-in;
 
+
+}
+.image-item image{
+  aspect-ratio: 1;
 }
 .image-item .title{
   position: relative;
