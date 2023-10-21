@@ -85,19 +85,19 @@ cursor: zoom-in;
     opacity: 0.6;
     padding: 5px;
     color: white;
+    font-family: iransSans;
     direction: rtl;
-    font-family: iransans;
 }
 .image-item .content{
   position: relative;
   display: hidden;
-  bottom: 43px;
+  bottom: 36px;
   direction: rtl;
     /* left: 16px; */
     background-color: black;
     opacity: 0.6;
     color: white;
-    font-family: iransans;
+    font-family: iransSans;
     padding: 5px;
 
 }
