@@ -64,6 +64,18 @@
   font-weight: 800;
   color: #fff8f8;
 }
+#image-container{
+  display: flex;
+  background-color: black;
+  height: fit-content;
+  gap: 32px;
+}
+#image-container .image-item{
+width: 33%;
+margin:32px 0;
+
+
+}
 
 
 .active{

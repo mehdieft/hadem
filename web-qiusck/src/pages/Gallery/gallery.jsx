@@ -124,6 +124,10 @@ const Gallery = () => {
           <div className="text-header-red">پایی که ماند</div>
         </div>
       </div>
+      <main id="image-container">
+        
+        <div className="image-item"></div>
+      </main>
      
     
     </motion.div>
