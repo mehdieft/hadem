@@ -176,8 +176,14 @@ const Gallery = () => {
           return (
             <div
               className="image-item"
-              style={{ backgroundImage: `url('${ item}')`,backgroundRepeat:'cover' }}
-            ></div>
+            >
+              <div className="title">
+                عکس
+              </div>
+              <img src={item} width={'100%'} height={350} alt="" />
+              <div className="content">دفاع مقدس</div>
+
+            </div>
           );
         })}
       </main>

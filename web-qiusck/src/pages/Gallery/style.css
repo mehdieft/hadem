@@ -69,12 +69,25 @@
   align-items: start;
   display: grid;
   grid-row-gap: 34px;
+  margin: 32px;
   grid-template-columns: repeat(3,minmax(0,1fr));
 }
 #image-container .image-item{
+cursor: zoom-in;
 
-
-height: 700px;
+}
+.image-item .title{
+  position: relative;
+  display: hidden;
+    top: 24px;
+    /* left: 16px; */
+    background-color: black;
+    opacity: 0.6;
+    color: white;
+    font-family: iransans;
+}
+.image-item::hover + .title {
+   display:block;
 }
 
 
