@@ -15,44 +15,51 @@ import IconButton from "@mui/material/IconButton";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
 import UploadIcon from "@mui/icons-material/Upload";
 import anotherImage from "../../assets/Image/mainheader.png";
+import {
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8,
+  image9,
+  image10,
+  image11,
+  image12,
+  image13,
+  image14,
+  image15,
+  image16,
+  image17,
+  image18,
+  image19,
+  image20,
+  image21,
+  image22,
+  image23,
+  image24,
+  image25,
+  image26,
+  image27,
+  image28,
+  image29,
+  image30,
+  image31,
+  image32,
+  image33,
+} from "../../helper/imagesList";
 
-function CustomTabPanel(props) {
-  const { children, value, index, ...other } = props;
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
-CustomTabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
 const Gallery = () => {
   const customRef = useRef();
   const imageRef = useRef();
   const { scrollYProgress } = useScroll();
   const [selectedImageBackground, setselectedImageBackground] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const [indexForLoadedImage,setIndexForLoadedImage]=useState(0);
+  
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 40,
@@ -83,8 +90,6 @@ const Gallery = () => {
     setselectedImageBackground(item);
     console.log("this is------>", imageRef.current.style);
     imageRef.current.backgroundImage = `url('${item}')`;
-  
-    
   };
   return (
     <motion.div
@@ -125,11 +130,8 @@ const Gallery = () => {
         </div>
       </div>
       <main id="image-container">
-        
         <div className="image-item"></div>
       </main>
-     
-    
     </motion.div>
   );
 };
