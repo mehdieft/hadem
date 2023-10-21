@@ -79,10 +79,10 @@ cursor: zoom-in;
 .image-item .title{
   position: relative;
   display: hidden;
-    top: 24px;
+    top: 40px;
     /* left: 16px; */
     background-color: black;
-    opacity: 0.6;
+    opacity: 0;
     padding: 5px;
     color: white;
     font-family: iransSans;
@@ -92,18 +92,24 @@ cursor: zoom-in;
   position: relative;
   display: hidden;
   bottom: 36px;
+  opacity: 0;
   direction: rtl;
     /* left: 16px; */
     background-color: black;
-    opacity: 0.6;
+
     color: white;
     font-family: iransSans;
     padding: 5px;
 
 }
 
-.image-item::hover + .title {
-   display:block;
+.image-item .title:hover  {
+   opacity: 0.6;
+   transition: 0.2s ease-in;
+}
+.image-item .content:hover  {
+  opacity: 0.6;
+  transition: 0.2s ease-in;
 }
 
 
