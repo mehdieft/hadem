@@ -83,9 +83,25 @@ cursor: zoom-in;
     /* left: 16px; */
     background-color: black;
     opacity: 0.6;
+    padding: 5px;
     color: white;
+    direction: rtl;
     font-family: iransans;
 }
+.image-item .content{
+  position: relative;
+  display: hidden;
+  bottom: 43px;
+  direction: rtl;
+    /* left: 16px; */
+    background-color: black;
+    opacity: 0.6;
+    color: white;
+    font-family: iransans;
+    padding: 5px;
+
+}
+
 .image-item::hover + .title {
    display:block;
 }
