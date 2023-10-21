@@ -176,7 +176,7 @@ const Gallery = () => {
           return (
             <div
               className="image-item"
-              style={{ backgroundImage: `url('${ item}')`,backgroundRepeat:'contain' }}
+              style={{ backgroundImage: `url('${ item}')`,backgroundRepeat:'cover' }}
             ></div>
           );
         })}

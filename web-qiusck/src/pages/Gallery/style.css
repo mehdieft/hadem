@@ -65,17 +65,16 @@
   color: #fff8f8;
 }
 #image-container{
-  display: flex;
-  background-color: black;
-  height: fit-content;
-  gap: 32px;
-  flex-wrap: wrap;
+  grid-column-gap: 34px;
+  align-items: start;
+  display: grid;
+  grid-row-gap: 34px;
+  grid-template-columns: repeat(3,minmax(0,1fr));
 }
 #image-container .image-item{
-width: 29%;
-margin:32px 0;
+
+
 height: 700px;
-aspect-ratio: 5400 / 3600;
 }
 
 
