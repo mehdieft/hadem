@@ -13,6 +13,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { motion, useScroll, useSpring } from "framer-motion";
 import IconButton from "@mui/material/IconButton";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
+import {useImageDialog} from '../../context/ImageDialogProvider'
 import UploadIcon from "@mui/icons-material/Upload";
 import anotherImage from "../../assets/Image/mainheader.png";
 import {
@@ -52,6 +53,8 @@ import {
 } from "../../helper/imagesList";
 
 const Gallery = () => {
+  const{openDialog}=useImageDialog()
+  openDialog('kir')
   const customRef = useRef();
   const imageRef = useRef();
   const { scrollYProgress } = useScroll();

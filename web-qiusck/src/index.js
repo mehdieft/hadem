@@ -4,18 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import NotificationProvider from './context/NotificationProvider'
-
+import NotificationProvider from "./context/NotificationProvider";
+import ImageDialogProvider from "./context/ImageDialogProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-  <NotificationProvider>
-
-      <App />
-  </NotificationProvider>
-   
-
+    <NotificationProvider>
+      <ImageDialogProvider>
+        <App />
+      </ImageDialogProvider>
+    </NotificationProvider>
   </BrowserRouter>
 );
 
