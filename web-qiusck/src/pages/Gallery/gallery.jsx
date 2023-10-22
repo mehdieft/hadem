@@ -54,7 +54,7 @@ import {
 
 const Gallery = () => {
   const{openDialog}=useImageDialog()
-  openDialog('kir')
+  // openDialog('kir')
   const customRef = useRef();
   const imageRef = useRef();
   const { scrollYProgress } = useScroll();
