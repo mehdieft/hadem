@@ -18,7 +18,7 @@ const SingleDiaryComponent=({backgroundImage,titleImage,degree,name,diary,quete}
                 <span style={{fontSize:40,fontFamily:'diba',color:'white'}}>{degree}</span>
               </div>
               <div>
-                <span style={{fontSize:30,fontFamily:'diba',color:'white'}}>{name}</span>
+                <span style={{fontSize:30,fontFamily:'diba',color:'#34ffff'}}>{name}</span>
               </div>
               <div>
                 <span id="white-text" style={{fontSize:30,fontFamily:'diba',}}>{diary}</span>
@@ -38,7 +38,7 @@ const SingleDiaryComponent=({backgroundImage,titleImage,degree,name,diary,quete}
                     </g>
                   </g>
                 </svg>{" "}
-                <span style={{color:'red',fontWeight:'bold',letterSpacing: '3px',}}>
+                <span style={{color:'red',fontWeight:'bold',letterSpacing: '3px',fontFamily:'iranSans',fontSize:20}}>
 
                 {quete}
                 </span>

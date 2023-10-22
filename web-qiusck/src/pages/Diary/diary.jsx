@@ -8,7 +8,11 @@ const Diary = () => {
   return (
     <>
       <div className="diary-main">
-        <SingleDiaryComponent backgroundImage={cityImage}  titleImage={diaryImage} degree="ناخدا" name="هوشنگ صمدی"  diary="خاطه نجات سرباز رایان"  quete="زمانی که ناقوس مرگ به صدا در آمد جایی برای فرار نیست"   />
+      <SingleDiaryComponent backgroundImage={cityImage}  titleImage={diaryImage} degree="ناخدا" name="هوشنگ صمدی"  diary="خاطره نجات سرباز رایان"  quete="زمانی که ناقوس مرگ به صدا در آمد جایی برای فرار نیست"   />
+
+      <SingleDiaryComponent backgroundImage={cityImage}  titleImage={diaryImage} degree="ناخدا" name="هوشنگ صمدی"  diary="خاطره نجات سرباز رایان"  quete="زمانی که ناقوس مرگ به صدا در آمد جایی برای فرار نیست"   />
+
+        <SingleDiaryComponent backgroundImage={cityImage}  titleImage={diaryImage} degree="ناخدا" name="هوشنگ صمدی"  diary="خاطره نجات سرباز رایان"  quete="زمانی که ناقوس مرگ به صدا در آمد جایی برای فرار نیست"   />
         
        
 
