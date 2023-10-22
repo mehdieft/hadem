@@ -12,6 +12,7 @@ import { ImageGalleryManagment } from "./pages/Admin/ImageGalleryManagement.jsx/
 import {VideoGalleryManagment} from './pages/Admin/VideoGalleryManagment/videoGalleryManagment';
 import { ShahidManagament } from "./pages/Admin/ShahidManagment/shahidManagment";
 import WarHistoryManagement from "./pages/Admin/WarHistoryManagment/warHistory";
+import Diary from './pages/Diary/diary';
 
 export const AnimatedRoutes = () => {
   const location = useLocation();
@@ -22,6 +23,7 @@ export const AnimatedRoutes = () => {
           <Route exact path="/" element={<Index />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/shohada" element={<Shohada />} />
+          <Route path="/diary" element={<Diary/>}/>
           <Route path="/nedajaMissions" element={<NedajaMissions />} />
           <Route path="/login" element={<Login/>}   />
           <Route path="*" exact={true} element={<NotFound />} />

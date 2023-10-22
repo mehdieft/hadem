@@ -12,7 +12,7 @@ export const MainLayout = () => {
   }
   const historyHandler=()=>{
     console.log("hello world")
-    navigate('/history')
+    navigate('/diary')
 
   }
   const shahidHandler=()=>{
