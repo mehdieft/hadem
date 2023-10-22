@@ -11,9 +11,9 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 12px;
+  height: 5px;
   border-radius: 10px;
-
+ rotate: (90);
   width: 99%;
   background: red;
   transform-origin: 0%;
@@ -101,8 +101,9 @@ cursor: zoom-in;
 .image-item .content{
   position: relative;
   display: hidden;
-  bottom: 36px;
+  bottom: 30px;
   opacity: 0;
+  font-size: 12px;
   direction: rtl;
     /* left: 16px; */
     background-color: black;
