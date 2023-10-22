@@ -21,10 +21,10 @@ s{
     position: relative;
     bottom: 149px;
     right: 70px;
-    width: 70vw;
+    width: 90vw;
 }
 .icon-quote{
-    width: 43px;
+    width: 22px;
 }
 .video-content{
     width: 300px;
@@ -38,4 +38,11 @@ s{
     color: transparent;
     -webkit-text-stroke: 1px #fff;
     margin: 0 32px;
+}
+@media only screen and (max-width: 550px){
+    .image-content-container{
+        flex-direction: column;
+    }
+
+
 }

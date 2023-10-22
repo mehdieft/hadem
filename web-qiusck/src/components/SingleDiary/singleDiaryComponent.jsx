@@ -23,7 +23,7 @@ const SingleDiaryComponent=({backgroundImage,titleImage,degree,name,diary,quete}
               <div>
                 <span id="white-text" style={{fontSize:30,fontFamily:'diba',}}>{diary}</span>
               </div>
-              <blockquote>
+              <blockquote style={{margin:'10px 0'}}>
                 <svg
                   className="icon-quote"
                   xmlns="http://www.w3.org/2000/svg"
