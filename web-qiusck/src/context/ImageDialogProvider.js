@@ -8,7 +8,7 @@ const backdrop={
 
 const imageDialogContext=createContext();
 export default function ImageDialogProvider  ({ children })  {
-    const [showModal,setShowModal]=useState(true)
+    const [showModal,setShowModal]=useState(false)
     const [image,setImage]=useState('')
     const openDialog=(imageUrl)=>{
         setShowModal(true)
@@ -20,12 +20,13 @@ export default function ImageDialogProvider  ({ children })  {
         setImage('');
     }
     return (
-        <imageDialogContext.Provider value={openDialog}>
+        <imageDialogContext.Provider value={{openDialog}}>
+            {children}
             <AnimatePresence mode='wait'>
                 {showModal && (
                     <motion.div
                     style={{position:'fixed',top:0,left:0,
-                width:'100%',height:'100%',background:'rgba(0,0,0,0.5)',zIndex:1}}
+                width:'100%',height:'100%',background:'rgba(0,0,0,0.8)',zIndex:1}}
                     variants={backdrop}
                     animate="visible"
                     initial="hidden"
