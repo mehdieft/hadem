@@ -1,25 +1,27 @@
 import './style.css'
-import cityImage from "../../assets/images/City-1-1310x500-e1565952871524-1400x499.png";
-import diaryImage from '../../assets/images/diary/samadi.jpg'
-const SingleDiaryComponent=()=>{
+
+const SingleDiaryComponent=({backgroundImage,titleImage,degree,name,diary,quete})=>{
     return (
         <>
         <div className="diar-image-container">
           <s></s>
           <div
             className="diary-image-inner"
-            style={{ backgroundImage: `url(${cityImage})` }}
+            style={{ backgroundImage: `url(${backgroundImage})` }}
           ></div>
           <div className="image-content-container">
             <div className="video-content" >
-                <img src={diaryImage} height={343} alt="" />
+                <img src={titleImage} height={343} alt="" />
             </div>
             <div className="image-content-text">
-              <div>
-                <span style={{fontSize:40,fontFamily:'diba',color:'white'}}>سرهنگ صمدی</span>
+            <div>
+                <span style={{fontSize:40,fontFamily:'diba',color:'white'}}>{degree}</span>
               </div>
               <div>
-                <span id="white-text" style={{fontSize:40,fontFamily:'diba',}}>خاطره تلخه</span>
+                <span style={{fontSize:30,fontFamily:'diba',color:'white'}}>{name}</span>
+              </div>
+              <div>
+                <span id="white-text" style={{fontSize:30,fontFamily:'diba',}}>{diary}</span>
               </div>
               <blockquote>
                 <svg
@@ -36,10 +38,9 @@ const SingleDiaryComponent=()=>{
                     </g>
                   </g>
                 </svg>{" "}
-                <span style={{color:'white'}}>
+                <span style={{color:'red',fontWeight:'bold',letterSpacing: '3px',}}>
 
-                There is a natural question on whether AI will make us
-                redundant. The answer is no."{" "}
+                {quete}
                 </span>
               </blockquote>
             </div>
