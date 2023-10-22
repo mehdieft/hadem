@@ -2,12 +2,13 @@
     background-color: #1b1d2d;
     padding:100px 0 100px 32px;
     direction: rtl;
-    height: 200vh;
+    height: fit-content;
 }
 .diar-image-container{
     width:50%;
     background-size:cover;
-    height:466px
+    height:466px;
+    margin-bottom: 400px;
 }
 .diary-image-inner{
     height: 100%;
