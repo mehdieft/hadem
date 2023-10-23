@@ -138,9 +138,10 @@ const Gallery = () => {
   };
   return (
     <motion.div
-      initial={{ width: 0, backgroundColor: " rgb(1, 32, 44)" }}
-      animate={{ width: "100%" }}
-      exit={{ x: window.innerWidth }}
+      initial={{  backgroundColor: " rgb(1, 32, 44)",opacity:0 }}
+      animate={{ opacity:1 }}
+      exit={{ opacity:0 }}
+      transition={{duration:0.4}}
     >
       <motion.div
         animate={{
