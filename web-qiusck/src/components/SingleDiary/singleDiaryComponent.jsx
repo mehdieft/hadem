@@ -1,5 +1,6 @@
 import "./style.css";
 import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
+import {motion} from 'framer-motion';
 const SingleDiaryComponent = ({
   backgroundImage,
   titleImage,
@@ -10,13 +11,13 @@ const SingleDiaryComponent = ({
 }) => {
   return (
     <>
-      <div className="diar-image-container">
+      <motion.div className="diar-image-container" >
         <s></s>
         <div
           className="diary-image-inner"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         ></div>
-        <div className="image-content-container">
+        <motion.div className="image-content-container" initial={{opacity:0, x:'-10vw'}} whileInView={{opacity:1,x:0}}transition={{duration:3}} >
           <div className="video-content">
             <img src={titleImage} height={343} alt="" />
             <div className="video-radius-Button">
@@ -77,8 +78,8 @@ const SingleDiaryComponent = ({
               </span>
             </blockquote>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </>
   );
 };
