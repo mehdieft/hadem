@@ -7,6 +7,20 @@ const backdrop = {
   visible: { opacity: 1 },
   hidden: { opacity: 0 },
 };
+const imageShowAnimation={
+  hidden:{
+    y:'-100vh',
+    opacity:0
+  },
+  visible:{
+    y:0,
+    opacity:1,
+    transition:{
+      delay:0.8
+    }
+  }
+
+}
 
 const imageDialogContext = createContext();
 export default function ImageDialogProvider({ children }) {
@@ -41,7 +55,7 @@ export default function ImageDialogProvider({ children }) {
             transition={{ duration: 1 }}
             className="backdrop"
           >
-            <motion.div>
+            <motion.div variants={imageShowAnimation}>
               <div style={{direction:'rtl'}}>
                 <IconButton
                   onKeyDownCapture={closeDialog}
