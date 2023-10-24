@@ -70,7 +70,7 @@
   display: grid;
   grid-row-gap: 34px;
   margin: 32px;
-  grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-template-columns: repeat(4,minmax(0,1fr));
 }
 @media only screen and (max-width: 830px) {
   #image-container{
@@ -89,7 +89,8 @@ cursor: zoom-in;
 .image-item .title{
   position: relative;
   display: hidden;
-    top: 40px;
+  font-size: 12px;
+    top: 25px;
     /* left: 16px; */
     background-color: black;
     opacity: 0;

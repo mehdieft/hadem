@@ -46,14 +46,15 @@ export default function ImageDialogProvider({ children }) {
                 <IconButton
                   onKeyDownCapture={closeDialog}
                   onClick={closeDialog}
-                  color="secondary"
+                  style={{color:'white'}}
+                  // color="secondary"
                   aria-label="add an alarm"
                 >
                   <CloseIcon />
                 </IconButton>
               </div>
               <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-                <img src={image} style={{ height: "90vh", width: "90vw" }} />
+                <img src={image} style={{ height: "auto", maxWidth: "90VW",maxHeight:'90vh' }} />
               </div>
             </motion.div>
           </motion.div>
