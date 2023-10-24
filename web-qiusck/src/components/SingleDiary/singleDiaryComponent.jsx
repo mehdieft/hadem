@@ -1,6 +1,6 @@
 import "./style.css";
 import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
-import {motion} from 'framer-motion';
+import { motion } from "framer-motion";
 const SingleDiaryComponent = ({
   backgroundImage,
   titleImage,
@@ -9,15 +9,32 @@ const SingleDiaryComponent = ({
   diary,
   quete,
 }) => {
+  const variants = {
+
+    visible: (custom) => ({
+      opacity: 1,
+      scale:1,
+      transition: { delay: custom * 0.8 }
+    }),
+    hidden:{opacity:0,scale:0.3}
+  }
   return (
     <>
-      <motion.div className="diar-image-container" >
+      <motion.div className="diar-image-container">
         <s></s>
         <div
           className="diary-image-inner"
           style={{ backgroundImage: `url(${backgroundImage})` }}
         ></div>
-        <motion.div className="image-content-container" initial={{opacity:0, x:'-10vw'}} whileInView={{opacity:1,x:0}}transition={{duration:3}} >
+        <motion.div
+          className="image-content-container"
+          initial={{ opacity: 0, x: "-10vw" }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3 }}
+          whileInView={{ opacity: 1, x: 0 }}
+         
+          
+        >
           <div className="video-content">
             <img src={titleImage} height={343} alt="" />
             <div className="video-radius-Button">
@@ -28,29 +45,44 @@ const SingleDiaryComponent = ({
             </div>
           </div>
           <div className="image-content-text">
-            <div>
+            <motion.div 
+            initial="hidden"
+            variants={variants}
+            animate="visible"
+            custom={0}
+               >
               <span
+               
                 style={{ fontSize: 40, fontFamily: "diba", color: "white" }}
               >
                 {degree}
               </span>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div  initial="hidden"
+            variants={variants}
+            animate="visible"
+            custom={1}>
               <span
                 style={{ fontSize: 30, fontFamily: "diba", color: "#34ffff" }}
               >
                 {name}
               </span>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div  initial="hidden"
+            variants={variants}
+            animate="visible"
+            custom={2}>
               <span
                 id="white-text"
                 style={{ fontSize: 30, fontFamily: "diba" }}
               >
                 {diary}
               </span>
-            </div>
-            <blockquote style={{ margin: "10px 0" }}>
+            </motion.div>
+            <motion.blockquote  initial="hidden"
+            variants={variants}
+            animate="visible"
+            custom={3} style={{ margin: "10px 0" }}>
               <svg
                 className="icon-quote"
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +108,7 @@ const SingleDiaryComponent = ({
               >
                 {quete}
               </span>
-            </blockquote>
+            </motion.blockquote>
           </div>
         </motion.div>
       </motion.div>
