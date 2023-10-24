@@ -4,6 +4,7 @@ import firstImage from "../../assets/images/navy-aviation-jobs-careers.jpg";
 import secondImage from '../../assets/images/find-careers-united-states-navy-electronics-technician-nuclear.jpg'
 import thirdImage from '../../assets/images/find-careers-united-states-navy-hospital-corpsman-advanced-technical-field.jpeg'
 import { useNavigate } from "react-router-dom";
+import {motion} from 'framer-motion'
 export const MainLayout = () => {
   const navigate=useNavigate()
   const galleryHandler=()=>{
@@ -22,7 +23,11 @@ export const MainLayout = () => {
 
   }
   return (
-    <div
+    <motion.div
+
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1,transition:{duration:5} }}
+    transition={{duration:1}}
       style={{
         direction:'rtl',
         backgroundColor: "#01202C",
@@ -53,6 +58,6 @@ export const MainLayout = () => {
           title="آرشیو شهدا"
         />
       </div>
-    </div>
+    </motion.div>
   );
 };

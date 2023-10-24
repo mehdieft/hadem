@@ -8,6 +8,7 @@
     height: 100%;
     background-size: cover;
 }
+
 s{
     background-color: #000d12;
     opacity: 0.5;
@@ -33,6 +34,24 @@ s{
 }
 .image-content-text{
     padding:0 32px
+}
+.video-radius-Button{
+    display: inline;
+    padding:25px 25px;
+    border: 1px solid #34ffff;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color:#34ffff; 
+    position: relative;
+    top: -22px;
+    right: 65px;
+    
+
+}
+.video-radius-Button:hover{
+    background-color:#ffff; 
+    transition: 2s;
+
 }
 #white-text{
     color: transparent;

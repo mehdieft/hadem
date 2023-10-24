@@ -1,6 +1,7 @@
 import "./style.css";
 import { Header } from "../../layouts/Header/header";
 import { MainLayout} from "../../layouts/Main/mainLayout";
+import {motion} from 'framer-motion'
 // import CarouselComponent from "../../layouts/Carousel/carousel";
 // import mainHeaderImage from "../../assets/Image/mainheader.png";
 
