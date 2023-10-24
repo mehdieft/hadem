@@ -52,6 +52,7 @@ export default function ImageDialogProvider({ children }) {
             variants={backdrop}
             animate="visible"
             initial="hidden"
+            exit="hidden"
             transition={{ duration: 1 }}
             className="backdrop"
           >
