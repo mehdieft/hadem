@@ -2,6 +2,7 @@ import { useState, createContext, useContext } from "react";
 import './videoDialog.css';
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
+import CachedIcon from '@mui/icons-material/Cached';
 const videoDialogContext=createContext();
 
 
@@ -19,6 +20,7 @@ export default function VideoDialogProvider({children}){
   const closeDialog=()=>{
       setShowModal(false);
       setVideoUrl('');
+      setVideoLoading(false)
   }
   
   const spinner = () => {
@@ -40,7 +42,7 @@ export default function VideoDialogProvider({children}){
                 <div className="modal__video-align">
                   {videoLoading ? (
                     <div className="modal__spinner">
-                      <CloseIcon
+                      <CachedIcon
                         className="modal__spinner-style"
                         fadeIn="none"
                       />

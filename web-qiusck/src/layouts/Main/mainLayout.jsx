@@ -26,7 +26,7 @@ export const MainLayout = () => {
     <motion.div
 
     initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1,transition:{duration:5} }}
+    whileInView={{ opacity: 1,transition:{duration:1} }}
     transition={{duration:1}}
       style={{
         direction:'rtl',
