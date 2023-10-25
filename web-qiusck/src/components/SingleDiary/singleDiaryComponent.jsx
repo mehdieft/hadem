@@ -1,6 +1,7 @@
 import "./style.css";
 import PlayArrowOutlinedIcon from "@mui/icons-material/PlayArrowOutlined";
 import { motion } from "framer-motion";
+import {useVideoDialog} from '../../context/VideoDialogProvider'
 const SingleDiaryComponent = ({
   backgroundImage,
   titleImage,
@@ -9,6 +10,7 @@ const SingleDiaryComponent = ({
   diary,
   quete,
 }) => {
+  const {openVideoDialog}=useVideoDialog();
   const variants = {
 
     visible: (custom) => ({
@@ -37,8 +39,9 @@ const SingleDiaryComponent = ({
         >
           <div className="video-content">
             <img src={titleImage} height={343} alt="" />
-            <div className="video-radius-Button">
+            <div onClick={openVideoDialog} className="video-radius-Button">
               <PlayArrowOutlinedIcon
+              
                 style={{ position: "relative", top: "14px" }}
                 fontSize={"large"}
               />
