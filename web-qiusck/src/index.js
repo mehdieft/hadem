@@ -6,13 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import NotificationProvider from "./context/NotificationProvider";
 import ImageDialogProvider from "./context/ImageDialogProvider";
+import VideoDialogProvider from "./context/VideoDialogProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <NotificationProvider>
       <ImageDialogProvider>
+        <VideoDialogProvider>
         <App />
+        </VideoDialogProvider>
       </ImageDialogProvider>
     </NotificationProvider>
   </BrowserRouter>
