@@ -25,7 +25,7 @@ exports.insert = async (req, res, next) => {
         placeOfDeath: source[i].O,
         militiryEducation: source[i].W,
         birthdate: moment.from(source[i].S,'fa', 'YYYY/MM/DD').format('YYYY/MM/DD'),
-        shamsiBirthDate:source[i].N,
+        shamsiBirthdate:moment(source[i].S).format('DD-MMM-YYYY'),
         dieDate:moment.from(source[i].N,'fa', 'YYYY/MM/DD').format('YYYY/MM/DD'),
         shamsiDieDate:source[i].N,
         wayOfDie: source[i].P,
@@ -43,8 +43,8 @@ exports.insert = async (req, res, next) => {
       if(singleRow.shamsiDieDate == null || singleRow.shamsiDieDate=='Invalid date' ){
         singleRow.shamsiDieDate=''
       }
-      if(singleRow.shamsiBirthDate == null || singleRow.shamsiBirthDate=='Invalid date'){
-        singleRow.shamsiBirthDate=''
+      if(singleRow.shamsiBirthdate == null || singleRow.shamsiBirthdate=='Invalid date'){
+        singleRow.shamsiBirthdate=''
       }
       if(singleRow.name ==null || singleRow.name== '' ){
         singleRow.name ='نام ندارد'
