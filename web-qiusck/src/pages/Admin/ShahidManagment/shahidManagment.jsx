@@ -27,6 +27,8 @@ export const ShahidManagament=()=>{
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
+  const [isInsertDialog,setIsInsertDialog]=useState(true);
+  const [dataForDialog,setDataForDialog]=useState(null);
 
 
 
@@ -34,6 +36,13 @@ export const ShahidManagament=()=>{
 
     const openDialogHandler=()=>{
       setOPenDialog(true);
+    }
+    const clearForms=()=>{
+      console.log("clear formm")
+    }
+    const editButtonHandler=(item)=>{
+      setDataForDialog(item)
+
     }
 
     return (
@@ -81,61 +90,50 @@ export const ShahidManagament=()=>{
                 const value = item.id;
                 return (
                   <div key={index * 4}>
-                    <TableRow style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
-                      <TableCell
-                        className="rows"
-                        align="right"
-                        width={100}
-                        scope="td"
-                      >
+                    <TableRow sx={{display:'flex',justifyContent:'space-between',flexDirection:'row'}}>
+                      <TableCell align="right"  scope="td">
                         {" "}
                         {index + 1 + page * 10}
                       </TableCell>
-                      <TableCell
-                        className="row-alt"
-                        align="right"
-                        width={200}
-                        scope="td"
-                      >
-                        {" "}
-                        {item.alt}
-                      </TableCell>
-                      <TableCell className="row-alt" align="right" width={250}>
-                        {item.title}
-                      </TableCell>
-                      <TableCell className="rows" align="right" width={300}>
-                        <div
+                      <TableCell align="right" >
+                        <img
+                        alt={item.alt}
+                          src={`http://localhost:4848/static/uploads/${item.url}`}
                           style={{
-                            backgroundColor: "black",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
+                            borderRadius: "50%",
                             width: "100px",
                             height: "100px",
-                            borderRadius: "10px",
                           }}
-                        >
-                        
-                        </div>
-
-                        {/* <video preload="metadata" width="120" height="120" controls>
-                          <source src={`http://localhost:4848/static/uploads/video/${item.url}#t=15`} type="video/mp4"></source>
-                        </video> */}
+                          
+                        />
                         {/* {item.url + index} */}
                       </TableCell>
+                      <TableCell align="right">
+                        {item.title + index}
+                      </TableCell>
 
-                      <TableCell align="right" width={300}>
+                      <TableCell align="right" >
                         <Tooltip title="ویرایش ">
-                          <IconButton 
+                          <IconButton
                             key={Math.random() * 1000}
                             aria-label="delete"
                           >
-                            <EditIcon sx={{ color: "#d1670c" }} />
+                            <EditIcon
+                              onClick={() => {
+                                editButtonHandler(item);
+                              }}
+                              sx={{ color: "#d1670c" }}
+                            />
                           </IconButton>
                         </Tooltip>
                         <Tooltip title="حذف کردن">
                           <IconButton>
-                            <DeleteIcon sx={{ color: "red" }} />
+                            <DeleteIcon
+                              sx={{ color: "red" }}
+                              onClick={() => {
+                                deleteImageItem(item);
+                              }}
+                            />
                           </IconButton>
                         </Tooltip>
                       </TableCell>
@@ -146,6 +144,94 @@ export const ShahidManagament=()=>{
           </TableBody>
         </Table>
       </TableContainer>
+      <Dialog
+        sx={{
+          "& .MuiDialog-paper": {
+            width: "80%",
+            maxHeight: 435,
+          },
+        }}
+        open={openDialog}
+      >
+        <DialogTitle sx={{ padding: 0, marginBottom: "12px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <IconButton onClick={cancelDialog} color="secondary">
+              <CancelIcon />
+            </IconButton>
+            {isInsertDialog == true ? (
+              <span>اضافه کردن عکس جدید</span>
+            ) : (
+              <span>به روز رسانی عکس </span>
+            )}
+
+            <div></div>
+          </div>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            <div className="dialog-container">
+              <form>
+                <div>
+                  <TextField
+                    fullWidth
+                    sx={{
+                      width: "350px",
+                      marginTop: "32px",
+                    }}
+                    label="عنوان عکس"
+                    variant="outlined"
+                    value={dataForDialog.title}
+                    onChange={handleTitleChange}
+                  />
+                </div>
+                <div>
+                  <TextField
+                    fullWidth
+                    sx={{
+                      width: "350px",
+                      margin: "32px 0",
+                    }}
+                    label="متن جایگزین"
+                    variant="outlined"
+                    value={dataForDialog.alt}
+                    onChange={handleAltChange}
+                  />
+                </div>
+                <Button variant="outlined" color="secondary" component="label">
+                  Upload Image
+                  <input type="file" hidden onChange={handleImageUpload} />
+                </Button>
+              </form>
+            </div>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={cancelDialog}>بستن</Button>
+          {isInsertDialog == true ? (
+            <Button onClick={saveInsertDialogHandler}>اضافه کردن</Button>
+          ) : (
+            <Button onClick={() => saveDialogUpdateHandle()}>
+              به روز رسانی
+            </Button>
+          )}
+        </DialogActions>
+      </Dialog>
+      {/* // ) : null // } */}
+      <TablePagination
+      style={{direction:'ltr'}}
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={tableData.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
         
 
 

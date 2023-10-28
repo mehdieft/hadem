@@ -33,7 +33,7 @@ exports.insert = async (req, res, next) => {
         cemeteryPlace:source[i].AE,
         birthdayPlace:source[i].R,
         dieMonth:Number(source[i].N.split('/')[1]),
-        dieDay:Number(source[i].N.split('/')[2])
+        dieDay:Number(source[i].N.split('/')[2])-1
       };
       if(singleRow.birthdate == null || singleRow.birthdate=='Invalid date' ){
         singleRow.birthdate=''
