@@ -27,6 +27,15 @@ export const ShahidManagament=()=>{
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
+
+
+
+
+
+    const openDialogHandler=()=>{
+      setOPenDialog(true);
+    }
+
     return (
         <>
                  <TableContainer sx={{ maxHeight: "600px", direction: "rtl" }}>
@@ -38,19 +47,25 @@ export const ShahidManagament=()=>{
                   شماره
                 </TableCell>
                 <TableCell align="right" width={200}>
+                  عکس
+                </TableCell>
+                <TableCell align="right" width={200}>
                   نام
                 </TableCell>
                 <TableCell align="right" width={300}>
                   نام خانوادگی
                 </TableCell>
                 <TableCell align="right" width={300}>
+                  تاریخ تولد                </TableCell>
+                  <TableCell align="right" width={300}>
                   تاریخ شهادت                </TableCell>
                 <TableCell align="right" width={300}>
                   اقدامات
                 </TableCell>
+                
                 <TableCell align="right" width={300}>
                   <Tooltip title="اضافه کردن">
-                    <IconButton >
+                    <IconButton onClick={openDialogHandler} >
                       <AddIcon />
                     </IconButton>
                   </Tooltip>
