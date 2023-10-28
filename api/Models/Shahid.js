@@ -16,6 +16,7 @@ const shahidSchema=mongoose.Schema({
     wayOfDie:{type:String},
     cemeteryPlace:{type:String},
     birthdayPlace:{type:String},
+
     dieMonth:{type:String},
     dieDay:{type:String}
 

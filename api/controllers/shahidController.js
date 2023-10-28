@@ -28,6 +28,7 @@ exports.insert = async (req, res, next) => {
         shamsiBirthdate:moment(source[i].S).format('DD-MMM-YYYY'),
         dieDate:moment.from(source[i].N,'fa', 'YYYY/MM/DD').format('YYYY/MM/DD'),
         shamsiDieDate:source[i].N,
+        image:'',
         wayOfDie: source[i].P,
         cemeteryPlace:source[i].AE,
         birthdayPlace:source[i].R,
