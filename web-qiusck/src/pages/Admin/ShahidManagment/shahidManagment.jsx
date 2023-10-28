@@ -21,6 +21,9 @@ import { useEffect } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import { useNotification } from "../../../context/NotificationProvider";
+
+import { fetchData } from "../../../api/shahidDetailRequest";
 import {
   DatePicker,
   DateTimePicker,
@@ -29,18 +32,46 @@ import {
 } from "react-advance-jalaali-datepicker";
 
 export const ShahidManagament = () => {
+  const { openNotification } = useNotification();
+
+
   const [tableData, setDataTable] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOpenDialog] = useState(false);
   const [isInsertDialog, setIsInsertDialog] = useState(true);
+  const [error, setErorr] = useState("");
+
   const [dataForDialog, setDataForDialog] = useState({
     id: "",
-    title: "",
-    alt: "",
-    birthday: "",
+    name: "",
+    family: "",
+    lastServePlace:'',
+    placeOfDeath:"",
+    militiryEducation:"",
+    wayOfDie:'',
+    birthDate: "",
+    cemeteryPlace:'',
+    birthdayPlace:"",
     dieDate:''
   });
+
+
+  useEffect(() => {
+    fetchAndSetData();
+  }, []);
+  const fetchAndSetData = async () => {
+    console.log("fuck you");
+    const result = await fetchData();
+    console.log("ress----->", result);
+    if (result.data !== null) {
+      setDataTable(result.data.data);
+    } else {
+      openNotification(result.error, "error");
+      // openNotification("متن جایگزین نباید خالی باشد", "error");
+      setErorr(result.error);
+    }
+  };
   const [selectedImage, setSelectedImage] = useState(null);
 
   const openDialogHandler = () => {
