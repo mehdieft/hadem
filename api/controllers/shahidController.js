@@ -113,3 +113,10 @@ exports.getbyDate=async(req, res,next)=>{
   return res.json({month,days,dieDate})
 
 }
+
+exports.getAll=async(req,res,next)=>{
+  const data=await Shahid.find();
+  if(data)res.status(200).json({data})
+  else res.status(500).json({error:"error something wrong check your connection"});
+
+}
