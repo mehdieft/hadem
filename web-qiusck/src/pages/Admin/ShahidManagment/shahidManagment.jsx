@@ -21,76 +21,87 @@ import { useEffect } from "react";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import {
+  DatePicker,
+  DateTimePicker,
+  DateRangePicker,
+  DateTimeRangePicker,
+} from "react-advance-jalaali-datepicker";
 
-export const ShahidManagament=()=>{
-    const [tableData, setDataTable] = useState([]);
+export const ShahidManagament = () => {
+  const [tableData, setDataTable] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOpenDialog] = useState(false);
-  const [isInsertDialog,setIsInsertDialog]=useState(true);
-  const [dataForDialog,setDataForDialog]=useState({
+  const [isInsertDialog, setIsInsertDialog] = useState(true);
+  const [dataForDialog, setDataForDialog] = useState({
     id: "",
     title: "",
     alt: "",
+    birthday: "",
+    dieDate:''
   });
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const openDialogHandler = () => {
+    setOpenDialog(true);
+  };
+  const clearForms = () => {
+    console.log("clear formm");
+  };
+  const editButtonHandler = (item) => {
+    setDataForDialog(item);
+  };
+  const deleteShahid = (item) => {
+    console.log("this is delete");
+  };
+  const cancelDialog = () => {
+    setIsInsertDialog(false);
+    clearForms();
+    setOpenDialog(false);
+  };
+  const handleNameChange = (e) => {
+    setDataForDialog({ ...dataForDialog, name: e.target.value });
+  };
+  const handleFamilyChange = (e) => {
+    setDataForDialog({ ...dataForDialog, family: e.target.value });
+  };
+  const birthdayDateChange = (unix, formatted) => {
+    console.log(formatted);
+    setDataForDialog({ ...dataForDialog, birthday: formatted });
+  };
+  const dieDateChange = (unix, formatted) => {
+    console.log(formatted);
+    setDataForDialog({ ...dataForDialog, dieDate: formatted });
+  };
 
+  const handleImageUpload = (event) => {
+    console.log("************", event.target.files[0]);
+    setSelectedImage(event.target.files[0]);
+    console.log("tthis is file", selectedImage);
+  };
+  const saveInsertDialogHandler = () => {
+    console.log("hello ");
+  };
+  const saveDialogUpdateHandle = () => {
+    console.log("hello world");
+  };
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
 
-
-
-
-    const openDialogHandler=()=>{
-      setOpenDialog(true);
-    }
-    const clearForms=()=>{
-      console.log("clear formm")
-    }
-    const editButtonHandler=(item)=>{
-      setDataForDialog(item)
-
-    }
-    const deleteShahid=(item)=>{
-      console.log("this is delete");
-    }
-    const cancelDialog=()=>{
-      setIsInsertDialog(false);
-      clearForms();
-      setOpenDialog(false);
-    }
-    const handleNameChange = (e) => {
-      setDataForDialog({ ...dataForDialog, name: e.target.value });
-    };
-    const handleFamilyChange = (e) => {
-      setDataForDialog({ ...dataForDialog, family: e.target.value });
-    };
-    const handleImageUpload = (event) => {
-      console.log("************", event.target.files[0]);
-      setSelectedImage(event.target.files[0]);
-      console.log("tthis is file", selectedImage);
-    };
-    const saveInsertDialogHandler=()=>{
-      console.log("hello ");
-    }
-    const saveDialogUpdateHandle=()=>{
-      console.log("hello world");
-    }
-    const handleChangePage = (event, newPage) => {
-      setPage(newPage);
-    
-    };
-    const handleChangeRowsPerPage = (event) => {
-      setRowsPerPage(+event.target.value);
-      setPage(0);
-    };
-  
-  
-  
-
-    return (
-        <>
-                 <TableContainer sx={{ maxHeight: "600px", direction: "rtl" }}>
-        <Table sx={{ minWidth: 950 }} stickyHeader aria-label="test for image Gallery">
+  return (
+    <>
+      <TableContainer sx={{ maxHeight: "600px", direction: "rtl" }}>
+        <Table
+          sx={{ minWidth: 950 }}
+          stickyHeader
+          aria-label="test for image Gallery"
+        >
           <TableHead>
             <TableRow>
               <TableRow>
@@ -107,22 +118,23 @@ export const ShahidManagament=()=>{
                   نام خانوادگی
                 </TableCell>
                 <TableCell align="right" width={300}>
-                  تاریخ تولد                </TableCell>
-                  <TableCell align="right" width={300}>
-                  تاریخ شهادت                </TableCell>
+                  تاریخ تولد{" "}
+                </TableCell>
+                <TableCell align="right" width={300}>
+                  تاریخ شهادت{" "}
+                </TableCell>
                 <TableCell align="right" width={300}>
                   اقدامات
                 </TableCell>
-                
+
                 <TableCell align="right" width={300}>
                   <Tooltip title="اضافه کردن">
-                    <IconButton onClick={openDialogHandler} >
+                    <IconButton onClick={openDialogHandler}>
                       <AddIcon />
                     </IconButton>
                   </Tooltip>
                 </TableCell>
               </TableRow>
-             
             </TableRow>
           </TableHead>
           <TableBody>
@@ -132,29 +144,32 @@ export const ShahidManagament=()=>{
                 const value = item.id;
                 return (
                   <div key={index * 4}>
-                    <TableRow sx={{display:'flex',justifyContent:'space-between',flexDirection:'row'}}>
-                      <TableCell align="right"  scope="td">
+                    <TableRow
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        flexDirection: "row",
+                      }}
+                    >
+                      <TableCell align="right" scope="td">
                         {" "}
                         {index + 1 + page * 10}
                       </TableCell>
-                      <TableCell align="right" >
+                      <TableCell align="right">
                         <img
-                        alt={item.alt}
+                          alt={item.alt}
                           src={`http://localhost:4848/static/uploads/${item.url}`}
                           style={{
                             borderRadius: "50%",
                             width: "100px",
                             height: "100px",
                           }}
-                          
                         />
                         {/* {item.url + index} */}
                       </TableCell>
-                      <TableCell align="right">
-                        {item.title + index}
-                      </TableCell>
+                      <TableCell align="right">{item.title + index}</TableCell>
 
-                      <TableCell align="right" >
+                      <TableCell align="right">
                         <Tooltip title="ویرایش ">
                           <IconButton
                             key={Math.random() * 1000}
@@ -189,8 +204,9 @@ export const ShahidManagament=()=>{
       <Dialog
         sx={{
           "& .MuiDialog-paper": {
-            width: "80%",
-            maxHeight: 435,
+            width: "100vw",
+            height: "95vh",
+            maxWidth:'100vw'
           },
         }}
         open={openDialog}
@@ -244,6 +260,38 @@ export const ShahidManagament=()=>{
                     onChange={handleFamilyChange}
                   />
                 </div>
+                <div style={{ display: "flex", flexDirection: "row",justifyContent:'start',alignItems:'center',gap:'49px' }}>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <p>تاریخ تولد:</p>
+                    <div>
+
+                    <DatePicker
+                    style={{width: '212px'}}
+                      placeholder=" انتخاب تاریخ تولد شهید"
+                      format="jYYYY/jMM/jDD"
+                      onChange={birthdayDateChange}
+                      id="datePicker"
+                      // preSelected="1396/05/15"
+                    />
+                    </div>
+
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    <p>تاریخ شهادت</p>
+                    <div>
+
+                    <DatePicker
+                    style={{width: '212px'}}
+                      placeholder=" انتخاب تاریخ تولد شهید"
+                      format="jYYYY/jMM/jDD"
+                      onChange={dieDateChange}
+                      id="datePicker"
+                      // preSelected="1396/05/15"
+                    />
+                    </div>
+
+                  </div>
+                </div>
                 <Button variant="outlined" color="secondary" component="label">
                   عکس شهید
                   <input type="file" hidden onChange={handleImageUpload} />
@@ -265,7 +313,7 @@ export const ShahidManagament=()=>{
       </Dialog>
       {/* // ) : null // } */}
       <TablePagination
-      style={{direction:'ltr'}}
+        style={{ direction: "ltr" }}
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
         count={tableData.length}
@@ -274,9 +322,6 @@ export const ShahidManagament=()=>{
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
-        
-
-
-        </>
-    )
-}
+    </>
+  );
+};
