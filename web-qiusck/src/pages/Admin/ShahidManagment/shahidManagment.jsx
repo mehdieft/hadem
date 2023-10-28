@@ -28,7 +28,13 @@ export const ShahidManagament=()=>{
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOPenDialog] = useState(false);
   const [isInsertDialog,setIsInsertDialog]=useState(true);
-  const [dataForDialog,setDataForDialog]=useState(null);
+  const [dataForDialog,setDataForDialog]=useState({
+    id: "",
+    title: "",
+    alt: "",
+  });
+  const [selectedImage, setSelectedImage] = useState(null);
+
 
 
 
@@ -44,6 +50,42 @@ export const ShahidManagament=()=>{
       setDataForDialog(item)
 
     }
+    const deleteShahid=(item)=>{
+      console.log("this is delete");
+    }
+    const cancelDialog=()=>{
+      setIsInsertDialog(false);
+      clearForms();
+      openDialog(false);
+    }
+    const handleNameChange = (e) => {
+      setDataForDialog({ ...dataForDialog, name: e.target.value });
+    };
+    const handleFamilyChange = (e) => {
+      setDataForDialog({ ...dataForDialog, family: e.target.value });
+    };
+    const handleImageUpload = (event) => {
+      console.log("************", event.target.files[0]);
+      setSelectedImage(event.target.files[0]);
+      console.log("tthis is file", selectedImage);
+    };
+    const saveInsertDialogHandler=()=>{
+      console.log("hello ");
+    }
+    const saveDialogUpdateHandle=()=>{
+      console.log("hello world");
+    }
+    const handleChangePage = (event, newPage) => {
+      setPage(newPage);
+    
+    };
+    const handleChangeRowsPerPage = (event) => {
+      setRowsPerPage(+event.target.value);
+      setPage(0);
+    };
+  
+  
+  
 
     return (
         <>
@@ -131,7 +173,7 @@ export const ShahidManagament=()=>{
                             <DeleteIcon
                               sx={{ color: "red" }}
                               onClick={() => {
-                                deleteImageItem(item);
+                                deleteShahid(item);
                               }}
                             />
                           </IconButton>
@@ -183,10 +225,10 @@ export const ShahidManagament=()=>{
                       width: "350px",
                       marginTop: "32px",
                     }}
-                    label="عنوان عکس"
+                    label="نام شهید"
                     variant="outlined"
                     value={dataForDialog.title}
-                    onChange={handleTitleChange}
+                    onChange={handleNameChange}
                   />
                 </div>
                 <div>
@@ -199,11 +241,11 @@ export const ShahidManagament=()=>{
                     label="متن جایگزین"
                     variant="outlined"
                     value={dataForDialog.alt}
-                    onChange={handleAltChange}
+                    onChange={handleFamilyChange}
                   />
                 </div>
                 <Button variant="outlined" color="secondary" component="label">
-                  Upload Image
+                  عکس شهید
                   <input type="file" hidden onChange={handleImageUpload} />
                 </Button>
               </form>

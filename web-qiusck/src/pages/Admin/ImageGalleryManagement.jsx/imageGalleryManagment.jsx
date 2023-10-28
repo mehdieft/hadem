@@ -63,7 +63,7 @@ export const ImageGalleryManagment = () => {
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
-    console.log("what the fuck is this");
+  
   };
 
   const handleAltChange = (e) => {
