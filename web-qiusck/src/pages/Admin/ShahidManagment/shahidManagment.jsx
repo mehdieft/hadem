@@ -26,7 +26,7 @@ export const ShahidManagament=()=>{
     const [tableData, setDataTable] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [openDialog, setOPenDialog] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
   const [isInsertDialog,setIsInsertDialog]=useState(true);
   const [dataForDialog,setDataForDialog]=useState({
     id: "",
@@ -41,7 +41,7 @@ export const ShahidManagament=()=>{
 
 
     const openDialogHandler=()=>{
-      setOPenDialog(true);
+      setOpenDialog(true);
     }
     const clearForms=()=>{
       console.log("clear formm")
@@ -56,7 +56,7 @@ export const ShahidManagament=()=>{
     const cancelDialog=()=>{
       setIsInsertDialog(false);
       clearForms();
-      openDialog(false);
+      setOpenDialog(false);
     }
     const handleNameChange = (e) => {
       setDataForDialog({ ...dataForDialog, name: e.target.value });
@@ -238,7 +238,7 @@ export const ShahidManagament=()=>{
                       width: "350px",
                       margin: "32px 0",
                     }}
-                    label="متن جایگزین"
+                    label=" نام خانوادگی"
                     variant="outlined"
                     value={dataForDialog.alt}
                     onChange={handleFamilyChange}
