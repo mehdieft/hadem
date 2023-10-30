@@ -127,7 +127,7 @@ export const ShahidManagament = () => {
 
   return (
     <>
-           <TableContainer sx={{ maxHeight: "90vh",width:'70%',margin:'0 auto' }}>
+           <TableContainer sx={{ maxHeight: "90vh",width:'89%',margin:'0 auto' }}>
         <Table  sx={{ minWidth: 850,direction:'rtl',backgroundColor:'white',height:'400px !important' }} stickyHeader aria-label="test for image Gallery">
           <TableHead>
             <TableRow>
@@ -172,10 +172,12 @@ export const ShahidManagament = () => {
                 return (
                   <div key={index * 4}>
                     <TableRow
+                    onClick={()=>{console.log("hjelloooo")}}
                       sx={{
                         display: "flex",
                         justifyContent: "space-between",
                         flexDirection: "row",
+                        
                       }}
                     >
                       <TableCell align="right" scope="td">
@@ -194,7 +196,10 @@ export const ShahidManagament = () => {
                         />
                         {/* {item.url + index} */}
                       </TableCell>
-                      <TableCell align="right">{item.title + index}</TableCell>
+                      <TableCell align="right">{item.name }</TableCell>
+                      <TableCell align="right">{item.family }</TableCell>
+                      <TableCell align="right">{item.shamsiBirthdate !== null ? item.shamsiBirthdate : 'موجود نیست' }</TableCell>
+                      <TableCell align="right">{item.shamsiDieDate !== null ? item.shamsiDieDate : 'موجود نیست' }</TableCell>
 
                       <TableCell align="right">
                         <Tooltip title="ویرایش ">
@@ -221,6 +226,7 @@ export const ShahidManagament = () => {
                           </IconButton>
                         </Tooltip>
                       </TableCell>
+                              <TableCell align="right" style={{cursor:'pointer'}}>اطلاعات بیشتر</TableCell>
                     </TableRow>
                   </div>
                 );
@@ -228,7 +234,7 @@ export const ShahidManagament = () => {
           </TableBody>
         </Table>
       <TablePagination
-        style={{ direction: "ltr",padding:'100px auto',margin:'100px' }}
+        style={{ direction: "ltr",padding:'10px auto' }}
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
         count={tableData.length}
