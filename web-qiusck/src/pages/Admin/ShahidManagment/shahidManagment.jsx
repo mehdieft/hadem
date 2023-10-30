@@ -23,6 +23,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
+import defaultShahid from '../../../assets/Image/defaultShahid.jpg'
 
 
 import { fetchData } from "../../../api/shahidDetailRequest";
@@ -44,11 +45,23 @@ export const ShahidManagament = () => {
   const [isInsertDialog, setIsInsertDialog] = useState(true);
   const [error, setErorr] = useState("");
   const [showDetailtOfshahid,setShowDetailtOfshahid]=useState(false);
-  const [shahidDetail,setShahidDetail]=useState([]);
+  const [shahidDetail,setShahidDetail] = useState({
+    name: "",
+    family: "",
+    lastServePlace:'',
+    placeOfDeath:"",
+    militiryEducation:"",
+    wayOfDie:'',
+    birthDate: "",
+    cemeteryPlace:'',
+    birthdayPlace:"",
+    dieDate:''
+  });
 
   const [dataForDialog, setDataForDialog] = useState({
     id: "",
     name: "",
+    image:'',
     family: "",
     lastServePlace:'',
     placeOfDeath:"",
@@ -130,13 +143,31 @@ export const ShahidManagament = () => {
     setPage(0);
   };
   const shahidDetailHandler=(item)=>{
+    console.log("fucking item",item)
     setShowDetailtOfshahid(true);
-    console.log("item-----------------<",item)
+    
+  
     setShahidDetail(item)
+    // setShahidDetail({...shahidDetail,family:item.family})
+    // setShahidDetail({...shahidDetail,lastServePlace:item.lastServePlace})
+    // setShahidDetail({...shahidDetail,placeOfDeath:item.placeOfDeath})
+    // setShahidDetail({...shahidDetail,militiryEducation:item.militiryEducation})
+    // setShahidDetail({...shahidDetail,wayOfDie:item.wayOfDie})
+    // setShahidDetail({...shahidDetail,birthDate:item.birthDate})
+    // setShahidDetail({...shahidDetail,cemeteryPlace:item.cemeteryPlace})
+    // setShahidDetail({...shahidDetail,birthdayPlace:item.birthdayPlace})
+    // setShahidDetail({...shahidDetail,dieDate:item.dieDate})
+    // setShahidDetail({...shahidDetail,image:item.image})
+    console.log("_________________>>>>",shahidDetail)
+
+
+
+
+    console.log('312312312',shahidDetail)
   }
   const cancelDetailShahidDialog=()=>{
     setShowDetailtOfshahid(false);
-    setShahidDetail([]);
+    // setShahidDetail([]);
   }
 
   return (
@@ -399,26 +430,27 @@ export const ShahidManagament = () => {
            </DialogTitle>
            <DialogContent>
             <div className="main-dialog-container">
-              <img width={'200px'} height={'200px'} style={{borderRadius:'50%'}} src="" alt="" />
+              <img width={'200px'} height={'200px'} style={{borderRadius:'50%'}} src={shahidDetail.image !== null ?
+              shahidDetail.image :defaultShahid
+            } alt="" />
               <div className="row">
-            <p>نام:</p>
-            <p>نام خانوادگی:</p>
+            <p>نام:{shahidDetail.name}</p>
+            <p>نام خانوادگی:{shahidDetail.family}</p>
               </div>
               <div className="row">
-                <p>تاریخ تولد</p>
-                <p>تاریخ شهادت</p>
+                <p>تاریخ تولد:{shahidDetail.birthDate !== null ||shahidDetail.birthDate !== ''? shahidDetail.birthDate : 'موجود نیست' }</p>
+                <p>تاریخ شهادت:{shahidDetail.dieDate}</p>
               </div>
               <div className="row">
-                <p>تحصیلات نظامی:</p>
-                <p>آخرین مکان خدمت</p>
+                <p>تحصیلات نظامی:{shahidDetail.militiryEducation}</p>
+                <p>آخرین مکان خدمت:{shahidDetail.lastServePlace}</p>
               </div>
               <div className="row">
-                <p>محل شهادت:</p>
-                <p>نحوه شهادت</p>
+                <p>محل شهادت:{shahidDetail.placeOfDeath}</p>
+                <p>نحوه شهادت:{shahidDetail.wayOfDie}</p>
               </div>
               <div className="row">
-                <p>تاریخ تولد</p>
-                <p>تاریخ شهادت</p>
+           
               </div>
             </div>
 
