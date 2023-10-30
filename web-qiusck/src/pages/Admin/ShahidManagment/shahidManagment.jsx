@@ -41,6 +41,8 @@ export const ShahidManagament = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [isInsertDialog, setIsInsertDialog] = useState(true);
   const [error, setErorr] = useState("");
+  const [showDetailtOfshahid,setShowDetailtOfshahid]=useState(false);
+  const [shahidDetail,setShahidDetail]=useState([]);
 
   const [dataForDialog, setDataForDialog] = useState({
     id: "",
@@ -80,6 +82,7 @@ export const ShahidManagament = () => {
   const clearForms = () => {
     console.log("clear formm");
   };
+  
   const editButtonHandler = (item) => {
     setDataForDialog(item);
   };
@@ -124,6 +127,11 @@ export const ShahidManagament = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const shahidDetailHandler=(item)=>{
+    setShowDetailtOfshahid(true);
+    console.log("item-----------------<",item)
+    setShahidDetail(item)
+  }
 
   return (
     <>
@@ -226,7 +234,7 @@ export const ShahidManagament = () => {
                           </IconButton>
                         </Tooltip>
                       </TableCell>
-                              <TableCell align="right" style={{cursor:'pointer'}}>اطلاعات بیشتر</TableCell>
+                              <TableCell align="right" onClick={()=>{shahidDetailHandler(item)}} style={{cursor:'pointer'}}>اطلاعات بیشتر</TableCell>
                     </TableRow>
                   </div>
                 );
@@ -360,6 +368,26 @@ export const ShahidManagament = () => {
           )}
         </DialogActions>
       </Dialog>
+
+
+
+
+
+
+
+
+
+            <Dialog  sx={{
+          "& .MuiDialog-paper": {
+            width: "60vw",
+            height: "90vh",
+            maxWidth:'100vw'
+          },
+        }} open={showDetailtOfshahid} >
+
+            </Dialog>
+
+
     </>
   );
 };
