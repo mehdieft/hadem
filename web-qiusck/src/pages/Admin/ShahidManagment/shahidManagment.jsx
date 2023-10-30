@@ -127,12 +127,8 @@ export const ShahidManagament = () => {
 
   return (
     <>
-      <TableContainer sx={{ maxHeight: "600px", direction: "rtl" }}>
-        <Table
-          sx={{ minWidth: 950 }}
-          stickyHeader
-          aria-label="test for image Gallery"
-        >
+           <TableContainer sx={{ maxHeight: "90vh",width:'70%',margin:'0 auto' }}>
+        <Table  sx={{ minWidth: 850,direction:'rtl',backgroundColor:'white',height:'400px !important' }} stickyHeader aria-label="test for image Gallery">
           <TableHead>
             <TableRow>
               <TableRow>
@@ -231,7 +227,19 @@ export const ShahidManagament = () => {
               })}
           </TableBody>
         </Table>
+      <TablePagination
+        style={{ direction: "ltr",padding:'100px auto',margin:'100px' }}
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={tableData.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
       </TableContainer>
+      
+      {/* // ) : null // } */}
       <Dialog
         sx={{
           "& .MuiDialog-paper": {
@@ -265,6 +273,10 @@ export const ShahidManagament = () => {
           <DialogContentText>
             <div className="dialog-container">
               <form>
+                <div style={{display:'flex    '}}>
+
+                </div>
+                
                 <div>
                   <TextField
                     fullWidth
@@ -342,17 +354,6 @@ export const ShahidManagament = () => {
           )}
         </DialogActions>
       </Dialog>
-      {/* // ) : null // } */}
-      <TablePagination
-        style={{ direction: "ltr" }}
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={tableData.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
     </>
   );
 };

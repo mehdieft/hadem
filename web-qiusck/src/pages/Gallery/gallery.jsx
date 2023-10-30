@@ -66,6 +66,7 @@ const Gallery = () => {
     stiffness: 100,
     damping: 40,
     restDelta: 0.001,
+
   });
   let imageList = [
     galleryBackgroundImage,
