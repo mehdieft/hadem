@@ -1,3 +1,4 @@
+import './style.css'
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -22,6 +23,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
+
 
 import { fetchData } from "../../../api/shahidDetailRequest";
 import {
@@ -131,6 +133,10 @@ export const ShahidManagament = () => {
     setShowDetailtOfshahid(true);
     console.log("item-----------------<",item)
     setShahidDetail(item)
+  }
+  const cancelDetailShahidDialog=()=>{
+    setShowDetailtOfshahid(false);
+    setShahidDetail([]);
   }
 
   return (
@@ -381,9 +387,36 @@ export const ShahidManagament = () => {
           "& .MuiDialog-paper": {
             width: "60vw",
             height: "90vh",
-            maxWidth:'100vw'
+            maxWidth:'100vw',
+            direction:'rtl'
           },
         }} open={showDetailtOfshahid} >
+           <DialogTitle sx={{ padding: 0, marginBottom: "12px" }}>
+           <IconButton onClick={cancelDetailShahidDialog} color="secondary">
+              <CancelIcon />
+            </IconButton>
+
+           </DialogTitle>
+           <DialogContent>
+            <div className="main-dialog-container">
+              <img width={'100px'} height={'100px'} src="" alt="" />
+              <div className="row">
+            <p>نام:</p>
+            <p>نام خانوادگی:</p>
+              </div>
+              <div className="row">
+                <p>تاریخ تولد</p>
+                <p>تاریخ شهادت</p>
+              </div>
+              <div className="row"></div>
+            </div>
+
+           </DialogContent>
+
+           <DialogActions>
+          <Button onClick={cancelDetailShahidDialog}>بستن</Button>
+       
+        </DialogActions>
 
             </Dialog>
 
