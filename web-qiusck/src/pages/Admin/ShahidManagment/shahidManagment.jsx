@@ -388,7 +388,7 @@ export const ShahidManagament = () => {
             width: "60vw",
             height: "90vh",
             maxWidth:'100vw',
-            direction:'rtl'
+            direction:'rtl',
           },
         }} open={showDetailtOfshahid} >
            <DialogTitle sx={{ padding: 0, marginBottom: "12px" }}>
@@ -399,7 +399,7 @@ export const ShahidManagament = () => {
            </DialogTitle>
            <DialogContent>
             <div className="main-dialog-container">
-              <img width={'100px'} height={'100px'} src="" alt="" />
+              <img width={'200px'} height={'200px'} style={{borderRadius:'50%'}} src="" alt="" />
               <div className="row">
             <p>نام:</p>
             <p>نام خانوادگی:</p>
@@ -408,7 +408,18 @@ export const ShahidManagament = () => {
                 <p>تاریخ تولد</p>
                 <p>تاریخ شهادت</p>
               </div>
-              <div className="row"></div>
+              <div className="row">
+                <p>تحصیلات نظامی:</p>
+                <p>آخرین مکان خدمت</p>
+              </div>
+              <div className="row">
+                <p>محل شهادت:</p>
+                <p>نحوه شهادت</p>
+              </div>
+              <div className="row">
+                <p>تاریخ تولد</p>
+                <p>تاریخ شهادت</p>
+              </div>
             </div>
 
            </DialogContent>
