@@ -24,7 +24,6 @@ import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
 import defaultShahid from "../../../assets/Image/defaultShahid.jpg";
-
 import { fetchData } from "../../../api/shahidDetailRequest";
 import {
   DatePicker,
@@ -181,6 +180,15 @@ export const ShahidManagament = () => {
     console.log("tthis is file", selectedImage);
   };
   const saveInsertDialogHandler = () => {
+    if(dataForDialog.name !==""){
+      if(dataForDialog.family !==""){
+        if(dataForDialog.fatherName !==""){
+          if(dataForDialog.lastServePlace !==""){
+
+          }else openNotification("آخرین محل خدمت نباید خالی باشد","error")
+        }else openNotification("نام پدر نباید خالی باشد","error")
+      }else openNotification("نام خانوادگی نباید خالی باشد","error")
+    }else openNotification("نام نباید خالی باشد","error")
     console.log("hello ");
   };
   const saveDialogUpdateHandle = () => {
@@ -216,6 +224,7 @@ export const ShahidManagament = () => {
     setShowDetailtOfshahid(false);
     // setShahidDetail([]);
   };
+
 
   return (
     <>
