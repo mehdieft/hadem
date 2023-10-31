@@ -145,18 +145,27 @@ export const ShahidManagament = () => {
   }
   const birthdayDateChange = (unix, formatted) => {
     console.log('birthday datepicker------->',formatted);
-    setDataForDialog({ ...dataForDialog, birthday: formatted });
+    setDataForDialog({ ...dataForDialog, birthdate: formatted });
+    setTimeout(() => {
+      
+      console.log("%%%%%%%%%%%%%",dataForDialog)
+    }, 5000);
   };
-  const dieDateChange = (unix, formatted) => {
-    console.log('------>',formatted);
-    setDataForDialog({ ...dataForDialog, dieDate: formatted });
-    let month=Number(formatted.split('/')[1])
-    let day=Number(formatted.split('/')[2])
+  const dieDateChange = (unix,shamsi) => {
+    console.log('------die kiriiiiiii>',shamsi);
+    let month=Number(shamsi.split('/')[1])
+    let day=Number(shamsi.split('/')[2])
+    const dieDayFromDatePicker=shamsi
+ 
     setDataForDialog({ ...dataForDialog, dieDay: day });
     setDataForDialog({ ...dataForDialog, dieMonth: month });
+    setDataForDialog({ ...dataForDialog, dieDate: shamsi });
     console.log("this is ------->",dataForDialog)
         
   };
+  const handleMilitiryEducation=(e)=>{
+ setDataForDialog({...dataForDialog,militiryEducation:e.target.value})
+  }
   const handleWayOfDieChange=(e)=>{
     setDataForDialog({ ...dataForDialog, wayOfDie: e.target.value});
   }
@@ -450,9 +459,8 @@ export const ShahidManagament = () => {
                 </div>
                 <div className="row">
                   <div>
-                    <p>تاریخ تولد:</p>
+                    <p>تاریخ تولد:{dataForDialog.birthdate}</p>
                     <DatePicker
-                    value={dataForDialog.birthdate}
                       style={{ width: "212px" }}
                       placeholder=" انتخاب تاریخ تولد شهید"
                       format="jYYYY/jMM/jDD"
@@ -463,9 +471,8 @@ export const ShahidManagament = () => {
                   </div>
                   <div>
                     {" "}
-                    <p>تاریخ شهادت:</p>
+                    <p>تاریخ شهادت:{dataForDialog.dieDate}</p>
                     <DatePicker
-                    value={dataForDialog.dieDate}
                       style={{ width: "212px" }}
                       placeholder=" انتخاب تاریخ تولد شهید"
                       format="jYYYY/jMM/jDD"
@@ -545,7 +552,7 @@ export const ShahidManagament = () => {
                         label=" تحصیلات نظامی "
                         variant="outlined"
                         value={dataForDialog.militiryEducation}
-                        onChange={handleFamilyChange}
+                        onChange={handleMilitiryEducation}
                       />
                     </div>
                   </div>
