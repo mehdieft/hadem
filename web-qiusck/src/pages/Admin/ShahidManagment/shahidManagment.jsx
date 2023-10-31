@@ -54,6 +54,7 @@ export const ShahidManagament = () => {
     cemeteryPlace: "",
     birthdayPlace: "",
     dieDate: "",
+    fatherName:''
   });
 
   const [dataForDialog, setDataForDialog] = useState({
@@ -69,6 +70,7 @@ export const ShahidManagament = () => {
     cemeteryPlace: "",
     birthdayPlace: "",
     dieDate: "",
+    fatherName:""
   });
 
   useEffect(() => {
@@ -112,6 +114,16 @@ export const ShahidManagament = () => {
   const handleFamilyChange = (e) => {
     setDataForDialog({ ...dataForDialog, family: e.target.value });
   };
+  const handleFatherNameChange=(e)=>{
+    setDataForDialog({ ...dataForDialog, fatherName: e.target.value });
+  }
+  const handleBirthPlaceChange=(e)=>{
+    setDataForDialog({ ...dataForDialog, birthdayPlace: e.target.value });
+  }
+
+  const handleLastServePlace=(e)=>{
+    setDataForDialog({ ...dataForDialog, lastServePlace: e.target.value });
+  }
   const birthdayDateChange = (unix, formatted) => {
     console.log(formatted);
     setDataForDialog({ ...dataForDialog, birthday: formatted });
@@ -120,6 +132,14 @@ export const ShahidManagament = () => {
     console.log(formatted);
     setDataForDialog({ ...dataForDialog, dieDate: formatted });
   };
+  const handleWayOfDieChange=(e)=>{
+    setDataForDialog({ ...dataForDialog, wayOfDie: e.target.value});
+  }
+  const handleCemeteryPlaceChange=(e)=>{
+    setDataForDialog({ ...dataForDialog, cemeteryPlace: e.target.value});
+
+
+  }
 
   const handleImageUpload = (event) => {
     console.log("************", event.target.files[0]);
@@ -385,7 +405,7 @@ export const ShahidManagament = () => {
                       label="  نام پدر "
                       variant="outlined"
                       value={dataForDialog.alt}
-                      onChange={handleFamilyChange}
+                      onChange={handleFatherNameChange}
                     />
                   </div>
                   <div>
@@ -399,7 +419,7 @@ export const ShahidManagament = () => {
                       label=" محل تولد "
                       variant="outlined"
                       value={dataForDialog.alt}
-                      onChange={handleFamilyChange}
+                      onChange={handleBirthPlaceChange}
                     />
                   </div>
                 </div>
@@ -442,7 +462,7 @@ export const ShahidManagament = () => {
                         label="  اخرین محل خدمت "
                         variant="outlined"
                         value={dataForDialog.alt}
-                        onChange={handleFamilyChange}
+                        onChange={handleLastServePlace}
                       />
                     </div>
                   </div>
@@ -459,7 +479,7 @@ export const ShahidManagament = () => {
                         label=" نحوه شهادت "
                         variant="outlined"
                         value={dataForDialog.alt}
-                        onChange={handleFamilyChange}
+                        onChange={handleWayOfDieChange}
                       />
                     </div>
                   </div>
@@ -479,7 +499,7 @@ export const ShahidManagament = () => {
                         label=" محل آرامگاه "
                         variant="outlined"
                         value={dataForDialog.alt}
-                        onChange={handleFamilyChange}
+                        onChange={handleCemeteryPlaceChange}
                       />
                     </div>
                   </div>
