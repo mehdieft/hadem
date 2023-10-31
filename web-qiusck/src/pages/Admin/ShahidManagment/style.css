@@ -6,7 +6,11 @@
 .row{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content:space-evenly ;
+
     align-items: center;
     gap: 15px;
+}
+.rtl{
+    direction:rtl;
 }

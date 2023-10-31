@@ -1,4 +1,4 @@
-import './style.css'
+import "./style.css";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -23,8 +23,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
-import defaultShahid from '../../../assets/Image/defaultShahid.jpg'
-
+import defaultShahid from "../../../assets/Image/defaultShahid.jpg";
 
 import { fetchData } from "../../../api/shahidDetailRequest";
 import {
@@ -37,42 +36,40 @@ import {
 export const ShahidManagament = () => {
   const { openNotification } = useNotification();
 
-
   const [tableData, setDataTable] = useState([]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [openDialog, setOpenDialog] = useState(false);
   const [isInsertDialog, setIsInsertDialog] = useState(true);
   const [error, setErorr] = useState("");
-  const [showDetailtOfshahid,setShowDetailtOfshahid]=useState(false);
-  const [shahidDetail,setShahidDetail] = useState({
+  const [showDetailtOfshahid, setShowDetailtOfshahid] = useState(false);
+  const [shahidDetail, setShahidDetail] = useState({
     name: "",
     family: "",
-    lastServePlace:'',
-    placeOfDeath:"",
-    militiryEducation:"",
-    wayOfDie:'',
+    lastServePlace: "",
+    placeOfDeath: "",
+    militiryEducation: "",
+    wayOfDie: "",
     birthDate: "",
-    cemeteryPlace:'',
-    birthdayPlace:"",
-    dieDate:''
+    cemeteryPlace: "",
+    birthdayPlace: "",
+    dieDate: "",
   });
 
   const [dataForDialog, setDataForDialog] = useState({
     id: "",
     name: "",
-    image:'',
+    image: "",
     family: "",
-    lastServePlace:'',
-    placeOfDeath:"",
-    militiryEducation:"",
-    wayOfDie:'',
+    lastServePlace: "",
+    placeOfDeath: "",
+    militiryEducation: "",
+    wayOfDie: "",
     birthDate: "",
-    cemeteryPlace:'',
-    birthdayPlace:"",
-    dieDate:''
+    cemeteryPlace: "",
+    birthdayPlace: "",
+    dieDate: "",
   });
-
 
   useEffect(() => {
     fetchAndSetData();
@@ -97,7 +94,7 @@ export const ShahidManagament = () => {
   const clearForms = () => {
     console.log("clear formm");
   };
-  
+
   const editButtonHandler = (item) => {
     setDataForDialog(item);
   };
@@ -142,12 +139,11 @@ export const ShahidManagament = () => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
-  const shahidDetailHandler=(item)=>{
-    console.log("fucking item",item)
+  const shahidDetailHandler = (item) => {
+    console.log("fucking item", item);
     setShowDetailtOfshahid(true);
-    
-  
-    setShahidDetail(item)
+
+    setShahidDetail(item);
     // setShahidDetail({...shahidDetail,family:item.family})
     // setShahidDetail({...shahidDetail,lastServePlace:item.lastServePlace})
     // setShahidDetail({...shahidDetail,placeOfDeath:item.placeOfDeath})
@@ -158,31 +154,39 @@ export const ShahidManagament = () => {
     // setShahidDetail({...shahidDetail,birthdayPlace:item.birthdayPlace})
     // setShahidDetail({...shahidDetail,dieDate:item.dieDate})
     // setShahidDetail({...shahidDetail,image:item.image})
-    console.log("_________________>>>>",shahidDetail)
+    console.log("_________________>>>>", shahidDetail);
 
-
-
-
-    console.log('312312312',shahidDetail)
-  }
-  const cancelDetailShahidDialog=()=>{
+    console.log("312312312", shahidDetail);
+  };
+  const cancelDetailShahidDialog = () => {
     setShowDetailtOfshahid(false);
     // setShahidDetail([]);
-  }
+  };
 
   return (
     <>
-           <TableContainer sx={{ maxHeight: "90vh",width:'89%',margin:'0 auto' }}>
-        <Table  sx={{ minWidth: 850,direction:'rtl',backgroundColor:'white',height:'400px !important' }} stickyHeader aria-label="test for image Gallery">
+      <TableContainer
+        sx={{ maxHeight: "90vh", width: "89%", margin: "0 auto" }}
+      >
+        <Table
+          sx={{
+            minWidth: 850,
+            direction: "rtl",
+            backgroundColor: "white",
+            height: "400px !important",
+          }}
+          stickyHeader
+          aria-label="test for image Gallery"
+        >
           <TableHead>
             <TableRow>
               <TableRow>
                 <TableCell align="right" width={100}>
                   شماره
                 </TableCell>
-                <TableCell align="right" width={200}>
+                {/* <TableCell align="right" width={200}>
                   عکس
-                </TableCell>
+                </TableCell> */}
                 <TableCell align="right" width={200}>
                   نام
                 </TableCell>
@@ -217,19 +221,20 @@ export const ShahidManagament = () => {
                 return (
                   <div key={index * 4}>
                     <TableRow
-                    onClick={()=>{console.log("hjelloooo")}}
+                      onClick={() => {
+                        console.log("hjelloooo");
+                      }}
                       sx={{
                         display: "flex",
                         justifyContent: "space-between",
                         flexDirection: "row",
-                        
                       }}
                     >
                       <TableCell align="right" scope="td">
                         {" "}
                         {index + 1 + page * 10}
                       </TableCell>
-                      <TableCell align="right">
+                      {/* <TableCell align="right">
                         <img
                           alt={item.alt}
                           src={`http://localhost:4848/static/uploads/${item.url}`}
@@ -239,12 +244,20 @@ export const ShahidManagament = () => {
                             height: "100px",
                           }}
                         />
-                        {/* {item.url + index} */}
+                      </TableCell> */}
+                      {/* {item.url + index} */}
+                      <TableCell align="right">{item.name}</TableCell>
+                      <TableCell align="right">{item.family}</TableCell>
+                      <TableCell align="right">
+                        {item.shamsiBirthdate !== null
+                          ? item.shamsiBirthdate
+                          : "موجود نیست"}
                       </TableCell>
-                      <TableCell align="right">{item.name }</TableCell>
-                      <TableCell align="right">{item.family }</TableCell>
-                      <TableCell align="right">{item.shamsiBirthdate !== null ? item.shamsiBirthdate : 'موجود نیست' }</TableCell>
-                      <TableCell align="right">{item.shamsiDieDate !== null ? item.shamsiDieDate : 'موجود نیست' }</TableCell>
+                      <TableCell align="right">
+                        {item.shamsiDieDate !== null
+                          ? item.shamsiDieDate
+                          : "موجود نیست"}
+                      </TableCell>
 
                       <TableCell align="right">
                         <Tooltip title="ویرایش ">
@@ -271,32 +284,40 @@ export const ShahidManagament = () => {
                           </IconButton>
                         </Tooltip>
                       </TableCell>
-                              <TableCell align="right" onClick={()=>{shahidDetailHandler(item)}} style={{cursor:'pointer'}}>اطلاعات بیشتر</TableCell>
+                      <TableCell
+                        align="right"
+                        onClick={() => {
+                          shahidDetailHandler(item);
+                        }}
+                        style={{ cursor: "pointer" }}
+                      >
+                        اطلاعات بیشتر
+                      </TableCell>
                     </TableRow>
                   </div>
                 );
               })}
           </TableBody>
         </Table>
-      <TablePagination
-        style={{ direction: "ltr",padding:'10px auto' }}
-        rowsPerPageOptions={[10, 25, 100]}
-        component="div"
-        count={tableData.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
+        <TablePagination
+          style={{ direction: "ltr", padding: "10px auto" }}
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={tableData.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
       </TableContainer>
-      
+
       {/* // ) : null // } */}
       <Dialog
         sx={{
           "& .MuiDialog-paper": {
             width: "100vw",
             height: "95vh",
-            maxWidth:'100vw'
+            maxWidth: "100vw",
           },
         }}
         open={openDialog}
@@ -323,72 +344,171 @@ export const ShahidManagament = () => {
         <DialogContent>
           <DialogContentText>
             <div className="dialog-container">
-              <form>
-                <div style={{display:'flex    '}}>
-
+              <form style={{ direction: "rtl" }}>
+                <div className="row ">
+                  <div>
+                    <TextField
+                      className="rtl"
+                      fullWidth
+                      sx={{
+                        width: "350px",
+                      }}
+                      label="نام شهید"
+                      variant="outlined"
+                      value={dataForDialog.title}
+                      onChange={handleNameChange}
+                    />
+                  </div>
+                  <div>
+                    <TextField
+                      fullWidth
+                      sx={{
+                        width: "350px",
+                        margin: "32px 0",
+                      }}
+                      label="  نام خانوادگی شهید "
+                      variant="outlined"
+                      value={dataForDialog.alt}
+                      onChange={handleFamilyChange}
+                    />
+                  </div>
                 </div>
-                
-                <div>
-                  <TextField
-                    fullWidth
-                    sx={{
-                      width: "350px",
-                      marginTop: "32px",
-                    }}
-                    label="نام شهید"
-                    variant="outlined"
-                    value={dataForDialog.title}
-                    onChange={handleNameChange}
-                  />
+                <div className="row">
+                  <div>
+                    {" "}
+                    <TextField
+                      fullWidth
+                      sx={{
+                        width: "350px",
+                        margin: "32px 0",
+                      }}
+                      label="  نام پدر "
+                      variant="outlined"
+                      value={dataForDialog.alt}
+                      onChange={handleFamilyChange}
+                    />
+                  </div>
+                  <div>
+                    {" "}
+                    <TextField
+                      fullWidth
+                      sx={{
+                        width: "350px",
+                        margin: "32px 0",
+                      }}
+                      label=" محل تولد "
+                      variant="outlined"
+                      value={dataForDialog.alt}
+                      onChange={handleFamilyChange}
+                    />
+                  </div>
                 </div>
-                <div>
-                  <TextField
-                    fullWidth
-                    sx={{
-                      width: "350px",
-                      margin: "32px 0",
-                    }}
-                    label=" نام خانوادگی"
-                    variant="outlined"
-                    value={dataForDialog.alt}
-                    onChange={handleFamilyChange}
-                  />
-                </div>
-                <div style={{ display: "flex", flexDirection: "row",justifyContent:'start',alignItems:'center',gap:'49px' }}>
-                  <div style={{ display: "flex", flexDirection: "column" }}>
+                <div className="row">
+                  <div>
                     <p>تاریخ تولد:</p>
-                    <div>
-
                     <DatePicker
-                    style={{width: '212px'}}
+                      style={{ width: "212px" }}
                       placeholder=" انتخاب تاریخ تولد شهید"
                       format="jYYYY/jMM/jDD"
                       onChange={birthdayDateChange}
                       id="datePicker"
                       // preSelected="1396/05/15"
                     />
-                    </div>
-
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <p>تاریخ شهادت</p>
-                    <div>
-
+                  <div>
+                    {" "}
+                    <p>تاریخ شهادت:</p>
                     <DatePicker
-                    style={{width: '212px'}}
+                      style={{ width: "212px" }}
                       placeholder=" انتخاب تاریخ تولد شهید"
                       format="jYYYY/jMM/jDD"
                       onChange={dieDateChange}
                       id="datePicker"
                       // preSelected="1396/05/15"
                     />
-                    </div>
-
                   </div>
                 </div>
+                <div className="row">
+                  <div>
+                    {" "}
+                    <div>
+                      {" "}
+                      <TextField
+                        fullWidth
+                        sx={{
+                          width: "350px",
+                          margin: "32px 0",
+                        }}
+                        label="  اخرین محل خدمت "
+                        variant="outlined"
+                        value={dataForDialog.alt}
+                        onChange={handleFamilyChange}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    {" "}
+                    <div>
+                      {" "}
+                      <TextField
+                        fullWidth
+                        sx={{
+                          width: "350px",
+                          margin: "32px 0",
+                        }}
+                        label=" نحوه شهادت "
+                        variant="outlined"
+                        value={dataForDialog.alt}
+                        onChange={handleFamilyChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div>
+                  <div>
+                    {" "}
+                    <div>
+                      {" "}
+                      <TextField
+                        fullWidth
+                        sx={{
+                          width: "350px",
+                          margin: "32px 0",
+                        }}
+                        label=" محل آرامگاه "
+                        variant="outlined"
+                        value={dataForDialog.alt}
+                        onChange={handleFamilyChange}
+                      />
+                    </div>
+                  </div>
+                  </div>
+                  <div>
+                  <div>
+                    {" "}
+                    <div>
+                      {" "}
+                      <TextField
+                        fullWidth
+                        sx={{
+                          width: "350px",
+                          margin: "32px 0",
+                        }}
+                        label=" تحصیلات نظامی "
+                        variant="outlined"
+                        value={dataForDialog.alt}
+                        onChange={handleFamilyChange}
+                      />
+                    </div>
+                  </div>
+                  </div>
+
+                </div>
+
                 <Button variant="outlined" color="secondary" component="label">
                   عکس شهید
-                  <input type="file" hidden onChange={handleImageUpload} />
+                  <input type="file" accept="jpg/png" hidden onChange={handleImageUpload} />
                 </Button>
               </form>
             </div>
@@ -406,64 +526,67 @@ export const ShahidManagament = () => {
         </DialogActions>
       </Dialog>
 
-
-
-
-
-
-
-
-
-            <Dialog  sx={{
+      <Dialog
+        sx={{
           "& .MuiDialog-paper": {
             width: "60vw",
             height: "90vh",
-            maxWidth:'100vw',
-            direction:'rtl',
+            maxWidth: "100vw",
+            direction: "rtl",
           },
-        }} open={showDetailtOfshahid} >
-           <DialogTitle sx={{ padding: 0, marginBottom: "12px" }}>
-           <IconButton onClick={cancelDetailShahidDialog} color="secondary">
-              <CancelIcon />
-            </IconButton>
-
-           </DialogTitle>
-           <DialogContent>
-            <div className="main-dialog-container">
-              <img width={'200px'} height={'200px'} style={{borderRadius:'50%'}} src={shahidDetail.image !== null ?
-              shahidDetail.image :defaultShahid
-            } alt="" />
-              <div className="row">
-            <p>نام:{shahidDetail.name}</p>
-            <p>نام خانوادگی:{shahidDetail.family}</p>
+        }}
+        open={showDetailtOfshahid}
+      >
+        <DialogTitle sx={{ padding: 0, marginBottom: "12px" }}>
+          <IconButton onClick={cancelDetailShahidDialog} color="secondary">
+            <CancelIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent>
+          <div className="main-dialog-container">
+            <img
+              width={"200px"}
+              height={"200px"}
+              style={{ borderRadius: "50%" }}
+              src={
+                shahidDetail.image == null ? shahidDetail.image : defaultShahid
+              }
+              alt=""
+            />
+            <div className="row">
+              <div>
+                <p>نام:{shahidDetail.name}</p>
               </div>
-              <div className="row">
-                <p>تاریخ تولد:{shahidDetail.birthDate !== null ||shahidDetail.birthDate !== ''? shahidDetail.birthDate : 'موجود نیست' }</p>
-                <p>تاریخ شهادت:{shahidDetail.dieDate}</p>
-              </div>
-              <div className="row">
-                <p>تحصیلات نظامی:{shahidDetail.militiryEducation}</p>
-                <p>آخرین مکان خدمت:{shahidDetail.lastServePlace}</p>
-              </div>
-              <div className="row">
-                <p>محل شهادت:{shahidDetail.placeOfDeath}</p>
-                <p>نحوه شهادت:{shahidDetail.wayOfDie}</p>
-              </div>
-              <div className="row">
-           
+              <div>
+                <p>نام خانوادگی:{shahidDetail.family}</p>
               </div>
             </div>
+            <div className="row">
+              <p>
+                تاریخ تولد:
+                {shahidDetail.birthDate !== null ||
+                shahidDetail.birthDate !== ""
+                  ? shahidDetail.birthDate
+                  : "موجود نیست"}
+              </p>
+              <p>تاریخ شهادت:{shahidDetail.dieDate}</p>
+            </div>
+            <div className="row">
+              <p>تحصیلات نظامی:{shahidDetail.militiryEducation}</p>
+              <p>آخرین مکان خدمت:{shahidDetail.lastServePlace}</p>
+            </div>
+            <div className="row">
+              <p>محل شهادت:{shahidDetail.placeOfDeath}</p>
+              <p>نحوه شهادت:{shahidDetail.wayOfDie}</p>
+            </div>
+            <div className="row"></div>
+          </div>
+        </DialogContent>
 
-           </DialogContent>
-
-           <DialogActions>
+        <DialogActions>
           <Button onClick={cancelDetailShahidDialog}>بستن</Button>
-       
         </DialogActions>
-
-            </Dialog>
-
-
+      </Dialog>
     </>
   );
 };
