@@ -50,7 +50,7 @@ export const ShahidManagament = () => {
     placeOfDeath: "",
     militiryEducation: "",
     wayOfDie: "",
-    birthDate: "",
+    birthdate: "",
     cemeteryPlace: "",
     birthdayPlace: "",
     dieDate: "",
@@ -66,7 +66,7 @@ export const ShahidManagament = () => {
     placeOfDeath: "",
     militiryEducation: "",
     wayOfDie: "",
-    birthDate: "",
+    birthdate: "",
     cemeteryPlace: "",
     birthdayPlace: "",
     dieDate: "",
@@ -104,7 +104,7 @@ export const ShahidManagament = () => {
    placeOfDeath: "",
    militiryEducation: "",
    wayOfDie: "",
-   birthDate: "",
+   birthdate: "",
    cemeteryPlace: "",
    birthdayPlace: "",
    dieDate: "",
@@ -194,7 +194,7 @@ export const ShahidManagament = () => {
     // setShahidDetail({...shahidDetail,placeOfDeath:item.placeOfDeath})
     // setShahidDetail({...shahidDetail,militiryEducation:item.militiryEducation})
     // setShahidDetail({...shahidDetail,wayOfDie:item.wayOfDie})
-    // setShahidDetail({...shahidDetail,birthDate:item.birthDate})
+    // setShahidDetail({...shahidDetail,birthdate:item.birthdate})
     // setShahidDetail({...shahidDetail,cemeteryPlace:item.cemeteryPlace})
     // setShahidDetail({...shahidDetail,birthdayPlace:item.birthdayPlace})
     // setShahidDetail({...shahidDetail,dieDate:item.dieDate})
@@ -452,7 +452,7 @@ export const ShahidManagament = () => {
                   <div>
                     <p>تاریخ تولد:</p>
                     <DatePicker
-                    value={dataForDialog.birthDate}
+                    value={dataForDialog.birthdate}
                       style={{ width: "212px" }}
                       placeholder=" انتخاب تاریخ تولد شهید"
                       format="jYYYY/jMM/jDD"
@@ -611,9 +611,9 @@ export const ShahidManagament = () => {
             <div className="row">
               <p>
                 تاریخ تولد:
-                {shahidDetail.birthDate !== null ||
-                shahidDetail.birthDate !== ""
-                  ? shahidDetail.birthDate
+                {shahidDetail.birthdate !== null ||
+                shahidDetail.birthdate !== ""
+                  ? shahidDetail.birthdate
                   : "موجود نیست"}
               </p>
               <p>تاریخ شهادت:{shahidDetail.dieDate}</p>
