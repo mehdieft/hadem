@@ -70,6 +70,8 @@ export const ShahidManagament = () => {
     cemeteryPlace: "",
     birthdayPlace: "",
     dieDate: "",
+    dieDay:"",
+    dieMonth:'',
     fatherName:""
   });
 
@@ -94,7 +96,22 @@ export const ShahidManagament = () => {
     setOpenDialog(true);
   };
   const clearForms = () => {
-    console.log("clear formm");
+   setDataForDialog({  id: "",
+   name: "",
+   image: "",
+   family: "",
+   lastServePlace: "",
+   placeOfDeath: "",
+   militiryEducation: "",
+   wayOfDie: "",
+   birthDate: "",
+   cemeteryPlace: "",
+   birthdayPlace: "",
+   dieDate: "",
+   dieDay:"",
+   dieMonth:'',
+   fatherName:""
+ })
   };
 
   const editButtonHandler = (item) => {
@@ -127,12 +144,18 @@ export const ShahidManagament = () => {
     setDataForDialog({ ...dataForDialog, lastServePlace: e.target.value });
   }
   const birthdayDateChange = (unix, formatted) => {
-    console.log(formatted);
+    console.log('birthday datepicker------->',formatted);
     setDataForDialog({ ...dataForDialog, birthday: formatted });
   };
   const dieDateChange = (unix, formatted) => {
-    console.log(formatted);
+    console.log('------>',formatted);
     setDataForDialog({ ...dataForDialog, dieDate: formatted });
+    let month=Number(formatted.split('/')[1])
+    let day=Number(formatted.split('/')[2])
+    setDataForDialog({ ...dataForDialog, dieDay: day });
+    setDataForDialog({ ...dataForDialog, dieMonth: month });
+    console.log("this is ------->",dataForDialog)
+        
   };
   const handleWayOfDieChange=(e)=>{
     setDataForDialog({ ...dataForDialog, wayOfDie: e.target.value});

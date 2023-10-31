@@ -24,7 +24,7 @@ exports.insert = async (req, res, next) => {
         lastServePlace: source[i].M,
         placeOfDeath: source[i].O,
         militiryEducation: source[i].W,
-        birthDate:moment(source[i].S).format('DD-MMM-YYYY'),
+        birthdate:moment(source[i].S).format('DD-MMM-YYYY'),
         dieDate:source[i].N,
         image:'',
         wayOfDie: source[i].P,
