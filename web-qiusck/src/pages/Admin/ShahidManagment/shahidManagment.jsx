@@ -98,6 +98,8 @@ export const ShahidManagament = () => {
   };
 
   const editButtonHandler = (item) => {
+    setIsInsertDialog(false);
+    setOpenDialog(true)
     setDataForDialog(item);
   };
   const deleteShahid = (item) => {
@@ -352,10 +354,10 @@ export const ShahidManagament = () => {
             <IconButton onClick={cancelDialog} color="secondary">
               <CancelIcon />
             </IconButton>
-            {isInsertDialog == true ? (
-              <span>اضافه کردن عکس جدید</span>
+            {isInsertDialog === true ? (
+              <span>اضافه کردن شهید</span>
             ) : (
-              <span>به روز رسانی عکس </span>
+              <span>به روز رسانی شهید </span>
             )}
 
             <div></div>
@@ -375,7 +377,7 @@ export const ShahidManagament = () => {
                       }}
                       label="نام شهید"
                       variant="outlined"
-                      value={dataForDialog.title}
+                      value={dataForDialog.name}
                       onChange={handleNameChange}
                     />
                   </div>
@@ -388,7 +390,7 @@ export const ShahidManagament = () => {
                       }}
                       label="  نام خانوادگی شهید "
                       variant="outlined"
-                      value={dataForDialog.alt}
+                      value={dataForDialog.family}
                       onChange={handleFamilyChange}
                     />
                   </div>
@@ -404,7 +406,7 @@ export const ShahidManagament = () => {
                       }}
                       label="  نام پدر "
                       variant="outlined"
-                      value={dataForDialog.alt}
+                      value={dataForDialog.fatherName}
                       onChange={handleFatherNameChange}
                     />
                   </div>
@@ -418,7 +420,7 @@ export const ShahidManagament = () => {
                       }}
                       label=" محل تولد "
                       variant="outlined"
-                      value={dataForDialog.alt}
+                      value={dataForDialog.birthdayPlace}
                       onChange={handleBirthPlaceChange}
                     />
                   </div>
@@ -427,6 +429,7 @@ export const ShahidManagament = () => {
                   <div>
                     <p>تاریخ تولد:</p>
                     <DatePicker
+                    value={dataForDialog.birthDate}
                       style={{ width: "212px" }}
                       placeholder=" انتخاب تاریخ تولد شهید"
                       format="jYYYY/jMM/jDD"
@@ -439,6 +442,7 @@ export const ShahidManagament = () => {
                     {" "}
                     <p>تاریخ شهادت:</p>
                     <DatePicker
+                    value={dataForDialog.dieDate}
                       style={{ width: "212px" }}
                       placeholder=" انتخاب تاریخ تولد شهید"
                       format="jYYYY/jMM/jDD"
@@ -461,7 +465,7 @@ export const ShahidManagament = () => {
                         }}
                         label="  اخرین محل خدمت "
                         variant="outlined"
-                        value={dataForDialog.alt}
+                        value={dataForDialog.lastServePlace}
                         onChange={handleLastServePlace}
                       />
                     </div>
@@ -478,7 +482,7 @@ export const ShahidManagament = () => {
                         }}
                         label=" نحوه شهادت "
                         variant="outlined"
-                        value={dataForDialog.alt}
+                        value={dataForDialog.wayOfDie}
                         onChange={handleWayOfDieChange}
                       />
                     </div>
@@ -498,7 +502,7 @@ export const ShahidManagament = () => {
                         }}
                         label=" محل آرامگاه "
                         variant="outlined"
-                        value={dataForDialog.alt}
+                        value={dataForDialog.cemeteryPlace}
                         onChange={handleCemeteryPlaceChange}
                       />
                     </div>
@@ -517,7 +521,7 @@ export const ShahidManagament = () => {
                         }}
                         label=" تحصیلات نظامی "
                         variant="outlined"
-                        value={dataForDialog.alt}
+                        value={dataForDialog.militiryEducation}
                         onChange={handleFamilyChange}
                       />
                     </div>
