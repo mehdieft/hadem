@@ -24,6 +24,7 @@ import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
 import defaultShahid from "../../../assets/Image/defaultShahid.jpg";
+import {insertShahidManagementData} from '../../../api/shahidDetailRequest';
 import { fetchData } from "../../../api/shahidDetailRequest";
 import {
   DatePicker,
@@ -190,6 +191,20 @@ export const ShahidManagament = () => {
                   if(dataForDialog.dieDate !==""){
                     if(dataForDialog.wayOfDie !==""){
                       if(dataForDialog.militiryEducation !==""){
+                        insertShahidManagementData(  
+                          dataForDialog.name,
+                          dataForDialog.family,
+                          dataForDialog.image,
+                          dataForDialog.lastServePlace,
+                          dataForDialog.placeOfDeath,
+                          dataForDialog.militiryEducation,
+                          dataForDialog.wayOfDie,
+                          dataForDialog.birthdate,
+                          dataForDialog.cemeteryPlace,
+                          dataForDialog.birthdayPlace,
+                          dataForDialog.dieDay,
+                          dataForDialog.dieMonth,
+                          dataForDialog.fatherName)
 
                       }else openNotification("تحصیلات نظامی نباید خالی باشد","error") 
 

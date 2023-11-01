@@ -6,8 +6,9 @@ let axiosConfig = {
     "Content-Type": "application/json;charset=UTF-8",
     "Access-Control-Allow-Origin": "*",
   },
+  maxBodyLength: Infinity,
+  maxContentLength: Infinity,
 };
-
 let fileAxiosConfig = {
   headers: { "Content-Type": "multipart/form-data" },
 };
@@ -41,7 +42,7 @@ export const insertShahidManagementData = async (
 ) => {
   try {
     const form = new FormData();
-    form.append("image", file);
+    form.append("image", image);
     form.append("name", name);
     form.append("family", family);
     form.append("lastServePlace", lastServePlace);
@@ -55,9 +56,9 @@ export const insertShahidManagementData = async (
     form.append("dieMonth", dieMonth);
     form.append("fatherName", fatherName);
     const response = await axios.post(
-      "http://localhost:4848/api/admin/imageManagment/insert",
+      "http://localhost:4848/api/admin/shahidManagment/insertOne",
       form,
-      fileAxiosConfig
+      axiosConfig
     );
     return { data: response.data, error: null };
   } catch (error) {

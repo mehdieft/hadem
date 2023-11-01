@@ -210,7 +210,7 @@ exports.getAll = async (req, res, next) => {
       .json({ error: "error something wrong check your connection" });
 };
 exports.insertOne=async(req,res,next)=>{
-  // console.log("eqwwwwwwwwwwwww",req.body)
+  console.log("eqwwwwwwwwwwwww",req.body)
   if (req.file) {
     console.log("*****************request has file************");
     var storage = multer.diskStorage({
@@ -295,12 +295,12 @@ exports.insertOne=async(req,res,next)=>{
     }
   }
 
-  const savedInsertShahid = await Shahid.updateOne(req.body.shahid);
-  if (updatedShahid) {
-    res.status(200).json({ message: "insert successfully" });
-  } else {
-    res.status(500).json({ message: "oops somethings wrong!" });
-  }
+  // const savedInsertShahid = await Shahid.updateOne(req.body.shahid);
+  // if (savedInsertShahid) {
+  //   res.status(200).json({ message: "insert successfully" });
+  // } else {
+  //   res.status(500).json({ message: "oops somethings wrong!" });
+  // }
 } 
 
 
