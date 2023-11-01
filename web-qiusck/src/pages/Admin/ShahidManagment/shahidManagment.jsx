@@ -651,10 +651,15 @@ export const ShahidManagament = () => {
                 تاریخ تولد:
                 {shahidDetail.birthdate !== null ||
                 shahidDetail.birthdate !== ""
-                  ? shahidDetail.birthdate
+                  ? shahidDetail.birthdate.split('T')[0]
                   : "موجود نیست"}
               </p>
-              <p>تاریخ شهادت:{shahidDetail.dieDate}</p>
+              <p>تاریخ شهادت:
+              {shahidDetail.dieDate !== null ||
+                shahidDetail.dieDate !== ""
+                  ? shahidDetail.dieDate.split('T')[0]
+                  : "موجود نیست"}
+                </p>
             </div>
             <div className="row">
               <p>تحصیلات نظامی:{shahidDetail.militiryEducation}</p>
