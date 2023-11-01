@@ -13,14 +13,54 @@ let fileAxiosConfig = {
 };
 
 export const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:4848/api/admin/shahidManagment/getAll",
-        axiosConfig
-      );
-      console.log("this is response");
-      return { data: response.data, error: null };
-    } catch (error) {
-      return { data: null, error: error.message };
-    }
-  };
+  try {
+    const response = await axios.get(
+      "http://localhost:4848/api/admin/shahidManagment/getAll",
+      axiosConfig
+    );
+    console.log("this is response");
+    return { data: response.data, error: null };
+  } catch (error) {
+    return { data: null, error: error.message };
+  }
+};
+export const insertShahidManagementData = async (
+  name,
+  family,
+  image,
+  lastServePlace,
+  placeOfDeath,
+  militiryEducation,
+  wayOfDie,
+  birthdate,
+  cemeteryPlace,
+  birthdayPlace,
+  dieDay,
+  dieMonth,
+  fatherName
+) => {
+  try {
+    const form = new FormData();
+    form.append("image", file);
+    form.append("name", name);
+    form.append("family", family);
+    form.append("lastServePlace", lastServePlace);
+    form.append("placeOfDeath", placeOfDeath);
+    form.append("militiryEducation", militiryEducation);
+    form.append("wayOfDie", wayOfDie);
+    form.append("cemeteryPlace", cemeteryPlace);
+    form.append("birthdate", birthdate);
+    form.append("birthdayPlace", birthdayPlace);
+    form.append("dieDay", dieDay);
+    form.append("dieMonth", dieMonth);
+    form.append("fatherName", fatherName);
+    const response = await axios.post(
+      "http://localhost:4848/api/admin/imageManagment/insert",
+      form,
+      fileAxiosConfig
+    );
+    return { data: response.data, error: null };
+  } catch (error) {
+    return { data: null, error: error.message };
+  }
+};
