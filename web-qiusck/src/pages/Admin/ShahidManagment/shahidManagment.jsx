@@ -177,7 +177,7 @@ export const ShahidManagament = () => {
 
   const handleImageUpload = (event) => {
     console.log("************", event.target.files[0]);
-    setSelectedImage(event.target.files[0]);
+    setDataForDialog({...dataForDialog, image :  event.target.files[0]});
     console.log("tthis is file", selectedImage);
   };
   const saveInsertDialogHandler = () => {
@@ -346,13 +346,13 @@ export const ShahidManagament = () => {
                       <TableCell align="right">{item.family}</TableCell>
                       <TableCell align="right">
                        
-                        {item.birthdate !== null 
+                        {item.birthdate !== null  ||item.birthdate !=="" ||item.birthdate !==undefined
                           ? item.birthdate.split('T')[0]
                           
                           : "موجود نیست"}
                       </TableCell>
                       <TableCell align="right">
-                        {item.dieDate !== null
+                        {item.dieDate !== null || item.dieDate !=="" ||item.dieDate !==undefined
                           ? item.dieDate.split('T')[0]
                           
                           
@@ -523,7 +523,7 @@ export const ShahidManagament = () => {
                       placeholder=" انتخاب تاریخ تولد شهید"
                       format="jYYYY/jMM/jDD"
                       onChange={dieDateChange}
-                      id="datePicker"
+                      id="datePicker2"
                       // preSelected="1396/05/15"
                     />
                   </div>

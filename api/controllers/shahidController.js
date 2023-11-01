@@ -1,5 +1,7 @@
 const Shahid = require("../Models/Shahid");
 const moment = require("jalali-moment");
+const multer = require('multer');
+
 var fs = require("fs");
 const { date } = require("joi");
 
@@ -202,7 +204,7 @@ exports.getbyDate = async (req, res, next) => {
 };
 
 exports.getAll = async (req, res, next) => {
-  const data = await Shahid.find();
+  const data = await Shahid.find().sort({date: 'desc'});
   if (data) res.status(200).json({ data });
   else
     res
@@ -251,11 +253,13 @@ exports.insertOne=async(req,res,next)=>{
       birthdayPlace,
       dieMonth,
       dieDay,
-    });
+    }).save();
 
     if (savedUpdateShahid) {
+      console.log("inserted")
       res.status(200).json({ message: "successfuly updated" });
     } else {
+      console.log("bug")
       res.status(500).json({ message: "somethings wrong" });
     }
   } else {
