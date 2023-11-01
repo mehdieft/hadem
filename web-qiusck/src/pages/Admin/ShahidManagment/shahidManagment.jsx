@@ -330,13 +330,16 @@ export const ShahidManagament = () => {
                       <TableCell align="right">{item.name}</TableCell>
                       <TableCell align="right">{item.family}</TableCell>
                       <TableCell align="right">
-                        {item.shamsiBirthdate !== null
-                          ? item.shamsiBirthdate
+                       
+                        {item.birthdate !== null
+                          ? item.birthdate
                           : "موجود نیست"}
                       </TableCell>
                       <TableCell align="right">
-                        {item.shamsiDieDate !== null
-                          ? item.shamsiDieDate
+                        {item.dieDate !== null
+                          ? item.dieDate 
+                          
+                          
                           : "موجود نیست"}
                       </TableCell>
 
