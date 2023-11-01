@@ -67,3 +67,15 @@ export const insertShahidManagementData = async (
     return { data: null, error: error.message };
   }
 };
+export const deleteShahid= async (id)=>{
+  try {
+    console.log('this is delete_____')
+    const response = await axios.post(
+      "http://localhost:4848/api/admin/shahidManagement/delete",
+      { id: id }
+    );
+    return { data: response.data, error: null };
+  } catch (error) {
+    return { data: null, error: error.message };
+  }
+}

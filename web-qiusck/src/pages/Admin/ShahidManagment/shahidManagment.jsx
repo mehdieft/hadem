@@ -24,7 +24,7 @@ import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
 import defaultShahid from "../../../assets/Image/defaultShahid.jpg";
-import {insertShahidManagementData} from '../../../api/shahidDetailRequest';
+import {insertShahidManagementData,deleteShahid} from '../../../api/shahidDetailRequest';
 import { fetchData } from "../../../api/shahidDetailRequest";
 import { DatePicker } from "jalaali-react-date-picker";
 import "jalaali-react-date-picker/lib/styles/index.css";
@@ -125,6 +125,7 @@ useEffect(()=>{
   };
   const deleteShahid = (item) => {
     console.log("this is delete");
+    deleteShahid(item._id)
   };
   const cancelDialog = () => {
     setIsInsertDialog(false);
