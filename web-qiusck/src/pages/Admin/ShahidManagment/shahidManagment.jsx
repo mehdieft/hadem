@@ -331,13 +331,14 @@ export const ShahidManagament = () => {
                       <TableCell align="right">{item.family}</TableCell>
                       <TableCell align="right">
                        
-                        {item.birthdate !== null
-                          ? item.birthdate
+                        {item.birthdate !== null 
+                          ? item.birthdate.split('T')[0]
+                          
                           : "موجود نیست"}
                       </TableCell>
                       <TableCell align="right">
                         {item.dieDate !== null
-                          ? item.dieDate 
+                          ? item.dieDate.split('T')[0]
                           
                           
                           : "موجود نیست"}
