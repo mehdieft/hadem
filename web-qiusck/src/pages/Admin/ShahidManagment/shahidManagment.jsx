@@ -184,6 +184,24 @@ export const ShahidManagament = () => {
       if(dataForDialog.family !==""){
         if(dataForDialog.fatherName !==""){
           if(dataForDialog.lastServePlace !==""){
+            if(dataForDialog.birthdayPlace !==""){
+              if(dataForDialog.cemeteryPlace !==""){
+                if(dataForDialog.birthdate !==""){
+                  if(dataForDialog.dieDate !==""){
+                    if(dataForDialog.wayOfDie !==""){
+                      if(dataForDialog.militiryEducation !==""){
+
+                      }else openNotification("تحصیلات نظامی نباید خالی باشد","error") 
+
+                    }else openNotification("نحوه شهادت نباید خالی باشد","error")
+
+                  }else openNotification("تاریخ شهادت نباید خالی باشد","error")
+
+                }else openNotification("تاریخ تولد نباید خالی باشد","error")
+
+              }else openNotification("محل آرامگاه نباید خالی باشد","error")
+
+            }else openNotification("محل تولد نباید خالی باشد","error")
 
           }else openNotification("آخرین محل خدمت نباید خالی باشد","error")
         }else openNotification("نام پدر نباید خالی باشد","error")
