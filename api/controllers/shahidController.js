@@ -67,7 +67,7 @@ exports.insert = async (req, res, next) => {
       if (typeof singleRow.dieMonth !== "number") {
         singleRow.dieMonth = null;
       }
-      if (typeof singleRow.dieDay !== "number") {
+      if (typeof singleRow.dieDay !== "number" ) {
         singleRow.dieDay = null;
       }
 
@@ -237,8 +237,9 @@ exports.insertOne=async(req,res,next)=>{
     const wayOfDie = req.body.wayOfDie;
     const cemeteryPlace = req.body.cemeteryPlace;
     const birthdayPlace = req.body.birthdayPlace;
-    const dieMonth = req.body.dieMonth;
-    const dieDay = req.body.dieDay;
+    const dieMonth = req.body.dieDate.split('/')[1];
+    const dieDay = req.body.dieDate.split('/')[2]
+    console.log("fuckkkkkkk",req.body.dieDate.split('/'))
     const savedUpdateShahid = await new Shahid ({
       image,
       name,

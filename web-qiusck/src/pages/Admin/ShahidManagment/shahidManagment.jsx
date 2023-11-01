@@ -26,12 +26,15 @@ import { useNotification } from "../../../context/NotificationProvider";
 import defaultShahid from "../../../assets/Image/defaultShahid.jpg";
 import {insertShahidManagementData} from '../../../api/shahidDetailRequest';
 import { fetchData } from "../../../api/shahidDetailRequest";
-import {
-  DatePicker,
-  DateTimePicker,
-  DateRangePicker,
-  DateTimeRangePicker,
-} from "react-advance-jalaali-datepicker";
+import { DatePicker } from "jalaali-react-date-picker";
+import "jalaali-react-date-picker/lib/styles/index.css";
+
+// import {
+//   DatePicker,
+//   DateTimePicker,
+//   DateRangePicker,
+//   DateTimeRangePicker,
+// } from "react-advance-jalaali-datepicker";
 
 export const ShahidManagament = () => {
   const { openNotification } = useNotification();
@@ -74,10 +77,11 @@ export const ShahidManagament = () => {
     dieMonth:'',
     fatherName:""
   });
+useEffect(()=>{
 
-  useEffect(() => {
-    fetchAndSetData();
-  }, []);
+  fetchAndSetData();
+},[])
+ 
   const fetchAndSetData = async () => {
     console.log("fuck you");
     const result = await fetchData();
@@ -153,12 +157,8 @@ export const ShahidManagament = () => {
   };
   const dieDateChange = (unix,shamsi) => {
     console.log('------die kiriiiiiii>',shamsi);
-    let month=Number(shamsi.split('/')[1])
-    let day=Number(shamsi.split('/')[2])
-    const dieDayFromDatePicker=shamsi
- 
-    setDataForDialog({ ...dataForDialog, dieDay: day });
-    setDataForDialog({ ...dataForDialog, dieMonth: month });
+    // setDataForDialog({ ...dataForDialog, dieDay: day });
+    // setDataForDialog({ ...dataForDialog, dieMonth: month });
     setDataForDialog({ ...dataForDialog, dieDate: shamsi });
     console.log("this is ------->",dataForDialog)
         
@@ -191,6 +191,7 @@ export const ShahidManagament = () => {
                   if(dataForDialog.dieDate !==""){
                     if(dataForDialog.wayOfDie !==""){
                       if(dataForDialog.militiryEducation !==""){
+
                         insertShahidManagementData(  
                           dataForDialog.name,
                           dataForDialog.family,
@@ -204,7 +205,9 @@ export const ShahidManagament = () => {
                           dataForDialog.birthdayPlace,
                           dataForDialog.dieDay,
                           dataForDialog.dieMonth,
-                          dataForDialog.fatherName)
+                          dataForDialog.fatherName,
+                          dataForDialog.dieDate
+                          )
 
                       }else openNotification("تحصیلات نظامی نباید خالی باشد","error") 
 
@@ -506,7 +509,7 @@ export const ShahidManagament = () => {
                 <div className="row">
                   <div>
                     <p>تاریخ تولد:{dataForDialog.birthdate}</p>
-                    <DatePicker
+                    <DatePicker  
                       style={{ width: "212px" }}
                       placeholder=" انتخاب تاریخ تولد شهید"
                       format="jYYYY/jMM/jDD"

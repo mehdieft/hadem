@@ -38,7 +38,8 @@ export const insertShahidManagementData = async (
   birthdayPlace,
   dieDay,
   dieMonth,
-  fatherName
+  fatherName,
+  dieDate
 ) => {
   try {
     const form = new FormData();
@@ -55,6 +56,7 @@ export const insertShahidManagementData = async (
     form.append("dieDay", dieDay);
     form.append("dieMonth", dieMonth);
     form.append("fatherName", fatherName);
+    form.append("dieDate", dieDate);
     const response = await axios.post(
       "http://localhost:4848/api/admin/shahidManagment/insertOne",
       form,
