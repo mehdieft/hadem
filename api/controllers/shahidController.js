@@ -31,8 +31,9 @@ exports.insert = async (req, res, next) => {
         wayOfDie: source[i].P,
         cemeteryPlace: source[i].AE,
         birthdayPlace: source[i].R,
+        dieYear:Number(source[i].N.split("/")[0]),
         dieMonth: Number(source[i].N.split("/")[1]),
-        dieDay: Number(source[i].N.split("/")[2]) - 1,
+        dieDay: Number(source[i].N.split("/")[2]) ,
       };
       if (
         singleRow.birthdate == null ||
@@ -69,6 +70,9 @@ exports.insert = async (req, res, next) => {
       }
       if (typeof singleRow.dieDay !== "number" ) {
         singleRow.dieDay = null;
+      }
+      if (typeof singleRow.dieYear !== "number" ) {
+        singleRow.dieYear = null;
       }
 
       console.log("_________>", singleRow.birthdate);
