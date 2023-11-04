@@ -2,6 +2,7 @@ import { useState, createContext, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
+import { ImageList } from "@mui/material";
 
 const backdrop = {
   visible: { opacity: 1 },
@@ -26,18 +27,40 @@ const imageDialogContext = createContext();
 export default function ImageDialogProvider({ children }) {
   const [showModal, setShowModal] = useState(false);
   const [image, setImage] = useState("");
+  const [imageIndex,setImageIndex]=useState(null);
+  const [maxImageIndex,setMaxImageIndex]=useState(null);
   const [imageList,setImageList]=useState([]);
-  const openDialog = (imageUrl) => {
+  const openDialog = (item,index) => {
     setShowModal(true);
-    setImage(imageUrl);
+    setImageList(item)
+    console.log("imageList--------",imageList)
+    setMaxImageIndex(imageList.length)
+    setImage(item[index]);
+    setImageIndex(index)
   };
   const closeDialog = () => {
     setShowModal(false);
-    setImage("");
+    // setImageList([]);
+    // setMaxImageIndex(null);
+    // setImage("");
+    // setImageIndex(null);
   };
   const nextImage=()=>{
+    setImageIndex(imageIndex+1)
+    console.log("______>",maxImageIndex)
+    if(imageIndex>= maxImageIndex){
+      closeDialog()
+    }
+    setImage(imageList[imageIndex])
     
 
+  }
+  const prevImage=()=>{
+    setImageIndex(imageIndex-1)
+    if(imageIndex <0){
+      closeDialog();
+    }
+    setImage(imageList[imageIndex])
   }
   return (
     <imageDialogContext.Provider value={{ openDialog ,nextImage}}>
@@ -75,6 +98,17 @@ export default function ImageDialogProvider({ children }) {
               </div>
               <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
               <IconButton
+                  onKeyDownCapture={prevImage}
+                  onClick={prevImage}
+                  style={{color:'white'}}
+                  // color="secondary"
+                  aria-label="add an alarm"
+                >
+                  <CloseIcon />
+                </IconButton>
+                
+                <img src={image} style={{  maxWidth: "90VW",maxHeight:'90vh',width:'99vh',aspectRatio:1 }} />
+              <IconButton
                   onKeyDownCapture={nextImage}
                   onClick={nextImage}
                   style={{color:'white'}}
@@ -83,7 +117,6 @@ export default function ImageDialogProvider({ children }) {
                 >
                   <CloseIcon />
                 </IconButton>
-                <img src={image} style={{ height: "auto", maxWidth: "90VW",maxHeight:'90vh' }} />
               </div>
             </motion.div>
           </motion.div>
