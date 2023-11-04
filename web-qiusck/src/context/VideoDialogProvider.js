@@ -13,9 +13,9 @@ export default function VideoDialogProvider({children}){
   
   
   
-  const openVideoDialog=(video)=>{
+  const openVideoDialog=(item)=>{
       setShowModal(true);
-      setVideoUrl(video)
+      setVideoUrl(item)
   }
   const closeDialog=()=>{
       setShowModal(false);
