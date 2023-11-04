@@ -177,7 +177,7 @@ const Gallery = () => {
         </div>
       </div>
       <main id="image-container">
-        {imageArray.map((item) => {
+        {imageArray.map((item,index) => {
           return (
             <div
               className="image-item"

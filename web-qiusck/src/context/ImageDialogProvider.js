@@ -26,6 +26,7 @@ const imageDialogContext = createContext();
 export default function ImageDialogProvider({ children }) {
   const [showModal, setShowModal] = useState(false);
   const [image, setImage] = useState("");
+  const [imageList,setImageList]=useState([]);
   const openDialog = (imageUrl) => {
     setShowModal(true);
     setImage(imageUrl);
@@ -34,8 +35,12 @@ export default function ImageDialogProvider({ children }) {
     setShowModal(false);
     setImage("");
   };
+  const nextImage=()=>{
+    
+
+  }
   return (
-    <imageDialogContext.Provider value={{ openDialog }}>
+    <imageDialogContext.Provider value={{ openDialog ,nextImage}}>
       {children}
       <AnimatePresence mode="wait">
         {showModal && (
@@ -69,6 +74,15 @@ export default function ImageDialogProvider({ children }) {
                 </IconButton>
               </div>
               <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+              <IconButton
+                  onKeyDownCapture={nextImage}
+                  onClick={nextImage}
+                  style={{color:'white'}}
+                  // color="secondary"
+                  aria-label="add an alarm"
+                >
+                  <CloseIcon />
+                </IconButton>
                 <img src={image} style={{ height: "auto", maxWidth: "90VW",maxHeight:'90vh' }} />
               </div>
             </motion.div>
