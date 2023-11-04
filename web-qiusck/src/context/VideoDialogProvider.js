@@ -3,6 +3,7 @@ import './videoDialog.css';
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import CachedIcon from '@mui/icons-material/Cached';
+import ReactPlayer from 'react-player'
 const videoDialogContext=createContext();
 
 
@@ -14,6 +15,7 @@ export default function VideoDialogProvider({children}){
   
   
   const openVideoDialog=(item)=>{
+    console.log("this iss item",item);
       setShowModal(true);
       setVideoUrl(item)
   }
@@ -40,26 +42,29 @@ export default function VideoDialogProvider({children}){
                   onClick={closeDialog}
                 />
                 <div className="modal__video-align">
-                  {videoLoading ? (
+                  {/* {videoLoading ? (
                     <div className="modal__spinner">
                       <CachedIcon
                         className="modal__spinner-style"
                         fadeIn="none"
                       />
                     </div>
-                  ) : null}
-                  <iframe
-                    className="modal__video-style"
-                    onLoad={spinner}
+                  ) : null}  */}
+                   <ReactPlayer 
+                    controls={true}
                     loading="lazy"
                     width="800"
                     height="500"
-                    src={videoUrl}
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
+                    url={videoUrl}
+                    playing	={false}
+                    
+                  />
+                
+        {/* <video id="header-video" autoPlay muted loop>
+          <source type="video/mp4" src={videoUrl} />
+        </video> */}
+     
+                  
                 </div>
               </div>
             </div>
