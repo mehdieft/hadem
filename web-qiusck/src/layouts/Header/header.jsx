@@ -115,6 +115,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
+      <div style={{height:'120px', backgroundColor:'rgb(1, 32, 44)'}}></div>
       <div
         className="header-search-container"
         style={{
