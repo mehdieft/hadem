@@ -9,6 +9,14 @@
 }
 .shahid-container{
     height: fit-content;
+    background: rgb(1, 32, 44) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding:120px auto;
+    gap: 25px;
+
 }
 .search-background{
     height: 130vh;
