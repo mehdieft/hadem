@@ -8,13 +8,11 @@ import searchHeaderImage from "../../assets/images/iranNavy.jpeg";
 import nedaja from "../../assets/icon/nedaja.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { motion } from "framer-motion";
-import {searchShahid} from '../../api/shahidDetailRequest'
+import { searchShahid } from "../../api/shahidDetailRequest";
 import { useState } from "react";
 import { useNotification } from "../../context/NotificationProvider";
-import IconButton from '@mui/material/IconButton';
-import { useNavigate } from 'react-router-dom';
-
-
+import IconButton from "@mui/material/IconButton";
+import { useNavigate } from "react-router-dom";
 
 import "./style.css";
 import { useEffect } from "react";
@@ -22,11 +20,9 @@ export const Header = () => {
   const { openNotification } = useNotification();
   const navigate = useNavigate();
 
-  const [searchList,setSearchList]=useState([]);
-  const [shahidName,setShahidName]=useState('')
-  useEffect(()=>{
-
-  },[])
+  const [searchList, setSearchList] = useState([]);
+  const [shahidName, setShahidName] = useState("");
+  useEffect(() => {}, []);
 
   const svgLogoAnimation = {
     hidden: {
@@ -48,31 +44,28 @@ export const Header = () => {
     console.log("ress----->", result);
     if (result.data !== null) {
       setSearchList(result.data.data);
-      openNotification('hjajkshda','success')
+      openNotification("hjajkshda", "success");
+      console.log(searchList)
     } else {
       openNotification(result.error, "error");
       // openNotification("متن جایگزین نباید خالی باشد", "error");
-     
     }
   };
-  const searchClkickHandler=()=>{
-    if(shahidName ==''){
-      openNotification('لطفا نام و نام خانوادگی شهید معزز را وارد کنید', "error");
-    }else{
-      fetchAndSetData(shahidName)
-      setShahidName('')
+  const searchClkickHandler = () => {
+    if (shahidName == "") {
+      openNotification(
+        "لطفا نام و نام خانوادگی شهید معزز را وارد کنید",
+        "error"
+      );
+    } else {
+      fetchAndSetData(shahidName);
+      setShahidName("");
     }
-
-  }
-  const searchInputHandler= (e)=>{
- setShahidName(e.target.value)
-    
-    console.log("fuckckkk")
-   
-   
-
-
-  }
+  };
+  const searchInputHandler = (e) => {
+    setShahidName(e.target.value);
+    console.log("fuckckkk");
+  };
   return (
     <>
       <div className="header">
@@ -106,9 +99,9 @@ export const Header = () => {
               <g>
                 <g>
                   <motion.path
-                    initial={{ pathLength : 0 }}
-                    animate={{ pathLength : 1 }}
-                    transition={{duration:1.9}}
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 1.9 }}
                     fill="transparent"
                     strokeWidth="12"
                     stroke="rgba(255, 255, 255, 0.69)"
@@ -164,7 +157,7 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div style={{height:'120px', backgroundColor:'rgb(1, 32, 44)'}}></div>
+      <div style={{ height: "120px", backgroundColor: "rgb(1, 32, 44)" }}></div>
       <div
         className="header-search-container"
         style={{
@@ -180,17 +173,16 @@ export const Header = () => {
         <div className="header-content-wrapper">
           <div className="search-input-container">
             <div className="header-content-icon-wrapper">
-            <IconButton onClick={searchClkickHandler}>
-
-              <SearchIcon color="black" />
-            </IconButton>
+              <IconButton onClick={searchClkickHandler}>
+                <SearchIcon color="black" />
+              </IconButton>
             </div>
             <input
-            onChange={searchInputHandler}
+              onChange={searchInputHandler}
               type="text"
               value={shahidName}
               placeholder="نام شهید جستجو کنید"
-              style={{ backgroundColor: "inherit", border: 0,color:'black' }}
+              style={{ backgroundColor: "inherit", border: 0, color: "black" }}
             />
           </div>
           <hr />
