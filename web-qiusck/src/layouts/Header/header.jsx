@@ -4,7 +4,7 @@ import navy from "../../assets/icon/navy2.png";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { AnimationImageCard } from "../../components/animationImageCard/animationImageCard";
 import logoHeader from "../../assets/icon/logo.svg";
-import searchHeaderImage from "../../assets/images/takavar.jpg";
+import searchHeaderImage from "../../assets/images/iranNavy.jpeg";
 import nedaja from "../../assets/icon/nedaja.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { motion } from "framer-motion";
@@ -130,12 +130,12 @@ export const Header = () => {
         <div className="header-content-wrapper">
           <div className="search-input-container">
             <div className="header-content-icon-wrapper">
-              <SearchIcon color="inhert" />
+              <SearchIcon color="black" />
             </div>
             <input
               type="text"
               placeholder="نام شهید جستجو کنید"
-              style={{ backgroundColor: "inherit", border: 0 }}
+              style={{ backgroundColor: "inherit", border: 0,color:'black' }}
             />
           </div>
           <hr />

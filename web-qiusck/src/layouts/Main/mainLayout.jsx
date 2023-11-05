@@ -2,7 +2,7 @@ import "./style.css";
 import { AnimationImageCard } from "../../components/animationImageCard/animationImageCard";
 import firstImage from "../../assets/images/khatere.jpg";
 import secondImage from '../../assets/images/iran.jpg'
-import thirdImage from '../../assets/images/find-careers-united-states-navy-hospital-corpsman-advanced-technical-field.jpeg'
+import thirdImage from '../../assets/images/shahid.jpg'
 import { useNavigate } from "react-router-dom";
 import {motion} from 'framer-motion'
 export const MainLayout = () => {
