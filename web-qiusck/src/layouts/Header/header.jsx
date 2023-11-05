@@ -44,6 +44,7 @@ export const Header = () => {
     console.log("ress----->", result);
     if (result.data !== null) {
       setSearchList(result.data.data);
+      console.log("res----------یسشیشسی->",searchList)
       openNotification("hjajkshda", "success");
       console.log(searchList)
     } else {
@@ -51,14 +52,14 @@ export const Header = () => {
       // openNotification("متن جایگزین نباید خالی باشد", "error");
     }
   };
-  const searchClkickHandler = () => {
+  const searchClkickHandler =async () => {
     if (shahidName == "") {
       openNotification(
         "لطفا نام و نام خانوادگی شهید معزز را وارد کنید",
         "error"
       );
     } else {
-      fetchAndSetData(shahidName);
+      await fetchAndSetData(shahidName);
       setShahidName("");
     }
   };
@@ -184,6 +185,19 @@ export const Header = () => {
               placeholder="نام شهید جستجو کنید"
               style={{ backgroundColor: "inherit", border: 0, color: "black" }}
             />
+            {/* {searchList.length>0? <>
+            <ul >
+              {searchList.map((item)=>{
+                <li>{item.name}  {item.family}</li>
+              })
+
+              }
+            </ul>
+            </>
+            :null 
+            }
+            */}
+
           </div>
           <hr />
         </div>
