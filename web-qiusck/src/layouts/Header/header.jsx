@@ -4,7 +4,7 @@ import navy from "../../assets/icon/navy2.png";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { AnimationImageCard } from "../../components/animationImageCard/animationImageCard";
 import logoHeader from "../../assets/icon/logo.svg";
-import searchHeaderImage from "../../assets/images/searchHeader.jpg";
+import searchHeaderImage from "../../assets/images/takavar.jpg";
 import nedaja from "../../assets/icon/nedaja.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { motion } from "framer-motion";

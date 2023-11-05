@@ -48,7 +48,7 @@ export const AnimationImageCard = ({ animationImage,title,content,clilHandler })
     >
       <motion.div className="animation-card-container">
         <motion.div >
-          <motion.span style={{color:'white'}} variants={titleAnimation}  >{title}</motion.span>
+          <motion.span style={{color:'black'}} variants={titleAnimation}  >{title}</motion.span>
         </motion.div>
         <motion.div
         variants={contextAnimation}
