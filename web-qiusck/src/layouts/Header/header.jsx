@@ -8,8 +8,16 @@ import searchHeaderImage from "../../assets/images/iranNavy.jpeg";
 import nedaja from "../../assets/icon/nedaja.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { motion } from "framer-motion";
+import {searchShahid} from '../../api/shahidDetailRequest'
+
 import "./style.css";
+import { useEffect } from "react";
 export const Header = () => {
+  const [searchList,setSearchList]=useState([]);
+  useEffect(()=>{
+    
+  },[])
+
   const svgLogoAnimation = {
     hidden: {
       opacity: 0,
@@ -24,6 +32,12 @@ export const Header = () => {
       },
     },
   };
+  const searchInputHandler=(e)=>{
+    const name=e.target.value
+    searchShahid(name)
+
+
+  }
   return (
     <>
       <div className="header">
@@ -134,6 +148,7 @@ export const Header = () => {
               <SearchIcon color="black" />
             </div>
             <input
+            onChange={searchInputHandler}
               type="text"
               placeholder="نام شهید جستجو کنید"
               style={{ backgroundColor: "inherit", border: 0,color:'black' }}
