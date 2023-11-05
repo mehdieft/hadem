@@ -79,3 +79,15 @@ export const deleteShahid= async (id)=>{
     return { data: null, error: error.message };
   }
 }
+
+export const searchShahid=async(nameAndFamily)=>{
+  try{
+
+    const response= await axios.post(`http://localhost:4848/api/user/getByName?name=${nameAndFamily}`)
+    return {data:response.data,error:null};
+  }
+  catch(error){
+    return {data:null,error:error.message}
+  }
+  
+}
