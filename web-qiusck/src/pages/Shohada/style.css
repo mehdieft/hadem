@@ -1,0 +1,15 @@
+.search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    background-color: white;
+}
+.shahid-container{
+    height: fit-content;
+}
+.search-background{
+    height: 130vh;
+}

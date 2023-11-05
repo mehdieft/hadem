@@ -18,7 +18,7 @@ export const MainLayout = () => {
   }
   const shahidHandler=()=>{
     console.log("hello world")
-    navigate('/shahid')
+    navigate('/shohada')
 
 
   }
