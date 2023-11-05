@@ -322,6 +322,19 @@ console.log('-------->>>',todayMoment)
 const todayShahid=await Shahid.find({dieMonth:todayMoment[1],dieDay:todayMoment[2]})
 console.log('_______________>', todayShahid)
 
+}
+exports.getByName=async(req,res,next)=>{
+  let QUERY="محمد"
+  let regex = new RegExp(QUERY, 'i');
+const data=await Shahid.find({
+  $or: [
+    { 'name': regex },
+    { 'family': regex }
+  ]
+})
+if(data){
+  console.log(data)
+}
 
 }
 
