@@ -3,7 +3,7 @@ const router=express.Router();
 const shahidController=require('../../controllers/shahidController')
 
 
-router.get('/getByDate',shahidController.getbyDate);
+router.get('/getByDate',shahidController.todayShahid);
 
 
 

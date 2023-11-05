@@ -2,6 +2,7 @@ const Shahid = require("../Models/Shahid");
 const moment = require("jalali-moment");
 const multer = require('multer');
 
+
 var fs = require("fs");
 const { date } = require("joi");
 
@@ -31,9 +32,9 @@ exports.insert = async (req, res, next) => {
         wayOfDie: source[i].P,
         cemeteryPlace: source[i].AE,
         birthdayPlace: source[i].R,
-        dieYear:Number(source[i].N.split("/")[0]),
-        dieMonth: Number(source[i].N.split("/")[1]),
-        dieDay: Number(source[i].N.split("/")[2]) ,
+        dieYear:Number(source[i].N.split("/")[0])?Number(source[i].N.split("/")[0]):0,
+        dieMonth: Number(source[i].N.split("/")[1])?Number(source[i].N.split("/")[1]):0,
+        dieDay: Number(source[i].N.split("/")[2])?Number(source[i].N.split("/")[2]-1):0 ,
       };
       if (
         singleRow.birthdate == null ||
@@ -65,14 +66,14 @@ exports.insert = async (req, res, next) => {
       if (singleRow.fatherName == null || singleRow.fatherName == "") {
         singleRow.fatherName = "نام پدر موجود نیست";
       }
-      if (typeof singleRow.dieMonth !== "number") {
-        singleRow.dieMonth = null;
+      if (typeof singleRow.dieMonth !== "number"||singleRow.dieMonth==NaN ||singleRow.dieMonth==null||singleRow.dieMonth=='') {
+        singleRow.dieMonth = 0;
       }
-      if (typeof singleRow.dieDay !== "number" ) {
-        singleRow.dieDay = null;
+      if (typeof singleRow.dieDay !== "number"||singleRow.dieMonth==NaN ||singleRow.dieMonth==null||singleRow.dieMonth=='' ) {
+        singleRow.dieDay = 0;
       }
-      if (typeof singleRow.dieYear !== "number" ) {
-        singleRow.dieYear = null;
+      if (typeof singleRow.dieYear !== "number" ||singleRow.dieMonth==NaN ||singleRow.dieMonth==null||singleRow.dieMonth=='') {
+        singleRow.dieYear = 0;
       }
 
       console.log("_________>", singleRow.birthdate);
@@ -311,6 +312,18 @@ exports.insertOne=async(req,res,next)=>{
   //   res.status(500).json({ message: "oops somethings wrong!" });
   // }
 } 
+exports.todayShahid=async(req,res,next)=>{
+  const today=new Date()
+  
+  // console.log("miladi----->",today)
+console.log('this is shamsi----->', moment(today).format('jYYYY/jMM/jDD'))
+const todayMoment= moment(today).format('jYYYY/jMM/jDD').split('/');
+console.log('-------->>>',todayMoment)
+const todayShahid=await Shahid.find({dieMonth:todayMoment[1],dieDay:todayMoment[2]})
+console.log('_______________>', todayShahid)
+
+
+}
 
 
 
