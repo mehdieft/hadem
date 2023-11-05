@@ -327,7 +327,7 @@ exports.getByName=async(req,res,next)=>{
   const {name}=req.query
   console.log("this is searchh query",name)
   let QUERY="محمد"
-  let regex = new RegExp(QUERY, 'i');
+  let regex = new RegExp(name, 'i');
 const data=await Shahid.find({
   $or: [
     { 'name': regex },
@@ -335,7 +335,7 @@ const data=await Shahid.find({
   ]
 })
 if(data){
-  console.log(data)
+  res.json({data})
 }
 
 }

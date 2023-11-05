@@ -12,6 +12,7 @@ import {searchShahid} from '../../api/shahidDetailRequest'
 import { useState } from "react";
 import { useNotification } from "../../context/NotificationProvider";
 import IconButton from '@mui/material/IconButton';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -19,6 +20,7 @@ import "./style.css";
 import { useEffect } from "react";
 export const Header = () => {
   const { openNotification } = useNotification();
+  const navigate = useNavigate();
 
   const [searchList,setSearchList]=useState([]);
   const [shahidName,setShahidName]=useState('')
@@ -40,18 +42,25 @@ export const Header = () => {
       },
     },
   };
-  const fetchData= (e)=>{
-  
-
-    
-    // const result=await searchShahid(item)
-    // console.log("result",result);
-
-  }
+  const fetchAndSetData = async (name) => {
+    console.log("fuck you");
+    const result = await searchShahid(name);
+    console.log("ress----->", result);
+    if (result.data !== null) {
+      setSearchList(result.data.data);
+      openNotification('hjajkshda','success')
+    } else {
+      openNotification(result.error, "error");
+      // openNotification("متن جایگزین نباید خالی باشد", "error");
+     
+    }
+  };
   const searchClkickHandler=()=>{
     if(shahidName ==''){
       openNotification('لطفا نام و نام خانوادگی شهید معزز را وارد کنید', "error");
-
+    }else{
+      fetchAndSetData(shahidName)
+      setShahidName('')
     }
 
   }
@@ -179,6 +188,7 @@ export const Header = () => {
             <input
             onChange={searchInputHandler}
               type="text"
+              value={shahidName}
               placeholder="نام شهید جستجو کنید"
               style={{ backgroundColor: "inherit", border: 0,color:'black' }}
             />
