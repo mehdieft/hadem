@@ -9,13 +9,21 @@ import nedaja from "../../assets/icon/nedaja.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { motion } from "framer-motion";
 import {searchShahid} from '../../api/shahidDetailRequest'
+import { useState } from "react";
+import { useNotification } from "../../context/NotificationProvider";
+import IconButton from '@mui/material/IconButton';
+
+
 
 import "./style.css";
 import { useEffect } from "react";
 export const Header = () => {
+  const { openNotification } = useNotification();
+
   const [searchList,setSearchList]=useState([]);
+  const [shahidName,setShahidName]=useState('')
   useEffect(()=>{
-    
+
   },[])
 
   const svgLogoAnimation = {
@@ -32,9 +40,27 @@ export const Header = () => {
       },
     },
   };
-  const searchInputHandler=(e)=>{
-    const name=e.target.value
-    searchShahid(name)
+  const fetchData= (e)=>{
+  
+
+    
+    // const result=await searchShahid(item)
+    // console.log("result",result);
+
+  }
+  const searchClkickHandler=()=>{
+    if(shahidName ==''){
+      openNotification('لطفا نام و نام خانوادگی شهید معزز را وارد کنید', "error");
+
+    }
+
+  }
+  const searchInputHandler= (e)=>{
+ setShahidName(e.target.value)
+    
+    console.log("fuckckkk")
+   
+   
 
 
   }
@@ -145,7 +171,10 @@ export const Header = () => {
         <div className="header-content-wrapper">
           <div className="search-input-container">
             <div className="header-content-icon-wrapper">
+            <IconButton onClick={searchClkickHandler}>
+
               <SearchIcon color="black" />
+            </IconButton>
             </div>
             <input
             onChange={searchInputHandler}

@@ -324,6 +324,8 @@ console.log('_______________>', todayShahid)
 
 }
 exports.getByName=async(req,res,next)=>{
+  const {name}=req.query
+  console.log("this is searchh query",name)
   let QUERY="محمد"
   let regex = new RegExp(QUERY, 'i');
 const data=await Shahid.find({
