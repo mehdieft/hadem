@@ -19,6 +19,15 @@ import { useEffect } from "react";
 export const Header = () => {
   const { openNotification } = useNotification();
   const navigate = useNavigate();
+  const ShahidUlList = ({ shahid }) => {
+    return <>
+    <ul>
+      {shahid.map((item,index)=>{
+        <li key={index} >{item.name}  {item.family}</li>
+      })}
+    </ul>
+    </>;
+  };
 
   const [searchList, setSearchList] = useState([]);
   const [shahidName, setShahidName] = useState("");
@@ -44,15 +53,15 @@ export const Header = () => {
     console.log("ress----->", result);
     if (result.data !== null) {
       setSearchList(result.data.data);
-      console.log("res----------یسشیشسی->",searchList)
+      console.log("res----------یسشیشسی->", searchList);
       openNotification("hjajkshda", "success");
-      console.log(searchList)
+      console.log(searchList);
     } else {
       openNotification(result.error, "error");
       // openNotification("متن جایگزین نباید خالی باشد", "error");
     }
   };
-  const searchClkickHandler =async () => {
+  const searchClkickHandler = async () => {
     if (shahidName == "") {
       openNotification(
         "لطفا نام و نام خانوادگی شهید معزز را وارد کنید",
@@ -185,6 +194,9 @@ export const Header = () => {
               placeholder="نام شهید جستجو کنید"
               style={{ backgroundColor: "inherit", border: 0, color: "black" }}
             />
+            {searchList.length > 0 ? (
+              <ShahidUlList shahid={searchList} />
+            ) : null}
             {/* {searchList.length>0? <>
             <ul >
               {searchList.map((item)=>{
@@ -197,11 +209,12 @@ export const Header = () => {
             :null 
             }
             */}
-
           </div>
           <hr />
         </div>
       </div>
     </>
   );
+
 };
+

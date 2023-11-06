@@ -333,7 +333,7 @@ const data=await Shahid.find({
     { 'name': regex },
     { 'family': regex }
   ]
-})
+}).limit(10)
 if(data){
   res.json({data})
 }
