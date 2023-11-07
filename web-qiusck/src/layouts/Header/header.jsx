@@ -29,8 +29,9 @@ export const Header = () => {
     </>;
   };
 
-  const [searchList, setSearchList] = useState([]);
-  const [shahidName, setShahidName] = useState("");
+  let [searchList, setSearchList] = useState([]);
+  let [shahidName, setShahidName] = useState("");
+  let dataList=[]
   useEffect(() => {}, []);
 
   const svgLogoAnimation = {
@@ -50,12 +51,15 @@ export const Header = () => {
   const fetchAndSetData = async (name) => {
     console.log("fuck you");
     const result = await searchShahid(name);
-    console.log("ress----->", result);
+    console.log("ress----->", result.data.data);
     if (result.data !== null) {
-      setSearchList(result.data.data);
-      console.log("res----------یسشیشسی->", searchList);
+    
+      console.log("res----------یسشیشسی->", result);
+      dataList.push(result)
+
+      console.log("************************",dataList)
       openNotification("hjajkshda", "success");
-      console.log(searchList);
+      // console.log(searchList);
     } else {
       openNotification(result.error, "error");
       // openNotification("متن جایگزین نباید خالی باشد", "error");
@@ -69,6 +73,8 @@ export const Header = () => {
       );
     } else {
       await fetchAndSetData(shahidName);
+      console.log("shahid sented there",searchList)
+      navigate('/shohada',{state:{dataList}})
       setShahidName("");
     }
   };
