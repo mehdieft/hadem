@@ -55,7 +55,7 @@ export const MainLayout = () => {
         animationImage={thirdImage}
           content="خاطرات به یاد ماندنی جانبازان معزز نیروی دریایی ارتش جمهوری اسلامی
           ایران از دوران دفاع مقدس"
-          title="آرشیو شهدا"
+          title="شهدای امروز"
         />
       </div>
     </motion.div>

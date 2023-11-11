@@ -3,7 +3,7 @@ import defaultShahid from "../../assets/Image/defaultShahid.jpg";
 const ShahidCard = ({
   imageSrc = defaultShahid,
   height = "120px",
-  width = "100px",
+  width = "120px",
   name = "شهید محمدعلی کلینی",
   birthDay = "30/3-fsd",
   dieDay = "fsdfsdfsdf",
@@ -19,6 +19,7 @@ const ShahidCard = ({
           {/* <span className="card-title">شهید امروز</span> */}
           <span className="shahid-name">{name}</span>
           <span>تاریخ تولد: {birthDay}</span>
+          <span>زادگاه:  {birthDay}</span>
           <span>تاریخ شهادت:  {dieDay}</span>
           <span>نحوه شهادت: {detailDie}</span>
           <span>آخرین محل خدمت: {detailDie}</span>
