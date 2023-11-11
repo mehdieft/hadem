@@ -17,7 +17,7 @@ const ShahidCard = ({
 }) => {
   return (
     <>
-      <div className="card-container">
+      <div className="card-container" style={{background:`url(${defaultShahid})`,backgroundSize:'cover'}}>
         <div className="shahid-image-container">
 
         <div className="card-image">
