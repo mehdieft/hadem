@@ -20,7 +20,12 @@ const ShahidCard = ({
           <span className="shahid-name">{name}</span>
           <span>تاریخ تولد: {birthDay}</span>
           <span>تاریخ شهادت:  {dieDay}</span>
-          <span>نحوه شهادت {detailDie}</span>
+          <span>نحوه شهادت: {detailDie}</span>
+          <span>آخرین محل خدمت: {detailDie}</span>
+          <span>تحصیلات نظامی: {detailDie}</span>
+          <span>محل آرامگاه:   {detailDie}</span>
+
+
         </div>
       </div>
     </>
