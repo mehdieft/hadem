@@ -132,12 +132,12 @@ export const Header = () => {
           <div className="nav-menu">
             <ul>
               <li></li>
-              <Link href="">خانه</Link>
+              <Link to="/Gallery">گالری تصاویر</Link>
               <li>
-                <Link href="">خانه</Link>
+                <Link to="/diary">خاطرات دفاع مقدس</Link>
               </li>
               <li>
-                <Link href="">خانه</Link>
+                <Link to="/shohada">شهدا</Link>
               </li>
             </ul>
           </div>
