@@ -1,10 +1,14 @@
 .card-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap:32px;
     background-color: rgb(237 237 237 / 50%);
     border-radius: 30px;
     padding:24px;
+    justify-content: center;
+    align-items: end;
+    width:400px;
+    height: 400px;
 
 }
 .card-detail{
@@ -37,7 +41,18 @@ span{
 }
 .card-image{
     border-radius: 30px;
+    width: 130px;
+    height: 135px;
+    overflow: hidden;
+    padding-bottom: 10px;
 
+
+}.shahid-image-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
 }
 .card-image img{
     margin-top: 14px;

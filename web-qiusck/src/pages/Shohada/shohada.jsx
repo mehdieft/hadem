@@ -17,23 +17,21 @@ const Shohada = () => {
           {shahidList.map((item, index) => {
             return (
               <>
-                <ShahidCard name={item.name}
-      family={item.family}
-      lastServePlace={item.lastServePlace}
-      placeOfDeath={item.placeOfDeath}
-      birthdate={item.birthdate}
-      dieDate={item.dieDate}
-      wayOfDie={item.wayOfDie}
-      cemeteryPlace={item.cemeteryPlace}
-      birthdayPlace={item.birthdayPlace}
-      militiryEducation={item.militiryEducation}
-     
-     />
+                <ShahidCard
+                  name={item.name}
+                  family={item.family}
+                  lastServePlace={item.lastServePlace}
+                  placeOfDeath={item.placeOfDeath}
+                  birthdate={item.birthdate}
+                  dieDate={item.dieDate}
+                  wayOfDie={item.wayOfDie}
+                  cemeteryPlace={item.cemeteryPlace}
+                  birthdayPlace={item.birthdayPlace}
+                  militiryEducation={item.militiryEducation}
+                />
               </>
             );
           })}
-
-          
         </div>
       </>
     );
