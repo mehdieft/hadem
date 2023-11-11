@@ -155,7 +155,7 @@ export const Header = () => {
                 x: "100vw",
 
                 borderRadius: 12,
-                backgroundColor: "rgb(1, 32, 44)",
+                backgroundColor: "#ff7b00",
                 color:'white',
                 boxShadow: "5px 5px 0 rgba(20, 20, 120, 0.2)",
               }}
