@@ -4,9 +4,24 @@ import ShahidCard from "../../components/ShahidCard/shahidCard";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getTodayShahid } from "../../api/shahidDetailRequest";
+// import 'react-modern-calendar-datepicker/lib/DatePicker.css';
+// import DatePicker from 'react-modern-calendar-datepicker';
+// import { Calendar } from "react-modern-calendar-datepicker";
+
 
 const Shohada = () => {
   const Availble = () => {
+    // const minimumDate = {
+    //   year: 2019,
+    //   month: 4,
+    //   day: 10
+    // };
+  
+    // const maximumDate = {
+    //   year: 2019,
+    //   month: 4,
+    //   day: 21
+    // }
     return (
       <>
         <div style={{ background: "rgb(1, 32, 44)" }}>
@@ -17,6 +32,7 @@ const Shohada = () => {
           {shahidList.map((item, index) => {
             return (
               <>
+              {/* <Calendar  locale="fa" /> */}
                 <ShahidCard
                   name={item.name}
                   family={item.family}
