@@ -104,7 +104,7 @@ exports.update = async (req, res, next) => {
       });
       var upload = multer({ storage: storage });
       upload.single("image");
-      console.log("____in the controleer___", req.file.filename);
+      console.log("____in the controleer___update--------->", req.file.filename);
       const image = req.file.filename;
       const name = req.body.name;
       const family = req.body.family;

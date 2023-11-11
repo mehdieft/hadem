@@ -61,7 +61,7 @@ export const ShahidManagament = () => {
   });
 
   const [dataForDialog, setDataForDialog] = useState({
-    id: "",
+    _id: "",
     name: "",
     image: "",
     family: "",
@@ -122,6 +122,7 @@ useEffect(()=>{
     setIsInsertDialog(false);
     setOpenDialog(true)
     setDataForDialog(item);
+    console.log("_______________update>",item._id)
   };
   const deleteShahid = (item) => {
     console.log("this is delete");
@@ -229,7 +230,52 @@ useEffect(()=>{
     console.log("hello ");
   };
   const saveDialogUpdateHandle = () => {
-    console.log("hello world");
+    if(dataForDialog.name !==""){
+      if(dataForDialog.family !==""){
+        if(dataForDialog.fatherName !==""){
+          if(dataForDialog.lastServePlace !==""){
+            if(dataForDialog.birthdayPlace !==""){
+              if(dataForDialog.cemeteryPlace !==""){
+                if(dataForDialog.birthdate !==""){
+                  if(dataForDialog.dieDate !==""){
+                    if(dataForDialog.wayOfDie !==""){
+                      if(dataForDialog.militiryEducation !==""){
+
+                        insertShahidManagementData(  
+                          dataForDialog._id,
+                          dataForDialog.name,
+                          dataForDialog.family,
+                          dataForDialog.image,
+                          dataForDialog.lastServePlace,
+                          dataForDialog.placeOfDeath,
+                          dataForDialog.militiryEducation,
+                          dataForDialog.wayOfDie,
+                          dataForDialog.birthdate,
+                          dataForDialog.cemeteryPlace,
+                          dataForDialog.birthdayPlace,
+                          dataForDialog.dieDay,
+                          dataForDialog.dieMonth,
+                          dataForDialog.fatherName,
+                          dataForDialog.dieDate
+                          )
+
+                      }else openNotification("تحصیلات نظامی نباید خالی باشد","error") 
+
+                    }else openNotification("نحوه شهادت نباید خالی باشد","error")
+
+                  }else openNotification("تاریخ شهادت نباید خالی باشد","error")
+
+                }else openNotification("تاریخ تولد نباید خالی باشد","error")
+
+              }else openNotification("محل آرامگاه نباید خالی باشد","error")
+
+            }else openNotification("محل تولد نباید خالی باشد","error")
+
+          }else openNotification("آخرین محل خدمت نباید خالی باشد","error")
+        }else openNotification("نام پدر نباید خالی باشد","error")
+      }else openNotification("نام خانوادگی نباید خالی باشد","error")
+    }else openNotification("نام نباید خالی باشد","error")
+   
   };
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
