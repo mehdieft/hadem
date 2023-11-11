@@ -70,10 +70,10 @@
   display: grid;
   grid-row-gap: 34px;
   margin: 32px;
-  grid-template-columns: repeat(4,minmax(0,1fr));
+  grid-template-columns: repeat(5,minmax(0,1fr));
 }
 .gallery-single-image{
-  width:60%
+  width: 100%;
 }
 @media only screen and (max-width: 830px) {
   #image-container{

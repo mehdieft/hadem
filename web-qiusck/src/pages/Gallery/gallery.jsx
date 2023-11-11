@@ -14,6 +14,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import IconButton from "@mui/material/IconButton";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
 import {useImageDialog} from '../../context/ImageDialogProvider'
+import {RadiusButton} from '../../components/RadiusButton/radiusButton'
 import UploadIcon from "@mui/icons-material/Upload";
 import anotherImage from "../../assets/Image/mainheader.png";
 import {
@@ -176,6 +177,14 @@ const Gallery = () => {
           <div className="text-header-red">پایی که ماند</div>
         </div>
       </div>
+      <div style={{display:'flex',justifyContent:'center',gap:'24px',padding:'32px'}}>
+      <RadiusButton title="سلام"/>
+      <RadiusButton title="سلام"/>
+      <RadiusButton title="سلام"/>
+      <RadiusButton title="سلام"/>
+      <RadiusButton title="سلام"/>
+
+      </div>
       <main id="image-container">
         {imageArray.map((item,index) => {
           return (
@@ -185,7 +194,7 @@ const Gallery = () => {
               <div className="title">
                 عکس
               </div>
-              <img className="gallery-single-image" src={item} onClick={()=>{openDialog(imageArray,index)}} style={{aspectRatio:1/1.1,borderRadius:'5px'}} alt="" />
+              <img  className="gallery-single-image" src={item} onClick={()=>{openDialog(imageArray,index)}} style={{aspectRatio:1/1.1,borderRadius:'5px'}} alt="" />
               <div className="content">دفاع مقدس</div>
 
             </div>

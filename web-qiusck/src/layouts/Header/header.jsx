@@ -145,7 +145,7 @@ export const Header = () => {
         <div className="header-content">
           <div className="header-image-iran"></div>
           <div id="content">
-            <h1 style={{ fontFamily: "diba", color: "white" }}>
+            <h1 style={{ fontFamily: "diba", color: "rgb(52 255 255)" }}>
               ما برای شما میجنگیم
             </h1>
             <motion.button
@@ -153,7 +153,8 @@ export const Header = () => {
                 x: "100vw",
 
                 borderRadius: 12,
-                backgroundColor: "white",
+                backgroundColor: "rgb(1, 32, 44)",
+                color:'white',
                 boxShadow: "5px 5px 0 rgba(20, 20, 120, 0.2)",
               }}
               transition={{
@@ -167,8 +168,9 @@ export const Header = () => {
                 fontSize: 12,
                 x: 0,
               }}
+              
             >
-              مشاهده کن
+              گالری تصاویر
             </motion.button>
           </div>
         </div>

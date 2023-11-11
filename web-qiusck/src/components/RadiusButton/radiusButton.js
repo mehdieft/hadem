@@ -1,5 +1,5 @@
 import './style.css';
-function RadiusButton({title,clickEvent}){
+export function RadiusButton({title,clickEvent}){
     return(
         <>
         <span onClick={clickEvent} className="radius-Button">{title}</span>
@@ -8,4 +8,4 @@ function RadiusButton({title,clickEvent}){
         </>
     )
 }
-export default RadiusButton 
+// export default RadiusButton 
