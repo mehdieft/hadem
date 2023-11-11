@@ -51,13 +51,13 @@ export const Header = () => {
   const fetchAndSetData = async (name) => {
     console.log("fuck you");
     const result = await searchShahid(name);
-    console.log("ress----->", result.data.data);
+    console.log("ress----->", result.data.searchedShahid);
     if (result.data !== null) {
     
       console.log("res----------یسشیشسی->", result);
-      dataList.push(result)
+      dataList.push(result.data.searchedShahid)
 
-      console.log("************************",dataList)
+      console.log("dataList------->",dataList)
       openNotification("hjajkshda", "success");
       // console.log(searchList);
     } else {

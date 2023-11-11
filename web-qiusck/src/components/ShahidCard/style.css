@@ -5,10 +5,12 @@
     background-color: rgb(237 237 237 / 50%);
     border-radius: 30px;
     padding:24px;
-    justify-content: center;
+    justify-content: end;
     align-items: end;
     width:400px;
-    height: 400px;
+    height: 490px;
+    margin: 0;
+    
 
 }
 .card-detail{

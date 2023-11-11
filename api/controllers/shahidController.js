@@ -321,8 +321,7 @@ exports.todayShahid=async(req,res,next)=>{
 console.log('this is shamsi----->', moment(today).format('jYYYY/jMM/jDD'))
 const todayMoment= moment(today).format('jYYYY/jMM/jDD').split('/');
 console.log('-------->>>',todayMoment)
-// const todayShahid=await Shahid.find({dieMonth:todayMoment[1],dieDay:todayMoment[2]})
-const todayShahid = await Shahid.find().sort({date: 'desc'});
+const todayShahid=await Shahid.find({dieMonth:todayMoment[1],dieDay:todayMoment[2]})
 console.log('_______________>', todayShahid)
 res.json({todayShahid})
 
@@ -334,14 +333,14 @@ exports.getByName=async(req,res,next)=>{
   console.log("this is searchh query",name)
   let QUERY="محمد"
   let regex = new RegExp(name, 'i');
-const data=await Shahid.find({
+const searchedShahid=await Shahid.find({
   $or: [
     { 'name': regex },
     { 'family': regex }
   ]
 }).limit(10)
-if(data){
-  res.json({data})
+if(searchedShahid){
+  res.json({searchedShahid})
 }
 
 }
