@@ -13,10 +13,10 @@ const ShahidCard = ({
     <>
       <div className="card-container">
         <div className="card-image">
-          <img src={imageSrc} height={height} width={width} />
+          <img src={imageSrc} height={height} width={width} style={{borderRadius:'50%'}} />
         </div>
         <div className="card-detail">
-          <span className="card-title">شهید امروز</span>
+          {/* <span className="card-title">شهید امروز</span> */}
           <span className="shahid-name">{name}</span>
           <span>تاریخ تولد: {birthDay}</span>
           <span>تاریخ شهادت:  {dieDay}</span>
