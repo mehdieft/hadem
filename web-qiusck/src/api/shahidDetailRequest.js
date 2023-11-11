@@ -91,3 +91,14 @@ export const searchShahid=async(nameAndFamily)=>{
   }
   
 }
+export const getTodayShahid=async()=>{
+  try{
+
+    const response= await axios.get(`http://localhost:4848/api/user/getByDate`)
+    return {data:response.data,error:null};
+  }
+  catch(error){
+    return {data:null,error:error.message}
+  }
+  
+}

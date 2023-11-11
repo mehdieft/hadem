@@ -252,6 +252,7 @@ exports.insertOne=async(req,res,next)=>{
       fatherName,
       lastServePlace,
       placeOfDeath,
+      militiryEducation,
       birthdate,
       dieDate,
       wayOfDie,
@@ -288,6 +289,7 @@ exports.insertOne=async(req,res,next)=>{
       family,
       fatherName,
       lastServePlace,
+      militiryEducation,
       placeOfDeath,
       birthdate,
       dieDate,
@@ -315,12 +317,13 @@ exports.insertOne=async(req,res,next)=>{
 exports.todayShahid=async(req,res,next)=>{
   const today=new Date()
   
-  // console.log("miladi----->",today)
+  console.log("miladi----->",today)
 console.log('this is shamsi----->', moment(today).format('jYYYY/jMM/jDD'))
 const todayMoment= moment(today).format('jYYYY/jMM/jDD').split('/');
 console.log('-------->>>',todayMoment)
 const todayShahid=await Shahid.find({dieMonth:todayMoment[1],dieDay:todayMoment[2]})
 console.log('_______________>', todayShahid)
+res.json({todayShahid})
 
 }
 exports.getByName=async(req,res,next)=>{
