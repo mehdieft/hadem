@@ -1,19 +1,18 @@
-import "./style.css";
-import shohada from '../../assets/images/shohada.jpg'
 import ShahidCard from "../../components/ShahidCard/shahidCard";
+import shohada from '../../assets/images/shohada.jpg'
+
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-
-const Shohada = () => {
-  const [shahidList,setShahidList]=useState([]);
- 
-  useEffect(()=>{
-      
-    console.log("this is data-----",shahidList)
-  },[])
-
-  
+export const ShohadaSearch=()=>{
+    const [shahidList,setShahidList]=useState([]);
+    const location = useLocation();
+    const myData = location.state.dataList[0].data.data;
+    console.log("my data",myData)
+    useEffect(()=>{
+        setShahidList(location.state.searchList);
+      console.log("this is data-----",shahidList)
+    },[])
+     
   return (
     <>
     {/* <div className="shahid-container">
@@ -35,5 +34,4 @@ const Shohada = () => {
     
     </>
   );
-};
-export default Shohada;
+}

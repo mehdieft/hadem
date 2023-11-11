@@ -74,7 +74,7 @@ export const Header = () => {
     } else {
       await fetchAndSetData(shahidName);
       console.log("shahid sented there",searchList)
-      navigate('/shohada',{state:{dataList}})
+      navigate('/ShohadaSearch',{state:{dataList}})
       setShahidName("");
     }
   };

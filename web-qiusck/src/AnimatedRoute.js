@@ -12,6 +12,7 @@ import { ImageGalleryManagment } from "./pages/Admin/ImageGalleryManagement.jsx/
 import {VideoGalleryManagment} from './pages/Admin/VideoGalleryManagment/videoGalleryManagment';
 import { ShahidManagament } from "./pages/Admin/ShahidManagment/shahidManagment";
 import WarHistoryManagement from "./pages/Admin/WarHistoryManagment/warHistory";
+import {ShohadaSearch} from './pages/ShohadaSearch/shohadaSearch';
 import Diary from './pages/Diary/diary';
 
 export const AnimatedRoutes = () => {
@@ -21,6 +22,7 @@ export const AnimatedRoutes = () => {
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
           <Route exact path="/" element={<Index />} />
+          <Route path="/ShohadaSearch" element={<ShohadaSearch />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/shohada" element={<Shohada />} />
           <Route path="/diary" element={<Diary/>}/>
