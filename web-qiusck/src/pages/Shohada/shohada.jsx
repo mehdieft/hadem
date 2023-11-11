@@ -26,7 +26,7 @@ const Shohada = () => {
       <>
         <div style={{ background: "rgb(1, 32, 44)" }}>
           <img src={shohada} style={{ width: "100%", width: "100%" }} alt="" />
-          <div className="search-bar">daskjjdghasjghdjh</div>
+          {/* <div className="search-bar">daskjjdghasjghdjh</div> */}
         </div>
         <div className="shahid-container">
           {shahidList.map((item, index) => {
