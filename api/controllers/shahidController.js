@@ -90,6 +90,7 @@ exports.insert = async (req, res, next) => {
 };
 
 exports.update = async (req, res, next) => {
+  console.log(req.body);
   const id = req.body.id.trim();
   const findedShahid = await Shahid.findById(id);
   if (findedShahid) {
@@ -115,6 +116,7 @@ exports.update = async (req, res, next) => {
       const birthdate = req.body.birthdate;
       const dieDate = req.body.dieDate;
       const wayOfDie = req.body.wayOfDie;
+      const militiryEducation=req.body.militiryEducation;
       const cemeteryPlace = req.body.cemeteryPlace;
       const birthdayPlace = req.body.birthdayPlace;
       const dieMonth = req.body.dieMonth;
@@ -127,6 +129,7 @@ exports.update = async (req, res, next) => {
         lastServePlace,
         placeOfDeath,
         birthdate,
+        militiryEducation,
         dieDate,
         wayOfDie,
         cemeteryPlace,
@@ -150,6 +153,8 @@ exports.update = async (req, res, next) => {
       const placeOfDeath = req.body.placeOfDeath;
       const birthdate = req.body.birthdate;
       const dieDate = req.body.dieDate;
+      const militiryEducation=req.body.militiryEducation;
+
       const wayOfDie = req.body.wayOfDie;
       const cemeteryPlace = req.body.cemeteryPlace;
       const birthdayPlace = req.body.birthdayPlace;
@@ -163,6 +168,7 @@ exports.update = async (req, res, next) => {
         placeOfDeath,
         birthdate,
         dieDate,
+        militiryEducation,
         wayOfDie,
         cemeteryPlace,
         birthdayPlace,
@@ -239,6 +245,7 @@ exports.insertOne=async(req,res,next)=>{
     const placeOfDeath = req.body.placeOfDeath;
     const birthdate = req.body.birthdate;
     const dieDate = req.body.dieDate;
+    const militiryEducation=req.body.militiryEducation
     const wayOfDie = req.body.wayOfDie;
     const cemeteryPlace = req.body.cemeteryPlace;
     const birthdayPlace = req.body.birthdayPlace;
@@ -280,6 +287,7 @@ exports.insertOne=async(req,res,next)=>{
     const birthdate = req.body.birthdate;
     const dieDate = req.body.dieDate;
     const wayOfDie = req.body.wayOfDie;
+    const militiryEducation=req.body.militiryEducation;
     const cemeteryPlace = req.body.cemeteryPlace;
     const birthdayPlace = req.body.birthdayPlace;
     const dieMonth = req.body.dieMonth;

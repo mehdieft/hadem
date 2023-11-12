@@ -120,7 +120,23 @@ export const updateShahidManagment = async (
   dieDate
 ) => {
   try {
+    console.log(_id,
+      name,
+      family,
+      image,
+      lastServePlace,
+      placeOfDeath,
+      militiryEducation,
+      wayOfDie,
+      birthdate,
+      cemeteryPlace,
+      birthdayPlace,
+      dieDay,
+      dieMonth,
+      fatherName,
+      dieDate)
     const form = new FormData();
+    form.append("id",_id);
     form.append("image", image);
     form.append("name", name);
     form.append("family", family);
