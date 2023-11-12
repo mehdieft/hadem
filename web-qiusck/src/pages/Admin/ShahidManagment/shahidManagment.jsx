@@ -124,10 +124,10 @@ useEffect(()=>{
     setDataForDialog(item);
     console.log("_______________update>",item._id)
   };
-  const deleteShahid = (item) => {
-    console.log("this is delete");
-    deleteShahid(item._id)
-  };
+  // const deleteShahid = (item) => {
+  //   console.log("this is delete",item._id);
+  
+  // };
   const cancelDialog = () => {
     setIsInsertDialog(true);
     clearForms();
@@ -210,6 +210,7 @@ useEffect(()=>{
                           dataForDialog.fatherName,
                           dataForDialog.dieDate
                           )
+                          cancelDialog()
 
                       }else openNotification("تحصیلات نظامی نباید خالی باشد","error") 
 
@@ -424,7 +425,7 @@ useEffect(()=>{
                             <DeleteIcon
                               sx={{ color: "red" }}
                               onClick={() => {
-                                deleteShahid(item);
+                                deleteShahid(item._id);
                               }}
                             />
                           </IconButton>
