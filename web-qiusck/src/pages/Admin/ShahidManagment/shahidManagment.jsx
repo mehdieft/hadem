@@ -210,6 +210,7 @@ useEffect(()=>{
                           dataForDialog.fatherName,
                           dataForDialog.dieDate
                           )
+                          window.location.reload();
                           cancelDialog()
 
                       }else openNotification("تحصیلات نظامی نباید خالی باشد","error") 
@@ -259,6 +260,7 @@ useEffect(()=>{
                           dataForDialog.fatherName,
                           dataForDialog.dieDate
                           )
+                          window.location.reload();
 
                       }else openNotification("تحصیلات نظامی نباید خالی باشد","error") 
 
@@ -426,6 +428,7 @@ useEffect(()=>{
                               sx={{ color: "red" }}
                               onClick={() => {
                                 deleteShahid(item._id);
+                                window.location.reload();
                               }}
                             />
                           </IconButton>

@@ -195,6 +195,7 @@ exports.update = async (req, res, next) => {
 };
 exports.delete = async (req, res, next) => {
   const id = req.body.id.trim();
+  console.log("id on delete",id)
   const deletedShahid = await Shahid.findByIdAndDelete(id);
   if (deletedShahid) {
     res.status(200).json({ message: "delete successfully" });
