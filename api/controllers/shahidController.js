@@ -110,7 +110,7 @@ exports.update = async (req, res, next) => {
       const name = req.body.name;
       const family = req.body.family;
       const fatherName = req.body.fatherName;
-      // const placeBorn = req.body.placeBorn;
+      const placeBorn = req.body.placeBorn;
       const lastServePlace = req.body.lastServePlace;
       const placeOfDeath = req.body.placeOfDeath;
       const birthdate = req.body.birthdate;
@@ -121,28 +121,54 @@ exports.update = async (req, res, next) => {
       const birthdayPlace = req.body.birthdayPlace;
       const dieMonth = req.body.dieMonth;
       const dieDay = req.body.dieDay;
-      const savedUpdateShahid = await findedShahid.updateOne({
-        image,
-        name,
-        family,
-        fatherName,
-        lastServePlace,
-        placeOfDeath,
-        birthdate,
-        militiryEducation,
-        dieDate,
-        wayOfDie,
-        cemeteryPlace,
-        birthdayPlace,
-        dieMonth,
-        dieDay,
-      });
-
-      if (savedUpdateShahid) {
+      console.log('finded shahid--------->',findedShahid)
+      try{
+        findedShahid.updateOne({
+          image,
+          name,
+          family,
+          fatherName,
+          lastServePlace,
+          placeOfDeath,
+          birthdate,
+          militiryEducation,
+          dieDate,
+          wayOfDie,
+          cemeteryPlace,
+          birthdayPlace,
+          dieMonth,
+          dieDay,
+        });
         res.status(200).json({ message: "successfuly updated" });
-      } else {
-        res.status(500).json({ message: "somethings wrong" });
+
       }
+      catch(error){
+        next({messgae:'somethings wrong'})
+
+      }
+      // const savedUpdateShahid = await findedShahid.updateOne({
+      //   image,
+      //   name,
+      //   family,
+      //   fatherName,
+      //   lastServePlace,
+      //   placeOfDeath,
+      //   birthdate,
+      //   militiryEducation,
+      //   dieDate,
+      //   wayOfDie,
+      //   cemeteryPlace,
+      //   birthdayPlace,
+      //   dieMonth,
+      //   dieDay,
+      // });
+
+      // if (savedUpdateShahid) {
+      //   res.status(200).json({ message: "successfuly updated" });
+      // } else {
+      //   next({messgae:'somethings wrong'})
+      //   // res.status(500).json({ message: "somethings wrong" });
+      // }
     } else {
       console.log("****** without image*********")
       const name = req.body.name;
@@ -154,12 +180,35 @@ exports.update = async (req, res, next) => {
       const birthdate = req.body.birthdate;
       const dieDate = req.body.dieDate;
       const militiryEducation=req.body.militiryEducation;
-
       const wayOfDie = req.body.wayOfDie;
       const cemeteryPlace = req.body.cemeteryPlace;
       const birthdayPlace = req.body.birthdayPlace;
       const dieMonth = req.body.dieMonth;
       const dieDay = req.body.dieDay;
+      // try{
+      //   findedShahid.updateOne({
+      //     name,
+      //     family,
+      //     fatherName,
+      //     lastServePlace,
+      //     placeOfDeath,
+      //     birthdate,
+      //     dieDate,
+      //     militiryEducation,
+      //     wayOfDie,
+      //     cemeteryPlace,
+      //     birthdayPlace,
+      //     dieMonth,
+      //     dieDay,
+      //   });
+      //   res.status(200).json({ message: "successfuly updated" });
+  
+
+      // }
+      // catch(error){
+      //   res.status(500).json({ message: "somethings wrong" });
+
+      // }
       const savedUpdateShahid = await findedShahid.updateOne({
         name,
         family,
@@ -183,12 +232,7 @@ exports.update = async (req, res, next) => {
       }
     }
 
-    const updatedShahid = await findedShahid.updateOne(req.body.shahid);
-    if (updatedShahid) {
-      res.status(200).json({ message: "updated successfully" });
-    } else {
-      res.status(500).json({ message: "oops somethings wrong!" });
-    }
+   
   } else {
     res.status(500).json({ message: "oops something wrong" });
   }

@@ -18,7 +18,7 @@ var upload = multer({ storage: storage })
 router.get('/insert',shahidController.insert);
 
 router.post('/insertOne',upload.single('image'),shahidController.insertOne)
-router.post('/update',shahidController.update);
+router.post('/update',upload.single('image'),shahidController.update);
 router.post('/delete',shahidController.delete);
 router.get('/getAll',shahidController.getAll);
 

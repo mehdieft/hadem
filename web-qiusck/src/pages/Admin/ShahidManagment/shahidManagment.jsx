@@ -261,7 +261,7 @@ useEffect(()=>{
                           dataForDialog.fatherName,
                           dataForDialog.dieDate
                           )
-                          // window.location.reload();
+                          window.location.reload();
 
                       }else openNotification("تحصیلات نظامی نباید خالی باشد","error") 
 
@@ -399,12 +399,12 @@ useEffect(()=>{
                       <TableCell align="right">{item.name}</TableCell>
                       <TableCell align="right">{item.family}</TableCell>
                       <TableCell align="right">
-                        {item.birthdate}
+                        {item.birthdate !==''&& item.birthdate?item.birthdate.split('T')[0].replaceAll('-','/'):'موجود نیست' }
                    
                        
                       </TableCell>
                       <TableCell align="right">
-                      {item.dieDate}
+                      {item.dieDate !=='' && item.dieDate?item.dieDate.split('T')[0].replaceAll('-','/'):'موجود نیست'}
 
                       
                       </TableCell>
