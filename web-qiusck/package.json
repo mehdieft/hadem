@@ -40,9 +40,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron": "wait-on tcp:3000 && electron .",
+    "electron": "wait-on http://127.0.0.1:3001",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\"",
-    "electron:start": "wait-on tcp:3000 && electron",
+    "electron:start": "wait-on tcp:3001 && electron",
     "electron:build": "npm build && electron-builder -c.extreametadata.main=build/main.js"
   },
   "eslintConfig": {
@@ -65,7 +65,7 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.0",
-    "electron": "^25.3.1",
+    "electron": "^25.9.4",
     "electron-is-dev": "^2.0.0",
     "wait-on": "^7.0.1"
   }
