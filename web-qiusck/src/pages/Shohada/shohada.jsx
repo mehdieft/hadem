@@ -99,7 +99,14 @@ const Shohada = () => {
  <ShahidCard/>  
     </div>
     </div> */}
+     <div style={{ background: "rgb(1, 32, 44)" }}>
+          <img src={shohada} style={{ width: "80%", height: "80%",display:'block', margin:'0 auto' }} alt="" />
+          {/* <div className="search-bar">daskjjdghasjghdjh</div> */}
+        </div>
+        <div className="shahid-container">
+        
       {shahidList.length > 0 ? <Availble /> : <NotshahidToday />}
+        </div>
     </>
   );
 };

@@ -17,6 +17,7 @@ import {useImageDialog} from '../../context/ImageDialogProvider'
 import {RadiusButton} from '../../components/RadiusButton/radiusButton'
 import UploadIcon from "@mui/icons-material/Upload";
 import anotherImage from "../../assets/Image/mainheader.png";
+import  {LazyLoadComponent}  from "../../components/lazyLoad/lazyLoad";
 import {
   image1,
   image2,
@@ -145,6 +146,7 @@ const Gallery = () => {
       exit={{ opacity:0 }}
       transition={{duration:0.4}}
     >
+      {/* <LazyLoadComponent/> */}
       <motion.div
         animate={{
           transition: {
