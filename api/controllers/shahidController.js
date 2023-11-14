@@ -87,6 +87,7 @@ exports.insert = async (req, res, next) => {
         console.log(error); // Failure
       });
   });
+  res.status(200).json({message:'successfully inserted'})
 };
 
 exports.update = async (req, res, next) => {
@@ -122,53 +123,68 @@ exports.update = async (req, res, next) => {
       const dieMonth = req.body.dieMonth;
       const dieDay = req.body.dieDay;
       console.log('finded shahid--------->',findedShahid)
-      try{
-        findedShahid.updateOne({
-          image,
-          name,
-          family,
-          fatherName,
-          lastServePlace,
-          placeOfDeath,
-          birthdate,
-          militiryEducation,
-          dieDate,
-          wayOfDie,
-          cemeteryPlace,
-          birthdayPlace,
-          dieMonth,
-          dieDay,
-        });
-        res.status(200).json({ message: "successfuly updated" });
-
-      }
-      catch(error){
-        next({messgae:'somethings wrong'})
-
-      }
-      // const savedUpdateShahid = await findedShahid.updateOne({
-      //   image,
-      //   name,
-      //   family,
-      //   fatherName,
-      //   lastServePlace,
-      //   placeOfDeath,
-      //   birthdate,
-      //   militiryEducation,
-      //   dieDate,
-      //   wayOfDie,
-      //   cemeteryPlace,
-      //   birthdayPlace,
-      //   dieMonth,
-      //   dieDay,
-      // });
-
-      // if (savedUpdateShahid) {
+      // try{
+      //   findedShahid.updateOne({
+      //     image,
+      //     placeBorn,
+      //     name,
+      //     family,
+      //     fatherName,
+      //     lastServePlace,
+      //     placeOfDeath,
+      //     birthdate,
+      //     militiryEducation,
+      //     dieDate,
+      //     wayOfDie,
+      //     cemeteryPlace,
+      //     birthdayPlace,
+      //     dieMonth,
+      //     dieDay,
+      //   });
       //   res.status(200).json({ message: "successfuly updated" });
-      // } else {
-      //   next({messgae:'somethings wrong'})
-      //   // res.status(500).json({ message: "somethings wrong" });
+
       // }
+      // catch(error){
+      //   next({messgae:'somethings wrong'})
+
+      // }
+      console.log("********",image,
+      name,
+      family,
+      fatherName,
+      lastServePlace,
+      placeOfDeath,
+      birthdate,
+      militiryEducation,
+      dieDate,
+      wayOfDie,
+      cemeteryPlace,
+      birthdayPlace,
+      dieMonth,
+      dieDay)
+      const savedUpdateShahid = await findedShahid.updateOne({
+        image,
+        name,
+        family,
+        fatherName,
+        lastServePlace,
+        placeOfDeath,
+        birthdate,
+        militiryEducation,
+        dieDate,
+        wayOfDie,
+        cemeteryPlace,
+        birthdayPlace,
+        dieMonth,
+        dieDay,
+      });
+
+      if (savedUpdateShahid) {
+        res.status(200).json({ message: "successfuly updated" });
+      } else {
+        next({messgae:'somethings wrong'})
+        // res.status(500).json({ message: "somethings wrong" });
+      }
     } else {
       console.log("****** without image*********")
       const name = req.body.name;

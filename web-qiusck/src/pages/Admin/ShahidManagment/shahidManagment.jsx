@@ -700,7 +700,8 @@ useEffect(()=>{
               height={"200px"}
               style={{ borderRadius: "50%" }}
               src={
-                shahidDetail.image == null ? shahidDetail.image : defaultShahid
+                shahidDetail.image !== null && shahidDetail.image !=='' ?  `http://localhost:4848/static/uploads/shahid/${shahidDetail.image}` : 
+                defaultShahid
               }
               alt=""
             />
