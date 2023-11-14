@@ -24,7 +24,8 @@ import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
 import defaultShahid from "../../../assets/Image/defaultShahid.jpg";
-import {insertShahidManagementData,deleteShahid,updateShahidManagment} from '../../../api/shahidDetailRequest';
+import {insertShahidManagementData,deleteShahid} from '../../../api/shahidDetailRequest';
+import {updateShahidManagment} from '../../../api/updateShahidDetailRequest';
 import { fetchData } from "../../../api/shahidDetailRequest";
 import { DatePicker } from "jalaali-react-date-picker";
 import "jalaali-react-date-picker/lib/styles/index.css";
@@ -260,7 +261,7 @@ useEffect(()=>{
                           dataForDialog.fatherName,
                           dataForDialog.dieDate
                           )
-                          window.location.reload();
+                          // window.location.reload();
 
                       }else openNotification("تحصیلات نظامی نباید خالی باشد","error") 
 

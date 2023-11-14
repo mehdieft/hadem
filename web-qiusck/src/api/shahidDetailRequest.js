@@ -135,26 +135,28 @@ export const updateShahidManagment = async (
       dieMonth,
       fatherName,
       dieDate)
-    const myform = new FormData();
-    myform.append("id",_id);
-    myform.append("image", image);
-    myform.append("name", name);
-    myform.append("family", family);
-    myform.append("lastServePlace", lastServePlace);
-    myform.append("placeOfDeath", placeOfDeath);
-    myform.append("militiryEducation", militiryEducation);
-    myform.append("wayOfDie", wayOfDie);
-    myform.append("cemeteryPlace", cemeteryPlace);
-    myform.append("birthdate", birthdate);
-    myform.append("birthdayPlace", birthdayPlace);
-    myform.append("dieDay", dieDay);
-    myform.append("dieMonth", dieMonth);
-    myform.append("fatherName", fatherName);
-    myform.append("dieDate", dieDate);
+    // let FormData = new 
+    const form=new FormData();
+    form.append("id",_id);
+    form.append("image", image);
+    form.append("name", name);
+    form.append("family", family);
+    form.append("lastServePlace", lastServePlace);
+    form.append("placeOfDeath", placeOfDeath);
+    form.append("militiryEducation", militiryEducation);
+    form.append("wayOfDie", wayOfDie);
+    form.append("cemeteryPlace", cemeteryPlace);
+    form.append("birthdate", birthdate);
+    form.append("birthdayPlace", birthdayPlace);
+    form.append("dieDay", dieDay);
+    form.append("dieMonth", dieMonth);
+    form.append("fatherName", fatherName);
+    form.append("dieDate", dieDate);
+    console.log("___________________>",form)
+
     const response = await axios.post(
       "http://localhost:4848/api/admin/shahidManagment/update",
-      myform,
-      axiosConfig
+      form
     );
     return { data: response.data, error: null };
   } catch (error) {
