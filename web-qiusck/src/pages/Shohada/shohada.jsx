@@ -4,14 +4,17 @@ import ShahidCard from "../../components/ShahidCard/shahidCard";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getTodayShahid } from "../../api/shahidDetailRequest";
-
+import monthConverter from '../../utils/monthConverter'
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 // import { Calendar } from "react-modern-calendar-datepicker";
 
 
 const Shohada = () => {
-  
+  let month=''
+  let day=''
+const [monthName,seMonthName]=useState('')  
+const [dayName,setDayName]=useState('')
   const Availble = () => {
     // const minimumDate = {
     //   year: 2019,
@@ -57,16 +60,22 @@ const Shohada = () => {
   const NotshahidToday = () => {
     return (
       <>
-        <p style={{color:'white',fontSize:32,margin:'120px 0',fontFamily:'diba'}}>در تاریخ </p>
+        <p style={{color:'white',fontSize:32,margin:'120px 0',fontFamily:'diba'}}>در تاریخ 
+        {dayName} 
+        {monthConverter(monthName)}
+        معززی به شهادت نرسیده است
+         </p>
       </>
     );
   };
 
   const [shahidList, setShahidList] = useState([]);
   const fetchAndSetData = async () => {
-    console.log("fuck you");
+
     const result = await getTodayShahid();
     console.log("ress----->", result);
+    seMonthName(result.data.todayDate.month)
+    setDayName(result.data.todayDate.day)
     if (result.data !== null) {
     
       setShahidList(result.data.todayShahid);
@@ -80,6 +89,7 @@ const Shohada = () => {
 
   useEffect(() => {
     fetchAndSetData();
+    console.log(monthConverter(monthName))
     console.log("this is data-----", shahidList);
   }, []);
 
@@ -106,6 +116,7 @@ const Shohada = () => {
           {/* <div className="search-bar">daskjjdghasjghdjh</div> */}
         </div>
         <div className="shahid-container">
+         
         
       {shahidList.length > 0 ? <Availble /> : <NotshahidToday />}
         </div>

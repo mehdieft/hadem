@@ -6,12 +6,7 @@ export const ShohadaSearch = () => {
   const Availble = () => {
     return (
       <>
-        <div style={{ background: "rgb(1, 32, 44)" }}>
-          <img src={shohada} style={{ width: "100%", width: "100%" }} alt="" />
-          {/* <div className="search-bar">daskjjdghasjghdjh</div> */}
-        </div>
-        <div className="shahid-container">
-          {shahidList.map((item, index) => {
+         {shahidList.map((item, index) => {
             return (
               <>
                 <ShahidCard
@@ -29,14 +24,13 @@ export const ShohadaSearch = () => {
               </>
             );
           })}
-        </div>
       </>
     );
   };
   const NotshahidToday = () => {
     return (
       <>
-        <p>not shdasdadasddddddddddddddddddddddahid</p>
+        <p style={{color:'white',fontSize:32,margin:'120px 0',fontFamily:'diba'}}>شهیدی یافت نشد</p>
       </>
     );
   };
@@ -67,7 +61,14 @@ export const ShohadaSearch = () => {
       </div>
     </div> */}
         {/* <div className="search-bar">daskjjdghasjghdjh</div> */}
+        <div style={{ background: "rgb(1, 32, 44)" }}>
+          <img src={shohada} style={{ width: "70%", width: "70%",margin:'0 auto',display:'block' }} alt="" />
+          {/* <div className="search-bar">daskjjdghasjghdjh</div> */}
+        </div>
+        <div className="shahid-container" style={{padding:'64px 0'}}>
+      
         {shahidList !==undefined && shahidList.length > 0   ? <Availble /> : <NotshahidToday />}
+        </div>
     </>
   );
 };
