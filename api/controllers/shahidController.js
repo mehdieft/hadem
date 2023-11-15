@@ -391,8 +391,9 @@ console.log('this is shamsi----->', moment(today).format('jYYYY/jMM/jDD'))
 const todayMoment= moment(today).format('jYYYY/jMM/jDD').split('/');
 console.log('-------->>>',todayMoment)
 const todayShahid=await Shahid.find({dieMonth:todayMoment[1],dieDay:todayMoment[2]})
-console.log('_______________>', todayShahid)
-res.json({todayShahid})
+const todayDate={month:Number(todayMoment[1]),day:Number(todayMoment[2])}
+console.log('_______________>', todayShahid);
+res.json({todayShahid,todayDate})
 
 }
 exports.getByName=async(req,res,next)=>{

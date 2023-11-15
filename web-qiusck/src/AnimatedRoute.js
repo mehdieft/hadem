@@ -14,11 +14,23 @@ import { ShahidManagament } from "./pages/Admin/ShahidManagment/shahidManagment"
 import WarHistoryManagement from "./pages/Admin/WarHistoryManagment/warHistory";
 import {ShohadaSearch} from './pages/ShohadaSearch/shohadaSearch';
 import Diary from './pages/Diary/diary';
+import { useEffect } from "react";
+// import { useLocation } from "react-router-dom";
+
+export default function ScrollToTop() {
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
+}
 
 export const AnimatedRoutes = () => {
   const location = useLocation();
   return (
     <>
+        <ScrollToTop />
       <AnimatePresence>
         <Routes location={location} key={location.pathname}>
           <Route exact path="/" element={<Index />} />

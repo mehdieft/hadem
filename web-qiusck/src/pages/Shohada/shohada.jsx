@@ -11,6 +11,7 @@ import { getTodayShahid } from "../../api/shahidDetailRequest";
 
 
 const Shohada = () => {
+  
   const Availble = () => {
     // const minimumDate = {
     //   year: 2019,
@@ -56,7 +57,7 @@ const Shohada = () => {
   const NotshahidToday = () => {
     return (
       <>
-        <p>not shdasdadasddddddddddddddddddddddahid</p>
+        <p style={{color:'white',fontSize:32,margin:'120px 0',fontFamily:'diba'}}>در تاریخ </p>
       </>
     );
   };
@@ -67,6 +68,7 @@ const Shohada = () => {
     const result = await getTodayShahid();
     console.log("ress----->", result);
     if (result.data !== null) {
+    
       setShahidList(result.data.todayShahid);
       console.log("if statement", shahidList);
     } else {
