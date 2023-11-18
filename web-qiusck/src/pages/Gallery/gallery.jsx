@@ -179,7 +179,7 @@ const Gallery = () => {
           <div className="text-header-red">پایی که ماند</div>
         </div>
       </div>
-      <div style={{display:'flex',justifyContent:'center',gap:'24px',padding:'32px'}}>
+      <div style={{display:'flex',justifyContent:'center',gap:'24px',padding:'32px',flexWrap:'wrap'}}>
       <RadiusButton title="سلام"/>
       <RadiusButton title="سلام"/>
       <RadiusButton title="سلام"/>

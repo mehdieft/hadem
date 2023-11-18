@@ -408,7 +408,7 @@ const searchedShahid=await Shahid.find({
     { 'name': regex },
     { 'family': regex }
   ]
-}).limit(20)
+}).limit(100)
 if(searchedShahid){
   res.json({searchedShahid})
 }

@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <AnimatedRoutes/>
-      <div>
+      <div id="fixed-navbar">
         flkkdsjflkdsfsdf
       </div>
     </div>
