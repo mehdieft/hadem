@@ -1,4 +1,10 @@
 import { AnimatePresence, motion, useCycle } from "framer-motion";
+import MenuIcon from '@mui/icons-material/Menu';
+import CancelIcon from '@mui/icons-material/Cancel';
+import IconButton from '@mui/material/IconButton';
+
+
+import './style.css';
 
 const links = [
   { name: "Home", to: "#", id: 1 },
@@ -46,7 +52,7 @@ const SideBard=()=>{
             }}
           >
             <motion.div
-              className="container"
+              className="container-motion"
               initial="closed"
               animate="open"
               exit="closed"
@@ -67,7 +73,7 @@ const SideBard=()=>{
         )}
       </AnimatePresence>
       <div className="btn-container">
-        <button onClick={cycleOpen}>{open ? "Close" : "Open"}</button>
+        <IconButton sx={{backgroundColor:'white'}} onClick={cycleOpen}>{open ? <CancelIcon/> :<MenuIcon/>}</IconButton>
       </div>
     </main>
 

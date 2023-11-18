@@ -9,8 +9,8 @@ div{
   height: fit-content;
 }
 #fixed-navbar{
-  width: 20%;
-  background-color: aquamarine;
+  /* width: 20%;
+  background-color: aquamarine; */
   position: fixed;
   z-index: 100;
   display: relative;

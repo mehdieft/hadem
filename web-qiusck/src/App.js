@@ -11,10 +11,11 @@ function App() {
   return (
     <div className="App">
       <AnimatedRoutes/>
+      
+      <div id="fixed-navbar">
       <SideBar id="fixed-navbar" />
-      {/* <div id="fixed-navbar">
-        flkkdsjflkdsfsdf
-      </div> */}
+        
+      </div>
     </div>
    
   );
