@@ -9,7 +9,8 @@ export const ShohadaSearch = () => {
          {shahidList.map((item, index) => {
             return (
               <>
-                <ShahidCard
+                <ShahidCard 
+                key={Math.random()*100}
                   name={item.name}
                   family={item.family}
                   lastServePlace={item.lastServePlace}
@@ -18,6 +19,7 @@ export const ShohadaSearch = () => {
                   dieDate={item.dieDate}
                   wayOfDie={item.wayOfDie}
                   cemeteryPlace={item.cemeteryPlace}
+                  image={item.image}
                   birthdayPlace={item.birthdayPlace}
                   militiryEducation={item.militiryEducation}
                 />

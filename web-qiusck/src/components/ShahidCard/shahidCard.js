@@ -3,6 +3,7 @@ import defaultShahid from "../../assets/Image/defaultShahid.jpg";
 const ShahidCard = ({
   name,
   family,
+  image,
   fatherName,
   lastServePlace,
   militiryEducation,
@@ -21,7 +22,7 @@ const ShahidCard = ({
         <div className="shahid-image-container">
 
         <div className="card-image">
-          <img src={defaultShahid} height={'120px'} width={'120px'} style={{borderRadius:'50%'}} />
+          <img src={image !==''?image: defaultShahid} height={'120px'} width={'120px'} style={{borderRadius:'50%'}} />
         </div>
           <span className="shahid-name">شهید {name}  {family}</span>
         </div>

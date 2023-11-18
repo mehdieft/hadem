@@ -30,7 +30,7 @@ const [dayName,setDayName]=useState('')
     return (
       <>
         <div style={{ background: "rgb(1, 32, 44)" }}>
-          <img src={shohada} style={{ width: "100%", width: "100%" }} alt="" />
+          {/* <img src={shohada} style={{ width: "100%", width: "100%" }} alt="" /> */}
           {/* <div className="search-bar">daskjjdghasjghdjh</div> */}
         </div>
         <div className="shahid-container">
@@ -46,6 +46,7 @@ const [dayName,setDayName]=useState('')
                   birthdate={item.birthdate}
                   dieDate={item.dieDate}
                   wayOfDie={item.wayOfDie}
+                  image={item.image}
                   cemeteryPlace={item.cemeteryPlace}
                   birthdayPlace={item.birthdayPlace}
                   militiryEducation={item.militiryEducation}
@@ -112,7 +113,7 @@ const [dayName,setDayName]=useState('')
     </div>
     </div> */}
      <div style={{ background: "rgb(1, 32, 44)" }}>
-          <img src={shohada} style={{ width: "80%", height: "80%",display:'block', margin:'0 auto' }} alt="" />
+          <img src={shohada} style={{ width: "80%", height: "60%",display:'block', margin:'0 auto' }} alt="" />
           {/* <div className="search-bar">daskjjdghasjghdjh</div> */}
         </div>
         <div className="shahid-container">
