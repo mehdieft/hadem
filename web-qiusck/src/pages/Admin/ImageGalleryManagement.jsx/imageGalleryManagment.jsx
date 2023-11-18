@@ -45,6 +45,7 @@ export const ImageGalleryManagment = () => {
   const [isInsertDialog, setIsInsertDialog] = useState(false);
   const [idForDelete, setIdForDelete] = useState(null);
 
+
   useEffect(() => {
     fetchAndSetData();
   }, []);
@@ -70,6 +71,7 @@ export const ImageGalleryManagment = () => {
     setDataForDialog({ ...dataForDialog, alt: e.target.value });
   };
   const handleTitleChange = (e) => {
+    console.log("------->",e.target.value)
     setDataForDialog({ ...dataForDialog, title: e.target.value });
   };
 
@@ -242,7 +244,7 @@ export const ImageGalleryManagment = () => {
                       <TableCell align="right" >
                         <img
                         alt={item.alt}
-                          src={`http://localhost:4848/static/uploads/${item.url}`}
+                          src={`http://localhost:4848/static/uploads/imageGallery/${item.url}`}
                           style={{
                             borderRadius: "50%",
                             width: "100px",
@@ -253,7 +255,7 @@ export const ImageGalleryManagment = () => {
                         {/* {item.url + index} */}
                       </TableCell>
                       <TableCell align="right">
-                        {item.title + index}
+                        {item.title}
                       </TableCell>
 
                       <TableCell align="right" >
@@ -321,7 +323,14 @@ export const ImageGalleryManagment = () => {
             <div className="dialog-container">
               <form>
                 <div>
-                  <TextField
+                  <label for="option" >یکی از عناوین را انتخاب کنید</label>
+                  <select  onChange={handleTitleChange} name="option" id="options"  placeholder="یکی از عنواینن را انتخاب کنید">
+                    <option value="دفاع مقدس">دفاع مقدس</option>
+                    <option value="ناو های جنگی">ناو های جنگی</option>
+                    <option value="راهیان نور">راهیان نور</option>
+                    <option value="متفرقه">متفرقه</option>
+                  </select>
+                  {/* <TextField
                     fullWidth
                     sx={{
                       width: "350px",
@@ -331,7 +340,7 @@ export const ImageGalleryManagment = () => {
                     variant="outlined"
                     value={dataForDialog.title}
                     onChange={handleTitleChange}
-                  />
+                  /> */}
                 </div>
                 <div>
                   <TextField

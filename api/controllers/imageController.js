@@ -6,7 +6,7 @@ exports.insert = async (req, res, next) => {
   console.log("insert on  imager controller");
   if (req.file) {
     var storage = multer.diskStorage({
-      destination: "./public/uploads/",
+      destination: "./public/uploads/imageGallery",
       filename: function (req, file, callback) {
         var ext = path.extname(file.originalname);
         callback(null, path.basename(ext) + Date.now() + ext);
@@ -42,7 +42,7 @@ id= req.body.id.trim();
     if (req.file) {
       console.log("*****************request has file************")
       var storage = multer.diskStorage({
-        destination: "./public/uploads/",
+        destination: "./public/uploads/imageGallery",
         filename: function (req, file, callback) {
           var ext = path.extname(file.originalname);
           callback(null, path.basename(ext) + Date.now() + ext);

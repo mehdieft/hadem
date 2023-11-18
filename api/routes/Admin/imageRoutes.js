@@ -5,7 +5,7 @@ const multer = require('multer');
 // const testController=require('../../controllers/test')
 const imageController=require('../../controllers/imageController')
 var storage = multer.diskStorage({
-    destination: './public/uploads',
+    destination: './public/uploads/imageGallery',
     filename: function(req, file, callback) {
         var ext = path.extname(file.originalname);
         callback(null, path.basename(file.originalname, ext) + Date.now() + ext)
