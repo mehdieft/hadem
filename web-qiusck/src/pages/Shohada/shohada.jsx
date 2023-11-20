@@ -5,6 +5,20 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getTodayShahid } from "../../api/shahidDetailRequest";
 import monthConverter from '../../utils/monthConverter'
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import * as React from 'react';
+import SettingsIcon from '@mui/icons-material/Settings';
+import {motion} from 'framer-motion';
+import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip';
+
+
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 // import { Calendar } from "react-modern-calendar-datepicker";
@@ -69,6 +83,53 @@ const [dayName,setDayName]=useState('')
       </>
     );
   };
+  const SearchDialog=()=>{
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+  return (
+    <>
+<Tooltip title="جستجو">
+
+      <motion.IconButton color="white"   onClick={handleClickOpen}>
+      <SettingsIcon color="white" style={{color:'white'}} />
+      </motion.IconButton>
+</Tooltip>
+      {/* <Button variant="outlined" onClick={handleClickOpen}>
+        Open form dialog
+      </Button> */}
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Subscribe</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            To subscribe to this website, please enter your email address here. We
+            will send updates occasionally.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleClose}>Subscribe</Button>
+        </DialogActions>
+      </Dialog>
+    
+    </>
+  )
+}
 
   const [shahidList, setShahidList] = useState([]);
   const fetchAndSetData = async () => {
@@ -117,6 +178,10 @@ const [dayName,setDayName]=useState('')
           {/* <div className="search-bar">daskjjdghasjghdjh</div> */}
         </div>
         <div className="shahid-container">
+        <div style={{position:'fixed',top:'10px' ,right:'20px',display: 'relative'}}>
+
+        <SearchDialog/>
+        </div>
          
         
       {shahidList.length > 0 ? <Availble /> : <NotshahidToday />}

@@ -10,6 +10,7 @@ main {
   
   .container-motion {
     margin: 4.5rem 1.4rem;
+    direction: rtl;
   }
   
   .btn-container {
