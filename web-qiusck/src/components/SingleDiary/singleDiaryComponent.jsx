@@ -44,7 +44,7 @@ const SingleDiaryComponent = ({
           
         >
           <div className="video-content">
-            <img src={titleImage} height={343} alt="" />
+            <img src={titleImage} width={250} height={343} alt="" />
             <div onClick={()=>{setingTheVideo(videoItem)}} className="video-radius-Button">
               <PlayArrowOutlinedIcon
               
