@@ -106,3 +106,14 @@ export const updateImage = async (id, title, alt, file) => {
     }
   }
 };
+export const getByTitle=async(title)=>{
+  try{
+
+    const response= await axios.get(`http://localhost:4848/api/user/getImageByTitle?title=${title}`)
+    return {data:response.data,error:null};
+  }
+  catch(error){
+    return {data:null,error:error.message}
+  }
+  
+}

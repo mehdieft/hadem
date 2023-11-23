@@ -3,5 +3,9 @@
 **/*.png
 *.jpg
 *.jpeg
+.mp4
+*.mp4
 *.png
 *.gif
+.env
+.env.test

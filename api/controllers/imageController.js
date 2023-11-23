@@ -97,3 +97,12 @@ exports.getAll=async(req,res,next)=>{
   if(data)res.status(200).json({data})
   else res.status(500).json({error:"error something wrong check your connection"});
 }
+exports.getImageByTitle=async(req,res,next)=>{
+  const {title}=req.query
+  const images=await Image.find({title:title})
+  if(images){
+    res.status(200).json({images})
+  }
+  else res.status(500).json({error:'oops somethings wrong'});
+
+}

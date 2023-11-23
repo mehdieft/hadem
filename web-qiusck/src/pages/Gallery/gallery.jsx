@@ -17,6 +17,7 @@ import {useImageDialog} from '../../context/ImageDialogProvider'
 import {RadiusButton} from '../../components/RadiusButton/radiusButton'
 import UploadIcon from "@mui/icons-material/Upload";
 import anotherImage from "../../assets/Image/mainheader.png";
+import {getByTitle} from '../../api/imageGalleryRequests';
 import  {LazyLoadComponent}  from "../../components/lazyLoad/lazyLoad";
 import {
   image1,
@@ -63,6 +64,7 @@ const Gallery = () => {
   const [selectedImageBackground, setselectedImageBackground] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [indexForLoadedImage, setIndexForLoadedImage] = useState(1);
+  const [titleImage,setTitleImage]=useState('دفاع مقدس');
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -70,6 +72,28 @@ const Gallery = () => {
     restDelta: 0.001,
 
   });
+    const fetchAndSetData = async (title) => {
+      console.log("fuck you");
+      const result = await  getByTitle(title);
+      console.log("ress----->", result.data);
+      if (result.data !== null) {
+      
+        console.log("res----------یسشیشسی->", result);
+       
+  
+        // console.log("dataList------->",dataList)
+        // openNotification("hjajkshda", "success");
+        // console.log(searchList);
+      } else {
+        // openNotification(result.error, "error");
+        // openNotification("متن جایگزین نباید خالی باشد", "error");
+      }
+    };
+
+  useEffect(()=>{
+    fetchAndSetData(titleImage)
+
+  },[titleImage])
   let imageList = [
     galleryBackgroundImage,
     anotherImage,
@@ -180,11 +204,11 @@ const Gallery = () => {
         </div>
       </div>
       <div style={{display:'flex',justifyContent:'center',gap:'24px',padding:'32px',flexWrap:'wrap'}}>
-      <RadiusButton title="سلام"/>
-      <RadiusButton title="سلام"/>
-      <RadiusButton title="سلام"/>
-      <RadiusButton title="سلام"/>
-      <RadiusButton title="سلام"/>
+      <RadiusButton  onClick ={()=>{setTitleImage()}} title="دفاع مقدس"/>
+      <RadiusButton  onClick ={()=>{setTitleImage()}} title="متفرقه"/>
+      <RadiusButton  onClick ={()=>{setTitleImage()}} title="سلام"/>
+      <RadiusButton  onClick ={()=>{setTitleImage()}}title="سلام"/>
+      <RadiusButton  onClick ={()=>{setTitleImage()}}title="سلام"/>
 
       </div>
       <main id="image-container">
