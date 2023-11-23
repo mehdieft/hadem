@@ -37,6 +37,7 @@ export default function ImageDialogProvider({ children }) {
     setMaxImageIndex(imageList.length)
     setImage(item[index]);
     setImageIndex(index)
+    console.log('_____________dialog___________>',image)
   };
   const closeDialog = () => {
     setShowModal(false);
@@ -107,7 +108,10 @@ export default function ImageDialogProvider({ children }) {
                   <CloseIcon />
                 </IconButton>
                 
-                <img src={image} style={{  maxWidth: "90VW",maxHeight:'90vh',width:'99vh',aspectRatio:1 }} />
+                <img 
+                   src={`http://localhost:4848/static/uploads/imageGallery/${image.url}`}
+                // src={image}
+                 style={{  maxWidth: "90VW",maxHeight:'90vh',width:'99vh',aspectRatio:1 }} />
               <IconButton
                   onKeyDownCapture={nextImage}
                   onClick={nextImage}

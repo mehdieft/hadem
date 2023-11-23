@@ -13,12 +13,12 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { motion, useScroll, useSpring } from "framer-motion";
 import IconButton from "@mui/material/IconButton";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
-import {useImageDialog} from '../../context/ImageDialogProvider'
-import {RadiusButton} from '../../components/RadiusButton/radiusButton'
+import { useImageDialog } from "../../context/ImageDialogProvider";
+import { RadiusButton } from "../../components/RadiusButton/radiusButton";
 import UploadIcon from "@mui/icons-material/Upload";
 import anotherImage from "../../assets/Image/mainheader.png";
-import {getByTitle} from '../../api/imageGalleryRequests';
-import  {LazyLoadComponent}  from "../../components/lazyLoad/lazyLoad";
+import { getByTitle } from "../../api/imageGalleryRequests";
+import { LazyLoadComponent } from "../../components/lazyLoad/lazyLoad";
 import {
   image1,
   image2,
@@ -56,7 +56,7 @@ import {
 } from "../../helper/imagesList";
 
 const Gallery = () => {
-  const{openDialog}=useImageDialog()
+  const { openDialog } = useImageDialog();
   // openDialog('kir')
   const customRef = useRef();
   const imageRef = useRef();
@@ -64,36 +64,36 @@ const Gallery = () => {
   const [selectedImageBackground, setselectedImageBackground] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [indexForLoadedImage, setIndexForLoadedImage] = useState(1);
-  const [titleImage,setTitleImage]=useState('دفاع مقدس');
+  const [titleImage, setTitleImage] = useState("دفاع مقدس");
+  const [imageArray,setImageArray]=useState([]);
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 40,
     restDelta: 0.001,
-
   });
-    const fetchAndSetData = async (title) => {
-      console.log("fuck you");
-      const result = await  getByTitle(title);
-      console.log("ress----->", result.data);
-      if (result.data !== null) {
-      
-        console.log("res----------یسشیشسی->", result);
-       
-  
-        // console.log("dataList------->",dataList)
-        // openNotification("hjajkshda", "success");
-        // console.log(searchList);
-      } else {
-        // openNotification(result.error, "error");
-        // openNotification("متن جایگزین نباید خالی باشد", "error");
-      }
-    };
+  const fetchAndSetData = async (title) => {
+    console.log("fuck you");
+    const result = await getByTitle(title);
+    console.log("ress----->", result.data);
+    if (result.data !== null) {
+      setImageArray (result.data.images);
+      console.log("image array", imageArray);
 
-  useEffect(()=>{
-    fetchAndSetData(titleImage)
+      console.log("res----------یسشیشسی->", result);
 
-  },[titleImage])
+      // console.log("dataList------->",dataList)
+      // openNotification("hjajkshda", "success");
+      // console.log(searchList);
+    } else {
+      // openNotification(result.error, "error");
+      // openNotification("متن جایگزین نباید خالی باشد", "error");
+    }
+  };
+
+  useEffect(() => {
+    fetchAndSetData(titleImage);
+  }, [titleImage]);
   let imageList = [
     galleryBackgroundImage,
     anotherImage,
@@ -107,7 +107,7 @@ const Gallery = () => {
     galleryBackgroundImage,
     galleryBackgroundImage,
   ];
-  let imageArray = [
+  // let imageArray = [
     // image1,
     // image2,
     // image3,
@@ -141,19 +141,19 @@ const Gallery = () => {
     // image31,
     // image32,
     // image33,
-  ];
+  // ];
   const [value, setValue] = useState(0);
   useEffect(() => {
-    addToArray();
+    // addToArray();
     setselectedImageBackground(imageList[0]);
   }, []);
-  const addToArray = () => {
-    imageArray = [];
-    for (let i = 0; i < 20 * indexForLoadedImage; i++) {
-      imageArray.push(i);
-    }
-    console.log(imageArray, "_________________>");
-  };
+  // const addToArray = () => {
+  //   imageArray = [];
+  //   for (let i = 0; i < 20 * indexForLoadedImage; i++) {
+  //     imageArray.push(i);
+  //   }
+  //   console.log(imageArray, "_________________>");
+  // };
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -165,10 +165,10 @@ const Gallery = () => {
   };
   return (
     <motion.div
-      initial={{  backgroundColor: " rgb(1, 32, 44)",opacity:0 }}
-      animate={{ opacity:1 }}
-      exit={{ opacity:0 }}
-      transition={{duration:0.4}}
+      initial={{ backgroundColor: " rgb(1, 32, 44)", opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
     >
       {/* <LazyLoadComponent/> */}
       <motion.div
@@ -203,26 +203,62 @@ const Gallery = () => {
           <div className="text-header-red">پایی که ماند</div>
         </div>
       </div>
-      <div style={{display:'flex',justifyContent:'center',gap:'24px',padding:'32px',flexWrap:'wrap'}}>
-      <RadiusButton  onClick ={()=>{setTitleImage()}} title="دفاع مقدس"/>
-      <RadiusButton  onClick ={()=>{setTitleImage()}} title="متفرقه"/>
-      <RadiusButton  onClick ={()=>{setTitleImage()}} title="سلام"/>
-      <RadiusButton  onClick ={()=>{setTitleImage()}}title="سلام"/>
-      <RadiusButton  onClick ={()=>{setTitleImage()}}title="سلام"/>
-
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "24px",
+          padding: "32px",
+          flexWrap: "wrap",
+        }}
+      >
+        <RadiusButton
+          clickEvent={() => {
+            setTitleImage("دفاع مقدس");
+          }}
+          title="دفاع مقدس"
+        />
+        <RadiusButton
+          clickEvent={() => {
+            setTitleImage('متفرقه');
+            console.log(titleImage)
+          }}
+          title="متفرقه"
+        />
+        <RadiusButton
+          clickEvent={() => {
+            setTitleImage();
+          }}
+          title="سلام"
+        />
+        <RadiusButton
+          onClick={() => {
+            setTitleImage();
+          }}
+          title="سلام"
+        />
+        <RadiusButton
+          onClick={() => {
+            setTitleImage();
+          }}
+          title="سلام"
+        />
       </div>
       <main id="image-container">
-        {imageArray.map((item,index) => {
+        {imageArray.map((item, index) => {
           return (
-            <div
-              className="image-item"
-            >
-              <div className="title">
-                عکس
-              </div>
-              <img  className="gallery-single-image" src={item} onClick={()=>{openDialog(imageArray,index)}} style={{aspectRatio:1/1.1,borderRadius:'5px'}} alt="" />
+            <div className="image-item">
+              <div className="title">عکس</div>
+              <img
+                className="gallery-single-image"
+                src={`http://localhost:4848/static/uploads/imageGallery/${item.url}`}
+                onClick={() => {
+                  openDialog(imageArray, index);
+                }}
+                style={{ aspectRatio: 1 / 1.1, borderRadius: "5px" }}
+                alt=""
+              />
               <div className="content">دفاع مقدس</div>
-
             </div>
           );
         })}

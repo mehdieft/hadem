@@ -136,6 +136,7 @@ const [dayName,setDayName]=useState('')
 
     const result = await getTodayShahid();
     console.log("ress----->", result);
+    if(result.data.s)
     seMonthName(result.data.todayDate.month)
     setDayName(result.data.todayDate.day)
     if (result.data !== null) {
