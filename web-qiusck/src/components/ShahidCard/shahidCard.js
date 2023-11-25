@@ -28,13 +28,13 @@ const ShahidCard = ({
         </div>
         <div className="card-detail">
           {/* <span className="card-title">شهید امروز</span> */}
-          <span>تاریخ تولد:<span className="shahid-detail-span" style={{rotate:'180deg'}}>{birthdate !==''&& birthdate?birthdate.split('T')[0].replaceAll('-','/'):'موجود نیست'}</span> </span>
-          <span>زادگاه:<span className="shahid-detail-span">{birthdayPlace !=='' || birthdayPlace !==''?birthdayPlace:'موجود نیست'}</span>  </span>
-          <span>تاریخ شهادت:<span className="shahid-detail-span" style={{rotate:'180deg'}}>{dieDate !=='' && dieDate?dieDate.split('T')[0].replaceAll('-','/'):'موجود نیست'}</span>  </span>
-          <span>نحوه شهادت:<span className="shahid-detail-span">{wayOfDie !==''?wayOfDie:'موجود نیست'}</span>   </span>
-          <span>آخرین محل خدمت:<span className="shahid-detail-span">{lastServePlace !==''?lastServePlace:'موجود نیست'}</span> </span>
-          <span>تحصیلات نظامی:<span className="shahid-detail-span">{militiryEducation !==''?militiryEducation:'موجود نیست'}</span> </span>
-          <span>محل آرامگاه:<span className="shahid-detail-span"> {cemeteryPlace !==''?cemeteryPlace:'موجود نیست'}</span> </span>
+          <span>تاریخ تولد:<span className="shahid-detail-span" style={{rotate:'180deg'}}>{birthdate !==''&& birthdate?birthdate.split('T')[0].replaceAll('-','/'):'____'}</span> </span>
+          <span>زادگاه:<span className="shahid-detail-span">{birthdayPlace !=='' || birthdayPlace !==''?birthdayPlace:'____'}</span>  </span>
+          <span>تاریخ شهادت:<span className="shahid-detail-span" style={{rotate:'180deg'}}>{dieDate !=='' && dieDate?dieDate.split('T')[0].replaceAll('-','/'):'____'}</span>  </span>
+          <span>نحوه شهادت:<span className="shahid-detail-span">{wayOfDie !==''?wayOfDie:'____'}</span>   </span>
+          <span>آخرین محل خدمت:<span className="shahid-detail-span">{lastServePlace !==''?lastServePlace:'____'}</span> </span>
+          <span>تحصیلات نظامی:<span className="shahid-detail-span">{militiryEducation !==''?militiryEducation:'____'}</span> </span>
+          <span>محل آرامگاه:<span className="shahid-detail-span"> {cemeteryPlace !==''?cemeteryPlace:'____'}</span> </span>
 
 
         </div>

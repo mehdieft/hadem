@@ -414,6 +414,10 @@ if(searchedShahid){
 }
 
 }
+exports.getByDate=async(req,res,next)=>{
+
+  
+}
 
 
 

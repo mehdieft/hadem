@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import { ImageList } from "@mui/material";
-
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const backdrop = {
   visible: { opacity: 1 },
   hidden: { opacity: 0 },
@@ -22,7 +23,6 @@ const imageShowAnimation={
   }
 
 }
-
 const imageDialogContext = createContext();
 export default function ImageDialogProvider({ children }) {
   const [showModal, setShowModal] = useState(false);
@@ -105,9 +105,8 @@ export default function ImageDialogProvider({ children }) {
                   // color="secondary"
                   aria-label="add an alarm"
                 >
-                  <CloseIcon />
+                  <ArrowBackIcon />
                 </IconButton>
-                
                 <img 
                    src={`http://localhost:4848/static/uploads/imageGallery/${image.url}`}
                 // src={image}
@@ -119,7 +118,7 @@ export default function ImageDialogProvider({ children }) {
                   // color="secondary"
                   aria-label="add an alarm"
                 >
-                  <CloseIcon />
+                  <ArrowForwardIcon />
                 </IconButton>
               </div>
             </motion.div>
