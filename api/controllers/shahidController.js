@@ -416,7 +416,8 @@ if(searchedShahid){
 }
 exports.getByDate=async(req,res,next)=>{
 
-  
+  const {day,month}=req.query;
+  const searchedShahid=await Shahid.find({dieMonth:month})
 }
 
 
