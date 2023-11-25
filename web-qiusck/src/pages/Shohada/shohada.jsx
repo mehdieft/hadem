@@ -23,41 +23,37 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
-
-
-
-
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 // import { Calendar } from "react-modern-calendar-datepicker";
 const VALID_NOTES = [
-  "C",
-  "C#",
-  "D",
-  "D#",
-  "E",
-  "F",
-  "F#",
-  "G",
-  "G#",
-  "A",
-  "A#",
-  "B"
+  { name: "فروردین", value: "1" },
+  { name: "اردیبهشت", value: "2" },
+  { name: "خرداد", value: "3" },
+  { name: "تیر", value: "4" },
+  { name: "مرداد", value: "5" },
+  { name: "شهریور", value: "6" },
+  { name: "مهر", value: "7" },
+  { name: "آبان", value: "8" },
+  { name: "آذر", value: "9" },
+  { name: "دی", value: "10" },
+  { name: "بهمن", value: "11" },
+  { name: "اسفند", value: "12" },
 ];
 
 const Shohada = () => {
   const ITEM_HEIGHT = 36;
-const MOBILE_ITEM_HEIGHT = 48;
+  const MOBILE_ITEM_HEIGHT = 48;
 
-const ITEM_PADDING_TOP = 8;
-const MENU_ITEMS = 3;
+  const ITEM_PADDING_TOP = 8;
+  const MENU_ITEMS = 3;
   let month = "";
   let day = "";
   const [monthName, seMonthName] = useState("");
   const [dayName, setDayName] = useState("");
   const [note, setNote] = React.useState("");
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setNote(event.target.value);
   };
   const Availble = () => {
@@ -142,62 +138,61 @@ const MENU_ITEMS = 3;
         {/* <Button variant="outlined" onClick={handleClickOpen}>
         Open form dialog
       </Button> */}
-        <Dialog open={open} width='600'  onClose={handleClose}>
+        <Dialog disableBackdropClick open={open} width="600">
           <DialogTitle>Subscribe</DialogTitle>
           <DialogContent>
-            <div style={{display:'flex',flexDirection:'row',gap:'32px'}}>
+            <div style={{ display: "flex", flexDirection: "row", gap: "32px" }}>
               <div>
-
-
-          <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
-          <Select
-          label="ماه شهادت"
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={note}
-          onChange={handleChange}
-          MenuProps={{
-            PaperProps: {
-              sx: {
-                maxHeight: {
-                  xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                  sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP
-                },
-                width: 250
-              }
-            }
-          }}
-        >
-          {VALID_NOTES.map(validNote => (
-            <MenuItem value={validNote}>{validNote}</MenuItem>
-          ))}
-        </Select>
+                <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
+                <Select
+                  label="روز شهادت"
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={note}
+                  onChange={handleChange}
+                  MenuProps={{
+                    PaperProps: {
+                      sx: {
+                        maxHeight: {
+                          xs:
+                            MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                          sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                        },
+                        width: 250,
+                      },
+                    },
+                  }}
+                >
+                  {VALID_NOTES.map((validNote) => (
+                    <MenuItem value={validNote}>{validNote}</MenuItem>
+                  ))}
+                </Select>
               </div>
               <div>
-
-        <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
-          <Select
-          label="ماه شهادت"
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={note}
-          onChange={handleChange}
-          MenuProps={{
-            PaperProps: {
-              sx: {
-                maxHeight: {
-                  xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                  sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP
-                },
-                width: 250
-              }
-            }
-          }}
-        >
-          {VALID_NOTES.map(validNote => (
-            <MenuItem value={validNote}>{validNote}</MenuItem>
-          ))}
-        </Select>
+                <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
+                <Select
+                  label="ماه شهادت"
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={note}
+                  onChange={handleChange}
+                  MenuProps={{
+                    PaperProps: {
+                      sx: {
+                        maxHeight: {
+                          xs:
+                            MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                          sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                        },
+                        width: 250,
+                      },
+                    },
+                  }}
+                >
+                  {VALID_NOTES.map((validNote) => (
+                    <MenuItem value={validNote}>{validNote}</MenuItem>
+                  ))}
+                </Select>
               </div>
             </div>
           </DialogContent>
