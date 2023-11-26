@@ -77,7 +77,6 @@ const days = [
 const Shohada = () => {
   const ITEM_HEIGHT = 36;
   const MOBILE_ITEM_HEIGHT = 48;
-
   const ITEM_PADDING_TOP = 8;
   const MENU_ITEMS = 3;
   let month = "";
@@ -86,7 +85,7 @@ const Shohada = () => {
   const [dayName, setDayName] = useState("");
   const [monthDie, setMonthDie] = React.useState("");
   const [dayDie, setDayDie] = useState("");
-  let maheKiri=''
+  let maheKiri = "";
 
   const handleChangeday = (event) => {
     setDayDie(event.target.value);
@@ -173,8 +172,7 @@ const Shohada = () => {
     };
     return (
       <>
-
-{/* <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
+        {/* <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
                 <Select
                   label="روز شهادت"
                   labelId="demo-simple-select-label"
@@ -215,12 +213,12 @@ const Shohada = () => {
                         maxHeight: {
                           xs:
                             MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                          sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                          sm:TEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
                         },
                         width: 250,
                       },
                     },
-                  }}
+                  }} I
                 >
                   {days.map((validNote) => (
                     <MenuItem value={validNote.value}>
@@ -229,17 +227,79 @@ const Shohada = () => {
                   ))}
                 </Select> */}
 
-
-
         <Tooltip title="جستجو">
           <motion.IconButton color="white" onClick={handleClickOpen}>
             <SettingsIcon color="white" style={{ color: "white" }} />
           </motion.IconButton>
         </Tooltip>
+        <motion.div
+          style={{
+            position: "absolute",
+            top: "40vh",
+            right: "40vw",
+            padding: "32px",
+            backgroundColor: "white",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "row" ,gap:'32px'}}>
+            <div>
+              <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
+              <Select
+                label="روز شهادت"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={dayDie}
+                onChange={handleChangeday}
+                MenuProps={{
+                  PaperProps: {
+                    sx: {
+                      maxHeight: {
+                        xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                        sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                      },
+                      width: 250,
+                    },
+                  },
+                }}
+              >
+                {VALID_NOTES.map((validNote) => (
+                  <MenuItem value={validNote.value}>{validNote.name}</MenuItem>
+                ))}
+              </Select>
+            </div>
+          <div>
+            <InputLabel id="demo-simple-select-label">روز شهادت</InputLabel>
+            <Select
+              label="ماه شهادت"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={monthDie}
+              onChange={handleChangeMonth}
+              MenuProps={{
+                PaperProps: {
+                  sx: {
+                    maxHeight: {
+                      xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                      sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                    },
+                    width: 250,
+                  },
+                },
+              }}
+              I
+            >
+              {days.map((validNote) => (
+                <MenuItem value={validNote.value}>{validNote.name}</MenuItem>
+              ))}
+            </Select>
+          </div>
+          </div>
+
+        </motion.div>
         {/* <Button variant="outlined" onClick={handleClickOpen}>
         Open form dialog
       </Button> */}
-        <Dialog
+        {/* <Dialog
           onBackdropClick={handleBackdropClick}
           disableEscapeKeyDown
           open={open}
@@ -262,10 +322,7 @@ const Shohada = () => {
             <Button onClick={handleClose}>Cancel</Button>
             <Button onClick={handleClose}>Subscribe</Button>
           </DialogActions>
-        </Dialog>
-        
-        
-   
+        </Dialog> */}
       </>
     );
   };
@@ -274,12 +331,12 @@ const Shohada = () => {
   const fetchAndSetData = async () => {
     const result = await getTodayShahid();
     console.log("ress----->", result);
-    if (result.data.s){
-      maheKiri=result.data.todayDate.month
+    if (result.data.s) {
+      maheKiri = result.data.todayDate.month;
 
       seMonthName(result.data.todayDate.month);
-    } 
-    console.log('_______________>',monthName)
+    }
+    console.log("_______________>", monthName);
     seMonthName(result.data.todayDate.month);
     setDayName(result.data.todayDate.day);
     if (result.data !== null) {
@@ -316,6 +373,7 @@ const Shohada = () => {
  <ShahidCard/>  
     </div>
     </div> */}
+
       <div style={{ background: "rgb(1, 32, 44)" }}>
         <img
           src={shohada}

@@ -227,15 +227,15 @@ const Gallery = () => {
         />
         <RadiusButton
           clickEvent={() => {
-            setTitleImage();
+            setTitleImage('ناوها');
           }}
-          title="سلام"
+          title="ناوها"
         />
         <RadiusButton
-          onClick={() => {
-            setTitleImage();
+          clickEvent={() => {
+            setTitleImage('شهدای شاخص');
           }}
-          title="سلام"
+          title="شهدای شاخص"
         />
         <RadiusButton
           onClick={() => {
@@ -258,7 +258,7 @@ const Gallery = () => {
                 style={{ aspectRatio: 1 / 1.1, borderRadius: "5px" }}
                 alt=""
               />
-              <div className="content">دفاع مقدس</div>
+              <div className="content">{item.alt}</div>
             </div>
           );
         })}
