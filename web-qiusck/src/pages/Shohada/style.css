@@ -21,3 +21,13 @@
 .search-background{
     height: 130vh;
 }
+.btn-container-shohada{
+    position: fixed;
+    right: 15px;
+    top: 10px;
+}
+.aside-style{
+    width: 90vw;
+    margin:0 auto;
+    background-color: aqua;
+}
