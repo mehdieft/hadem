@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getTodayShahid } from "../../api/shahidDetailRequest";
 import monthConverter from "../../utils/monthConverter";
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -14,7 +13,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import * as React from "react";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion, useCycle } from "framer-motion";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Box from "@mui/material/Box";
@@ -23,7 +22,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Modal from "@mui/material/Modal";
-
+import MenuIcon from '@mui/icons-material/Menu';
+import CancelIcon from '@mui/icons-material/Cancel';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 // import { Calendar } from "react-modern-calendar-datepicker";
@@ -85,6 +85,7 @@ const Shohada = () => {
   const [dayName, setDayName] = useState("");
   const [monthDie, setMonthDie] = React.useState("");
   const [dayDie, setDayDie] = useState("");
+  const [open, cycleOpen] = useCycle(false, true);
   let maheKiri = "";
 
   const handleChangeday = (event) => {
@@ -226,22 +227,12 @@ const Shohada = () => {
                     </MenuItem>
                   ))}
                 </Select> */}
-
-        <Tooltip title="جستجو">
-          <motion.IconButton color="white" onClick={handleClickOpen}>
-            <SettingsIcon color="white" style={{ color: "white" }} />
-          </motion.IconButton>
-        </Tooltip>
-        <motion.div
-          style={{
-            position: "absolute",
-            top: "40vh",
-            right: "40vw",
-            padding: "32px",
-            backgroundColor: "white",
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "row" ,gap:'32px'}}>
+        <div>
+          <AnimatePresence>
+            {open && (
+              <motion.div className="aside-style">
+                <motion.div className="container-motion-style">
+                <div style={{ display: "flex", flexDirection: "row" ,gap:'32px'}}>
             <div>
               <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
               <Select
@@ -294,7 +285,84 @@ const Shohada = () => {
             </Select>
           </div>
           </div>
-
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <div className="btn-container">
+            <IconButton sx={{ backgroundColor: "white" }} onClick={cycleOpen}>
+              {open ? <CancelIcon /> : <MenuIcon />}
+            </IconButton>
+          </div>
+        </div>
+{/* 
+        <Tooltip title="جستجو">
+          <motion.IconButton color="white" onClick={handleClickOpen}>
+            <SettingsIcon color="white" style={{ color: "white" }} />
+          </motion.IconButton>
+        </Tooltip> */}
+        <motion.div
+          style={{
+            position: "absolute",
+            top: "40vh",
+            right: "40vw",
+            padding: "32px",
+            backgroundColor: "white",
+          }}
+        >
+          <div style={{ display: "flex", flexDirection: "row", gap: "32px" }}>
+            <div>
+              <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
+              <Select
+                label="روز شهادت"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={dayDie}
+                onChange={handleChangeday}
+                MenuProps={{
+                  PaperProps: {
+                    sx: {
+                      maxHeight: {
+                        xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                        sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                      },
+                      width: 250,
+                    },
+                  },
+                }}
+              >
+                {VALID_NOTES.map((validNote) => (
+                  <MenuItem value={validNote.value}>{validNote.name}</MenuItem>
+                ))}
+              </Select>
+            </div>
+            <div>
+              <InputLabel id="demo-simple-select-label">روز شهادت</InputLabel>
+              <Select
+                label="ماه شهادت"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={monthDie}
+                onChange={handleChangeMonth}
+                MenuProps={{
+                  PaperProps: {
+                    sx: {
+                      maxHeight: {
+                        xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                        sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                      },
+                      width: 250,
+                    },
+                  },
+                }}
+                I
+              >
+                {days.map((validNote) => (
+                  <MenuItem value={validNote.value}>{validNote.name}</MenuItem>
+                ))}
+              </Select>
+            </div>
+          </div>
         </motion.div>
         {/* <Button variant="outlined" onClick={handleClickOpen}>
         Open form dialog
