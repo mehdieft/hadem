@@ -22,8 +22,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Modal from "@mui/material/Modal";
-import MenuIcon from "@mui/icons-material/Menu";
-import CancelIcon from "@mui/icons-material/Cancel";
+import MenuIcon from '@mui/icons-material/Menu';
+import CancelIcon from '@mui/icons-material/Cancel';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 // import { Calendar } from "react-modern-calendar-datepicker";
@@ -73,27 +73,6 @@ const days = [
   { name: "29", value: 29 },
   { name: "30", value: 30 },
 ];
-const itemVariants = {
-  closed: {
-    opacity: 0
-  },
-  open: { opacity: 1 }
-};
-
-const sideVariants = {
-  closed: {
-    transition: {
-      staggerChildren: 0.2,
-      staggerDirection: -1
-    }
-  },
-  open: {
-    transition: {
-      staggerChildren: 0.2,
-      staggerDirection: 1
-    }
-  }
-};
 
 const Shohada = () => {
   const ITEM_HEIGHT = 36;
@@ -251,94 +230,68 @@ const Shohada = () => {
         <div>
           <AnimatePresence>
             {open && (
-              <motion.div
-                initial={{ height: 100 }}
-                animate={{
-                  height: 200,
+              <motion.div initial={{ height: 100 }}
+              animate={{
+                height: 200
+              }}
+              exit={{
+                height: 100,
+                transition: { delay: 0.7, duration: 0.3 }
+              }} className="aside-style">
+                <motion.div className="container-motion-style">
+                <div style={{ display: "flex", flexDirection: "row" ,gap:'32px'}}>
+            <div>
+              <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
+              <Select
+                label="روز شهادت"
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={dayDie}
+                onChange={handleChangeday}
+                MenuProps={{
+                  PaperProps: {
+                    sx: {
+                      maxHeight: {
+                        xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                        sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                      },
+                      width: 250,
+                    },
+                  },
                 }}
-                exit={{
-                  height: 100,
-                  transition: { delay: 0.7, duration: 0.3 },
-                }}
-                className="aside-style"
               >
-                <motion.div
-                  className="container-motion-style"
-                  initial="closed"
-                  animate="open"
-                  exit="closed"
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      gap: "32px",
-                    }}
-                  >
-                    <div>
-                      <InputLabel id="demo-simple-select-label">
-                        ماه شهادت
-                      </InputLabel>
-                      <Select
-                        label="روز شهادت"
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={dayDie}
-                        onChange={handleChangeday}
-                        MenuProps={{
-                          PaperProps: {
-                            sx: {
-                              maxHeight: {
-                                xs:
-                                  MOBILE_ITEM_HEIGHT * MENU_ITEMS +
-                                  ITEM_PADDING_TOP,
-                                sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                              },
-                              width: 250,
-                            },
-                          },
-                        }}
-                      >
-                        {VALID_NOTES.map((validNote) => (
-                          <MenuItem value={validNote.value}>
-                            {validNote.name}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </div>
-                    <div>
-                      <InputLabel id="demo-simple-select-label">
-                        روز شهادت
-                      </InputLabel>
-                      <Select
-                        label="ماه شهادت"
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={monthDie}
-                        onChange={handleChangeMonth}
-                        MenuProps={{
-                          PaperProps: {
-                            sx: {
-                              maxHeight: {
-                                xs:
-                                  MOBILE_ITEM_HEIGHT * MENU_ITEMS +
-                                  ITEM_PADDING_TOP,
-                                sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                              },
-                              width: 250,
-                            },
-                          },
-                        }}
-                        I
-                      >
-                        {days.map((validNote) => (
-                          <MenuItem value={validNote.value}>
-                            {validNote.name}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </div>
-                  </div>
+                {VALID_NOTES.map((validNote) => (
+                  <MenuItem value={validNote.value}>{validNote.name}</MenuItem>
+                ))}
+              </Select>
+            </div>
+          <div>
+            <InputLabel id="demo-simple-select-label">روز شهادت</InputLabel>
+            <Select
+              label="ماه شهادت"
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={monthDie}
+              onChange={handleChangeMonth}
+              MenuProps={{
+                PaperProps: {
+                  sx: {
+                    maxHeight: {
+                      xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                      sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                    },
+                    width: 250,
+                  },
+                },
+              }}
+              I
+            >
+              {days.map((validNote) => (
+                <MenuItem value={validNote.value}>{validNote.name}</MenuItem>
+              ))}
+            </Select>
+          </div>
+          </div>
                 </motion.div>
               </motion.div>
             )}
@@ -349,13 +302,13 @@ const Shohada = () => {
             </IconButton>
           </div>
         </div>
-        {/* 
+{/* 
         <Tooltip title="جستجو">
           <motion.IconButton color="white" onClick={handleClickOpen}>
             <SettingsIcon color="white" style={{ color: "white" }} />
           </motion.IconButton>
         </Tooltip> */}
-        {/* <motion.div
+        <motion.div
           style={{
             position: "absolute",
             top: "40vh",
@@ -363,8 +316,8 @@ const Shohada = () => {
             padding: "32px",
             backgroundColor: "white",
           }}
-        > */}
-        {/* <div style={{ display: "flex", flexDirection: "row", gap: "32px" }}>
+        >
+          <div style={{ display: "flex", flexDirection: "row", gap: "32px" }}>
             <div>
               <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
               <Select
@@ -416,9 +369,9 @@ const Shohada = () => {
                 ))}
               </Select>
             </div>
-          </div> */}
-        {/* <Button variant="outlined" onClick={handleClickOpen}>
+          </div>
         </motion.div>
+        {/* <Button variant="outlined" onClick={handleClickOpen}>
         Open form dialog
       </Button> */}
         {/* <Dialog
