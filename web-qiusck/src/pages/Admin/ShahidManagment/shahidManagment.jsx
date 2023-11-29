@@ -27,6 +27,7 @@ import defaultShahid from "../../../assets/Image/defaultShahid.jpg";
 import {insertShahidManagementData,deleteShahid} from '../../../api/shahidDetailRequest';
 import {updateShahidManagment} from '../../../api/updateShahidDetailRequest';
 import { fetchData } from "../../../api/shahidDetailRequest";
+import { SearchDialog } from "./searchDialog";
 import { DatePicker } from "jalaali-react-date-picker";
 import "jalaali-react-date-picker/lib/styles/index.css";
 
@@ -359,11 +360,9 @@ useEffect(()=>{
                       <AddIcon />
                     </IconButton>
                   </Tooltip>
-                  <Tooltip title="جستجو">
-                    <IconButton onClick={openDialogHandler}>
-                      <AddIcon />
-                    </IconButton>
-                  </Tooltip>
+                  <SearchDialog/>
+
+              
                 </TableCell>
               </TableRow>
             </TableRow>
