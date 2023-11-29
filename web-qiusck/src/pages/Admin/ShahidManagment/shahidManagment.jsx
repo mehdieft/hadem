@@ -359,6 +359,11 @@ useEffect(()=>{
                       <AddIcon />
                     </IconButton>
                   </Tooltip>
+                  <Tooltip title="جستجو">
+                    <IconButton onClick={openDialogHandler}>
+                      <AddIcon />
+                    </IconButton>
+                  </Tooltip>
                 </TableCell>
               </TableRow>
             </TableRow>

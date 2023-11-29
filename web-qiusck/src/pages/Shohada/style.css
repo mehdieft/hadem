@@ -27,9 +27,9 @@
     top: 10px;
 }
 .aside-style{
-    width: 90vw;
+    width: 97vw;
     margin:0 auto;
-    background-color: aqua;
+    background-color: rgba(25, 118, 210, 0.2);
 }
 .container-motion-style{
     position: absolute;

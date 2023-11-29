@@ -102,6 +102,17 @@ export const getTodayShahid=async()=>{
   }
   
 }
+export const searchShahidByCustomDate=async(day,month)=>{
+  try{
+
+    const response= await axios.get(`http://localhost:4848/api/user/getBySearchedDate?day=${day}&month=${month}`)
+    return {data:response.data,error:null};
+  }
+  catch(error){
+    return {data:null,error:error.message}
+  }
+  
+}
 export const updateShahidManagment = async (
   _id,
   name,

@@ -414,7 +414,8 @@ if(searchedShahid){
 }
 
 }
-exports.getByDate=async(req,res,next)=>{
+exports.getByCustomDate=async(req,res,next)=>{
+  console.log("reqq----->",req.query);
 
   const {day,month}=req.query;
   console.log("this req")

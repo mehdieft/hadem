@@ -3,7 +3,7 @@ import shohada from "../../assets/images/shohada.jpg";
 import ShahidCard from "../../components/ShahidCard/shahidCard";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getTodayShahid } from "../../api/shahidDetailRequest";
+import { getTodayShahid ,searchShahidByCustomDate} from "../../api/shahidDetailRequest";
 import monthConverter from "../../utils/monthConverter";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -22,8 +22,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Modal from "@mui/material/Modal";
-import MenuIcon from '@mui/icons-material/Menu';
-import CancelIcon from '@mui/icons-material/Cancel';
+import MenuIcon from "@mui/icons-material/Menu";
+import { RadiusButton } from "../../components/RadiusButton/radiusButton";
+import CancelIcon from "@mui/icons-material/Cancel";
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 // import { Calendar } from "react-modern-calendar-datepicker";
@@ -111,6 +112,7 @@ const Shohada = () => {
     //   month: 4,
     //   day: 21
     // }
+
     return (
       <>
         <div style={{ background: "rgb(1, 32, 44)" }}>
@@ -162,242 +164,112 @@ const Shohada = () => {
     );
   };
   const SearchDialog = () => {
-    // const [open, setOpen] = React.useState(false);
-
-    // const handleClickOpen = () => {
-    //   setOpen(true);
-    // };
-
-    // const handleClose = () => {
-    //   setOpen(false);
-    // };
     return (
       <>
-        {/* <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
-                <Select
-                  label="روز شهادت"
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={dayDie}
-                  onChange={handleChangeday}
-                  MenuProps={{
-                    PaperProps: {
-                      sx: {
-                        maxHeight: {
-                          xs:
-                            MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                          sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                        },
-                        width: 250,
-                      },
-                    },
-                  }}
-                >
-                  {VALID_NOTES.map((validNote) => (
-                    <MenuItem value={validNote.value}>
-                      {validNote.name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </div>
-              <div>
-                <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
-                <Select
-                  label="ماه شهادت"
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={monthDie}
-                  onChange={handleChangeMonth}
-                  MenuProps={{
-                    PaperProps: {
-                      sx: {
-                        maxHeight: {
-                          xs:
-                            MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                          sm:TEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                        },
-                        width: 250,
-                      },
-                    },
-                  }} I
-                >
-                  {days.map((validNote) => (
-                    <MenuItem value={validNote.value}>
-                      {validNote.name}
-                    </MenuItem>
-                  ))}
-                </Select> */}
         <div>
           <AnimatePresence>
             {open && (
-              <motion.div initial={{ height: 100 }}
-              animate={{
-                height: 200
-              }}
-              exit={{
-                height: 100,
-                transition: { delay: 0.7, duration: 0.3 }
-              }} className="aside-style">
-                <motion.div className="container-motion-style">
-                <div style={{ display: "flex", flexDirection: "row" ,gap:'32px'}}>
-            <div>
-              <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
-              <Select
-                label="روز شهادت"
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={dayDie}
-                onChange={handleChangeday}
-                MenuProps={{
-                  PaperProps: {
-                    sx: {
-                      maxHeight: {
-                        xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                        sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                      },
-                      width: 250,
-                    },
-                  },
+              <motion.div
+                initial={{ height: 100 }}
+                animate={{
+                  height: 200,
                 }}
+                exit={{
+                  height: 100,
+                  transition: { delay: 0.7, duration: 0.3 },
+                }}
+                className="aside-style"
               >
-                {VALID_NOTES.map((validNote) => (
-                  <MenuItem value={validNote.value}>{validNote.name}</MenuItem>
-                ))}
-              </Select>
-            </div>
-          <div>
-            <InputLabel id="demo-simple-select-label">روز شهادت</InputLabel>
-            <Select
-              label="ماه شهادت"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={monthDie}
-              onChange={handleChangeMonth}
-              MenuProps={{
-                PaperProps: {
-                  sx: {
-                    maxHeight: {
-                      xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                      sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                    },
-                    width: 250,
-                  },
-                },
-              }}
-              I
-            >
-              {days.map((validNote) => (
-                <MenuItem value={validNote.value}>{validNote.name}</MenuItem>
-              ))}
-            </Select>
-          </div>
-          </div>
+                <motion.div className="container-motion-style">
+                  <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',gap:'15px'}}>
+
+                  
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      gap: "32px",
+                    }}
+                  >
+                    <div>
+                      <InputLabel id="demo-simple-select-label">
+                        ماه شهادت
+                      </InputLabel>
+                      <Select
+                        label="روز شهادت"
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={dayDie}
+                        onChange={handleChangeday}
+                        MenuProps={{
+                          PaperProps: {
+                            sx: {
+                              maxHeight: {
+                                xs:
+                                  MOBILE_ITEM_HEIGHT * MENU_ITEMS +
+                                  ITEM_PADDING_TOP,
+                                sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                              },
+                              width: 250,
+                            },
+                          },
+                        }}
+                      >
+                        {VALID_NOTES.map((validNote) => (
+                          <MenuItem value={validNote.value}>
+                            {validNote.name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </div>
+                    <div>
+                      <InputLabel id="demo-simple-select-label">
+                        روز شهادت
+                      </InputLabel>
+                      <Select
+                        label="ماه شهادت"
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={monthDie}
+                        onChange={handleChangeMonth}
+                        MenuProps={{
+                          PaperProps: {
+                            sx: {
+                              maxHeight: {
+                                xs:
+                                  MOBILE_ITEM_HEIGHT * MENU_ITEMS +
+                                  ITEM_PADDING_TOP,
+                                sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
+                              },
+                              width: 250,
+                            },
+                          },
+                        }}
+                        I
+                      >
+                        {days.map((validNote) => (
+                          <MenuItem value={validNote.value}>
+                            {validNote.name}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </div>
+                  </div>
+                  <div style={{ margin: "10 px 0px" }}>
+                    <RadiusButton clickEvent={searchClickHandler} title="جستجو" />
+                    <RadiusButton title="ریفرش" />
+                  </div>
+                  </div>
                 </motion.div>
               </motion.div>
             )}
           </AnimatePresence>
           <div className="btn-container-shohada">
             <IconButton sx={{ backgroundColor: "white" }} onClick={cycleOpen}>
-              {open ? <CancelIcon /> : <MenuIcon />}
+              {open ? <MenuIcon /> : <SettingsIcon />}
             </IconButton>
           </div>
         </div>
-{/* 
-        <Tooltip title="جستجو">
-          <motion.IconButton color="white" onClick={handleClickOpen}>
-            <SettingsIcon color="white" style={{ color: "white" }} />
-          </motion.IconButton>
-        </Tooltip> */}
-        <motion.div
-          style={{
-            position: "absolute",
-            top: "40vh",
-            right: "40vw",
-            padding: "32px",
-            backgroundColor: "white",
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "row", gap: "32px" }}>
-            <div>
-              <InputLabel id="demo-simple-select-label">ماه شهادت</InputLabel>
-              <Select
-                label="روز شهادت"
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={dayDie}
-                onChange={handleChangeday}
-                MenuProps={{
-                  PaperProps: {
-                    sx: {
-                      maxHeight: {
-                        xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                        sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                      },
-                      width: 250,
-                    },
-                  },
-                }}
-              >
-                {VALID_NOTES.map((validNote) => (
-                  <MenuItem value={validNote.value}>{validNote.name}</MenuItem>
-                ))}
-              </Select>
-            </div>
-            <div>
-              <InputLabel id="demo-simple-select-label">روز شهادت</InputLabel>
-              <Select
-                label="ماه شهادت"
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={monthDie}
-                onChange={handleChangeMonth}
-                MenuProps={{
-                  PaperProps: {
-                    sx: {
-                      maxHeight: {
-                        xs: MOBILE_ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                        sm: ITEM_HEIGHT * MENU_ITEMS + ITEM_PADDING_TOP,
-                      },
-                      width: 250,
-                    },
-                  },
-                }}
-                I
-              >
-                {days.map((validNote) => (
-                  <MenuItem value={validNote.value}>{validNote.name}</MenuItem>
-                ))}
-              </Select>
-            </div>
-          </div>
-        </motion.div>
-        {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
-      </Button> */}
-        {/* <Dialog
-          onBackdropClick={handleBackdropClick}
-          disableEscapeKeyDown
-          open={open}
-          width="100vw"
-          sx={{ "& .MuiDialog-paper": { width: "80%", maxHeight: 435 } }}
-          maxWidth="xs"
-        >
-          <DialogTitle>Subscribe</DialogTitle>
-          <DialogContent>
-            <form>
-
-            <div style={{ display: "flex", flexDirection: "row", gap: "32px" }}>
-              <div>
-               
-              </div>
-            </div>
-            </form>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={handleClose}>Subscribe</Button>
-          </DialogActions>
-        </Dialog> */}
       </>
     );
   };
@@ -423,6 +295,15 @@ const Shohada = () => {
       // setErorr(result.error);
     }
   };
+  const searchClickHandler=async ()=>{
+    console.log('----------->')
+    const result =await searchShahidByCustomDate(dayDie,monthDie);
+    if(result.data){
+      setShahidList(result.data.searchedShahid)
+
+    }
+
+  }
 
   useEffect(() => {
     fetchAndSetData();
