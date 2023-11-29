@@ -296,6 +296,7 @@ const Shohada = () => {
     }
   };
   const searchClickHandler=async ()=>{
+    cycleOpen()
     console.log('----------->')
     const result =await searchShahidByCustomDate(dayDie,monthDie);
     if(result.data){

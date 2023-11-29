@@ -420,7 +420,7 @@ exports.getByCustomDate=async(req,res,next)=>{
   const {day,month}=req.query;
   console.log("this req")
   console.log('_______________>',day,month)
-  const searchedShahid=await Shahid.find({dieMonth:month,dieDay:day}).exec();
+  const searchedShahid=await Shahid.find({dieMonth:day,dieDay:month}).exec();
   res.json({searchedShahid});
   
 }
