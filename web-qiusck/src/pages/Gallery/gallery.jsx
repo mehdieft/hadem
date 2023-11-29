@@ -19,6 +19,7 @@ import UploadIcon from "@mui/icons-material/Upload";
 import anotherImage from "../../assets/Image/mainheader.png";
 import { getByTitle } from "../../api/imageGalleryRequests";
 import { LazyLoadComponent } from "../../components/lazyLoad/lazyLoad";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import {
   image1,
   image2,
@@ -92,6 +93,7 @@ const Gallery = () => {
   };
 
   useEffect(() => {
+    setImageArray([])
     fetchAndSetData(titleImage);
   }, [titleImage]);
   let imageList = [
@@ -249,7 +251,9 @@ const Gallery = () => {
           return (
             <div className="image-item">
               <div className="title">عکس</div>
-              <img
+              <LazyLoadImage
+              effect="blur"
+              threshold={5}
                 className="gallery-single-image"
                 src={`http://localhost:4848/static/uploads/imageGallery/${item.url}`}
                 onClick={() => {

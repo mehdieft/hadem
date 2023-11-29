@@ -33,8 +33,13 @@ exports.register= async (req,res,next) =>{
         username:req.body.username,
         password:hashedPassword
     }) 
-    await   admin.save();
-    res.status(201).json({message:"register succesfully done",admin})
+    const savedUser=await admin.save();
+    if(savedUser){
+
+        res.status(201).json({message:"register succesfully done",admin})
+    }else{
+        res.status(500).json({message:"oops somethings  wrong"});
+    }
 
 }
 exports.testRegister=async(req,res,next)=>{

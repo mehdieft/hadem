@@ -10,6 +10,9 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { Tooltip } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import { DatePicker } from "jalaali-react-date-picker";
+import "jalaali-react-date-picker/lib/styles/index.css";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -21,6 +24,11 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 export const SearchDialog = ({ openDialog, filteredData }) => {
   const [open, setOpen] = useState(false);
+  const [birthdate,setBirthDate]=useState('');
+  const [dieDate,setDieDate]=useState('');
+  const [name,setName]=useState('');
+  const [family,setFamily]=useState('');
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -28,8 +36,16 @@ export const SearchDialog = ({ openDialog, filteredData }) => {
   const handleClose = () => {
     setOpen(false);
   };
+  const bornDateChange=(unix, formatted)=>{
+    console.log('unix______>',unix);
+    console.log("formated______>",formatted);
+
+  }
   return (
-    <>
+      <>
+
+
+
       {/* <Button variant="outlined" onClick={handleClickOpen}>
         Open dialog
       </Button> */}
@@ -42,7 +58,6 @@ export const SearchDialog = ({ openDialog, filteredData }) => {
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
-       
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
           جستجو شهید
@@ -60,21 +75,41 @@ export const SearchDialog = ({ openDialog, filteredData }) => {
           <CloseIcon />
         </IconButton>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-            dui. Donec ullamcorper nulla non metus auctor fringilla.
-          </Typography>
+          <div className="row">
+            <TextField id="outlined-basic" label="نام" variant="outlined" />
+            <TextField
+              id="outlined-basic"
+              label="نام خانوادگی"
+              variant="outlined"
+            />
+          </div>
+          <div className="row">
+            <div>
+              <p>تاریخ تولد:</p>
+              <DatePicker
+                style={{ width: "212px" }}
+                placeholder=" انتخاب تاریخ تولد شهید"
+                format="jYYYY/jMM/jDD"
+                  onChange={bornDateChange}
+                id="datePicker"
+                // preSelected="1396/05/15"
+              />
+            </div>
+            <div>
+              {" "}
+              <p>تاریخ شهادت:</p>
+              
+                <DatePicker
+                  style={{ width: "212px" }}
+                  placeholder=" انتخاب تاریخ تولد شهید"
+                  format="jYYYY/jMM/jDD"
+                  //   onChange={dieDateChange}
+                  id="datePicker2"
+                  // preSelected="1396/05/15"
+                />
+              
+            </div>
+          </div>
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
