@@ -22,13 +22,12 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     padding: theme.spacing(1),
   },
 }));
-export const SearchDialog = ({ openDialog, filteredData }) => {
+export const SearchDialog = ({ searchClickHandler}) => {
   const [open, setOpen] = useState(false);
-  const [birthdate,setBirthDate]=useState('');
-  const [dieDate,setDieDate]=useState('');
-  const [name,setName]=useState('');
-  const [family,setFamily]=useState('');
-
+  const [birthdate, setBirthDate] = useState("");
+  const [dieDate, setDieDate] = useState("");
+  const [name, setName] = useState("");
+  const [family, setFamily] = useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -36,16 +35,26 @@ export const SearchDialog = ({ openDialog, filteredData }) => {
   const handleClose = () => {
     setOpen(false);
   };
-  const bornDateChange=(unix, formatted)=>{
-    console.log('unix______>',unix);
-    console.log("formated______>",formatted);
-
+  const bornDateChange = (unix, formatted) => {
+    console.log("unix______>", unix);
+    console.log("formated______>", formatted);
+    setBirthDate(formatted);
+  };
+  const dieDateChange = (unix, formatted) => {
+    console.log("this is die date", unix, formatted);
+    setDieDate(formatted);
+  };
+  const clickedOnresultSearch=()=>{
+    setOpen(false)
+    searchClickHandler(name,family,birthdate,dieDate)
+    setBirthDate('')
+    setName('')
+    setFamily('')
+    setBirthDate('')
+    setDieDate('')
   }
   return (
-      <>
-
-
-
+    <>
       {/* <Button variant="outlined" onClick={handleClickOpen}>
         Open dialog
       </Button> */}
@@ -54,7 +63,14 @@ export const SearchDialog = ({ openDialog, filteredData }) => {
           <SearchIcon />
         </IconButton>
       </Tooltip>
-      <BootstrapDialog
+      <Dialog
+        sx={{
+            "& .MuiDialog-paper": {
+              width: "50vw",
+              maxWidth: "100vw",
+            },
+          }}
+      
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
@@ -76,47 +92,48 @@ export const SearchDialog = ({ openDialog, filteredData }) => {
         </IconButton>
         <DialogContent dividers>
           <div className="row">
-            <TextField id="outlined-basic" label="نام" variant="outlined" />
-            <TextField
+            <TextField 
+            value={family}
               id="outlined-basic"
               label="نام خانوادگی"
+              onChange={(e)=>setFamily(e.target.value)}
               variant="outlined"
             />
+            <TextField id="outlined-basic" onChange={(e)=>setName(e.target.value)} label="نام" value={name} variant="outlined" />
           </div>
           <div className="row">
             <div>
-              <p>تاریخ تولد:</p>
+              <p>تاریخ تولد:{birthdate}</p>
               <DatePicker
                 style={{ width: "212px" }}
                 placeholder=" انتخاب تاریخ تولد شهید"
                 format="jYYYY/jMM/jDD"
-                  onChange={bornDateChange}
+                onChange={bornDateChange}
                 id="datePicker"
                 // preSelected="1396/05/15"
               />
             </div>
             <div>
               {" "}
-              <p>تاریخ شهادت:</p>
-              
-                <DatePicker
-                  style={{ width: "212px" }}
-                  placeholder=" انتخاب تاریخ تولد شهید"
-                  format="jYYYY/jMM/jDD"
-                  //   onChange={dieDateChange}
-                  id="datePicker2"
-                  // preSelected="1396/05/15"
-                />
-              
+              <p>تاریخ شهادت:{dieDate}</p>
+              <DatePicker
+                style={{ width: "212px" }}
+                placeholder=" انتخاب تاریخ تولد شهید"
+                format="jYYYY/jMM/jDD"
+                  onChange={dieDateChange}
+                id="datePicker2"
+                // preSelected="1396/05/15"
+              />
             </div>
           </div>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
+          <Button autoFocus onClick={clickedOnresultSearch}
+            >
+            جستجو
           </Button>
         </DialogActions>
-      </BootstrapDialog>
+      </Dialog>
     </>
   );
 };

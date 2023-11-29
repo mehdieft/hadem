@@ -294,16 +294,8 @@ useEffect(()=>{
     setShowDetailtOfshahid(true);
 
     setShahidDetail(item);
-    // setShahidDetail({...shahidDetail,family:item.family})
-    // setShahidDetail({...shahidDetail,lastServePlace:item.lastServePlace})
-    // setShahidDetail({...shahidDetail,placeOfDeath:item.placeOfDeath})
-    // setShahidDetail({...shahidDetail,militiryEducation:item.militiryEducation})
-    // setShahidDetail({...shahidDetail,wayOfDie:item.wayOfDie})
-    // setShahidDetail({...shahidDetail,birthdate:item.birthdate})
-    // setShahidDetail({...shahidDetail,cemeteryPlace:item.cemeteryPlace})
-    // setShahidDetail({...shahidDetail,birthdayPlace:item.birthdayPlace})
-    // setShahidDetail({...shahidDetail,dieDate:item.dieDate})
-    // setShahidDetail({...shahidDetail,image:item.image})
+    
+   
     console.log("_________________>>>>", shahidDetail);
 
     console.log("312312312", shahidDetail);
@@ -312,6 +304,10 @@ useEffect(()=>{
     setShowDetailtOfshahid(false);
     // setShahidDetail([]);
   };
+  const seacrhResult=(name,family,birthdate,diedate)=>{
+    console.log("this is result from search------->",name,family,birthdate,diedate)
+
+  }
 
 
   return (
@@ -360,7 +356,7 @@ useEffect(()=>{
                       <AddIcon />
                     </IconButton>
                   </Tooltip>
-                  <SearchDialog/>
+                  <SearchDialog searchClickHandler={seacrhResult}  />
 
               
                 </TableCell>
