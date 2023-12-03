@@ -21,6 +21,7 @@ router.post('/insertOne',upload.single('image'),shahidController.insertOne)
 router.post('/update',upload.single('image'),shahidController.update);
 router.post('/delete',shahidController.delete);
 router.get('/getAll',shahidController.getAll);
+router.post('/searchManagment',shahidController.searchShahidQuery)
 
 
 
