@@ -90,11 +90,11 @@ const Shohada = () => {
   let maheKiri = "";
 
   const handleChangeday = (event) => {
-    setDayName(event.target.value)
+    seMonthName(event.target.value)
     setDayDie(event.target.value);
   };
   const handleChangeMonth = (evenet) => {
-    seMonthName(evenet.target.value)
+    setDayName(evenet.target.value)
     setMonthDie(evenet.target.value);
   };
   const handleBackdropClick = (event) => {

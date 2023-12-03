@@ -319,8 +319,11 @@ if(mydata.data.data.length>0){
 
   return (
     <>
+    <div style={{overflow:'hidden'}}>
+      
+  
       <TableContainer
-        sx={{ maxHeight: "90vh", width: "89%", margin: "0 auto" }}
+        sx={{ maxHeight: "90vh", width: "89%", margin: "0 auto" ,overflow:'hidden'}}
       >
         <Table
           sx={{
@@ -464,7 +467,7 @@ if(mydata.data.data.length>0){
           </TableBody>
         </Table>
         <TablePagination
-          style={{ direction: "ltr", padding: "10px auto" }}
+          style={{ direction: "ltr", padding: "32px auto" }}
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
           count={tableData.length}
@@ -474,6 +477,7 @@ if(mydata.data.data.length>0){
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </TableContainer>
+      </div>
 
       {/* // ) : null // } */}
       <Dialog
@@ -757,6 +761,7 @@ if(mydata.data.data.length>0){
           <Button onClick={cancelDetailShahidDialog}>بستن</Button>
         </DialogActions>
       </Dialog>
+      <div style={{height:'132px'}}></div>
     </>
   );
 };
