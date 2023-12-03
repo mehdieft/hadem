@@ -100,6 +100,14 @@ const Shohada = () => {
     event.stopPropagation();
     return false;
   };
+  const settingClickHandler=()=>{
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+  });
+    cycleOpen()
+  
+  }
   const Availble = () => {
     // const minimumDate = {
     //   year: 2019,
@@ -265,7 +273,7 @@ const Shohada = () => {
             )}
           </AnimatePresence>
           <div className="btn-container-shohada">
-            <IconButton sx={{ backgroundColor: "white" }} onClick={cycleOpen}>
+            <IconButton sx={{ backgroundColor: "white" }} onClick={settingClickHandler}>
               {open ? <MenuIcon /> : <SettingsIcon />}
             </IconButton>
           </div>
@@ -296,6 +304,7 @@ const Shohada = () => {
     }
   };
   const searchClickHandler=async ()=>{
+
     cycleOpen()
     console.log('----------->')
     const result =await searchShahidByCustomDate(dayDie,monthDie);
