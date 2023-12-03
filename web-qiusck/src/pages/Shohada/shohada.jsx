@@ -304,6 +304,10 @@ const Shohada = () => {
     }
   };
   const searchClickHandler=async ()=>{
+    window.scrollTo({
+      top: 700,
+      behavior: 'smooth',
+  });
 
     cycleOpen()
     console.log('----------->')
