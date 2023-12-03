@@ -174,3 +174,14 @@ export const updateShahidManagment = async (
     return { data: null, error: error.message };
   }
 };
+export const getByCustomSearhAdmin=async(name,family,birthdate,diedate)=>{
+  try{
+
+    const response= await axios.post( "http://localhost:4848/api/admin/shahidManagment/searchManagment",{name,family,birthdate,diedate})
+    return {data:response.data,error:null};
+  }
+  catch(error){
+    return {data:null,error:error.message}
+  }
+  
+}

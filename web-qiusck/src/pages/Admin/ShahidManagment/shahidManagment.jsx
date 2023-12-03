@@ -24,7 +24,7 @@ import { TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNotification } from "../../../context/NotificationProvider";
 import defaultShahid from "../../../assets/Image/defaultShahid.jpg";
-import {insertShahidManagementData,deleteShahid} from '../../../api/shahidDetailRequest';
+import {insertShahidManagementData,deleteShahid,getByCustomSearhAdmin} from '../../../api/shahidDetailRequest';
 import {updateShahidManagment} from '../../../api/updateShahidDetailRequest';
 import { fetchData } from "../../../api/shahidDetailRequest";
 import { SearchDialog } from "./searchDialog";
@@ -304,8 +304,15 @@ useEffect(()=>{
     setShowDetailtOfshahid(false);
     // setShahidDetail([]);
   };
-  const seacrhResult=(name,family,birthdate,diedate)=>{
-    console.log("this is result from search------->",name,family,birthdate,diedate)
+  const seacrhResult=async (name,family,birthdate,diedate)=>{
+console.log("<________________search click_______________>")
+const mydata=await getByCustomSearhAdmin(name,family,birthdate,diedate)
+if(mydata.data.data.length>0){
+  console.log("show me data",mydata.data);
+  
+  setDataTable(mydata.data.data);
+
+}
 
   }
 
@@ -353,6 +360,12 @@ useEffect(()=>{
                 <TableCell align="right" width={300}>
                   <Tooltip title="اضافه کردن">
                     <IconButton onClick={openDialogHandler}>
+                      <AddIcon />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="ریفرش">
+                    <IconButton onClick={  fetchAndSetData}>
+
                       <AddIcon />
                     </IconButton>
                   </Tooltip>

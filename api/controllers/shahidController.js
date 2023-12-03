@@ -427,9 +427,10 @@ exports.getByCustomDate=async(req,res,next)=>{
 exports.searchShahidQuery=async(req,res,next)=>{
   const {name,family,birthdate,diedate}=req.body;
   console.log(name,family,birthdate,diedate);
-  const findedShahid=await Shahid.find({$or: [ { name: name }, {family: family },{diedate:{$eq:0}},{},{} ]});
+  const findedShahid=await Shahid.find({$or: [ { name: name }, {family: family } ]});
+  console.log
   
-  res.json({findedShahid});
+  res.json({data:findedShahid});
 }
 
 
