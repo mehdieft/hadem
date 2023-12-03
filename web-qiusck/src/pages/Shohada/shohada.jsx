@@ -90,9 +90,11 @@ const Shohada = () => {
   let maheKiri = "";
 
   const handleChangeday = (event) => {
+    setDayName(event.target.value)
     setDayDie(event.target.value);
   };
   const handleChangeMonth = (evenet) => {
+    seMonthName(evenet.target.value)
     setMonthDie(evenet.target.value);
   };
   const handleBackdropClick = (event) => {
@@ -311,7 +313,7 @@ const Shohada = () => {
 
     cycleOpen()
     console.log('----------->')
-    const result =await searchShahidByCustomDate(dayDie,monthDie);
+    const result =await searchShahidByCustomDate(monthDie,dayDie);
     if(result.data){
       setShahidList(result.data.searchedShahid)
 
