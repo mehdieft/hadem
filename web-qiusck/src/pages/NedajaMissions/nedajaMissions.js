@@ -21,7 +21,7 @@ const NedajaMissions=()=>{
         image33,]
     return (
         <>
-         <HTMLFlipBook  ref={book} showCover={true} orientation="horizontal" pageBackground="red"  flippingTime={1200} width={700} height={'600'}>
+         <HTMLFlipBook  ref={book} showCover={true} orientation="horizontal" pageBackground="red" style={{margin:'auto'}} flippingTime={1200} width={700} height={'600'}>
         <div style={{overflow:'hidden'}} className="demoPage"   >
             <div style={{backgroundImage:`url(${image26})`}}>
 
