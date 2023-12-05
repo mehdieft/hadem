@@ -2,6 +2,7 @@
 import './App.css';
 import SideBar from './components/sideBar/sideBar';
 import { AnimatedRoutes } from './AnimatedRoute';
+import {Footer} from './layouts/Footer/footer'
 
 
 
@@ -16,6 +17,8 @@ function App() {
       <SideBar id="fixed-navbar" />
         
       </div>
+      <Footer/>
+
     </div>
    
   );

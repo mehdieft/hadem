@@ -6,7 +6,7 @@ import './style.css';
 
 
 
-const Footer=()=>{
+export  const Footer=()=>{
     return(
         <>
         <div className="footer-container">
@@ -35,3 +35,4 @@ const Footer=()=>{
         </>
     )
 }
+// export default Footer;
