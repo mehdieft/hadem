@@ -1,5 +1,15 @@
 .footer-container{
     background-color: rgb(1, 32, 44);
+    color:white;
+    direction: rtl;
+    height: 75vh;
+}
+.footer-header-title{
+    font-family: diba;
+    display: inline;
+    max-width: 30%;
+    padding:20px;
+    font-size: 32px;
 }
 .footer-content-inner{
 
