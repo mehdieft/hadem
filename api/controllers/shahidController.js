@@ -405,7 +405,7 @@ exports.getByName=async(req,res,next)=>{
   let regex = new RegExp(name, 'i');
 const searchedShahid=await Shahid.find({
   $or: [
-    { 'name': regex },
+    // { 'name': regex },
     { 'family': regex }
   ]
 }).limit(100)

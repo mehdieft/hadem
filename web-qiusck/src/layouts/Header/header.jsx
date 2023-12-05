@@ -193,7 +193,7 @@ export const Header = () => {
               onChange={searchInputHandler}
               type="text"
               value={shahidName}
-              placeholder="نام شهید جستجو کنید"
+              placeholder="نام خانوادگی  شهید جستجو کنید"
               style={{ backgroundColor: "inherit", border: 0, color: "black" }}
             />
             {searchList.length > 0 ? (
