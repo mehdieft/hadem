@@ -1,9 +1,8 @@
 import './style.css';
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion";
-import { wrap } from "@popmotion/popcorn"
-
-
+import { wrap } from "@popmotion/popcorn";
+import { IMAGES } from "./images.js"
 
 
 
