@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #01202c
 }
 .carousel-one-slider-container {
     display: flex;
@@ -14,7 +15,7 @@
 .carousel-one-slider-container .carousel-one-slider {
     position: relative;
     height: 500px;
-    width: 350px;
+    width: 100vw;
     overflow: hidden;
 }
 @media only screen and (max-width: 375px) {
@@ -47,7 +48,7 @@
     user-select: none;
     padding: 10px 12px;
     transform: skewY(-5deg) rotate(5deg);
-    background-color: #1f1f1f;
+    background-color: rgb(255, 123, 0);
     font-family: inherit;
     font-size: inherit;
     color: white;
@@ -98,7 +99,7 @@
     pointer-events: none;
     transform: scaleX(0);
     transform-origin: left;
-    background-color: #1f1f1f;
+    background-color: rgb(255, 123, 0);
     transition: 1s cubic-bezier(0.56, 0.03, 0.12, 1.04) transform;
 }
 .thumbnails .thumbnail-container .active-indicator.active {
