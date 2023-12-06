@@ -13,7 +13,10 @@ export  const Footer=()=>{
         <>
         <FramerCarouselOne/>
         <div className="footer-container" style={{background:`url(${footerImage})`,backgroundRepeat:'no-repeat',backgroundSize:'cover'}}>
-         <span atyle={{margin:'0'}}>ارتش قوی بود قوی هست و قوی و استوار خواهد ماند</span>
+         <span style={{margin:'0',fontSize:'32px',position: 'absolute',right:'32%',paddingTop:'82px'}}>ارتش قوی بود قوی هست و قوی و استوار خواهد ماند</span>
+         <div>
+            
+         </div>
         </div>
 
         </>

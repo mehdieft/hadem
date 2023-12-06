@@ -3,8 +3,10 @@ const moment = require("jalali-moment");
 const multer = require('multer');
 
 
+
 var fs = require("fs");
 const { date } = require("joi");
+
 
 exports.insert = async (req, res, next) => {
   filePath = "./public/uploads/excel/convertcsv.json";
@@ -14,7 +16,7 @@ exports.insert = async (req, res, next) => {
     }
     var source = JSON.parse(data);
 
-    console.log(source);
+   
 
     var arrayToInsert = [];
 
@@ -27,7 +29,7 @@ exports.insert = async (req, res, next) => {
         placeOfDeath: source[i].O,
         militiryEducation: source[i].W,
         birthdate: moment(source[i].S).format("DD-MMM-YYYY"),
-        dieDate: source[i].N,
+        dieDate:moment(source[i].N).format("DD-MMM-YYYY") ,
         image: "",
         wayOfDie: source[i].P,
         cemeteryPlace: source[i].AE,
