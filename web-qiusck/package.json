@@ -10,6 +10,7 @@
     "@ijavad805/react-datepicker": "^2.1.19",
     "@mui/icons-material": "^5.14.1",
     "@mui/material": "^5.14.2",
+    "@popmotion/popcorn": "^0.4.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

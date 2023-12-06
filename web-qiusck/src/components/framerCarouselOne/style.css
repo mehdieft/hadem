@@ -1,0 +1,106 @@
+
+
+.carousel-one-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.carousel-one-slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 0;
+}
+.carousel-one-slider-container .carousel-one-slider {
+    position: relative;
+    height: 500px;
+    width: 350px;
+    overflow: hidden;
+}
+@media only screen and (max-width: 375px) {
+    .carousel-one-slider-container .carousel-one-slider {
+        height: 400px;
+        width: 300px;
+   }
+}
+.carousel-one-slider-container .carousel-one-slider .image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    will-change: transform, opacity;
+}
+.carousel-one-slider-container .carousel-one-slider .image:hover {
+    cursor: grab;
+}
+.carousel-one-slider-container .carousel-one-slider .image:active {
+    cursor: grabbing;
+}
+.carousel-one-slider-container .buttons {
+    margin-top: 12px;
+}
+.carousel-one-slider-container .buttons button {
+    outline: none;
+    border: none;
+    user-select: none;
+    padding: 10px 12px;
+    transform: skewY(-5deg) rotate(5deg);
+    background-color: #1f1f1f;
+    font-family: inherit;
+    font-size: inherit;
+    color: white;
+    transition: 0.07s ease-out transform;
+}
+.carousel-one-slider-container .buttons button:first-of-type {
+    margin-right: 15px;
+}
+.carousel-one-slider-container .buttons button:hover {
+    cursor: pointer;
+}
+.carousel-one-slider-container .buttons button:active {
+    transform: scale(0.85) skewY(-5deg) rotate(5deg);
+}
+.thumbnails {
+    display: flex;
+    justify-content: center;
+}
+.thumbnails .thumbnail-container {
+    position: relative;
+    height: 120px;
+    width: 90px;
+}
+@media only screen and (max-width: 375px) {
+    .thumbnails .thumbnail-container {
+        height: 70px;
+        width: 50px;
+   }
+}
+.thumbnails .thumbnail-container:hover {
+    cursor: pointer;
+}
+.thumbnails .thumbnail-container:not(:last-of-type) {
+    margin-right: 5px;
+}
+.thumbnails .thumbnail-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.thumbnails .thumbnail-container .active-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: #1f1f1f;
+    transition: 1s cubic-bezier(0.56, 0.03, 0.12, 1.04) transform;
+}
+.thumbnails .thumbnail-container .active-indicator.active {
+    transform: scaleX(1);
+}

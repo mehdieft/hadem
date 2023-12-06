@@ -11,9 +11,9 @@ import { wrap } from "@popmotion/popcorn"
 export const FramerCarouselOne=()=>{
     return (
         <>
-        <main>
-      <div className="slider-container">
-        <div className="slider">
+        <main className="carousel-one-main">
+      <div className="carousel-one-slider-container">
+        <div className="carousel-one-slider">
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={imageCount}
