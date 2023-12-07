@@ -146,6 +146,9 @@ const Shohada = () => {
                   cemeteryPlace={item.cemeteryPlace}
                   birthdayPlace={item.birthdayPlace}
                   militiryEducation={item.militiryEducation}
+                  dieDay={item.dieDay}
+                  dieYear={item.dieYear}
+                  dieMonth={item.dieMonth}
                 />
               </>
             );
@@ -289,7 +292,7 @@ const Shohada = () => {
     const result = await getTodayShahid();
     console.log("ress----->", result);
     if (result.data.s) {
-      maheKiri = result.data.todayDate.month;
+    
 
       seMonthName(result.data.todayDate.month);
     }

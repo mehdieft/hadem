@@ -36,7 +36,7 @@ exports.insert = async (req, res, next) => {
         birthdayPlace: source[i].R,
         dieYear:Number(source[i].N.split("/")[0])?Number(source[i].N.split("/")[0]):0,
         dieMonth: Number(source[i].N.split("/")[1])?Number(source[i].N.split("/")[1]):0,
-        dieDay: Number(source[i].N.split("/")[2])?Number(source[i].N.split("/")[2]-1):0 ,
+        dieDay: Number(source[i].N.split("/")[2])?Number(source[i].N.split("/")[2]):0 ,
       };
       if (
         singleRow.birthdate == null ||

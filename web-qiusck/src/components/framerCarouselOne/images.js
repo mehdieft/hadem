@@ -1,4 +1,8 @@
 import imageOne from '../../assets/images/MaskSahand.png'
+import iranNavy from '../../assets/images/iranNavy.jpeg'
+import imag2 from '../../assets/images/khoram2.jpg'
+
+
 export const IMAGES = [
     {
       id: 0,
@@ -8,12 +12,12 @@ export const IMAGES = [
     {
       id: 1,
       imageSrc:
-      imageOne
+      iranNavy
     },
     {
       id: 2,
       imageSrc:
-      imageOne
+      imag2
     },
     {
       id: 3,
