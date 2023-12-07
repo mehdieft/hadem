@@ -291,15 +291,13 @@ const Shohada = () => {
   const fetchAndSetData = async () => {
     const result = await getTodayShahid();
     console.log("ress----->", result);
-    if (result.data.s) {
-    
-
+    if (result.data) {
       seMonthName(result.data.todayDate.month);
     }
     console.log("_______________>", monthName);
-    seMonthName(result.data.todayDate.month);
-    setDayName(result.data.todayDate.day);
     if (result.data !== null) {
+      seMonthName(result.data.todayDate.month);
+      setDayName(result.data.todayDate.day);
       setShahidList(result.data.todayShahid);
       console.log("if statement", shahidList);
     } else {
