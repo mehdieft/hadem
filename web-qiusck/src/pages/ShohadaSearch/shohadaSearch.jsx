@@ -22,6 +22,9 @@ export const ShohadaSearch = () => {
                   image={item.image}
                   birthdayPlace={item.birthdayPlace}
                   militiryEducation={item.militiryEducation}
+                  dieDay={item.dieDay}
+                  dieYear={item.dieYear}
+                  dieMonth={item.dieMonth}
                 />
               </>
             );

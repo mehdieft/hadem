@@ -29,9 +29,9 @@ const ShahidCard = ({
         </div>
         <div className="card-detail">
           {/* <span className="card-title">شهید امروز</span> */}
-          <span>تاریخ تولد:<span className="shahid-detail-span" style={{rotate:'180deg'}}>{birthdate !==''&& birthdate?birthdate.split('T')[0].replaceAll('-','/'):'____'}</span> </span>
+          <span>تاریخ تولد:<span className="shahid-detail-span" style={{rotate:'180deg'}}>{birthdate !==''&& birthdate &&birthdate !==''&& birthdate ?birthdate.split('T')[0].replaceAll('-','/'):'____'}</span> </span>
           <span>زادگاه:<span className="shahid-detail-span">{birthdayPlace !=='' || birthdayPlace !==''?birthdayPlace:'____'}</span>  </span>
-          <span>تاریخ شهادت:<span className="shahid-detail-span" style={{rotate:'180deg'}}>{dieDate !=='' && dieDate? `${dieYear}/${dieMonth}/${dieDay}`:''}</span>  </span>
+          <span>تاریخ شهادت:<span className="shahid-detail-span" style={{rotate:'180deg'}}>{dieDate !=='' && dieDate? `${dieYear}/${dieMonth}/${dieDay}`:'____'}</span>  </span>
           <span>نحوه شهادت:<span className="shahid-detail-span">{wayOfDie !==''?wayOfDie:'____'}</span>   </span>
           <span>آخرین محل خدمت:<span className="shahid-detail-span">{lastServePlace !==''?lastServePlace:'____'}</span> </span>
           <span>تحصیلات نظامی:<span className="shahid-detail-span">{militiryEducation !==''?militiryEducation:'____'}</span> </span>
