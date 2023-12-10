@@ -8,6 +8,7 @@ import {image26,
   image32,
   image33,
 } from "../../helper/imagesList";
+import example from '../../assets/images/MaskSahand.png'
 import HTMLFlipBook from "react-pageflip";
 const NedajaMissions=()=>{
     const book = useRef();
@@ -26,10 +27,12 @@ const NedajaMissions=()=>{
             <div style={{backgroundImage:`url(${image26})`}}>
 
             </div>
-            <img src={image26} width={700} height={600} alt="" />
+            <img src={example} width={700} height={600} alt="" />
             dasdasdasdasdsadasd
         </div>
-        <div className="demoPage">Page 2</div>
+        <div className="demoPage">
+          <img src={image27}/>
+        </div>
         <div className="demoPage">Page 3</div>
         <div className="demoPage">Page 4</div>
         <div className="demoPage">Page 5</div>
