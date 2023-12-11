@@ -1,6 +1,7 @@
 import "./style.css";
 import { Header } from "../../layouts/Header/header";
 import { MainLayout} from "../../layouts/Main/mainLayout";
+import TimeLineComponent from "../../components/timeLineComponent/timeLineComponent";
 
 import {motion} from 'framer-motion'
 // import CarouselComponent from "../../layouts/Carousel/carousel";
@@ -13,6 +14,7 @@ const Index = () => {
   return (
     <>
     <Header/>
+    <TimeLineComponent/>
     <MainLayout/>
    
       {/* <div  style={{
