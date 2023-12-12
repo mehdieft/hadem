@@ -121,6 +121,18 @@ const TimeLineComponent = () => {
         },
       },
     },
+    {
+      title: "جنگ نفتکش ها",
+      cardSubtitle: "",
+      cardDetailedText:
+        " جنگ نفتکش ها مجموعه عملیات های نظامی در دریاست که در سال های جنگ تحمیلی (1981_1988)در خلیج فارسس طرفین درگیر جنگ و نیروی دریایی آمریکا علیه کشتی های تجاری و نظامی یکدیگر انجام دادند.",
+      media: {
+        type: "IMAGE",
+        source: {
+          url: firstImage,
+        },
+      },
+    },
   ];
   return (
     <div style={{ backgroundColor: "rgb(1 32 44)" }}>
