@@ -1,5 +1,6 @@
 import { Chrono } from "react-chrono";
 import firstImage from "../../assets/images/timeline/1.jpg";
+import khoramShahr from '../../assets/Video/timeLine/siruz_khoramshahr.mp4'
 const TimeLineComponent = () => {
   const items = [
     {
@@ -7,6 +8,11 @@ const TimeLineComponent = () => {
       cardSubtitle: "عملیات دفاع 34 روزه از خرمشهر",
       cardDetailedText: "اولین عملیات دفاع مقدس",
       media: {
+        type: "IMAGE",
+        source: {
+          url: firstImage,
+        },
+      }, media: {
         type: "IMAGE",
         source: {
           url: firstImage,
@@ -141,7 +147,7 @@ const TimeLineComponent = () => {
         className="my-timeline"
         cardWidth="600"
         cardHeight="700"
-        mediaHeight="500"
+        mediaHeight="700"
         style={{ direction: "rtl", fontFamily: "iranSans" }}
         timelinePointShape="diamond"
         fontSizes={{
