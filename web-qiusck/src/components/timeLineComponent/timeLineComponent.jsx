@@ -1,5 +1,6 @@
 import { Chrono } from "react-chrono";
 import firstImage from "../../assets/images/timeline/1.jpg";
+
 import khoramShahr from '../../assets/Video/timeLine/siruz_khoramshahr.mp4'
 const TimeLineComponent = () => {
   const items = [
