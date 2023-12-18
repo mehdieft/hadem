@@ -73,6 +73,7 @@ const days = [
   { name: "28", value: 28 },
   { name: "29", value: 29 },
   { name: "30", value: 30 },
+  { name: "31", value: 30 },
 ];
 
 const Shohada = () => {
