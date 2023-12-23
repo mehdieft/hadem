@@ -30,7 +30,7 @@ export default function AnimText({ delay }) {
 
   return (
     <span className="">
-      <motion.span>{displayText}</motion.span>
+      {/* <motion.span>{displayText}</motion.span> */}
       {done && (
         <>
           <br /> <br />

@@ -48,18 +48,13 @@ export default function A4Animation() {
           className="flex items-center space-x-2"
         >
           
-          <span className="text-slate-700">Untitled document</span>
+          
         </motion.div>
         <motion.div
           variants={itemVariants}
           className="flex items-center justify-center"
         >
-          <div className="mt-2 flex space-x-4 rounded-full bg-slate-100 px-8 text-slate-700">
-            <strong>B</strong>
-            <span className="font-italic">I</span>
-            <span className="underline">U</span>
-            <strong className="underline">A</strong>
-          </div>
+    
         </motion.div>
         <motion.span
           variants={itemVariants}
