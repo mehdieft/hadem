@@ -9,12 +9,14 @@ import khoram2 from '../../assets/images/khoram2.jpg';
 import mahbubi from '../../assets/images/diary/mahboobi.gif';
 import sayari from '../../assets/images/diary/sayari.jpg';
 import sayariVideo from '../../assets/Video/amir-sayari.mp4';
+import VideoHeader from "../../layouts/VideoHeader/videoHeader";
 
 
 
 const Diary = () => {
   return (
     <>
+    <VideoHeader/>
       <div className="diary-main">
       <SingleDiaryComponent backgroundImage={khoram1}  titleImage={diaryImage} degree="ناخدا" name="هوشنگ صمدی"  diary="خاطره نجات سرباز رایان"  quete="زمانی که ناقوس مرگ به صدا در آمد جایی برای فرار نیست" videoItem={samadi}  />
 
