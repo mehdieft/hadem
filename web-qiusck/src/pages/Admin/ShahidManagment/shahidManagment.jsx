@@ -342,7 +342,7 @@ if(mydata.data.data.length>0){
       
   
       <TableContainer
-        sx={{ maxHeight: "90vh", width: "89%", margin: "0 auto" ,overflow:'hidden'}}
+        sx={{ maxHeight: "fitContent", width: "89%", margin: "0 auto" ,overflow:'hidden'}}
       >
         <Table
           sx={{
