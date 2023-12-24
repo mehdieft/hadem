@@ -5,7 +5,6 @@ import TimeLineComponent from "../../components/timeLineComponent/timeLineCompon
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ImageSlider from "../../components/imageSlider/imageSlider";
-import  A4Animation from '../../components/animationText/a4Layout';
 
 import { motion } from "framer-motion";
 // import CarouselComponent from "../../layouts/Carousel/carousel";
@@ -19,7 +18,6 @@ const Index = () => {
   return (
     <>
       <Header />
-      <A4Animation/>
       <ImageSlider/>
      
       <TimeLineComponent />

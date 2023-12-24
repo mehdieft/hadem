@@ -25,6 +25,7 @@ import Modal from "@mui/material/Modal";
 import MenuIcon from "@mui/icons-material/Menu";
 import { RadiusButton } from "../../components/RadiusButton/radiusButton";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { TurboSelect } from 'react-turbo-select'
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 // import { Calendar } from "react-modern-calendar-datepicker";
@@ -261,6 +262,7 @@ const Shohada = () => {
                         }}
                         I
                       >
+                        <TurboSelect options={days} />
                         {days.map((validNote) => (
                           <MenuItem value={validNote.value}>
                             {validNote.name}
