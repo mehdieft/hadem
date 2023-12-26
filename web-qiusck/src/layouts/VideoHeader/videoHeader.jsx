@@ -1,12 +1,12 @@
 import "./style.css";
-import exampleVideo from '../../assets/Video/navyHeader.mp4';
+import videoSecond from '../../assets/Video/nakhoda-mahboobi.mp4'
 const VideoHeader = () => {
   return <>
      
      
      <div id="videoDiv"> 
 <video id="video1" preload="" autoplay="" muted="" playsinline="" loop="">
-<source src={exampleVideo} type="video/mp4"/>
+<source src={videoSecond} type="video/mp4"/>
 </video> 
 <div id="videoMessage" class="styling">
 <h1>The Early Bird...</h1>

@@ -136,6 +136,14 @@ export const Header = () => {
             </ul>
           </div>
         </nav> */}
+        <s style={{    backgroundColor: 'rgb(5 129 129)',
+    opacity: 0.5,
+    width: '100vw',
+    height: '100vh',
+    position: 'absolute',}}>
+
+        </s>
+
         <div className="header-content">
           <div className="header-image-iran"></div>
           <div id="content">
