@@ -16,7 +16,7 @@ import VideoHeader from "../../layouts/VideoHeader/videoHeader";
 const Diary = () => {
   return (
     <>
-    <VideoHeader/>
+    {/* <VideoHeader/> */}
       <div className="diary-main">
       <SingleDiaryComponent backgroundImage={khoram1}  titleImage={diaryImage} degree="ناخدا" name="هوشنگ صمدی"  diary="خاطره نجات سرباز رایان"  quete="زمانی که ناقوس مرگ به صدا در آمد جایی برای فرار نیست" videoItem={samadi}  />
 
