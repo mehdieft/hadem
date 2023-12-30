@@ -26,6 +26,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { RadiusButton } from "../../components/RadiusButton/radiusButton";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { TurboSelect } from 'react-turbo-select'
+import AnimatedDialog from '../../components/animatedDialog/animatedDialog';
 // import 'react-modern-calendar-datepicker/lib/DatePicker.css';
 // import DatePicker from 'react-modern-calendar-datepicker';
 // import { Calendar } from "react-modern-calendar-datepicker";
@@ -127,6 +128,7 @@ const Shohada = () => {
 
     return (
       <>
+      {/* <AnimatedDialog/> */}
         <div style={{ background: "rgb(1, 32, 44)" }}>
           {/* <img src={shohada} style={{ width: "100%", width: "100%" }} alt="" /> */}
           {/* <div className="search-bar">daskjjdghasjghdjh</div> */}

@@ -86,6 +86,7 @@ export const Header = () => {
   };
   return (
     <>
+
       <div className="header">
         <video id="header-video" autoPlay muted loop>
           <source type="video/mp4" src={videoheader} />
@@ -143,6 +144,17 @@ export const Header = () => {
     position: 'absolute',}}>
 
         </s>
+        {/* <div className="header-navbar">
+          <div></div>
+
+          <div></div>
+          <div><a href="/"></a></div>
+          <div><a href="/shohada">شهدای امروز</a></div>
+          <div><a href="/diary">خاطرات پیشکسوتان</a></div>
+          <div>ششش</div>
+          <div></div>
+          <div></div>
+        </div> */}
 
         <div className="header-content">
           <div className="header-image-iran"></div>

@@ -4,6 +4,24 @@
   font-family: iranSans;
   overflow: hidden;
 }
+.header-navbar{
+  position: fixed;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: Diba;
+  z-index: 10;
+  background-color: #01202c;
+}
+.header-navbar a{
+  color:white;
+  text-decoration: none;
+  font-family: Diba;
+  font-size: 30px;
+}
  
 /* }
 .d-flex{

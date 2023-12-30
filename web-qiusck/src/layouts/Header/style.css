@@ -19,6 +19,14 @@ filter:opacity(90%);
 .logo-header{
     height: 100px;
 }
+.header-navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: Diba;
+    z-index: 10;
+    background-color: #01202c;
+}
 .nav-container{
     width: 100%;
     background-color: rgba(40, 37, 37, 0.5);
