@@ -30,7 +30,7 @@ const Index = () => {
       <CarouselComponent />
       </div> */}
       {/* <h1>{windowWidth}</h1> */}
-      <a href={window.location.origin + "/test/index.html"}>dasdasdsa</a>
+
     </>
   );
 };

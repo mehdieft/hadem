@@ -7,10 +7,13 @@ import { BrowserRouter } from "react-router-dom";
 import NotificationProvider from "./context/NotificationProvider";
 import ImageDialogProvider from "./context/ImageDialogProvider";
 import VideoDialogProvider from "./context/VideoDialogProvider";
+import SearchProvider from "./context/searchDialogProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
+  <SearchProvider>
+
     <NotificationProvider>
       <ImageDialogProvider>
         <VideoDialogProvider>
@@ -18,6 +21,7 @@ root.render(
         </VideoDialogProvider>
       </ImageDialogProvider>
     </NotificationProvider>
+  </SearchProvider>
   </BrowserRouter>
 );
 
