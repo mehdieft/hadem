@@ -4,6 +4,7 @@ import firstImage from "../../assets/images/khatere.jpg";
 import secondImage from '../../assets/images/iran.jpg'
 import thirdImage from '../../assets/images/shahid.jpg'
 import { useNavigate } from "react-router-dom";
+import CountUp from 'react-countup';
 import {motion} from 'framer-motion'
 export const MainLayout = () => {
   const navigate=useNavigate()
@@ -58,6 +59,11 @@ export const MainLayout = () => {
           title="شهدای امروز"
         />
       </div>
+      <div>
+      <CountUp scrollSpyDelay={1} enableScrollSpy={true} duration={10} className="counter" end={1304320} />
+      <span style={{fontSize:43,color:'white'}}>dsadasdas</span>
+      </div>
     </motion.div>
+    
   );
 };

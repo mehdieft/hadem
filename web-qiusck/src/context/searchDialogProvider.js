@@ -125,9 +125,9 @@ export default function SearchProvider({ children }) {
                       
                           <div>
                             {" "}
-                            <p>تاریخ شهادت:{}</p>
+                            <p> تاریخ تولد:{}</p>
                             <DatePicker
-                              style={{ width: "212px" }}
+                              style={{ width: "405px" }}
                               placeholder=" انتخاب تاریخ تولد شهید"
                               format="jYYYY/jMM/jDD"
                             //   onChange={dieDateChange}
