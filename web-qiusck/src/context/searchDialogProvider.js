@@ -10,6 +10,8 @@ import { RadiusButton } from "../components/RadiusButton/radiusButton";
 import { DatePicker } from "jalaali-react-date-picker";
 import "jalaali-react-date-picker/lib/styles/index.css";
 
+import Input from "../components/Input/input";
+
 const searchContext = createContext();
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -85,10 +87,11 @@ export default function SearchProvider({ children }) {
                           }}
                         >
                           <div>
-                            <TextField
+                            <Input
+
+                            
                               sx={{ marginRight: "100px" }}
                               id="filled-basic"
-                              style={{ color: "white" }}
                               label="نام شهید"
                               variant="filled"
                               fontFamily="Diba"
@@ -98,7 +101,8 @@ export default function SearchProvider({ children }) {
                           </div>
                           <div></div>
                           <div>
-                            <TextField
+                            <Input
+                          
                               id="standard-basic"
                               label="نام خانوادگی شهید"
                               variant="filled"
@@ -116,18 +120,9 @@ export default function SearchProvider({ children }) {
                         </div>
                       </TabPanel>
                       <TabPanel>
+                    
                         <div className="row">
-                          {/* <div>
-                            <p>تاریخ تولد:{birthdate}</p>
-                            <DatePickerF
-                              style={{ width: "212px" }}
-                              placeholder=" انتخاب تاریخ تولد شهید"
-                              format="jYYYY/jMM/jDD"
-                              onChange={bornDateChange}
-                              id="datePicker"
-                              // preSelected="1396/05/15"
-                            />
-                          </div> */}
+                      
                           <div>
                             {" "}
                             <p>تاریخ شهادت:{}</p>
@@ -142,10 +137,10 @@ export default function SearchProvider({ children }) {
                           </div>
                         </div>{" "}
                       </TabPanel>
-                    </Tabs>
-                    <Tabs>
+                <TabPanel>
+
                     <div style={{margin:'160px'}}>
-                            <TextField
+                            <Input
                               id="standard-basic"
                               label="شهر شهید را وارد کنید"
                               variant="filled"
@@ -154,6 +149,7 @@ export default function SearchProvider({ children }) {
                               }}
                             />
                           </div>
+                </TabPanel>
                     </Tabs>
                   </div>
                 </div>

@@ -14,10 +14,12 @@ import { useNotification } from "../../context/NotificationProvider";
 import IconButton from "@mui/material/IconButton";
 import { useNavigate } from "react-router-dom";
 
+
 import "./style.css";
 import { useEffect } from "react";
 export const Header = () => {
   const { openNotification } = useNotification();
+
   const navigate = useNavigate();
   const ShahidUlList = ({ shahid }) => {
     return <>

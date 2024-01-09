@@ -2,11 +2,14 @@
 import './App.css';
 import SideBar from './components/sideBar/sideBar';
 import { AnimatedRoutes } from './AnimatedRoute';
-import {Footer} from './layouts/Footer/footer'
+import {Footer} from './layouts/Footer/footer';
+import { useSearch } from "./context/searchDialogProvider";
+
 
 
 
 function App() {
+  const {openSearchDialogMethod}=useSearch()
   
 
   return (
@@ -18,7 +21,7 @@ function App() {
           <div><a href="/"></a></div>
           <div><a href="/shohada">شهدای امروز</a></div>
           <div><a href="/diary">خاطرات پیشکسوتان</a></div>
-          <div>ششش</div>
+          <div onClick={openSearchDialogMethod}><a>جستجو</a></div>
           <div></div>
           <div></div>
         </div>
