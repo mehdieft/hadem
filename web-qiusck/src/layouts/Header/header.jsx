@@ -192,51 +192,7 @@ export const Header = () => {
         </div>
       </div>
       <div style={{ height: "120px", backgroundColor: "rgb(1, 32, 44)" }}></div>
-      <div
-        className="header-search-container"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-
-          height: "60vh",
-          backgroundImage: `url(${searchHeaderImage})`,
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="header-content-wrapper">
-          <div className="search-input-container">
-            <div className="header-content-icon-wrapper">
-              <IconButton onClick={searchClkickHandler}>
-                <SearchIcon color="black" />
-              </IconButton>
-            </div>
-            <input
-              onChange={searchInputHandler}
-              type="text"
-              value={shahidName}
-              placeholder="نام خانوادگی  شهید جستجو کنید"
-              style={{ backgroundColor: "inherit", border: 0, color: "black" }}
-            />
-            {searchList.length > 0 ? (
-              <ShahidUlList shahid={searchList} />
-            ) : null}
-            {/* {searchList.length>0? <>
-            <ul >
-              {searchList.map((item)=>{
-                <li>{item.name}  {item.family}</li>
-              })
-
-              }
-            </ul>
-            </>
-            :null 
-            }
-            */}
-          </div>
-          <hr />
-        </div>
-      </div>
+  
     </>
   );
 
