@@ -52,7 +52,7 @@ export default function SearchProvider({ children }) {
       {openSearch ? (
         <section className="modal__bg">
           <div className="modal__align">
-            <div className="modal__content" style={{ direction: "rtl",color:'white' }}>
+            <div className="modal__content" style={{ direction: "rtl", color: 'white' }}>
               <CloseIcon
                 onClick={closeSearchDialog}
                 className="modal__close"
@@ -72,7 +72,11 @@ export default function SearchProvider({ children }) {
                         <Tab style={{ fontFamily: "Diba", fontSize: 18 }}>
                           جستجو بر اساس شهر سکونت
                         </Tab>
+                        <Tab style={{ fontFamily: "Diba", fontSize: 18 }}>
+                          جستجو بر اساس تاریخ شهادت
+                        </Tab>
                       </TabList>
+
 
                       <TabPanel>
                         <div
@@ -89,7 +93,7 @@ export default function SearchProvider({ children }) {
                           <div>
                             <Input
 
-                            
+
                               sx={{ marginRight: "100px" }}
                               id="filled-basic"
                               label="نام شهید"
@@ -102,7 +106,7 @@ export default function SearchProvider({ children }) {
                           <div></div>
                           <div>
                             <Input
-                          
+
                               id="standard-basic"
                               label="نام خانوادگی شهید"
                               variant="filled"
@@ -120,36 +124,82 @@ export default function SearchProvider({ children }) {
                         </div>
                       </TabPanel>
                       <TabPanel>
-                    
+
                         <div className="row">
-                      
+
                           <div>
                             {" "}
-                            <p> تاریخ تولد:{}</p>
+                            <p> تاریخ تولد:{ }</p>
                             <DatePicker
                               style={{ width: "405px" }}
                               placeholder=" انتخاب تاریخ تولد شهید"
                               format="jYYYY/jMM/jDD"
-                            //   onChange={dieDateChange}
+                              //   onChange={dieDateChange}
                               id="datePicker2"
-                              // preSelected="1396/05/15"
+                            // preSelected="1396/05/15"
                             />
                           </div>
                         </div>{" "}
                       </TabPanel>
-                <TabPanel>
+                      <TabPanel>
 
-                    <div style={{margin:'160px'}}>
+                        <div style={{ margin: '160px' }}>
+                          <Input
+                            id="standard-basic"
+                            label="شهر شهید را وارد کنید"
+                            variant="filled"
+                            onChange={(e) => {
+                              setFamily(e.target.value);
+                            }}
+                          />
+                        </div>
+                      </TabPanel>
+                      <TabPanel>
+                          <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: "center",
+                            alignItems: "center",
+
+                            marginTop: 100,
+                            gap: 100,
+                          }}
+                        >
+                          <div>
                             <Input
+
+
+                              sx={{ marginRight: "100px" }}
+                              id="filled-basic"
+                              label="نام شهید"
+                              variant="filled"
+                              fontFamily="Diba"
+                              fontSize={32}
+                              onChange={(e) => setName(e.target.value)}
+                            />
+                          </div>
+                          <div></div>
+                          <div>
+                            <Input
+
                               id="standard-basic"
-                              label="شهر شهید را وارد کنید"
+                              label="نام خانوادگی شهید"
                               variant="filled"
                               onChange={(e) => {
                                 setFamily(e.target.value);
                               }}
                             />
                           </div>
-                </TabPanel>
+                        </div>
+                        <div style={{ marginTop: 100, marginRight: 23 }}>
+                          <RadiusButton
+                            title="جستجو"
+                            clickEvent={searchByName}
+                          />
+                          </div>
+
+                      </TabPanel>
                     </Tabs>
                   </div>
                 </div>
