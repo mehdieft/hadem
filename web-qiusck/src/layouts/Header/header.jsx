@@ -14,7 +14,6 @@ import { useNotification } from "../../context/NotificationProvider";
 import IconButton from "@mui/material/IconButton";
 import { useNavigate } from "react-router-dom";
 
-
 import "./style.css";
 import { useEffect } from "react";
 export const Header = () => {
@@ -22,18 +21,22 @@ export const Header = () => {
 
   const navigate = useNavigate();
   const ShahidUlList = ({ shahid }) => {
-    return <>
-    <ul>
-      {shahid.map((item,index)=>{
-        <li key={index} >{item.name}  {item.family}</li>
-      })}
-    </ul>
-    </>;
+    return (
+      <>
+        <ul>
+          {shahid.map((item, index) => {
+            <li key={index}>
+              {item.name} {item.family}
+            </li>;
+          })}
+        </ul>
+      </>
+    );
   };
 
   let [searchList, setSearchList] = useState([]);
   let [shahidName, setShahidName] = useState("");
-  let dataList=[]
+  let dataList = [];
   useEffect(() => {}, []);
 
   const svgLogoAnimation = {
@@ -55,11 +58,10 @@ export const Header = () => {
     const result = await searchShahid(name);
     console.log("ress----->", result.data.searchedShahid);
     if (result.data !== null) {
-    
       console.log("res----------یسشیشسی->", result);
-      dataList.push(result.data.searchedShahid)
+      dataList.push(result.data.searchedShahid);
 
-      console.log("dataList------->",dataList)
+      console.log("dataList------->", dataList);
       openNotification("hjajkshda", "success");
       // console.log(searchList);
     } else {
@@ -74,11 +76,11 @@ export const Header = () => {
         "error"
       );
     } else {
-      setShahidName(shahidName.replace('شهید',''));
-      console.log("shahid name-------------------->",shahidName)
+      setShahidName(shahidName.replace("شهید", ""));
+      console.log("shahid name-------------------->", shahidName);
       await fetchAndSetData(shahidName);
-      console.log("shahid sented there",searchList)
-      navigate('/ShohadaSearch',{state:{dataList}})
+      console.log("shahid sented there", searchList);
+      navigate("/ShohadaSearch", { state: { dataList } });
       setShahidName("");
     }
   };
@@ -88,7 +90,6 @@ export const Header = () => {
   };
   return (
     <>
-
       <div className="header">
         <video id="header-video" autoPlay muted loop>
           <source type="video/mp4" src={videoheader} />
@@ -139,13 +140,15 @@ export const Header = () => {
             </ul>
           </div>
         </nav> */}
-        <s style={{    backgroundColor: 'rgb(5 129 129)',
-    opacity: 0.5,
-    width: '100vw',
-    height: '100vh',
-    position: 'absolute',}}>
-
-        </s>
+        <s
+          style={{
+            backgroundColor: "rgb(5 129 129)",
+            opacity: 0.5,
+            width: "100vw",
+            height: "100vh",
+            position: "absolute",
+          }}
+        ></s>
         {/* <div className="header-navbar">
           <div></div>
 
@@ -170,7 +173,7 @@ export const Header = () => {
 
                 borderRadius: 12,
                 backgroundColor: "#ff7b00",
-                color:'white',
+                color: "white",
                 boxShadow: "5px 5px 0 rgba(20, 20, 120, 0.2)",
               }}
               transition={{
@@ -184,7 +187,6 @@ export const Header = () => {
                 fontSize: 12,
                 x: 0,
               }}
-              
             >
               گالری تصاویر
             </motion.button>
@@ -192,9 +194,6 @@ export const Header = () => {
         </div>
       </div>
       <div style={{ height: "120px", backgroundColor: "rgb(1, 32, 44)" }}></div>
-  
     </>
   );
-
 };
-

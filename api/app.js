@@ -11,7 +11,8 @@ const videoRoutes=require('./routes/Admin/videoRoutes');
 const AdminAuthRoutes=require('./routes/Admin/authenticationRoutes')
 const VideoRoutes=require('./routes/Admin/videoRoutes')
 const shahidManagment=require('./routes/Admin/shahidRoutes');
-const userUsageRoutes=require('./routes/User/usageRoutes')
+const userUsageRoutes=require('./routes/User/usageRoutes');
+const searchRoutes=require('./routes/Search/searchRoutes')
 
 
 
@@ -32,7 +33,7 @@ app.use('/api/admin/videoMangement',VideoRoutes)
 app.use('/api/admin/shahidManagment',shahidManagment)
 app.use('/api/auth',AdminAuthRoutes);
 app.use('/api/user',userUsageRoutes);
-
+app.use('/api/search',searchRoutes);
 app.use('/static',express.static(appRootPath + '/public' ))
 app.use('/uploads', express.static('./public/uploads'));
 app.all('*',(req,res,next)=>{

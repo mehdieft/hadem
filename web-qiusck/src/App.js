@@ -4,12 +4,19 @@ import SideBar from './components/sideBar/sideBar';
 import { AnimatedRoutes } from './AnimatedRoute';
 import {Footer} from './layouts/Footer/footer';
 import { useSearch } from "./context/searchDialogProvider";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 
 function App() {
+  const navigate = useNavigate();
   const {openSearchDialogMethod}=useSearch()
+ const openSearchFuck=()=>{
+  openSearchDialogMethod()
+  navigate("/")
+ } 
   
 
   return (
@@ -21,7 +28,7 @@ function App() {
           <div><a href="/"></a></div>
           <div><a href="/shohada">شهدای امروز</a></div>
           <div><a href="/diary">خاطرات پیشکسوتان</a></div>
-          <div onClick={openSearchDialogMethod}><a>جستجو</a></div>
+          <div onClick={openSearchFuck}><a>جستجو</a></div>
           <div></div>
           <div></div>
         </div>
