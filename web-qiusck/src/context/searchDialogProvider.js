@@ -52,6 +52,9 @@ export default function SearchProvider({ children }) {
     setFamily(e.target.value)
     console.log('familyy_____________>',family);
   }
+  const changeCityHandler=(e)=>{
+    setCity(e.target.value)
+  }
 
 
   const openSearchDialogMethod = () => {
@@ -300,14 +303,13 @@ export default function SearchProvider({ children }) {
                       <TabPanel>
 
                         <div style={{ margin: '160px' }}>
-                          <Input
-                            id="standard-basic"
-                            label="شهر شهید را وارد کنید"
-                            variant="filled"
-                            onChange={(e) => {
-                              setCity(e.target.value);
-                            }}
-                          />
+                        <div class="field field_v3">
+                              <label for="email" class="ha-screen-reader">شهر تولد شهید </label>
+                              <input  class="field__input" onChange={changeCityHandler} />
+                              <span class="field__label-wrap" aria-hidden="true">
+                                <span class="field__label">شهر تولد شهید </span>
+                              </span>
+                            </div>
                         </div>
                         <div style={{ marginTop: 100, marginRight: 23 }}>
                           <RadiusButton
