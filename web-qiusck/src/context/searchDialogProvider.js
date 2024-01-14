@@ -39,14 +39,14 @@ export default function SearchProvider({ children }) {
   const [openSearch, setOpenSearch] = useState(false);
   const [name, setName] = useState("");
   const [family, setFamily] = useState("");
-  const [birthDate,setBirthDate]=useState('');
+  const [birthDate, setBirthDate] = useState('');
   let dataList = [];
 
   const changeNameHandler = (e) => {
     setName(e.target.value)
     console.log('nameee------>', name)
   }
-  const changeFamilyHandler=(e)=>{
+  const changeFamilyHandler = (e) => {
     setFamily(e.target.value)
     console.log(family);
   }
@@ -55,7 +55,7 @@ export default function SearchProvider({ children }) {
   const openSearchDialogMethod = () => {
     setOpenSearch(true);
   };
-  const clearform=()=>{
+  const clearform = () => {
     setName('');
     setFamily('');
     setBirthDate('');
@@ -71,7 +71,7 @@ export default function SearchProvider({ children }) {
   const closeSearchDialog = () => {
     setOpenSearch(false);
   };
-  const fetchAndSetData = async (name,family) => {
+  const fetchAndSetData = async (name, family) => {
     console.log("fuck you");
     const result = await searchByNameAndFamily(name, family);
     console.log("ress----->", result.data.searchedShahid);
@@ -87,12 +87,13 @@ export default function SearchProvider({ children }) {
     }
   };
   const birthdayDateChange = (unix, formatted) => {
-    console.log('birthday datepicker------->',formatted,unix);
-  
+    console.log('birthday datepicker------->', formatted, unix);
+    setBirthDate(formatted);
+    console.log('this is birthdate----->', birthDate);
   };
   const clickSaearchByNameAndFamilyHandler = async () => {
-    if (name == '' &&  family == '') {
-      console.log(name, family)
+    if (name === '' && family === '') {
+     
       toast.error('حداقل یکی از موارد نام و نام خانوادگی را پر کنید', {
         position: "top-right",
         autoClose: 5000,
@@ -103,20 +104,39 @@ export default function SearchProvider({ children }) {
         progress: undefined,
         theme: "colored",
       });
-      
+
 
     } else {
       clearform()
-      console.log(name,family)
+      console.log(name, family)
       await fetchAndSetData(name, family);
       // console.log("shahid sented there", searchList);
-      if(dataList.length >0){
+      if (dataList.length > 0) {
         setOpenSearch(false)
         navigate("/ShohadaSearch", { state: { dataList } });
 
-      }else{
+      } else {
         notify()
       }
+
+    }
+
+
+  }
+  const clickSaearchByBirthDate=()=>{
+    if(birthDate==''){
+      toast.error('لطفا تاریخ تولد را انتخاب کنید', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+
+    }else{
 
     }
 
@@ -207,7 +227,7 @@ export default function SearchProvider({ children }) {
                               style={{ width: "405px" }}
                               placeholder=" انتخاب تاریخ تولد شهید"
                               format="jYYYY/jMM/jDD"
-                                onChange={birthdayDateChange}
+                              onChange={birthdayDateChange}
                               id="datePicker2"
                             // preSelected="1356/066/31"
                             />
@@ -216,7 +236,7 @@ export default function SearchProvider({ children }) {
                         <div style={{ marginTop: 100, marginRight: 23 }}>
                           <RadiusButton
                             title="جستجو"
-                            clickEvent={clickSaearchByNameAndFamilyHandler}
+                            clickEvent={clickSaearchByBirthDate}
                           />
                         </div>
                       </TabPanel>
