@@ -13,7 +13,7 @@ import "jalaali-react-date-picker/lib/styles/index.css";
 import { useNotification } from './NotificationProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { searchByNameAndFamily } from '../api/searchShahid';
+import { searchByNameAndFamily,searchByCity } from '../api/searchShahid';
 import { useNavigate } from "react-router-dom";
 
 import Input from "../components/Input/input";
@@ -40,6 +40,7 @@ export default function SearchProvider({ children }) {
   const [name, setName] = useState("");
   const [family, setFamily] = useState("");
   const [birthDate, setBirthDate] = useState('');
+  const [city,setCity]=useState('')
   let dataList = [];
 
   const changeNameHandler = (e) => {
@@ -59,7 +60,24 @@ export default function SearchProvider({ children }) {
     setName('');
     setFamily('');
     setBirthDate('');
+    setCity('');
   }
+  const fetchAndSetDataByCity = async (city) => {
+    console.log("fuck you");
+    const result = await searchByCity(city);
+    console.log("ress----->", result.data.searchedShahid);
+    if (result.data !== null) {
+      console.log("res----------یسشیشسی->", result);
+      dataList.push(result.data.searchedShahid);
+      console.log("dataList------->", dataList);
+      notify()
+      // console.log(searchList);
+    } else {
+      notify()
+      // openNotification("متن جایگزین نباید خالی باشد", "error");
+    }
+  };
+
 
 
   const closeNotification = (event, reason) => {
