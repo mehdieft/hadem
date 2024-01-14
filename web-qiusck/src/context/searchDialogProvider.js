@@ -39,17 +39,27 @@ export default function SearchProvider({ children }) {
   const [openSearch, setOpenSearch] = useState(false);
   const [name, setName] = useState("");
   const [family, setFamily] = useState("");
+  const [birthDate,setBirthDate]=useState('');
   let dataList = [];
 
   const changeNameHandler = (e) => {
     setName(e.target.value)
     console.log('nameee------>', name)
   }
+  const changeFamilyHandler=(e)=>{
+    setFamily(e.target.value)
+    console.log(family);
+  }
 
 
   const openSearchDialogMethod = () => {
     setOpenSearch(true);
   };
+  const clearform=()=>{
+    setName('');
+    setFamily('');
+    setBirthDate('');
+  }
 
 
   const closeNotification = (event, reason) => {
@@ -61,7 +71,7 @@ export default function SearchProvider({ children }) {
   const closeSearchDialog = () => {
     setOpenSearch(false);
   };
-  const fetchAndSetData = async (name) => {
+  const fetchAndSetData = async (name,family) => {
     console.log("fuck you");
     const result = await searchByNameAndFamily(name, family);
     console.log("ress----->", result.data.searchedShahid);
@@ -76,11 +86,27 @@ export default function SearchProvider({ children }) {
       // openNotification("متن جایگزین نباید خالی باشد", "error");
     }
   };
+  const birthdayDateChange = (unix, formatted) => {
+    console.log('birthday datepicker------->',formatted);
+  
+  };
   const clickSaearchByNameAndFamilyHandler = async () => {
-    if (name == '' && family == '') {
+    if (name == '' &&  family == '') {
       console.log(name, family)
+      toast.error('حداقل یکی از موارد نام و نام خانوادگی را پر کنید', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      
 
     } else {
+      clearform()
       console.log(name,family)
       await fetchAndSetData(name, family);
       // console.log("shahid sented there", searchList);
@@ -181,7 +207,7 @@ export default function SearchProvider({ children }) {
                               style={{ width: "405px" }}
                               placeholder=" انتخاب تاریخ تولد شهید"
                               format="jYYYY/jMM/jDD"
-                              //   onChange={dieDateChange}
+                                onChange={birthdayDateChange}
                               id="datePicker2"
                             // preSelected="1396/05/15"
                             />
