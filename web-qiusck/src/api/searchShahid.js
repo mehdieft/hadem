@@ -13,3 +13,14 @@ export const searchByNameAndFamily=async(name,family)=>{
     }
     
   }
+  export const searchByBirthDate=async(date)=>{
+    try{
+      const response= await axios.post(`http://localhost:4848/api/search/searchByName`,{name:name,family:family})
+      return {data:response.data,error:null};
+    
+    }
+    catch(error){
+      return {data:null,error:error.message}
+    }
+    
+  }

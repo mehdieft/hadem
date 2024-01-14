@@ -87,7 +87,7 @@ export default function SearchProvider({ children }) {
     }
   };
   const birthdayDateChange = (unix, formatted) => {
-    console.log('birthday datepicker------->',formatted);
+    console.log('birthday datepicker------->',formatted,unix);
   
   };
   const clickSaearchByNameAndFamilyHandler = async () => {
@@ -209,10 +209,16 @@ export default function SearchProvider({ children }) {
                               format="jYYYY/jMM/jDD"
                                 onChange={birthdayDateChange}
                               id="datePicker2"
-                            // preSelected="1396/05/15"
+                            // preSelected="1356/066/31"
                             />
                           </div>
                         </div>{" "}
+                        <div style={{ marginTop: 100, marginRight: 23 }}>
+                          <RadiusButton
+                            title="جستجو"
+                            clickEvent={clickSaearchByNameAndFamilyHandler}
+                          />
+                        </div>
                       </TabPanel>
                       <TabPanel>
 
