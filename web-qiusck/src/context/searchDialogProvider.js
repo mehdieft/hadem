@@ -47,9 +47,10 @@ export default function SearchProvider({ children }) {
     setName(e.target.value)
     console.log('nameee------>', name)
   }
+ 
   const changeFamilyHandler = (e) => {
     setFamily(e.target.value)
-    console.log(family);
+    console.log('familyy_____________>',family);
   }
 
 
@@ -141,6 +142,39 @@ export default function SearchProvider({ children }) {
 
 
   }
+  const clickSaearchByCityHandler = async () => {
+    if (city ==='') {
+      console.log('_________>',city)
+     
+      toast.error('حداقل یکی از موارد نام و نام خانوادگی را پر کنید', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+
+
+    } else {
+      clearform()
+      console.log(city)
+      await fetchAndSetDataByCity(city);
+      // console.log("shahid sented there", searchList);
+      if (dataList.length > 0) {
+        setOpenSearch(false)
+        navigate("/ShohadaSearch", { state: { dataList } });
+
+      } else {
+        notify()
+      }
+
+    }
+
+
+  }
   const clickSaearchByBirthDate=()=>{
     if(birthDate==''){
       toast.error('لطفا تاریخ تولد را انتخاب کنید', {
@@ -208,7 +242,7 @@ export default function SearchProvider({ children }) {
                           <div>
                             <div class="field field_v3">
                               <label for="email" class="ha-screen-reader">نام شهید</label>
-                              <input id="email" class="field__input" onChange={changeNameHandler} />
+                              <input  class="field__input" onChange={changeNameHandler} />
                               <span class="field__label-wrap" aria-hidden="true">
                                 <span class="field__label">نام شهید</span>
                               </span>
@@ -216,15 +250,20 @@ export default function SearchProvider({ children }) {
                           </div>
                           <div></div>
                           <div>
-                            <Input
+                          <div class="field field_v3">
+                              <label for="email" class="ha-screen-reader">نام خانوادگی شهید</label>
+                              <input  class="field__input" onChange={changeFamilyHandler}  />
+                              <span class="field__label-wrap" aria-hidden="true">
+                                <span class="field__label">نام خانوادگی شهید </span>
+                              </span>
+                            </div>
+                            {/* <Input
 
                               id="standard-basic"
                               label="نام خانوادگی شهید"
                               variant="filled"
-                              onChange={(e) => {
-                                setFamily(e.target.value);
-                              }}
-                            />
+                              onChange={changeFamilyHandler} 
+                            /> */}
                           </div>
                         </div>
                         <div style={{ marginTop: 100, marginRight: 23 }}>
@@ -266,8 +305,14 @@ export default function SearchProvider({ children }) {
                             label="شهر شهید را وارد کنید"
                             variant="filled"
                             onChange={(e) => {
-                              setFamily(e.target.value);
+                              setCity(e.target.value);
                             }}
+                          />
+                        </div>
+                        <div style={{ marginTop: 100, marginRight: 23 }}>
+                          <RadiusButton
+                            title="جستجو"
+                            clickEvent={clickSaearchByCityHandler}
                           />
                         </div>
                       </TabPanel>
