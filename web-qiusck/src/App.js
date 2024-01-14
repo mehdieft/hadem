@@ -25,10 +25,10 @@ function App() {
           <div></div>
 
           <div></div>
-          <div><a href="/"></a></div>
           <div><a href="/shohada">شهدای امروز</a></div>
           <div><a href="/diary">خاطرات پیشکسوتان</a></div>
           <div onClick={openSearchFuck}><a>جستجو</a></div>
+          <div><a href="/">صفحه اصلی</a></div>
           <div></div>
           <div></div>
         </div>

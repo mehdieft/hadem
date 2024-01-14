@@ -6,6 +6,7 @@ import thirdImage from "../../assets/images/shahid.jpg";
 import { useNavigate } from "react-router-dom";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import anotherShahid from '../../assets/images/anotherShahid.jpg'
 export const MainLayout = () => {
   const navigate = useNavigate();
   const galleryHandler = () => {
@@ -62,6 +63,7 @@ export const MainLayout = () => {
           justifyContent: "space-between",
           alignItems: "center",
           margin: "0 32px",
+          paddingTop:120
         }}
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -75,7 +77,7 @@ export const MainLayout = () => {
               end={1304320}
             />
           </div>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ display: "flex", justifyContent: "center" ,}}>
             {" "}
             <span style={{ fontSize: 43, color: "white", alignSelf: "center" }}>
               شهید
@@ -89,7 +91,7 @@ export const MainLayout = () => {
             delay={5}
               scrollSpyDelay={1}
               enableScrollSpy={true}
-              duration={10}
+              duration={6}
               className="counter"
               end={1304320}
             />
@@ -105,10 +107,11 @@ export const MainLayout = () => {
           <div>
             {" "}
             <CountUp
+            prefix="شهید"
             delay={10}
               scrollSpyDelay={1}
               enableScrollSpy={true}
-              duration={15}
+              duration={8}
               className="counter"
               end={1304320}
             />
