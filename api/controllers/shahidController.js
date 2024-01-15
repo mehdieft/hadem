@@ -29,6 +29,9 @@ exports.insert = async (req, res, next) => {
         placeOfDeath: source[i].O,
         militiryEducation: source[i].W,
         birthdate: moment(source[i].S).format("DD-MMM-YYYY"),
+        birthYear:Number(source[i].S.split("/")[0])?Number(source[i].S.split("/")[0]):0,
+        birthMonth: Number(source[i].S.split("/")[1])?Number(source[i].S.split("/")[1]):0,
+        birthDay: Number(source[i].S.split("/")[2])?Number(source[i].S.split("/")[2]):0 ,
         dieDate:moment(source[i].N).format("DD-MMM-YYYY") ,
         image: "",
         wayOfDie: source[i].P,
@@ -77,6 +80,20 @@ exports.insert = async (req, res, next) => {
       if (typeof singleRow.dieYear !== "number" ||singleRow.dieMonth==NaN ||singleRow.dieMonth==null||singleRow.dieMonth=='') {
         singleRow.dieYear = 0;
       }
+
+
+
+
+      if (typeof singleRow.birthMonth !== "number"||singleRow.birthMonth==NaN ||singleRow.birthMonth==null||singleRow.birthMonth=='') {
+        singleRow.birthMonth = 0;
+      }
+      if (typeof singleRow.birthDay !== "number"||singleRow.birthDay==NaN ||singleRow.birthDay==null||singleRow.birthDay=='' ) {
+        singleRow.birthDay = 0;
+      }
+      if (typeof singleRow.birthYear !== "number" ||singleRow.birthYear==NaN ||singleRow.birthYear==null||singleRow.birthYear=='') {
+        singleRow.birthYear = 0;
+      }
+      
 
       console.log("_________>", singleRow.birthdate);
       arrayToInsert.push(singleRow);
