@@ -1,4 +1,5 @@
 const Shahid = require("../Models/Shahid");
+const moment=require('moment-jalaali')
 
 exports.nameAndFamilySearch=async(req,res,next)=>{
   
@@ -30,8 +31,10 @@ if(searchedShahid){
 }
 exports.birthDate=async(req,res,next)=>{
   const {birthDate}=req.body;
+  m = moment(birthDate,  'fa','jYYYY/jMM/jDD');
+  console.log('parsed data',m)
   console.log("this is city____>",birthDate);
-  const searchedShahid=await Shahid.find({birthdate:birthDate})
+  const searchedShahid=await Shahid.find({"birthdate" : {"$gte": new Date(birthDate),"$lt" : new Date(birthDate) }})
   if(searchedShahid){
     res.json({searchedShahid});
   }
