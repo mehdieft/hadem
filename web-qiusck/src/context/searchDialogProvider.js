@@ -348,47 +348,25 @@ export default function SearchProvider({ children }) {
                         </div>
                       </TabPanel>
                       <TabPanel>
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            justifyContent: "center",
-                            alignItems: "center",
+                        <div className="row">
 
-                            marginTop: 100,
-                            gap: 100,
-                          }}
-                        >
                           <div>
-                            <Input
-
-
-                              sx={{ marginRight: "100px" }}
-                              id="filled-basic"
-                              label="نام شهید"
-                              variant="filled"
-                              fontFamily="Diba"
-                              fontSize={32}
-                              onChange={(e) => setName(e.target.value)}
+                            {" "}
+                            <p> تاریخ شهادت:{ }</p>
+                            <DatePicker
+                              style={{ width: "405px" }}
+                              placeholder=" انتخاب تاریخ شهادت "
+                              format="jYYYY/jMM/jDD"
+                              onChange={birthdayDateChange}
+                              id="datePicker2"
+                            // preSelected="1356/066/31"
                             />
                           </div>
-                          <div></div>
-                          <div>
-                            <Input
-
-                              id="standard-basic"
-                              label="نام خانوادگی شهید"
-                              variant="filled"
-                              onChange={(e) => {
-                                setFamily(e.target.value);
-                              }}
-                            />
-                          </div>
-                        </div>
+                        </div>{" "}
                         <div style={{ marginTop: 100, marginRight: 23 }}>
                           <RadiusButton
                             title="جستجو"
-                          // clickEvent={searchByName}
+                            clickEvent={clickSaearchByBirthDateHandler}
                           />
                         </div>
 
