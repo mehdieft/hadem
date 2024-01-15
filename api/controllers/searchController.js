@@ -28,3 +28,11 @@ if(searchedShahid){
 
 
 }
+exports.birthDate=async(req,res,next)=>{
+  const {birthDate}=req.body;
+  console.log("this is city____>",birthDate);
+  const searchedShahid=await Shahid.find({birthdate:birthDate})
+  if(searchedShahid){
+    res.json({searchedShahid});
+  }
+}
