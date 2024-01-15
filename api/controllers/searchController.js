@@ -31,8 +31,8 @@ if(searchedShahid){
 }
 exports.birthDate=async(req,res,next)=>{
   const {birthDate}=req.body;
-  m = moment(birthDate,  'fa','jYYYY/jMM/jDD');
-  console.log('parsed data',m)
+  const numbericSearch=birthDate.split('/');
+  console.log('this is test for my search',numbericSearch)
   console.log("this is city____>",birthDate);
   const searchedShahid=await Shahid.find({"birthdate" : {"$gte": new Date(birthDate),"$lt" : new Date(birthDate) }})
   if(searchedShahid){
