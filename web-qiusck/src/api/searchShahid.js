@@ -24,9 +24,9 @@ export const searchByNameAndFamily=async(name,family)=>{
     }
     
   }
-  export const searchByBirthDate=async(date)=>{
+  export const searchByBirthDate=async(birthDate)=>{
     try{
-      const response= await axios.post(`http://localhost:4848/api/search/searchByName`,{name:name,family:family})
+      const response= await axios.post(`http://localhost:4848/api/search/searchByName`,{birthDate:birthDate})
       return {data:response.data,error:null};
     
     }

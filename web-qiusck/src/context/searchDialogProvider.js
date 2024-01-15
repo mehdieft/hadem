@@ -13,7 +13,7 @@ import "jalaali-react-date-picker/lib/styles/index.css";
 import { useNotification } from './NotificationProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { searchByNameAndFamily,searchByCity } from '../api/searchShahid';
+import { searchByNameAndFamily,searchByCity,searchByBirthDate } from '../api/searchShahid';
 import { useNavigate } from "react-router-dom";
 
 import Input from "../components/Input/input";
@@ -81,6 +81,21 @@ export default function SearchProvider({ children }) {
       // openNotification("متن جایگزین نباید خالی باشد", "error");
     }
   };
+  const fetchAndSetDataByBirthDate= async (birth) => {
+    console.log("fuck you");
+    const result = await searchByBirthDate(birth);
+    console.log("ress----->", result.data.searchedShahid);
+    if (result.data !== null) {
+      console.log("res----------یسشیشسی->", result);
+      dataList.push(result.data.searchedShahid);
+      console.log("dataList------->", dataList);
+      notify()
+      // console.log(searchList);
+    } else {
+      notify()
+      // openNotification("متن جایگزین نباید خالی باشد", "error");
+    }
+  };
 
 
 
@@ -113,6 +128,7 @@ export default function SearchProvider({ children }) {
     setBirthDate(formatted);
     console.log('this is birthdate----->', birthDate);
   };
+  //this is search by name and family
   const clickSaearchByNameAndFamilyHandler = async () => {
     if (name === '' && family === '') {
      
@@ -145,6 +161,40 @@ export default function SearchProvider({ children }) {
 
 
   }
+  const clickSaearchByBirthDateHandler = async () => {
+    if (birthDate=='') {
+     
+      toast.error('لطفا تاریخ تولد را انتخاب کنید', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+
+
+    } else {
+      console.log('here-____>',birthDate)
+  
+      await fetchAndSetDataByBirthDate(birthDate);
+      clearform()
+      // console.log("shahid sented there", searchList);
+      if (dataList.length > 0) {
+        setOpenSearch(false)
+        navigate("/ShohadaSearch", { state: { dataList } });
+
+      } else {
+        notify()
+      }
+
+    }
+
+
+  }
+  //this is search by city
   const clickSaearchByCityHandler = async () => {
     if (city ==='') {
       console.log('_________>',city)
@@ -178,24 +228,7 @@ export default function SearchProvider({ children }) {
 
 
   }
-  const clickSaearchByBirthDate=()=>{
-    if(birthDate==''){
-      toast.error('لطفا تاریخ تولد را انتخاب کنید', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-
-    }else{
-
-    }
-
-  }
+ 
 
   return (
     <searchContext.Provider value={{ openSearchDialogMethod }}>
@@ -296,7 +329,7 @@ export default function SearchProvider({ children }) {
                         <div style={{ marginTop: 100, marginRight: 23 }}>
                           <RadiusButton
                             title="جستجو"
-                            clickEvent={clickSaearchByBirthDate}
+                            clickEvent={clickSaearchByBirthDateHandler}
                           />
                         </div>
                       </TabPanel>
