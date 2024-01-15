@@ -42,3 +42,7 @@ exports.birthDate=async(req,res,next)=>{
     res.json({searchedShahid});
   }
 }
+exports.dieDate=async(req,res,next)=>{
+  const {dieDate}=req.body;
+  console.log("this is die date",dieDate)
+}
