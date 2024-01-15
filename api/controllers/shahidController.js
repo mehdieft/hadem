@@ -31,7 +31,7 @@ exports.insert = async (req, res, next) => {
         birthdate: moment(source[i].S).format("DD-MMM-YYYY"),
         birthYear:Number(source[i].S.split("/")[0])?Number(source[i].S.split("/")[0]):0,
         birthMonth: Number(source[i].S.split("/")[1])?Number(source[i].S.split("/")[1]):0,
-        birthDay: Number(source[i].S.split("/")[2])?Number(source[i].S.split("/")[2]):0 ,
+        birthDay: Number(source[i].S.split("/")[2])?Number(source[i].S.split("/")[2]-1):0 ,
         dieDate:moment(source[i].N).format("DD-MMM-YYYY") ,
         image: "",
         wayOfDie: source[i].P,
