@@ -10,7 +10,9 @@ import mahbubi from '../../assets/images/diary/mahboobi.gif';
 import sayari from '../../assets/images/diary/sayari.jpg';
 import sayariVideo from '../../assets/Video/amir-sayari.mp4';
 import VideoHeader from "../../layouts/VideoHeader/videoHeader";
-
+import morvaridVideo from '../../assets/Video/morvarid.mp4'
+import morvaridMission from '../../assets/images/diary/morvaridMission.jpg'
+import morvaridTitle from '../../assets/images/diary/morvaridTitle.jpg'
 
 
 const Diary = () => {
@@ -23,6 +25,7 @@ const Diary = () => {
       <SingleDiaryComponent backgroundImage={khoram2}  titleImage={mahbubi} degree="ناخدا" name="سلیمان محبوبی"  diary="گردان مستقر در خرمشهر"  quete="لحظه به لحظه از تعداد باقی مونده ها کم میشد و این بدان معنا بود که باقی مانده ها باید دوبرابر مقاومت کند" videoItem={mahbubiVideo}  />
 
         <SingleDiaryComponent backgroundImage={cityImage}  titleImage={sayari} degree="دریادار اول" name="امیر سیاری"  diary="خاطره نجات سرباز رایان"  quete="زمانی که ناقوس مرگ به صدا در آمد جایی برای فرار نیست" videoItem={sayariVideo}   />
+        <SingleDiaryComponent backgroundImage={morvaridMission}  titleImage={morvaridTitle} degree="عملیات" name="مروارید"  diary="برگترین عملیات نیروی دریایی ارتش"  quete="این عملیات برگ زرینی در کارنامه نیروی دریای راهبردی ارتش است" videoItem={morvaridVideo}   />
         
        
 

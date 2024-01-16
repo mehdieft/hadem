@@ -108,7 +108,7 @@ const SingleDiaryComponent = ({
               </svg>{" "}
               <span
                 style={{
-                  color: "red",
+                  color: "#fffb00",
                   fontWeight: "bold",
                   letterSpacing: "3px",
                   fontFamily: "iranSans",

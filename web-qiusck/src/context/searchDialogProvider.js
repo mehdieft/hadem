@@ -96,6 +96,21 @@ export default function SearchProvider({ children }) {
       // openNotification("متن جایگزین نباید خالی باشد", "error");
     }
   };
+  const fetchAndSetDataByDieDate = async (name, family) => {
+    console.log("fuck you");
+    const result = await searchByNameAndFamily(name, family);
+    console.log("ress----->", result.data.searchedShahid);
+    if (result.data !== null) {
+      console.log("res----------یسشیشسی->", result);
+      dataList.push(result.data.searchedShahid);
+      console.log("dataList------->", dataList);
+      notify()
+      // console.log(searchList);
+    } else {
+      notify()
+      // openNotification("متن جایگزین نباید خالی باشد", "error");
+    }
+  };
 
 
 
@@ -230,7 +245,10 @@ export default function SearchProvider({ children }) {
     <searchContext.Provider value={{ openSearchDialogMethod }}>
       {children}
       {openSearch ? (
+        
         <section className="modal__bg">
+
+        
           <ToastContainer />
           <div className="modal__align">
             <div className="modal__content" style={{ direction: "rtl", color: 'white' }}>
@@ -242,6 +260,7 @@ export default function SearchProvider({ children }) {
               <div className="modal__video-align">
                 <div style={{ direction: "rtl" }}>
                   <div>
+                    fdsfsdfsdfsdfsd
                     <Tabs>
                       <TabList>
                         <Tab style={{ fontFamily: "Diba", fontSize: 18 }}>

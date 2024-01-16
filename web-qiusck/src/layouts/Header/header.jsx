@@ -13,12 +13,18 @@ import { useState } from "react";
 import { useNotification } from "../../context/NotificationProvider";
 import IconButton from "@mui/material/IconButton";
 import { useNavigate } from "react-router-dom";
+import React, { useRef } from "react";
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import VolumeMuteIcon from '@mui/icons-material/VolumeMute';
+
 
 import "./style.css";
 import { useEffect } from "react";
 export const Header = () => {
   const { openNotification } = useNotification();
 
+  const vidRef = useRef(null);
+  const [sound, setSound] = useState(true);
   const navigate = useNavigate();
   const ShahidUlList = ({ shahid }) => {
     return (
@@ -33,7 +39,9 @@ export const Header = () => {
       </>
     );
   };
-
+  useEffect(() => {
+    // vidRef.current.muted=false
+  }, []);
   let [searchList, setSearchList] = useState([]);
   let [shahidName, setShahidName] = useState("");
   let dataList = [];
@@ -91,7 +99,7 @@ export const Header = () => {
   return (
     <>
       <div className="header">
-        <video id="header-video" autoPlay muted loop>
+        <video id="header-video" ref={vidRef} controls loop autoPlay muted>
           <source type="video/mp4" src={videoheader} />
         </video>
         {/* <nav className="nav-container">
@@ -162,6 +170,15 @@ export const Header = () => {
         </div> */}
 
         <div className="header-content">
+          <IconButton style={{zIndex:12,position:'absolute',top:56,left:32,fontSize:'56px'}}
+            onClick={() => {
+              setSound(!sound);
+
+              vidRef.current.muted = sound;
+            }}
+          >
+         {sound? <VolumeUpIcon fontSize="42" />:<VolumeMuteIcon fontSize="42"/>}
+          </IconButton>
           <div className="header-image-iran"></div>
           <div id="content">
             <h1 style={{ fontFamily: "diba", color: "rgb(52 255 255)" }}>

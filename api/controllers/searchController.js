@@ -11,7 +11,7 @@ exports.nameAndFamilySearch=async(req,res,next)=>{
     console.log("this is searchh query",name,family)
     
   const searchedShahid=await Shahid.find({
-     $or: [{ name:name }, { family: {'$regex': `${family}`}}]
+     $and: [{ name:name }, { family: {'$regex': `${family}`}}]
    
   }).limit(100)
   if(searchedShahid){
