@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="./styles/index.css"  rel="stylesheet" />
+    <link href="./css/index.css"  rel="stylesheet" />
     <link href="./css/mui-rtl.css" rel="stylesheet"/>
     <link href="./css/mui-rtl.min.css" rel="stylesheet"/>
     <link href="./css/mui.css" rel="stylesheet"/>
     <link href="./css/mui.min.css" rel="stylesheet"/>
+    <link href="./css/timeLine.css"rel="stylesheet" />
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
+    <div class="header-navbar">
+        <div></div>
+        <div></div>
+        <div><a href="/shohada">شهدای امروز</a></div>
+        <div><a href="/diary">خاطرات پیشکسوتان</a></div>
+        <div onClick={openSearchFuck}><a>جستجو</a></div>
+        <div><a href="/">صفحه اصلی</a></div>
+        <div></div>
+        <div></div>
+      </div>
     <div class="header">
         <video id="header-video"   loop autoPlay muted>
           <source type="video/mp4" src="./assets//Video/navyHeader.mp4" />
@@ -34,8 +49,16 @@
         </div>
       </div>
       <div style=" height:120px; background-color: rgb(1, 32, 44)"></div>
+
+
+
+
+
 </body>
 <script src="./js/mui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src=="./js/mui.min.js"></script>
-<script src="./assets/javascript/index.js"></script>
+<script src="./js/index.js"></script>
+<script src="./js/timeLine.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
 </html>
