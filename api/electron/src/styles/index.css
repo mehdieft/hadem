@@ -25,6 +25,11 @@
   #content{
     position: absolute;top: 320px;right: 50px;
   }
+  .sound-icon{
+    position: absolute;
+    top:32px;
+    left: 32px;
+  }
    
   /* }
   .d-flex{
@@ -38,6 +43,11 @@
   } */
   div{
     height: fit-content;
+  }
+  .image-icon{
+    width: 32px;
+    height: 32px;
+    padding: 10px;
   }
   #fixed-navbar{
     /* width: 20%;
@@ -124,6 +134,9 @@ z-index: -1;
 object-fit: cover;
 filter:opacity(90%);
 
+}
+.hidden{
+    display: none;
 }
 .logo-header{
     height: 100px;
