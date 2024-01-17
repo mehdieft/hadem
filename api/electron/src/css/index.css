@@ -4,6 +4,10 @@
     font-family: iranSans;
     overflow: hidden;
   }
+  html{
+    width: 100vw;
+    overflow-x: hidden;
+  }
   .header-navbar{
     position: absolute;
     width: 100%;
