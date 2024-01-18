@@ -1,0 +1,206 @@
+.modal__bg {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(28, 28, 28, 0.19);
+    backdrop-filter: blur(6px);
+    opacity: 1;
+    animation-timing-function: ease-out;
+    animation-duration: 0.3s;
+    animation-name: modal-video;
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
+    z-index: 100;
+  }
+  
+  .modal__align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .modal__content {
+    width: 800px;
+    /* height: 54%; */
+    box-shadow: 0px 100px 80px rgba(184, 184, 184, 0.07),
+      0px 25.8162px 19px 4px rgba(178, 178, 178, 0.0456112),
+      0px 7.779px 7.30492px rgba(0, 0, 0, 0.035),
+      0px 1.48838px 2.0843px rgba(0, 0, 0, 0.0243888);
+    border-radius: 20px;
+    background: transparent;
+    color: #000;
+    margin: 0rem 4rem;
+  }
+  
+  .modal__close {
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    bottom: 50px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+  }
+  
+  .modal__video-align {
+    display: flex;
+    position: relative;
+    bottom: 37px;
+  }
+  
+  .modal__video-style {
+    border-radius: 20px;
+    z-index: 100;
+  }
+  
+  .modal__spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .modal__spinner {
+    animation: spin 2s linear infinite;
+    font-size: 40px;
+    color: #ffff;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .modal__content {
+      margin: 0rem 1rem;
+      width: 100%;
+    }
+    .modal__video-style {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 499px) {
+    .modal__content {
+      background: transparent;
+      height: auto;
+    }
+    .modal__video-align {
+      bottom: 0px;
+    }
+    .modal__video-style {
+      height: auto;
+    }
+  }
+  .card-container{
+    display: flex;
+    flex-direction: column;
+    gap:32px;
+    background-color: rgb(237 237 237 / 50%);
+    border-radius: 30px;
+    padding:24px;
+    justify-content: center;
+    align-items: end;
+    width:400px;
+    height: 490px;
+    margin: 0;
+    
+
+}
+.card-detail{
+    display: flex;
+    flex-direction: column;
+    text-align: end;
+    direction: rtl;
+    text-align: start;
+
+
+
+}
+.shahid-detail-span{
+    font-family: iranSans;
+    font-weight: bold;
+    padding-right: 4px;
+}
+span{
+    font-family: Diba;
+}
+.card-title{
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+.shahid-name{
+    color:#2c0505;
+    font-size: 24px;
+    font-weight: bold;
+}
+.card-image{
+    border-radius: 30px;
+    width: 130px;
+    height: 135px;
+    overflow: hidden;
+    padding-bottom: 10px;
+
+
+}.shahid-image-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
+}
+.card-image img{
+    margin-top: 14px;
+
+}
+@media only screen and (max-width: 430px) {
+    .card-container{
+        padding:12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-title{
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .shahid-name{
+        color:#FF0000;
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+.header-navbar{
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: Diba;
+  z-index: 10;
+  background-color: #01202c;
+}
+.header-navbar a{
+  color:white;
+  text-decoration: none;
+  font-family: Diba;
+  font-size: 30px;
+}

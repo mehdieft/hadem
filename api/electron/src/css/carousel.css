@@ -22,6 +22,9 @@ body {
   height: 5px;
   width: 100%;
 }
+.post__published{
+  font-family: Diba;
+}
 .progress-bar__fill {
   width: 0;
   height: inherit;

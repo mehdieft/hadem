@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/search.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="header-navbar">
+        <div></div>
+        <div></div>
+        <div><a href="/shohada">شهدای امروز</a></div>
+        <div><a href="/diary">خاطرات پیشکسوتان</a></div>
+        <div ><a href="./search.html">جستجو</a></div>
+        <div><a onclick="clickOPenSearchDialog()" >صفحه اصلی</a></div>
+        <div></div>
+        <div></div>
+      </div>
+
+    <div style=" background: rgb(1, 32, 44)">
+        <img
+          src="assets/images/shohada.jpg"
+          style="
+            width: 80%;;
+            height: 60%;
+            display: block;
+            margin: 0 auto
+          "
+          alt=""
+        />
+        <div style="display: flex; justify-content: center;align-items: center;">
+            <div class="card-container" style="background:url('./assets/Image/defaultShahid.jpg');background-size:cover;filter:opacity(0.8)">
+                <div class="shahid-image-container">
+        
+                <div class="card-image">
+                  <img src={image !==''?image: defaultShahid} height={'120px'} width={'120px'} style="border-radius:50%" />
+                </div>
+                  <span class="shahid-name">شهید {name}  {family}</span>
+                </div>
+                <div class="card-detail">
+                  {/* <span class="card-title">شهید امروز</span> */}
+                  <span>تاریخ تولد:<span class="shahid-detail-span" style="rotate:180deg">{birthdate !==''&& birthdate &&birthdate !==''&& birthdate ?birthdate.split('T')[0].replaceAll('-','/'):'____'}</span> </span>
+                  <span>زادگاه:<span class="shahid-detail-span">{birthdayPlace !=='' || birthdayPlace !==''?birthdayPlace:'____'}</span>  </span>
+                  <span>تاریخ شهادت:<span class="shahid-detail-span" style="rotate:180deg">{dieDate !=='' && dieDate? `${dieYear}/${dieMonth}/${dieDay}`:'____'}</span>  </span>
+                  <span>نحوه شهادت:<span class="shahid-detail-span">{wayOfDie !==''?wayOfDie:'____'}</span>   </span>
+                  <span>آخرین محل خدمت:<span class="shahid-detail-span">{lastServePlace !==''?lastServePlace:'____'}</span> </span>
+                  <span>تحصیلات نظامی:<span class="shahid-detail-span">{militiryEducation !==''?militiryEducation:'____'}</span> </span>
+                  <span>محل آرامگاه:<span class="shahid-detail-span"> {cemeteryPlace !==''?cemeteryPlace:'____'}</span> </span>
+        
+        
+                </div>
+              </div>
+
+        </div>
+      </div>
+
+
+
+    <section class="modal__bg">
+        <div class="modal__align">
+          <div class="modal__content" style= "direction: rtl; color: white">
+            <img src="./assets/icon/cancel.png"
+            onClick="closeSearchDialog()"
+            class="modal__close"
+            arial-label="Close modal"
+          />
+            <div class="modal__video-align">
+              <div style=" direction: rtl">
+                <div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    
+</body>
+<script src="./js/search.js"></script>
+</html>
