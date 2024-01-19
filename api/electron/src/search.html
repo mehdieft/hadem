@@ -29,19 +29,18 @@
           "
           alt=""
         />
-        <div style="display: flex; justify-content: center;align-items: center;">
-            <div class="card-container" style="background:url('./assets/Image/defaultShahid.jpg');background-size:cover;filter:opacity(0.8)">
+        <div id="card-wraper" style="display: flex; justify-content: center;align-items: center;margin-top: 120px;gap: 32px;">
+            <div class="card-container" >
                 <div class="shahid-image-container">
-        
                 <div class="card-image">
-                  <img src={image !==''?image: defaultShahid} height={'120px'} width={'120px'} style="border-radius:50%" />
+                  <img src="./assets/Image/defaultShahid.jpg " height="120px" width="120px" style="border-radius:50%" />
                 </div>
                   <span class="shahid-name">شهید {name}  {family}</span>
                 </div>
                 <div class="card-detail">
-                  {/* <span class="card-title">شهید امروز</span> */}
-                  <span>تاریخ تولد:<span class="shahid-detail-span" style="rotate:180deg">{birthdate !==''&& birthdate &&birthdate !==''&& birthdate ?birthdate.split('T')[0].replaceAll('-','/'):'____'}</span> </span>
-                  <span>زادگاه:<span class="shahid-detail-span">{birthdayPlace !=='' || birthdayPlace !==''?birthdayPlace:'____'}</span>  </span>
+                  
+                  <span>تاریخ تولد:<span class="shahid-detail-span rotate" style="rotate:180deg">{birthdate !==''&& birthdate &&birthdate !==''&& birthdate ?birthdate.split('T')[0].replaceAll('-','/'):'____'}</span> </span>
+                  <span>زادگاه:<span class="shahid-detail-span rotate">{birthdayPlace !=='' || birthdayPlace !==''?birthdayPlace:'____'}</span>  </span>
                   <span>تاریخ شهادت:<span class="shahid-detail-span" style="rotate:180deg">{dieDate !=='' && dieDate? `${dieYear}/${dieMonth}/${dieDay}`:'____'}</span>  </span>
                   <span>نحوه شهادت:<span class="shahid-detail-span">{wayOfDie !==''?wayOfDie:'____'}</span>   </span>
                   <span>آخرین محل خدمت:<span class="shahid-detail-span">{lastServePlace !==''?lastServePlace:'____'}</span> </span>
@@ -77,5 +76,8 @@
 
     
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"
+ integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA=="
+ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./js/search.js"></script>
 </html>

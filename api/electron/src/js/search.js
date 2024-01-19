@@ -1,5 +1,7 @@
 const searchDialog=document.getElementsByClassName('modal__bg');
-
+let cardWraper=document.getElementById('card-wraper')
+let shahids=[]
+console.log('djaskljhdkasjhdjkhkjfds')
 
 
 
@@ -11,3 +13,51 @@ const clickOPenSearchDialog=()=>{
 const closeSearchDialog=()=>{
     searchDialog[0].style.display="none";
 }
+fetch('http://localhost:4848/api/user/getByDate').then(res=>{
+    return res.json()
+
+}).then(data=>{
+    console.log(data.todayShahid)
+    data.todayShahid.forEach((element ,index)=> {
+        console.log(element.name);
+        const cardWraper=document.getElementById('card-wraper')
+        const cardContainer=document.createElement('div')
+        cardContainer.classList.add('card-container')
+        cardWraper.appendChild(cardContainer);
+        const shahidImageContainer=document.createElement('div');
+        shahidImageContainer.classList.add('shahid-image-container');
+        const cardImage=document.createElement('div');
+        cardImage.classList.add('card-image');
+        const imgg=document.createElement('img');
+        imgg.src="./assets/Image/defaultShahid.jpg"
+        imgg.height="120px";
+        imgg.width="120px";
+        cardImage.append(imgg);
+        shahidImageContainer.appendChild(cardImage);
+        shahidNameAndFamily=document.createElement('span');
+        shahidNameAndFamily.classList.add('shahid-name')
+        shahidNameAndFamily.innerText=`شهید ${element.name}  ${element.family}`;
+        shahidImageContainer.append(shahidNameAndFamily)
+        cardContainer.append(shahidImageContainer);
+        const cardDetail=document.createElement('div');
+        cardDetail.classList.add('card-detail');
+        spanOne=document.createElement('span');
+        spanOne.innerText="تاریخ تولد :"
+        spanTwo=document.createElement('span');
+        spanTwo.classList.add('shahid-detail-span')
+        spanTwo.classList.add('rotate')
+        spanTwo.innerText=(element.birthdate !==''&& element.birthdate &&element.birthdate !==''&& element.birthdate ?element.birthdate.split('T')[0].replaceAll('-','/'):'____')
+        spanOne.append(spanTwo);
+        cardDetail.append(spanOne);
+        cardContainer.append(cardDetail);
+        const card=document.getElementsByClassName('card-container')[index]
+        console.log('card__><>><>',card)
+
+
+        
+
+
+        
+    });
+})
+  
