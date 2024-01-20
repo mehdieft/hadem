@@ -5,12 +5,13 @@
   body {
     margin: 5px;
     position: relative;
+    background-color: rgb(1, 32, 44);
   }
   
   #gallery {
     display: grid;
-    height: calc(100vh - 10px);
-    grid-template: repeat(6, 1fr)/repeat(6, 1fr);
+    height: calc(130vh - 10px);
+    grid-template: repeat(10, 1fr)/repeat(6, 1fr);
     grid-gap: 0.5em;
   }
   @media (max-width: 800px) {
@@ -47,7 +48,7 @@
     position: absolute;
     color: #000;
     background-color: #000;
-    font: bold 4em "Helvetica";
+    font: bold 2em "Helvetica";
     text-shadow: 0 -1px 5px #fff, -1px 0px 5px #fff, 0 1px 5px #fff, 1px 0px 5px #fff;
     padding: 2rem;
     mix-blend-mode: difference;
@@ -60,10 +61,10 @@
     min-height: 100%;
     transition: all ease 1s;
   }
-  #gallery > div:hover img {
+  #gallery > div:hover img , #gallery > div:active img{
     filter: blur(4px);
   }
-  #gallery > div:hover a {
+  #gallery > div:hover a , #gallery > div:active a {
     opacity: 1;
   }
   #gallery > div {
@@ -84,7 +85,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 130vh;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     opacity: 0;
@@ -105,15 +106,15 @@
     position: relative;
     color: #fff;
   }
-  [id^=lightbox-] .content:hover > a.close {
+  [id^=lightbox-] .content:hover > a.close ,[id^=lightbox-] .content:active > a.close {
     opacity: 1;
     transform: scale(1, 1);
   }
-  [id^=lightbox-] .content:hover > .title {
+  [id^=lightbox-] .content:hover > .title ,  [id^=lightbox-] .content:active > .title  {
     opacity: 1;
     transform: translateY(-3px);
   }
-  [id^=lightbox-] .content:hover > .title::after {
+  [id^=lightbox-] .content:hover > .title::after , [id^=lightbox-] .content:active > .title::after {
     opacity: 1;
   }
   [id^=lightbox-] .content > * {
