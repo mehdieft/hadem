@@ -409,8 +409,8 @@ exports.todayShahid=async(req,res,next)=>{
 console.log('this is shamsi----->', moment(today).format('jYYYY/jMM/jDD'))
 const todayMoment= moment(today).format('jYYYY/jMM/jDD').split('/');
 console.log('-------->>>',todayMoment)
-// const todayShahid=await Shahid.find({dieMonth:todayMoment[1],dieDay:todayMoment[2]})
-const todayShahid=await Shahid.find({dieMonth:9,dieDay:7})
+const todayShahid=await Shahid.find({dieMonth:todayMoment[1],dieDay:todayMoment[2]})
+// const todayShahid=await Shahid.find({dieMonth:9,dieDay:7})
 
 const todayDate={month:Number(todayMoment[1]),day:Number(todayMoment[2])}
 console.log('_______________>', todayShahid);

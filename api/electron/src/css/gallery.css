@@ -7,11 +7,12 @@
     position: relative;
     background-color: rgb(1, 32, 44);
   }
+  #shahid{display: block;}
   
   #gallery {
     display: grid;
-    height: calc(130vh - 10px);
-    grid-template: repeat(10, 1fr)/repeat(6, 1fr);
+    height: calc(230vh - 10px);
+    grid-template: repeat(4, 2fr)/repeat(5, 2fr);
     grid-gap: 0.5em;
   }
   @media (max-width: 800px) {
@@ -104,6 +105,7 @@
   [id^=lightbox-] .content {
     max-width: 90%;
     position: relative;
+    bottom: 80px;
     color: #fff;
   }
   [id^=lightbox-] .content:hover > a.close ,[id^=lightbox-] .content:active > a.close {
@@ -153,7 +155,7 @@
   }
   [id^=lightbox-] a.close {
     width: 2em;
-    height: 2em;
+    height: 12em;
     position: absolute;
     right: 0;
     top: 0;
