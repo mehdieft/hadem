@@ -11,8 +11,8 @@
   
   #gallery {
     display: grid;
-    height: calc(230vh - 10px);
-    grid-template: repeat(4, 2fr)/repeat(7, 2fr);
+    height: calc(260vh - 10px);
+    grid-template: repeat(3, 2fr)/repeat(4, 2fr);
     grid-gap: 0.5em;
   }
   @media (max-width: 800px) {
