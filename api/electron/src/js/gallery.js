@@ -28,10 +28,19 @@ function cancelClick(){
 function createKhoramShahrImages(){
     const container=document.getElementById('khoramshahr');
     const grid=document.getElementsByClassName('grid');
-    for(i=0;i<= images.length;i++){
-        let image=new Image();
-        image.src=images[i];
-        console.log('imagee',image);
+    console.log(grid);
+    for(j=0;j<=images.length%7;j++){
+        const column=document.createElement('div');
+        column.classList.add('column')
+
+        for(i=0;i<= images.length;i++){
+            let image=new Image();
+            image.src=images[i];
+            console.log('imagee',image);
+            column.append(image);
+           
+        }
+        grid[0].append(column)
     }
 
 }
