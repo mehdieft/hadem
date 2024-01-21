@@ -29,7 +29,7 @@ function createKhoramShahrImages(){
     const container=document.getElementById('khoramshahr');
     const grid=document.getElementsByClassName('grid');
     console.log(grid);
-    for(j=0;j<=images.length%7;j++){
+    for(j=0;j<7;j++){
         const column=document.createElement('div');
         column.classList.add('column')
 
