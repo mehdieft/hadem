@@ -7,6 +7,18 @@
     <title>Document</title>
 </head>
 <body>
+  <div class="header-navbar">
+    <div></div>
+
+    <div></div>
+    <div><a href="/shohada">شهدای امروز</a></div>
+    <div><a href="/diary">خاطرات پیشکسوتان</a></div>
+    <div onClick={openSearchFuck}><a>جستجو</a></div>
+    <div><a href="/">صفحه اصلی</a></div>
+    <div></div>
+    <div></div>
+  </div>
+
   <div class="diary-main">
     <div class="diar-image-container">
       <s></s>
@@ -93,10 +105,10 @@
          
           
         >
-          <div class="video-content">
-            <img src="./assets/images/diary/samadi.jpg"  width="250px" height="343px" alt="" />
+          <div  class="video-content">
+            <img src="./assets/images/diary/mahboobi.gif"  width="250px" height="343px" alt="" />
             <div  class="video-radius-Button">
-           <span>play me</span>
+           <span onclick="showconsole()">play me</span>
             </div>
           </div>
           <div class="image-content-text">
@@ -114,7 +126,7 @@
               <span
                 style="font-size: 30px; font-family: diba; color: #34ffff"
               >
-                هوشنگ صمدی
+                سلیمان محبوبی
               </span>
             </div>
             <div  }>
@@ -122,7 +134,7 @@
                 id="white-text"
                 style=" font-size: 30px; font-family: diba" 
               >
-                خاطره خرمشهر
+                گردان مستقر در خرمشهر
               </span>
             </div>
             <blockquote >
@@ -149,8 +161,7 @@
                   font-size: 20px"
             
               >
-                dgkjfdlkgjdflkjgdf fdklgjldfjglkjdf glkdfjglkdjfklgjdf ljdflgkjdflgfd
-              </span>
+لحظه به لحظه از تعداد باقی مونده ها کم میشد و این بدان معنا بود که باقی مانده ها باید دوبرابر مقاومت کنند              </span>
             </blockquote>
           </div>
         </div>
@@ -167,7 +178,7 @@
             
           >
             <div class="video-content">
-              <img src="./assets/images/diary/samadi.jpg"  width="250px" height="343px" alt="" />
+              <img src="./assets/images/diary/sayari.jpg"  width="250px" height="343px" alt="" />
               <div  class="video-radius-Button">
              <span>play me</span>
               </div>
@@ -180,14 +191,14 @@
                  
                   style=" font-size: 40px; font-family: diba; color: white"
                 >
-                  ناخدا
+                  دریادار اول
                 </span>
               </div>
               <div >
                 <span
                   style="font-size: 30px; font-family: diba; color: #34ffff"
                 >
-                  هوشنگ صمدی
+                  امیر حبیب الله سیاری
                 </span>
               </div>
               <div  }>
@@ -234,7 +245,7 @@
     <!-- video dialog -->
     <section class="modal__bg">
         <div class="modal__align">
-          <div class="modal__content" showModal={showModal}>
+          <div class="modal__content" >
             <CloseIcon
               class="modal__close"
               arial-label="Close modal"
