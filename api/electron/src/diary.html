@@ -35,7 +35,7 @@
         <div class="video-content">
           <img src="./assets/images/diary/samadi.jpg"  width="250px" height="343px" alt="" />
           <div  class="video-radius-Button">
-         <span>play me</span>
+         <span onclick="showconsole('samadi')">play me</span>
           </div>
         </div>
         <div class="image-content-text">
@@ -108,7 +108,7 @@
           <div  class="video-content">
             <img src="./assets/images/diary/mahboobi.gif"  width="250px" height="343px" alt="" />
             <div  class="video-radius-Button">
-           <span onclick="showconsole()">play me</span>
+           <span onclick="showconsole('mahbubi')">play me</span>
             </div>
           </div>
           <div class="image-content-text">
@@ -180,7 +180,7 @@
             <div class="video-content">
               <img src="./assets/images/diary/sayari.jpg"  width="250px" height="343px" alt="" />
               <div  class="video-radius-Button">
-             <span>play me</span>
+             <span onclick="showconsole('sayari')">play me</span>
               </div>
             </div>
             <div class="image-content-text">
@@ -246,11 +246,7 @@
     <section class="modal__bg">
         <div class="modal__align">
           <div class="modal__content" >
-            <CloseIcon
-              class="modal__close"
-              arial-label="Close modal"
-              onClick={closeDialog}
-            />
+           <img onclick="hiddenDialog()"  src="./assets/icon/cancel.svg" width="25px" height="25px" alt="">
             <div class="modal__video-align">
            
             
