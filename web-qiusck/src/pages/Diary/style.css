@@ -3,4 +3,7 @@
     padding:100px 0 100px 32px;
     direction: rtl;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 300px;
 }

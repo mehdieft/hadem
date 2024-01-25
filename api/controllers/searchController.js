@@ -9,9 +9,13 @@ exports.nameAndFamilySearch=async(req,res,next)=>{
     family.replace('','شهید','');
     family.split(" ").join("")
     console.log("this is searchh query",name,family)
+    const myName=name;
+    const myFamily=family
+    console.log('this is data--------------->',myFamily,myName)
+
     
   const searchedShahid=await Shahid.find({
-     $and: [{ name:name }, { family: {'$regex': `${family}`}}]
+     $or: [{ name:name }, { family: family}]
    
   }).limit(100)
   if(searchedShahid){
