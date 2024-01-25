@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,9 +7,9 @@
 body{
     background: #eaeaea;
     overflow: hidden;
-}
+} */
 
-.container{
+.container-image-carousel{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -20,7 +20,7 @@ body{
     box-shadow: 0 30px 50px #dbdbdb;
 }
 
-.container .slide .item{
+.container-image-carousel .slide .item{
     width: 200px;
     height: 300px;
     position: absolute;
