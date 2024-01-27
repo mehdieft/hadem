@@ -8,6 +8,18 @@ body{
     background: #eaeaea;
     overflow: hidden;
 } */
+@font-face {
+    font-family: "diba";
+    src: local("diba"),
+     url("./assets/fonts/Diba.ttf") format("truetype");
+    font-weight: bold;
+   }
+   @font-face {
+    font-family: "iranSans";
+    src: local("iranSans"),
+     url("./assets/fonts/IRAN\ Sans\ Regular.ttf") format("truetype");
+    font-weight: bold;
+   }
 .item{
     filter: brightness(0.6);
     -webkit-filter: grayscale(10%) brightness(80%) contrast(100%);
@@ -69,7 +81,7 @@ body{
 
 .item .content{
     position: absolute;
-    top: 70%;
+    top: 25%;
     left: 100px;
     width: 300px;
     text-align: left;
@@ -89,11 +101,13 @@ body{
     font-size: 40px;
     text-transform: uppercase;
     font-weight: bold;
+    font-family: diba;
     opacity: 0;
     animation: animate 1s ease-in-out 1 forwards;
 }
 
 .content .des{
+    font-family: iranSans;
     margin-top: 10px;
     font-size: 30px;
     color: rgb(1, 32, 44);

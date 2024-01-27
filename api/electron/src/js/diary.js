@@ -1,8 +1,8 @@
 function showconsole(item) {
     console.log("hello me",item)
     let video = document.createElement('video');
-    video.style.height = "100%";
-    video.style.width = "800px";
+    video.style.height = "88%";
+    video.style.width = "700px";
     video.controls = true;
     let source = document.createElement('source');
     if (item == "samadi") {

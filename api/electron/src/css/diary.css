@@ -145,20 +145,24 @@ body{margin: 0;}
     height: fit-content;
 }
 .diar-image-container{
-  width:65%;
+  width:63%;
   background-size:cover;
   height:466px;
   margin-bottom: 400px;
+  box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
 }
 .diary-image-inner{
   height: 100%;
   background-size: cover;
 }
+.nakhoda-image{
+  box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
+}
 
 s{
   background-color: #000d12;
   opacity: 0.5;
-  width: 65%;
+  width: 61.5%;
   height: 466px;
   position: absolute;
 }
