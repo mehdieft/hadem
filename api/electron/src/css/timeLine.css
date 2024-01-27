@@ -13,6 +13,9 @@ body {
 
   overflow-x: hidden;
 }
+.ag-timeline-card_inner{
+  box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
+}
 
 .time-line-description{
   font-family: iranSans;font-size: 20px;
@@ -151,7 +154,7 @@ img {
   width: 45%;
   margin: -77px 0 0;
   background-color: #282828;
-
+  box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
   opacity: 0;
 
   -webkit-border-radius: 6px;
@@ -226,6 +229,7 @@ img {
 }
 .ag-timeline-card_info {
   padding: 20px 30px;
+  background-color: #590606;
 }
 .ag-timeline-card_title {
   display: none;
