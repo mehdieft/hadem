@@ -260,7 +260,7 @@ export default function SearchProvider({ children }) {
               <div className="modal__video-align">
                 <div style={{ direction: "rtl" }}>
                   <div>
-                    fdsfsdfsdfsdfsd
+                    
                     <Tabs>
                       <TabList>
                         <Tab style={{ fontFamily: "Diba", fontSize: 18 }}>
