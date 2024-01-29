@@ -1,47 +1,26 @@
-const filterItem=document.querySelector('.items');
-const filterImg=document.querySelector('.gallery .image')
-
-window.onload=()=>{
-    console.log('____',filterItem)
-    filterItem.onclick=(selectedItem)=>{
-        if(selectedItem.target.classList.contains('item')){
-            filterItem.querySelector('.active').classList.remove('active');
-            selectedItem.target.classList.add('active');
-            let filterName=selectedItem.target.getAttribute('data-name');
-            filterImg.forEach(image => {
-                let filterImages=image.getAttribute('data-name')
-                if((filterImages==filterName)||(filterName =='all')){
-                    image.classList.remove('hide');
-                    image.classList.add('show')
-                }else{
-                    image.classList.add('hide');
-                    image.classList.remove('show');
-                }
-                
-            });
+(function() {
+    $('.gallery-link').magnificPopup({
+      type: 'image',
+      closeOnContentClick: true,
+      closeBtnInside: false,
+      mainClass: 'mfp-with-zoom mfp-img-mobile',
+      image: {
+        verticalFit: true,
+        titleSrc: function(item) {
+          return item.el.find('figcaption').text() || item.el.attr('title');
         }
-    }
-    for(let i=0;i<filterImg.length;i++){
-        filterImg[i].setAtrribute('onclick','preview(this)')
-    }
-}
-const previewBox=document.querySelector('.preview-box'),
- categoryName=previewBox.querySelector('.title p'),
- previewImg=previewBox.querySelector('img'),
- closeIcon=previewBox.querySelector('.icon'),
- shadow=document.querySelector('.shadow');
- function preview(element){
-    document.querySelector('body').style.overflow='hidden';
-    let selectedPrevImg=element.querySelector('img').src;
-    let selectedImageCategory=element.getAttribute('data-name');
-    previewImg.src=selectedPrevImg;
-    categoryName.textContent=selectedImageCategory;
-    previewBox.classList.add('show');
-    shadow.classList.add('show');
-    closeIcon.onclick=()=>{
-        previewBox.classList.remove('show');
-        shadow.classList.remove('show');
-        document.querySelector('body'.style.overflow='auto')
-    }
-
- }
+      },
+      zoom: {
+        enabled: true
+      },
+      gallery: {
+        enabled: true,
+        navigateByImgClick: false,
+        tCounter: ''
+      },
+      disableOn: function() {
+        return $(window).width() > 640;
+      }
+    });
+  
+  }).call(this);
