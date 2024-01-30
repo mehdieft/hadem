@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "diba";
+  src: local("diba"),
+   url("./assets/fonts/Diba.ttf") format("truetype");
+  font-weight: bold;
+ }
+ @font-face {
+  font-family: "iranSans";
+  src: local("iranSans"),
+   url("./assets/fonts/IRAN\ Sans\ Regular.ttf") format("truetype");
+  font-weight: bold;
+ }
 nav{
     background-color: #1b1d2d;
     box-shadow: -4px -3px 45px 21px rgba(203, 183, 183, 0.35);

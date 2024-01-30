@@ -1,266 +1,37 @@
-* {
-    box-sizing: border-box;
-  }
-  .header-navbar{
-    position: absolute;
-    width: 100%;
-    height: 140px;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-family: Diba;
-    z-index: 10;
-    background-color: #01202c;
-  }
-  .header-navbar a{
-    color:white;
-    text-decoration: none;
-    font-family: Diba;
-    font-size: 30px;
-  }
-  
-  body {
-    margin: 5px;
-    position: relative;
-    background-color: rgb(1, 32, 44);
-  }
-  #shahid{display: block;}
-  
-  #gallery {
-    position: relative;
-    top: 111px;
-    display: grid;
-    height: calc(260vh - 10px);
-    grid-template: repeat(3, 2fr)/repeat(4, 2fr);
-    grid-gap: 0.5em;
-  }
-  @media (max-width: 800px) {
-    #gallery {
-      display: flex;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    #gallery > div {
-      width: 48%;
-      margin: 1%;
-    }
-  }
-  @media (max-width: 800px) and (max-width: 350px) {
-    #gallery > div {
-      width: 98%;
-    }
-  }
-  #gallery > div:nth-child(3n+1) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-  #gallery > div:nth-child(2) {
-    grid-column: span 3;
-    grid-row: span 3;
-  }
-  #gallery > div:nth-child(4) {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
-  #gallery > div > a {
-    opacity: 0;
-    position: absolute;
-    color: #000;
-    background-color: #000;
-    font: bold 2em "Helvetica";
-    text-shadow: 0 -1px 5px #fff, -1px 0px 5px #fff, 0 1px 5px #fff, 1px 0px 5px #fff;
-    padding: 2rem;
-    mix-blend-mode: difference;
-    width: 100%;
-    height: 100%;
-    transition: all ease 1s;
-  }
-  #gallery > div > img {
-    width: 100%;
-    min-height: 100%;
-    transition: all ease 1s;
-  }
-  #gallery > div:hover img , #gallery > div:active img{
-    filter: blur(4px);
-  }
-  #gallery > div:hover a , #gallery > div:active a {
-    opacity: 1;
-  }
-  #gallery > div {
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  #gallery div,
-  #gallery a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-  }
-  
-  [id^=lightbox-] {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    opacity: 0;
-    transition: opacity 450ms ease-in-out;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-  }
-  [id^=lightbox-]:target {
-    opacity: 1;
-    pointer-events: inherit;
-  }
-  [id^=lightbox-]:target img {
-    filter: blur(0);
-  }
-  [id^=lightbox-] .content {
-    max-width: 90%;
-    position: relative;
-    bottom: 10px;
-    color: #fff;
-  }
-  [id^=lightbox-] .content:hover > a.close ,[id^=lightbox-] .content:active > a.close {
-    opacity: 1;
-    transform: scale(1, 1);
-  }
-  [id^=lightbox-] .content:hover > .title ,  [id^=lightbox-] .content:active > .title  {
-    opacity: 1;
-    transform: translateY(-3px);
-  }
-  [id^=lightbox-] .content:hover > .title::after , [id^=lightbox-] .content:active > .title::after {
-    opacity: 1;
-  }
-  [id^=lightbox-] .content > * {
-    transition: all 450ms ease-in-out;
-  }
-  [id^=lightbox-] .title {
-    display: block;
-    margin: 0;
-    padding: 1em;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    transform: translateY(50%);
-    font-size: 1.5em;
-    opacity: 0;
-  }
-  [id^=lightbox-] .title::after {
-    content: " ";
-    background-color: rgba(0, 0, 0, 0.4);
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    transition: all 350ms ease-in-out 250ms;
-    opacity: 0;
-    transform-origin: bottom;
-    mix-blend-mode: soft-light;
-  }
-  [id^=lightbox-] img {
-    max-height: 90vh;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    filter: blur(50px);
-  }
-  [id^=lightbox-] a.close {
-    width: 2em;
-    height: 2em;
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: scale(0, 0);
-    opacity: 0;
-    transform-origin: right top;
-    text-decoration: none;
-    color: #fff;
-  }
-  [id^=lightbox-] a.close::after {
-    content: "X";
-  }
-  @import "https://unpkg.com/normalize.css";
+@font-face {
+    font-family: "diba";
+    src: local("diba"),
+     url("../assets/fonts/Diba.ttf") format("truetype");
+    font-weight: bold;
+   }
+   @font-face {
+    font-family: "iranSans";
+    src: local("iranSans"),
+     url("./assets/fonts/IRAN\ Sans\ Regular.ttf") format("truetype");
+    font-weight: bold;
+   }
+html{ min-height:100%; overflow-y:scroll;  background:rgb(1,32,44); }
+body{ font-family:"diba",Helvetica,Arial,sans-serif; padding:0; }
+ ul{    margin: 100px 32px 400px 0;
+ }
 
-*,
-*:after,
-*:before {
-	box-sizing: border-box;
-}
+a{ text-decoration:none; }
 
-:root {
-	--gap: 1rem;
-	--card-width: clamp(280px, 20vw, 100vw);
-	--card-aspect-ratio: 5 / 7;
-	--card-height: calc(var(--card-width) * (7 / 5));
-}
-
-
-
-.grid {
-	display: grid;
-	justify-content: center;
-	grid-template-columns: repeat(5, var(--card-width));
-	gap: 1rem;
-  /* overflow: hidden shouldn't break this? */
-  overflow: hidden;
-}
-
-.grid-wrapper {
-	/* overflow: hidden; */
-}
-
-.column {
-	display: grid;
-	gap: 1rem;
-  align-content: start;
-}
-
-.column:not(:nth-of-type(3)) {
-	animation: scale 1s linear both;
-	animation-timeline: scroll(root);
-}
-
-/* The distance is the number of cards minus 100vh */
-.column:is(:nth-of-type(2), :nth-of-type(4)) {
-	--origin: calc(var(--gap) * -1);
-	--destination: calc(var(--card-height) * 1.5 + var(--gap));
-}
-.column:is(:nth-of-type(1), :nth-of-type(5)) {
-	--origin: calc(var(--gap) * -2);
-	--destination: calc(var(--card-height) * 3.4 + var(--gap));
-}
-
-@keyframes scale {
-	0% {
-		transform: translateY(var(--origin, 0%));
-	}
-	100% {
-		transform: translateY(var(--destination, -50%));
-	}
-}
-
-.column img {
-	max-width: 100%;
-	border: 0;
-	padding: 0;
-	max-height: 100%;
-	width: 100%;
-	aspect-ratio: 5 / 7;
-	background: hsl(0 0% 80%);
-}
-#khoramshahr{
-  margin-top: 230px;
-}
+iframe img{width: 100%;height: 100%;}
+#wrap{ overflow:hidden; padding:3%; }
+#pbOverlay.show ~ #wrap{ -webkit-filter:blur(2px) grayscale(.4); }
+		
+#gallery{ padding:20px; }
+	#gallery li{ list-style:none; perspective:100px; -webkit-perspective:100px; margin:1px; float:right; position:relative; -webkit-transition:.1s; transition:.1s; -webkit-transition:0.1s; }
+		#gallery li.video::before{ content:'\25BA'; color:#FFF; font-size:20px; height:20px; width:20px; line-height:0.9; position:absolute; bottom:3px; left:4px; z-index:1; background:rgba(0,0,0,0.4); box-shadow:0 0 0 3px rgba(0,0,0,0.4); border-radius:0 3px 0 0; pointer-events:none; opacity:0; -webkit-transition:.5s 0.2s; transition:.5s 0.2s; }
+		#gallery li.loaded.video::before{ opacity:1; }
+		#gallery a{ display:block; width:75px; height:68px; vertical-align:bottom; overflow:hidden; background:rgba(0,0,0,0.1);
+					-webkit-transition:.4s ease-out;
+					transition:.4s ease-out; -webkit-transition:0.4s ease-out; -webkit-transform:rotateX(90deg) translate(-50px,-50%); transform:rotateX(90deg) translate(-50px,-50%); }
+		#gallery a:active, #gallery a:focus{ outline:none; }
+		#gallery a img{ min-height:100%; width:100%; -webkit-transition:.3s ease-out; transition:.3s ease-out; -webkit-transition:0.3s ease-out; }
+		#gallery .loaded a{ -webkit-transform:rotateX(0deg) translate(0,0); transform:rotateX(0deg) translate(0,0); }
+			#gallery li.loaded:hover{ z-index:2; transform:scale(1.5); -webkit-transform:scale(1.5); }
+			#gallery li.loaded a:hover{ box-shadow:0 0 0 2px #FFF, 0 0 20px 5px #000; -webkit-transition:.1s; transition:.1s; -webkit-transition:0.1s; }
+			#gallery li.loaded:hover img{ transform:scale(1.6); -webkit-transform:scale(1.6); }
+			#gallery li.loaded.video:hover::before{ opacity:0; }
