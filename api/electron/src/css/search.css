@@ -320,3 +320,8 @@ span{
   gap: 32px;
   
 }
+.name-family-button{
+  position: absolute;
+  top: 190px;
+  right: 86px;
+}
