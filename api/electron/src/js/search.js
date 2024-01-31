@@ -109,3 +109,9 @@ fetch('http://localhost:4848/api/user/getByDate').then(res=>{
     });
 })
   
+function submitNameAndFamily(){
+    const name=document.getElementById('name').value
+    const family=document.getElementById('family').value
+    console.log(name,family);
+
+}
