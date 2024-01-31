@@ -10,9 +10,9 @@
      url("./assets/fonts/IRAN\ Sans\ Regular.ttf") format("truetype");
     font-weight: bold;
    }
-html{ min-height:100%; overflow-y:scroll;  background:rgb(1,32,44); }
-body{ font-family:"diba",Helvetica,Arial,sans-serif; padding:0; }
- ul{    margin: 100px 32px 400px 0;
+html{ min-height:100%; overflow-y:scroll;  background:rgb(1,32,44); color: black;}
+body{ font-family:"diba",Helvetica,Arial,sans-serif; padding:0 0px 0px 0 }
+ ul{    margin: 100px 32px 600px 0;
  }
 
 a{ text-decoration:none; }
@@ -35,3 +35,7 @@ iframe img{width: 100%;height: 100%;}
 			#gallery li.loaded a:hover{ box-shadow:0 0 0 2px #FFF, 0 0 20px 5px #000; -webkit-transition:.1s; transition:.1s; -webkit-transition:0.1s; }
 			#gallery li.loaded:hover img{ transform:scale(1.6); -webkit-transform:scale(1.6); }
 			#gallery li.loaded.video:hover::before{ opacity:0; }
+			#pbCaption .title{
+				color: black;
+				font-size: 30px;
+			}
