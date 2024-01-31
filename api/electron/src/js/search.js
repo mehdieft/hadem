@@ -113,5 +113,6 @@ function submitNameAndFamily(){
     const name=document.getElementById('name').value
     const family=document.getElementById('family').value
     console.log(name,family);
+    createToast('error','حداقل یکی از موارد نام و نام خانوادگی را پرکنید')
 
 }
