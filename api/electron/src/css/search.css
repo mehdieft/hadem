@@ -290,12 +290,13 @@ span{
   height: 12rem;
   position: absolute;
   z-index: 1;
+  width: 100%;
   top: 2.75em;
   left: 0;
   padding: 1.618rem;
   background: transparent;
   color: #2c3e50;
-  border-bottom: 0.25rem solid #bdc3c7;
+  /* border-bottom: 0.25rem solid #bdc3c7; */
   opacity: 0;
   transition: all 0.35s;
 }
@@ -312,4 +313,10 @@ span{
   z-index: 2;
   opacity: 1;
   transition: all 0.35s;
+}
+.name-family{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  
 }
