@@ -57,6 +57,7 @@ span{
     background: transparent;
     color: #000;
     margin: 0rem 4rem;
+    height: 71vh;
   }
   
   .modal__close {
@@ -288,6 +289,7 @@ span{
 }
 .tab-content {
   height: 12rem;
+  margin-top: 100px;
   position: absolute;
   z-index: 1;
   width: 100%;
