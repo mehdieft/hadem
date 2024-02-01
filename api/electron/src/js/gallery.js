@@ -160,6 +160,8 @@ var myData = [
     { url: "./assets/images/old/shahids/محمدرضا مرادی ترشیزی.jpg",thumb: "./assets/images/old/shahids/محمدرضا مرادی ترشیزی.jpg",title:"شهید محمدرضا مرادی ترشیزی" },
     { url: "./assets/images/old/shahids/محمود رضا کوشا.jpg",thumb: "./assets/images/old/shahids/محمود رضا کوشا.jpg",title:"شهید محمود رضا کوشا" },
 
+
+ 
               { url: "./assets/images/old/(183).jpg", thumb: "./old/(183).jpg",title:"دفاع مقدس" },
               { url: "./assets/images/old/9.jpg",thumb: "./old/9.jpg",title:"دفاع مقدس" },
               { url: "./assets/images/old/13_3.jpg",thumb: "./old/13_3.jpg",title:"دفاع مقدس" },
@@ -195,14 +197,14 @@ var myData = [
               { url: "./assets/images/old/دفاع مقدس 6 سبز.jpg",thumb: "./old/دفاع مقدس 6 سبز.jpg",title:"دفاع مقدس" },
               { url: "./assets/images/old/سکوی-نفتی-الامیه-عراق-بعد-از-عملیات-دریایی-شهید-صفری-1024x742.jpg",thumb: "./old/سکوی-نفتی-الامیه-عراق-بعد-از-عملیات-دریایی-شهید-صفری-1024x742.jpg",title:"دفاع مقدس" },
               { url: "./assets/images/old/نخلستان‌هاي آبادان.jpg",thumb: "./old/نخلستان‌هاي آبادان.jpg",title:"دفاع مقدس" },
-              { url: "./assets/images/old/Hafte_Defa'_Moghadas_Behesht.info.jpg",thumb: "./old/Hafte_Defa'_Moghadas_Behesht.info.jpg",title:"متفرقه" },
-              { url: "./assets/images/old/shahid.jpg",thumb: "./old/shahid.jpg",title:"متفرقه" },
-              { url: "./assets/images/old/shohada1.jpg",thumb: "./old/shohada1.jpg",title:"متفرقه" },
-              { url: "./assets/images/old/defa-nagsh.ir-37.jpg",thumb: "./old/defa-nagsh.ir-37.jpg",title:"متفرقه" },
-              { url: "./assets/images/old/defe-moghadas-copy.jpg",thumb: "./old/defe-moghadas-copy.jpg",title:"متفرقه" },
-              { url: "./assets/images/old/87.jpg",thumb: "./old/87.jpg",title:"متفرقه" },
-              { url: "./assets/images/old/5984_orig.jpg",thumb: "./old/5984_orig.jpg",title:"متفرقه" },
-              { url: "./assets/images/old/562311251322121821286310269241641796415191.jpg",thumb: "./old/562311251322121821286310269241641796415191.jpg",title:"متفرقه" },
+            //   { url: "./assets/images/old/Hafte_Defa'_Moghadas_Behesht.info.jpg",thumb: "./old/Hafte_Defa'_Moghadas_Behesht.info.jpg",title:"متفرقه" },
+            //   { url: "./assets/images/old/shahid.jpg",thumb: "./old/shahid.jpg",title:"متفرقه" },
+            //   { url: "./assets/images/old/shohada1.jpg",thumb: "./old/shohada1.jpg",title:"متفرقه" },
+            //   { url: "./assets/images/old/defa-nagsh.ir-37.jpg",thumb: "./old/defa-nagsh.ir-37.jpg",title:"متفرقه" },
+            //   { url: "./assets/images/old/defe-moghadas-copy.jpg",thumb: "./old/defe-moghadas-copy.jpg",title:"متفرقه" },
+            //   { url: "./assets/images/old/87.jpg",thumb: "./old/87.jpg",title:"متفرقه" },
+            //   { url: "./assets/images/old/5984_orig.jpg",thumb: "./old/5984_orig.jpg",title:"متفرقه" },
+            //   { url: "./assets/images/old/562311251322121821286310269241641796415191.jpg",thumb: "./old/562311251322121821286310269241641796415191.jpg",title:"متفرقه" },
               
               
 
