@@ -17,3 +17,11 @@ cta.addEventListener('click', function(e){
         check = 0;
     }
 })
+function submit(){
+    const username=document.getElementById('name-input').value;
+    const family=document.getElementById('family').value
+    console.log("--------------.",username)
+    console.log('family--------------.',family)
+
+    if(username==''||familyy=='')
+}
