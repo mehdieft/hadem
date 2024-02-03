@@ -1,5 +1,6 @@
-var cta = document.querySelector(".cta");
+var cta = document.getElementById("cta");
 var check = 0;
+let imageArrow=document.getElementById('arrowImage')
 
 cta.addEventListener('click', function(e){
     var text = e.target.nextElementSibling;
@@ -8,20 +9,31 @@ cta.addEventListener('click', function(e){
     loginText.classList.toggle('expand');
     if(check == 0)
     {
-        cta.innerHTML = "<i class=\"fas fa-chevron-up\"></i>";
+        cta.style.background="url('./assets/icon/up-arrow.svg')";
+        
+        // cta.innerHTML = "<i class=\"fas fa-chevron-up\"></i>";
         check++;
     }
     else
     {
-        cta.innerHTML = "<i class=\"fas fa-chevron-down\"></i>";
+       
+        cta.style.background="url('./assets/icon/down-arrow.svg')";
         check = 0;
     }
 })
 function submit(){
     const username=document.getElementById('name-input').value;
     const family=document.getElementById('family').value
+    const comment=document.getElementById('comment').value
     console.log("--------------.",username)
     console.log('family--------------.',family)
 
-    if(username==''||familyy=='')
+    if(username==''){
+
+        createToast('error','نام شهر نباید خالی باشد')
+    }else if(family==''){
+        createToast('error','نام شهر نباید خالی باشد')
+    }else{
+
+    }
 }
