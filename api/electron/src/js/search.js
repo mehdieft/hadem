@@ -2,7 +2,7 @@ const searchDialog=document.getElementsByClassName('modal__bg');
 let cardWraper=document.getElementById('card-wraper')
 let shahids=[]
 console.log('djaskljhdkasjhdjkhkjfds')
-jalaliDatepicker.startWatch();
+// jalaliDatepicker.startWatch();
 
 
 

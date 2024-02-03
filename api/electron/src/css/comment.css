@@ -1,0 +1,321 @@
+@font-face {
+    font-family: "diba";
+    src: local("diba"),
+     url("../assets/fonts/Diba.ttf") format("truetype");
+    font-weight: bold;
+   }
+   @font-face {
+    font-family: "iranSans";
+    src: local("iranSans"),
+     url("../assets/fonts/IRAN\ Sans\ Regular.ttf") format("truetype");
+    font-weight: bold;
+   }
+
+body {
+    font-family: diba;
+    background-color: rgb(1, 32, 44);
+  }
+  
+  .wrapper {
+    width: 800px;
+    height: 600px;
+    position: relative;
+    margin: 3% auto;
+    box-shadow: 2px 18px 70px 0px #9D9D9D;
+    overflow: hidden;
+  }
+  
+  .login-text {
+    width: 800px;
+    height: 550px;
+    background: linear-gradient(to left, #68c5ca, #677ade);
+        position: absolute;
+    top: -300px;
+    box-sizing: border-box;
+    padding: 3%;
+    transition: all 0.5s ease-in-out;
+    z-index: 11;
+  }
+  
+  .text {
+    direction: rtl;
+    margin-left: 20px;
+    color: #fff;
+    display: none;
+    transition: all 0.5s ease-in-out;
+    transition-delay: 0.3s;
+    height: 850px;
+  }
+  .text a, .text a:visited {
+    font-size: 36px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+  }
+  .text hr {
+    width: 10%;
+    float: left;
+    background-color: #fff;
+    font-size: 16px;
+  }
+  .text input {
+
+    height: 40px;
+    width: 300px;
+    border-radius: 2px;
+    border: none;
+    background-color: #444;
+    opacity: 0.6;
+    outline: none;
+    color: #fff;
+    padding-left: 10px;
+  }
+  /* .text input[type=text] {
+    margin-top: 60px;
+  } */
+  .text button {
+    margin-top: 60px;
+    height: 40px;
+    width: 140px;
+    outline: none;
+  }
+  .text .login-btn {
+    background: #fff;
+    border: none;
+    border-radius: 2px;
+    color: #696a86;
+  }
+  .text .signup-btn {
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    color: #fff;
+    margin-left: 30px;
+  }
+  
+  .cta {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #696a86;
+    border: 2px solid #fff;
+    position: absolute;
+    bottom: -30px;
+    left: 370px;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    z-index: 11;
+  }
+  
+  .call-text {
+    background-color: #fff;
+    width: 800px;
+    height: 450px;
+    position: absolute;
+    bottom: 0;
+    padding: 3%;
+    box-sizing: border-box;
+    text-align: center;
+    background: url('../assets/images/nopadid/عملیات\ مین\ روبی\ توسط\ بالکرد\ اس\ اچ\ \ نروی\ دریایی\ ارتش\ .JPG');
+    background-size: cover;
+  }
+  .call-text h1 {
+    font-size: 42px;
+    margin-top: 1%;
+     color: #971515;;
+  }
+  .call-text h1 span {
+    color: #333;
+    font-weight: bolder;
+  }
+  .call-text button {
+    height: 40px;
+    width: 180px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(to left, #68c5ca, #677ade);
+    color: #fff;
+    font-weight: bolder;
+    margin-top: 30px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .show-hide {
+    display: block;
+    height: 850px;
+  }
+  
+  .expand {
+    transform: translateY(300px);
+  }
+  .rate-wrapper{
+    min-height: 10vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+.rating-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 2em 2em 2em 4em;
+    gap: 10px;
+    border-top-right-radius: 75px;
+    border-bottom-right-radius: 75px;
+    border: none;
+    position: relative;
+    background: #2b2b2b;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(0, 0, 0, 0.075), 0 4px 4px rgba(0, 0, 0, 0.075), 0 8px 8px rgba(0, 0, 0, 0.075), 0 16px 16px rgba(0, 0, 0, 0.075);
+  }
+  .rating-container .rating-value {
+    position: absolute;
+    top: -10px;
+    left: -69px;
+    border-radius: 50%;
+    height: 138px;
+    width: 138px;
+    background: #ffbb00;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(0, 0, 0, 0.075), 0 4px 4px rgba(0, 0, 0, 0.075), 0 8px 8px rgba(0, 0, 0, 0.075), 0 16px 16px rgba(0, 0, 0, 0.075), inset 0 0 10px #f7db5e, 0 0 10px #f7db5e;
+  }
+  .rating-container .rating-value:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    line-height: 138px;
+    font-size: 2.5em;
+    color: #2b2b2b;
+    content: "0";
+    transform-origin: "center center";
+    transition: all 0.25s ease 0s;
+  }
+  .rating-container .rating-value:after {
+    content: "";
+    position: absolute;
+    height: 138px;
+    width: 138px;
+    top: -1px;
+    left: -1px;
+    margin: auto;
+    border: 1px solid #ffbb00;
+    border-radius: 50%;
+    transition: all 0.4s ease-in;
+  }
+  .rating-container input {
+    display: none;
+  }
+  .rating-container label {
+    height: 50px;
+    width: 50px;
+    transform-origin: "center center";
+  }
+  .rating-container label svg {
+    transition: transform 0.4s ease-in-out;
+    opacity: 0.5;
+  }
+  .rating-container label:hover svg {
+    transform: scale(1.25) rotate(10deg);
+  }
+  
+  input:checked ~ label svg {
+    opacity: 1;
+    transform: scale(1.25) rotate(10deg);
+  }
+  
+  label:hover svg,
+  label:hover ~ label svg {
+    opacity: 1;
+    transform: scale(1.25) rotate(10deg);
+  }
+  
+  input:checked + label:hover svg {
+    opacity: 1;
+  }
+  input:checked ~ label:hover svg,
+  input:checked ~ label:hover ~ label svg {
+    opacity: 1;
+  }
+  
+  label:hover ~ input:checked ~ label svg {
+    opacity: 1;
+  }
+  
+  #rate1:checked ~ .rating-value:before {
+    content: "1";
+    font-size: 2.75em;
+  }
+  
+  label[for=rate1]:hover ~ .rating-value:before {
+    content: "1" !important;
+    font-size: 2.75em !important;
+  }
+  
+  #rate2:checked ~ .rating-value:before {
+    content: "2";
+    font-size: 3em;
+  }
+  
+  label[for=rate2]:hover ~ .rating-value:before {
+    content: "2" !important;
+    font-size: 3em !important;
+  }
+  
+  #rate3:checked ~ .rating-value:before {
+    content: "3";
+    font-size: 3.25em;
+  }
+  
+  label[for=rate3]:hover ~ .rating-value:before {
+    content: "3" !important;
+    font-size: 3.25em !important;
+  }
+  
+  #rate4:checked ~ .rating-value:before {
+    content: "4";
+    font-size: 3.5em;
+  }
+  
+  label[for=rate4]:hover ~ .rating-value:before {
+    content: "4" !important;
+    font-size: 3.5em !important;
+  }
+  
+  #rate5:checked ~ .rating-value:before {
+    content: "5";
+    font-size: 3.75em;
+  }
+  
+  @keyframes pulse {
+    0% {
+      height: 138px;
+      width: 138px;
+      top: -1px;
+      left: -1px;
+      opacity: 1;
+    }
+    100% {
+      height: 170px;
+      width: 170px;
+      top: -16px;
+      left: -16px;
+      opacity: 0;
+    }
+  }
+  #rate5:checked ~ .rating-value:after {
+    animation: pulse 0.4s ease-out 1;
+  }
+  
+  label[for=rate5]:hover ~ .rating-value:before {
+    content: "5" !important;
+    font-size: 3.75em !important;
+  }
