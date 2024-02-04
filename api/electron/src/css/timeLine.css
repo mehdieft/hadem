@@ -111,6 +111,11 @@ img {
 .ag-timeline_item:nth-child(2n) .ag-timeline-card_box {
   padding: 0 50% 20px 0;
 }
+.ag-timeline_item:nth-child(2n+1) .ag-timeline-card_box {
+  padding: 0 0 20px 28%;
+  justify-content: end;
+
+}
 .ag-timeline-card_point-box {
   display: inline-block;
   margin: 0 14px 0 -28px;
