@@ -34,6 +34,14 @@ function submit(){
     }else if(family==''){
         createToast('error','نام شهر نباید خالی باشد')
     }else{
+        fetch('',{
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: username, family: family,comment:comment})
+        })
 
     }
 }
