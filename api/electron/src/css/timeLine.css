@@ -33,7 +33,7 @@ img {
 }
 
 .ag-timeline-block {
-  padding: 300px 0;
+  padding: 300px 0 116px 0px;
   margin-top: 400px;
 }
 .ag-timeline_title-box {
@@ -352,6 +352,7 @@ img {
 /* second timeLine */
 
 ul {
+  font-family: iranSans;
   --col-gap: 2rem;
   --row-gap: 2rem;
   --line-w: 0.25rem;
@@ -368,8 +369,8 @@ ul {
 ul::before {
   content: "";
   grid-column: 1;
-  grid-row: 1 / span 20;
-  background: rgb(225, 225, 225);
+  grid-row: 1 / span 65;
+  background: #ff7b00;
   border-radius: calc(var(--line-w) / 2);
 }
 
@@ -456,7 +457,7 @@ ul li .title {
   padding-block-start: 1.5rem;
   padding-block-end: 1rem;
   font-weight: bold;
-  font-family: diba;
+  font-family: iranSans;
   font-size: 25px;
 }
 ul li .descr {
