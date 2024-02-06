@@ -8,6 +8,7 @@ const CommentsSchema= mongoose.Schema({
      date:{required:true,type:String},
      accepted:{required:true,type:Boolean,default:false},
     
+    
     })
 
 module.exports=mongoose.model('Comment',CommentsSchema)
