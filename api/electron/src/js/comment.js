@@ -1,7 +1,13 @@
 var cta = document.getElementById("cta");
 var check = 0;
 let imageArrow=document.getElementById('arrowImage')
+// dom.event.clipboardevents.disabled
 
+const pasteBox = document.getElementById("comment");
+pasteBox.onpaste = (e) => {
+    e.preventDefault();
+    return false;
+};
 cta.addEventListener('click', function(e){
     var text = e.target.nextElementSibling;
     var loginText = e.target.parentElement;

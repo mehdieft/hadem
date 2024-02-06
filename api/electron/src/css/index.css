@@ -4,6 +4,7 @@
     font-family: iranSans;
     overflow: hidden;
   }
+  
   /* ::-webkit-scrollbar {
     width: 17px;
     height: 17px;
@@ -23,7 +24,9 @@
 {
   background: rgba(0, 0, 0, 0.5);
 } */
-
+body{
+  -webkit-overflow-scrolling: touch;
+}
 
 html{
     width: 100vw;
