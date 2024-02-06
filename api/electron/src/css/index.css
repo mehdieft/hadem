@@ -4,7 +4,28 @@
     font-family: iranSans;
     overflow: hidden;
   }
-  html{
+  /* ::-webkit-scrollbar {
+    width: 17px;
+    height: 17px;
+} */
+/* ::-webkit-scrollbar
+{
+  width: 42px; 
+  height: 42px; 
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(241, 238, 238, 0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.5);
+} */
+
+
+html{
     width: 100vw;
     overflow-x: hidden;
   }

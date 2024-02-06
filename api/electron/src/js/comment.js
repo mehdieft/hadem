@@ -30,17 +30,36 @@ function submit(){
 
     if(username==''){
 
-        createToast('error','نام شهر نباید خالی باشد')
+        createToast('error','لطفا نام خود را وارد کنید')
     }else if(family==''){
-        createToast('error','نام شهر نباید خالی باشد')
+        createToast('error','لطفا نام خانوادگی خود را وارد کنید')
+    }else if(comment==''){
+        createToast('error','لطفا متن نظر خود را بنویسید.')
+
     }else{
-        fetch('',{
+        fetch('http://localhost:4848/api/user/insertComment',{
             method: 'POST',
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({name: username, family: family,comment:comment})
+        }).then((res)=>{
+            return res.json()
+
+        }).catch(err=>{
+            console.log(err)
+            createToast('error','خطایی رخ داده لطفا مجددا تلاش کنید')
+
+        })
+        .then((data)=>{
+            createToast('success','نظر شما با موفقیت ثبت شد')
+            document.getElementById('name-input').value=''
+         document.getElementById('family').value=''
+    document.getElementById('comment').value=''
+            
+
+
         })
 
     }
