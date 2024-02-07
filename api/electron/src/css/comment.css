@@ -21,7 +21,7 @@ body {
     height: 600px;
     position: relative;
     margin: 3% auto;
-    box-shadow: 2px 18px 70px 0px #9D9D9D;
+    box-shadow: 2px 18px 70px 0px rgba(36, 11, 11, 0.35);
     overflow: hidden;
   }
   

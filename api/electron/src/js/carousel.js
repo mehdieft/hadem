@@ -1,36 +1,83 @@
-$(function(){
-    $('.carousel-item').eq(0).addClass('active');
-    var total = $('.carousel-item').length;
-    var current = 0;
-    $('#moveRight').on('click', function(){
-      var next=current;
-      current= current+1;
-      setSlide(next, current);
-    });
-    $('#moveLeft').on('click', function(){
-      var prev=current;
-      current = current- 1;
-      setSlide(prev, current);
-    });
-    function setSlide(prev, next){
-      var slide= current;
-      if(next>total-1){
-       slide=0;
-        current=0;
-      }
-      if(next<0){
-        slide=total - 1;
-        current=total - 1;
-      }
-             $('.carousel-item').eq(prev).removeClass('active');
-             $('.carousel-item').eq(slide).addClass('active');
-        setTimeout(function(){
-  
-        },800);
-      
-  
-      
-      console.log('current '+current);
-      console.log('prev '+prev);
+let mainPosts = document.querySelectorAll(".main-post");
+let posts = document.querySelectorAll(".post");
+console.log("post",posts)
+console.log('main post',mainPosts)
+
+let i = 0;
+let postIndex = 0;
+let currentPost = posts[postIndex];
+let currentMainPost = mainPosts[postIndex];
+
+let progressInterval = setInterval(progress, 100); // 180
+function progress() {
+
+  if (i >= 100) {
+    console.log("this is if",i)
+    i = -5;
+    // reset progress bar
+    currentPost.querySelector(".progress-bar__fill").style.width = 0;
+    document.querySelector(
+      ".progress-bar--primary .progress-bar__fill"
+    ).style.width = 0;
+    currentPost.classList.remove("post--active");
+
+    postIndex++;
+
+    currentMainPost.classList.add("main-post--not-active");
+    currentMainPost.classList.remove("main-post--active");
+
+    // reset postIndex to loop over the slides again
+    if (postIndex === posts.length) {
+      postIndex = 0;
     }
-  });
+
+    currentPost = posts[postIndex];
+    currentMainPost = mainPosts[postIndex];
+  } else {
+    console.log("thi is else",i)
+    i++;
+    currentPost.querySelector(".progress-bar__fill").style.width = `${i}%`;
+    document.querySelector(
+      ".progress-bar--primary .progress-bar__fill"
+    ).style.width = `${i}%`;
+    currentPost.classList.add("post--active");
+
+    currentMainPost.classList.add("main-post--active");
+    currentMainPost.classList.remove("main-post--not-active");
+  }
+}
+setInterval(function(){ 
+    console.log("nasjdghashghsdjghhfdsfds")
+    if (i === 100) {
+        i = -5;
+        // reset progress bar
+        currentPost.querySelector(".progress-bar__fill").style.width = 0;
+        document.querySelector(
+          ".progress-bar--primary .progress-bar__fill"
+        ).style.width = 0;
+        currentPost.classList.remove("post--active");
+    
+        postIndex++;
+    
+        currentMainPost.classList.add("main-post--not-active");
+        currentMainPost.classList.remove("main-post--active");
+    
+        // reset postIndex to loop over the slides again
+        if (postIndex === posts.length) {
+          postIndex = 0;
+        }
+    
+        currentPost = posts[postIndex];
+        currentMainPost = mainPosts[postIndex];
+      } else {
+        i++;
+        currentPost.querySelector(".progress-bar__fill").style.width = `${i}%`;
+        document.querySelector(
+          ".progress-bar--primary .progress-bar__fill"
+        ).style.width = `${i}%`;
+        currentPost.classList.add("post--active");
+    
+        currentMainPost.classList.add("main-post--active");
+        currentMainPost.classList.remove("main-post--not-active");
+      }
+}, 1000);
