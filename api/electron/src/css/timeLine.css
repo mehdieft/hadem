@@ -34,7 +34,7 @@ img {
 
 .ag-timeline-block {
   padding: 300px 0 116px 0px;
-  margin-top: 400px;
+  
 }
 .ag-timeline_title-box {
   padding: 0 0 30px;
@@ -457,7 +457,7 @@ ul li .title {
   padding-block-start: 1.5rem;
   padding-block-end: 1rem;
   font-weight: bold;
-  font-family: iranSans;
+  font-family: 'diba' !important;
   font-size: 25px;
 }
 ul li .descr {

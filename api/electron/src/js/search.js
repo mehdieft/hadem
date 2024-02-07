@@ -340,3 +340,21 @@ function searchByCityHandler(){
           })
     }
 }
+function searchByDieDate(){
+  const month=document.getElementById('monthDie').value;
+  const day=document.getElementById('dayShahid').value;
+  console.log('month',month)
+  if(month==''){
+    
+    createToast('error','لطفا ماه را انتخاب کنید')
+  }else if(day==''){
+    createToast('error','لطفا روز  را انتخاب کنید')
+
+  }else if(day>31){
+    createToast('error','روز انتخاب شده صحیح نمیباشد')
+
+  }else{
+
+  }
+  console.log("%%%%%%%%%")
+}

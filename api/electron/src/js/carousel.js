@@ -1,7 +1,7 @@
 let mainPosts = document.querySelectorAll(".main-post");
 let posts = document.querySelectorAll(".post");
-console.log("post",posts)
-console.log('main post',mainPosts)
+// console.log("post",posts)
+// console.log('main post',mainPosts)
 
 let i = 0;
 let postIndex = 0;
@@ -12,7 +12,7 @@ let progressInterval = setInterval(progress, 100); // 180
 function progress() {
 
   if (i >= 100) {
-    console.log("this is if",i)
+    // console.log("this is if",i)
     i = -5;
     // reset progress bar
     currentPost.querySelector(".progress-bar__fill").style.width = 0;
@@ -34,7 +34,7 @@ function progress() {
     currentPost = posts[postIndex];
     currentMainPost = mainPosts[postIndex];
   } else {
-    console.log("thi is else",i)
+    // console.log("thi is else",i)
     i++;
     currentPost.querySelector(".progress-bar__fill").style.width = `${i}%`;
     document.querySelector(
@@ -47,7 +47,7 @@ function progress() {
   }
 }
 setInterval(function(){ 
-    console.log("nasjdghashghsdjghhfdsfds")
+    // console.log("nasjdghashghsdjghhfdsfds")
     if (i === 100) {
         i = -5;
         // reset progress bar

@@ -125,8 +125,44 @@
                     </div>
                     <div class="tab">
                       <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
-                      <label for="tab-3" class="tab-label">تاریخ تولد شهید</label>
-                      <div class="tab-content"><input data-jdp></div>
+                      <label for="tab-3" class="tab-label">تاریخ شهادت شهید</label>
+                      <div class="tab-content">
+                        <div style="display: flex;flex-direction: row; justify-content: space-between;align-items: center;">
+                          <div>
+
+                            <span class="custom-dropdown big">
+                              <select id="monthDie"> 
+                                <option value="" disabled selected hidden>ماه را انتخاب کنید</option>   
+                                  <option value="1">فروردین</option>
+                                  <option value="2">اردیبهشت</option>  
+                                  <option value="3">خرداد</option>
+                                  <option value="4">تیر</option>
+                                  <option value="5">مرداد</option>
+                                  <option value="6">شهریور</option>
+                                  <option value="7">مهر</option>  
+                                  <option value="8">آبان</option>
+                                  <option value="9">آذر</option>
+                                  <option value="10">دی</option>
+                                  <option value="11">بهمن</option>  
+                                  <option value="12">اسفند</option>
+                                
+                              </select>
+                          </span>
+                          </div>
+                          <div>
+                            
+                          <label for="dayShahid" class="inp">
+                            <input type="number" id="dayShahid" placeholder="&nbsp;">
+                            <span class="label">روز شهادت</span>
+                            <span class="focus-bg"></span>
+                          </label>
+                          </div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                        <div style="position: absolute;top: 199px;right: 100px;"><button onclick="searchByDieDate()">submit</button></div>
+                      
+                      </div>
                     </div>
                     <div class="tab">
                       <input type="radio" name="css-tabs" id="tab-4" class="tab-switch">
