@@ -10,6 +10,19 @@
      url("./assets/fonts/IRAN\ Sans\ Regular.ttf") format("truetype");
     font-weight: bold;
    }
+   ::-webkit-scrollbar {
+	width: 4em;
+	height: 2em
+  }
+  ::-webkit-scrollbar-button {
+	background: #ccc
+  }
+  ::-webkit-scrollbar-track-piece {
+	background: #888
+  }
+  ::-webkit-scrollbar-thumb {
+	background: #eee
+  }
 html{ min-height:100%; overflow-y:scroll;  background:rgb(1,32,44); color: black;}
 body{ font-family:"diba",Helvetica,Arial,sans-serif; padding:0 0px 0px 0 }
  ul{    margin: 100px 32px 1200px 0;
