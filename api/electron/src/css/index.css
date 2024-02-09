@@ -1,3 +1,18 @@
+
+::-webkit-scrollbar {
+  width: 4em;
+  height: 2em
+}
+::-webkit-scrollbar-button {
+  background: #ccc
+}
+::-webkit-scrollbar-track-piece {
+  background: #888
+}
+::-webkit-scrollbar-thumb {
+  background: #eee
+}
+
 .App {
     /* max-width: 1600px; */
     margin: 0 auto;

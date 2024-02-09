@@ -30,7 +30,8 @@ fetch('http://localhost:4848/api/user/getByDate').then(res=>{
         const cardImage=document.createElement('div');
         cardImage.classList.add('card-image');
         const imgg=document.createElement('img');
-        imgg.src="./assets/Image/defaultShahid.jpg"
+        imgg.src=(element.image ==''?"./assets/Image/defaultShahid.jpg":element.image)
+        // imgg.src="./assets/Image/defaultShahid.jpg"
         imgg.height="120px";
         imgg.width="120px";
         cardImage.append(imgg);
@@ -78,6 +79,14 @@ fetch('http://localhost:4848/api/user/getByDate').then(res=>{
         spanTwo=document.createElement('span');
         spanTwo.classList.add('shahid-detail-span')
         spanTwo.innerText=element.wayOfDie !==''?element.wayOfDie:'____'
+        spanOne.append(spanTwo);
+        cardDetail.append(spanOne);
+        //ساختن نحوه شهادت
+        spanOne=document.createElement('span');
+        spanOne.innerText="محل شهادت:"
+        spanTwo=document.createElement('span');
+        spanTwo.classList.add('shahid-detail-span')
+        spanTwo.innerText=element.placeOfDeath !==''?element.placeOfDeath:'____'
         spanOne.append(spanTwo);
         cardDetail.append(spanOne);
         //ساختن اخرین محل خدمت
@@ -143,7 +152,8 @@ function submitNameAndFamily(){
         const cardImage=document.createElement('div');
         cardImage.classList.add('card-image');
         const imgg=document.createElement('img');
-        imgg.src="./assets/Image/defaultShahid.jpg"
+        // imgg.src="./assets/Image/defaultShahid.jpg"
+        imgg.src=(element.image ==''?"./assets/Image/defaultShahid.jpg":element.image)
         imgg.height="120px";
         imgg.width="120px";
         cardImage.append(imgg);
@@ -191,6 +201,14 @@ function submitNameAndFamily(){
         spanTwo=document.createElement('span');
         spanTwo.classList.add('shahid-detail-span')
         spanTwo.innerText=element.wayOfDie !==''?element.wayOfDie:'____'
+        spanOne.append(spanTwo);
+        cardDetail.append(spanOne);
+
+        spanOne=document.createElement('span');
+        spanOne.innerText="محل شهادت:"
+        spanTwo=document.createElement('span');
+        spanTwo.classList.add('shahid-detail-span')
+        spanTwo.innerText=element.placeOfDeath !==''?element.placeOfDeath:'____'
         spanOne.append(spanTwo);
         cardDetail.append(spanOne);
         //ساختن اخرین محل خدمت
@@ -257,7 +275,9 @@ function searchByCityHandler(){
                 const cardImage=document.createElement('div');
                 cardImage.classList.add('card-image');
                 const imgg=document.createElement('img');
-                imgg.src="./assets/Image/defaultShahid.jpg"
+                // imgg.src=(element.src !==''?"./assets/Image/defaultShahid.jpg":element.image)
+                // imgg.src="./assets/Image/defaultShahid.jpg"
+                imgg.src=(element.image ==''?"./assets/Image/defaultShahid.jpg":element.image)
                 imgg.height="120px";
                 imgg.width="120px";
                 cardImage.append(imgg);
@@ -305,6 +325,14 @@ function searchByCityHandler(){
                 spanTwo=document.createElement('span');
                 spanTwo.classList.add('shahid-detail-span')
                 spanTwo.innerText=element.wayOfDie !==''?element.wayOfDie:'____'
+                spanOne.append(spanTwo);
+                cardDetail.append(spanOne);
+                //ساختن محل شهادت
+                spanOne=document.createElement('span');
+                spanOne.innerText="محل شهادت:"
+                spanTwo=document.createElement('span');
+                spanTwo.classList.add('shahid-detail-span')
+                spanTwo.innerText=element.placeOfDeath !==''?element.placeOfDeath:'____'
                 spanOne.append(spanTwo);
                 cardDetail.append(spanOne);
                 //ساختن اخرین محل خدمت
@@ -379,7 +407,8 @@ function searchByDieDate(){
                 const cardImage=document.createElement('div');
                 cardImage.classList.add('card-image');
                 const imgg=document.createElement('img');
-                imgg.src="./assets/Image/defaultShahid.jpg"
+                // imgg.src="./assets/Image/defaultShahid.jpg"
+                imgg.src=(element.src ==''?"./assets/Image/defaultShahid.jpg":element.image)
                 imgg.height="120px";
                 imgg.width="120px";
                 cardImage.append(imgg);
@@ -429,6 +458,14 @@ function searchByDieDate(){
                 spanTwo.innerText=element.wayOfDie !==''?element.wayOfDie:'____'
                 spanOne.append(spanTwo);
                 cardDetail.append(spanOne);
+                   //ساختن محل شهادت
+                   spanOne=document.createElement('span');
+                   spanOne.innerText="محل شهادت:"
+                   spanTwo=document.createElement('span');
+                   spanTwo.classList.add('shahid-detail-span')
+                   spanTwo.innerText=element.placeOfDeath !==''?element.placeOfDeath:'____'
+                   spanOne.append(spanTwo);
+                   cardDetail.append(spanOne);
                 //ساختن اخرین محل خدمت
                 spanOne=document.createElement('span');
                 spanOne.innerText= "آخرین محل خدمت :"

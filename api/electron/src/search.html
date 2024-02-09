@@ -11,15 +11,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
-
-
-
 </head>
 <body>
- 
   <div class="header-navbar">
     <div></div>
-
     <div></div>
     <div><a href="./search.html">جستجو</a></div>
     <div><a href="./diary.html">خاطرات پیشکسوتان</a></div>
@@ -33,7 +28,7 @@
         <img
           src="assets/images/shohada.jpg"
           style="
-            width: 80%;;
+            width: 100%;;
             height: 60%;
             display: block;
             margin: 0 auto
@@ -64,9 +59,6 @@
 
         </div>
       </div>
-
-
-
     <section class="modal__bg">
       <ul class="notifications"></ul>
         <div class="modal__align">
@@ -86,7 +78,6 @@
                       <div class="tab-content">
                         <div class="name-family">
                          <div style="display: flex;flex-direction: row; justify-content: space-between;align-items: center;">
-
                            <label for="inp" class="inp">
                              <input type="text" id="name" placeholder="&nbsp;">
                              <span class="label">نام شهید</span>
@@ -101,7 +92,6 @@
                          <div class="name-family-button">
                           <button onclick="submitNameAndFamily()">submit</button>
                          </div>
-                        
                         </div>
                          </div>
                     </div>
@@ -110,7 +100,6 @@
                       <label for="tab-2" class="tab-label">زادگاه شهید</label>
                       <div class="tab-content">
                         <div style="display: flex;flex-direction: row; justify-content: space-between;align-items: center;">
-
                           <label for="inp" class="inp">
                             <input type="text" id="city" placeholder="&nbsp;">
                             <span class="label">زادگاه شهید</span>
@@ -120,7 +109,6 @@
                           <div></div>
                         </div>
                         <div style="position: absolute;top: 199px;right: 100px;"><button onclick="searchByCityHandler()">submit</button></div>
-
                       </div>
                     </div>
                     <div class="tab">
@@ -129,7 +117,6 @@
                       <div class="tab-content">
                         <div style="display: flex;flex-direction: row; justify-content: space-between;align-items: center;">
                           <div>
-
                             <span class="custom-dropdown big">
                               <select id="monthDie"> 
                                 <option value="" disabled selected hidden>ماه را انتخاب کنید</option>   
@@ -145,12 +132,10 @@
                                   <option value="10">دی</option>
                                   <option value="11">بهمن</option>  
                                   <option value="12">اسفند</option>
-                                
                               </select>
                           </span>
                           </div>
                           <div>
-                            
                           <label for="dayShahid" class="inp">
                             <input type="number" id="dayShahid" placeholder="&nbsp;">
                             <span class="label">روز شهادت</span>
@@ -161,7 +146,6 @@
                           <div></div>
                         </div>
                         <div style="position: absolute;top: 199px;right: 100px;"><button onclick="searchByDieDate()">submit</button></div>
-                      
                       </div>
                     </div>
                     <div class="tab">
@@ -176,10 +160,6 @@
             </div>
         </div>
     </section>
-
-
-
-    
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.5/axios.min.js"
  integrity="sha512-TjBzDQIDnc6pWyeM1bhMnDxtWH0QpOXMcVooglXrali/Tj7W569/wd4E8EDjk1CwOAOPSJon1VfcEt1BI4xIrA=="
