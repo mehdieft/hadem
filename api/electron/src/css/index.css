@@ -4,13 +4,13 @@
   height: 2em
 }
 ::-webkit-scrollbar-button {
-  background: #ccc
+  background: #011f23
 }
 ::-webkit-scrollbar-track-piece {
-  background: #888
+  background: #034049
 }
 ::-webkit-scrollbar-thumb {
-  background: #eee
+  background:  #590606
 }
 
 .App {
@@ -66,12 +66,12 @@ html{
     font-size: 30px;
   }
   #content{
-    position: absolute;top: 320px;right: 50px;
+    position: absolute;top: 160px;right: 50px;
   }
   .sound-icon{
     position: absolute;
-    top:142px;
-    left: 32px;
+    top:42px;
+    left: 132px;
   }
 
   
@@ -90,8 +90,8 @@ html{
     height: fit-content;
   }
   .image-icon{
-    width: 60px;
-    height: 57px;
+    width: 40px;
+    height: 40px;
     padding: 10px;
   }
   #fixed-navbar{
