@@ -11,17 +11,17 @@
     font-weight: bold;
    }
    ::-webkit-scrollbar {
-	width: 4em;
+	width: 5em;
 	height: 2em
   }
   ::-webkit-scrollbar-button {
-	background: #ccc
+	background: #011f23
   }
   ::-webkit-scrollbar-track-piece {
-	background: #888
+	background: #1b1d2d
   }
   ::-webkit-scrollbar-thumb {
-	background: #eee
+	background:  #590606
   }
 html{ min-height:100%; overflow-y:scroll;  background:rgb(1,32,44); color: black;}
 body{ font-family:"diba",Helvetica,Arial,sans-serif; padding:0 0px 0px 0 }
