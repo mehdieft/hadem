@@ -11,6 +11,10 @@ function showconsole(item) {
         source.src = "./assets/video/amir-sayari.mp4";
     } else if (item == "mahbubi") {
         source.src = "./assets/video/nakhoda-mahboobi.mp4";
+    }else if(item== 'thirtyFourDay'){
+        source.src="./assets/video/siruz_khoramshahr.mp4"
+    } else if(item=="naftkesh"){
+        source.src="./assets/video/naftkesh.mp4"
     }
    
     source.type = "video/mp4";

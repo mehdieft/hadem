@@ -14,19 +14,39 @@ exports.nameAndFamilySearch = async (req, res, next) => {
   console.log('this is data--------------->', myFamily, myName)
 
 
-  const searchedShahid = await Shahid.find({
-    // $or: [{ name: name }, { family: family }]
-    $or: [
-      { name: { $regex: new RegExp(myName, "i") } },
-      { family: { $regex: new RegExp(myFamily, "i") } }
-  ]
-
-  }).limit(100)
-  if (searchedShahid) {
-    res.json({ searchedShahid })
+  if(myName==''){
+    console.log("im only family--------------")
+    const searchedShahid = await Shahid.find({family: { $regex: new RegExp(myFamily, "i") 
+    }}).limit(50)
+    if (searchedShahid) {
+      res.json({ searchedShahid })
+    }
+  }
+  else if(myFamily==''){
+    console.log("im only family--------------")
+    const searchedShahid = await Shahid.find({name: { $regex: new RegExp(myName, "i") 
+    }}).limit(50)
+    if (searchedShahid) {
+      res.json({ searchedShahid })
+    }
+  }else{
+    console.log('im in name and family')
+    const searchedShahid = await Shahid.find({
+      // $or: [{ name: name }, { family: family }]
+      $or: [
+        { name: { $regex: new RegExp(myName, "i") } },
+        { family: { $regex: new RegExp(myFamily, "i") } }
+    ]
+  
+    }).limit(100)
+    if (searchedShahid) {
+      res.json({ searchedShahid })
+    }
+  
   }
 
-}
+  }
+  
 exports.city = async (req, res, next) => {
   console.log("hello");
   const { city } = req.body;

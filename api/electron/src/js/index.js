@@ -3,6 +3,7 @@ let videoOPtions=document.getElementById('header-video')
 let iconImage=document.getElementsByClassName('image-icon')
 let hiddenImage=document.getElementById('off-icon')
 let showIcon=document.getElementById('on-icon')
+// videoOPtions.muted=false
 
 
 document.getElementById('sound-button').addEventListener('click',()=>{
