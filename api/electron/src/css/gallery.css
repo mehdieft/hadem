@@ -21,7 +21,7 @@
 	background: #1b1d2d
   }
   ::-webkit-scrollbar-thumb {
-	background:  #590606
+	background:  #f97800
   }
 html{ min-height:100%; overflow-y:scroll;  background:rgb(1,32,44); color: black;}
 body{ font-family:"diba",Helvetica,Arial,sans-serif; padding:0 0px 0px 0 }
